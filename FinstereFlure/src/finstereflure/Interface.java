@@ -70,7 +70,6 @@ public class Interface extends javax.swing.JFrame {
             }
         });
         
-        map.setIcon (new ImageIcon ("fns_plateau"));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
