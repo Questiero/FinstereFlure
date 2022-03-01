@@ -1,5 +1,10 @@
 package finstereflure;
 
+import javax.swing.Box;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 public class Interface extends javax.swing.JFrame {
 
     /**
@@ -7,7 +12,9 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
+        jTitreJeu.setIcon(new ImageIcon("C:\\Users\\amand\\OneDrive\\Bureau\\test.gif"));
     }
+//    jTitreJeu.setIcon(new ImageIcon(".\\img\\logo_finistere.gif"));
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -18,23 +25,67 @@ public class Interface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        map = new javax.swing.JLabel();
+        jBackground = new javax.swing.JPanel();
+        jTitreJeu = new javax.swing.JLabel();
+        jNewGame = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1920, 1080));
+
+        jBackground.setBackground(new java.awt.Color(204, 255, 204));
+        jBackground.setPreferredSize(new java.awt.Dimension(1920, 1080));
+
+        jTitreJeu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jTitreJeu.setAlignmentX(50.0F);
+
+        jNewGame.setText("NEW GAME");
+        jNewGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jNewGameActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jBackgroundLayout = new javax.swing.GroupLayout(jBackground);
+        jBackground.setLayout(jBackgroundLayout);
+        jBackgroundLayout.setHorizontalGroup(
+            jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jBackgroundLayout.createSequentialGroup()
+                .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jBackgroundLayout.createSequentialGroup()
+                        .addGap(669, 669, 669)
+                        .addComponent(jTitreJeu, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jBackgroundLayout.createSequentialGroup()
+                        .addGap(706, 706, 706)
+                        .addComponent(jNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(1020, Short.MAX_VALUE))
+        );
+        jBackgroundLayout.setVerticalGroup(
+            jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jBackgroundLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jTitreJeu, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89)
+                .addComponent(jNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(809, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(map, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 1902, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(map, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(jBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNewGameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jNewGameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -45,6 +96,7 @@ public class Interface extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -66,13 +118,21 @@ public class Interface extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Interface().setVisible(true);
+                JFrame menuPrincipal = new Interface();
+                menuPrincipal.setVisible(true);
+                //menuPrincipal.setSize(1920, 850);    //set de la taille de la jFrame     
+                menuPrincipal.setResizable(false);  //empêche de pouvoir mettre en plein écran
+
+                
+
             }
         });
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel map;
+    private javax.swing.JPanel jBackground;
+    private javax.swing.JButton jNewGame;
+    private javax.swing.JLabel jTitreJeu;
     // End of variables declaration//GEN-END:variables
 }
