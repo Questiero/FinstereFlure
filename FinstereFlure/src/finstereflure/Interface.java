@@ -33,26 +33,95 @@ public class Interface extends javax.swing.JFrame {
 
         jBackground = new javax.swing.JPanel();
         jTitre = new javax.swing.JLabel();
+        jNewGame = new javax.swing.JButton();
+        jContinue = new javax.swing.JButton();
+        jPrevious = new javax.swing.JButton();
+        jCredit = new javax.swing.JButton();
+        jPseudo = new javax.swing.JLabel();
+        jConnexion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jBackground.setBackground(new java.awt.Color(0, 102, 51));
 
+        jNewGame.setBackground(new java.awt.Color(0, 18, 2));
+        jNewGame.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 39)); // NOI18N
+        jNewGame.setForeground(new java.awt.Color(249, 240, 118));
+        jNewGame.setText("NEW GAME");
+        jNewGame.setBorder(null);
+
+        jContinue.setBackground(new java.awt.Color(0, 18, 2));
+        jContinue.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 39)); // NOI18N
+        jContinue.setForeground(new java.awt.Color(249, 240, 118));
+        jContinue.setText("CONTINUE");
+        jContinue.setBorder(null);
+
+        jPrevious.setBackground(new java.awt.Color(0, 18, 2));
+        jPrevious.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 34)); // NOI18N
+        jPrevious.setForeground(new java.awt.Color(249, 240, 118));
+        jPrevious.setText("PREVIOUS CHAT");
+        jPrevious.setBorder(null);
+
+        jCredit.setBackground(new java.awt.Color(0, 18, 2));
+        jCredit.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 34)); // NOI18N
+        jCredit.setForeground(new java.awt.Color(249, 240, 118));
+        jCredit.setText("CREDITS");
+        jCredit.setBorder(null);
+
+        jPseudo.setText("Pseudo");
+
+        jConnexion.setBackground(new java.awt.Color(0, 18, 2));
+        jConnexion.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jConnexion.setForeground(new java.awt.Color(249, 240, 118));
+        jConnexion.setText("CONNEXION");
+        jConnexion.setBorder(null);
+
         javax.swing.GroupLayout jBackgroundLayout = new javax.swing.GroupLayout(jBackground);
         jBackground.setLayout(jBackgroundLayout);
         jBackgroundLayout.setHorizontalGroup(
             jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jBackgroundLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jCredit, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jBackgroundLayout.createSequentialGroup()
-                .addContainerGap(455, Short.MAX_VALUE)
-                .addComponent(jTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(620, 620, 620))
+                .addContainerGap(548, Short.MAX_VALUE)
+                .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jBackgroundLayout.createSequentialGroup()
+                            .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jContinue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jNewGame, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
+                                .addGroup(jBackgroundLayout.createSequentialGroup()
+                                    .addComponent(jTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(9, 9, 9)))
+                            .addGap(493, 493, 493))
+                        .addComponent(jPseudo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jBackgroundLayout.createSequentialGroup()
+                        .addGap(625, 625, 625)
+                        .addComponent(jConnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(15, 15, 15))
         );
         jBackgroundLayout.setVerticalGroup(
             jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jBackgroundLayout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addComponent(jTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(510, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPseudo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jConnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addComponent(jTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91)
+                .addComponent(jNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jContinue, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addComponent(jCredit, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,13 +171,19 @@ public class Interface extends javax.swing.JFrame {
             public void run() {
                 JFrame menuP = new Interface();
                 menuP.setVisible(true);
-                menuP.setResizable(false);  //empêche de pouvoir mettre en plein écran
+                menuP.setResizable(false);  //empêche la redimension
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jBackground;
+    private javax.swing.JButton jConnexion;
+    private javax.swing.JButton jContinue;
+    private javax.swing.JButton jCredit;
+    private javax.swing.JButton jNewGame;
+    private javax.swing.JButton jPrevious;
+    private javax.swing.JLabel jPseudo;
     private javax.swing.JLabel jTitre;
     // End of variables declaration//GEN-END:variables
 }
