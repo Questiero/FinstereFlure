@@ -20,7 +20,9 @@ public class Interface extends javax.swing.JFrame {
     public Interface() {
         initComponents();
         jTitre.setIcon (new ImageIcon ("./img/logo_finstere_grand.gif"));
-        //jBackground.setIcon(new ImageIcon ("./img/brick_wall.jpg"));
+        jNewGame.setEnabled(false);
+        jContinue.setEnabled(false);
+        
     }
 
     /**
@@ -125,7 +127,7 @@ public class Interface extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jBackground.setBackground(new java.awt.Color(0, 102, 51));
+        jBackground.setBackground(new java.awt.Color(0, 102, 0));
 
         jNewGame.setBackground(new java.awt.Color(0, 18, 2));
         jNewGame.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 39)); // NOI18N
@@ -226,18 +228,22 @@ public class Interface extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jConnexionMouseClicked
-        // TODO add your handling code here:
-        boolean b = jConnexionPage.requestFocusInWindow();
-        jConnexionPage.pack();
-        jConnexionPage.setVisible(true);
-        
-    }//GEN-LAST:event_jConnexionMouseClicked
-
     private void jOkConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jOkConnexionMouseClicked
         // TODO add your handling code here:
-        jConnexionPage.dispose();
+        jConnexionPage.dispose();                       //ferme la fenêtre popup
+        String pseudo = jPseudoField.getText();         //a revoir du coup avec objet Joueur ?
+        String password = jPasswordField.getText();
+        System.out.println(pseudo+" "+password);
     }//GEN-LAST:event_jOkConnexionMouseClicked
+
+    private void jConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jConnexionMouseClicked
+        // TODO add your handling code here:
+        jConnexionPage.setVisible(true);
+        jConnexionPage.requestFocusInWindow();
+        jConnexionPage.pack();
+        
+
+    }//GEN-LAST:event_jConnexionMouseClicked
 
     /**
      * @param args the command line arguments
