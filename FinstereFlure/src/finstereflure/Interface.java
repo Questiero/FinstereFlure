@@ -1,9 +1,8 @@
 package finstereflure;
 
-import javax.swing.Box;
+import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 public class Interface extends javax.swing.JFrame {
 
@@ -12,7 +11,10 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
-        jTitreJeu.setIcon(new ImageIcon("C:\\Users\\amand\\OneDrive\\Bureau\\test.gif"));
+        jTitreJeu.setIcon(new ImageIcon("./img/logo_finistere.gif"));
+     
+        File f = new File(".");
+        System.out.println(f.getAbsolutePath());
     }
 //    jTitreJeu.setIcon(new ImageIcon(".\\img\\logo_finistere.gif"));
 
@@ -30,12 +32,13 @@ public class Interface extends javax.swing.JFrame {
         jNewGame = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jBackground.setBackground(new java.awt.Color(204, 255, 204));
         jBackground.setPreferredSize(new java.awt.Dimension(1920, 1080));
 
         jTitreJeu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jTitreJeu.setText("TEST");
         jTitreJeu.setAlignmentX(50.0F);
 
         jNewGame.setText("NEW GAME");
@@ -52,28 +55,28 @@ public class Interface extends javax.swing.JFrame {
             .addGroup(jBackgroundLayout.createSequentialGroup()
                 .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jBackgroundLayout.createSequentialGroup()
-                        .addGap(669, 669, 669)
-                        .addComponent(jTitreJeu, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(118, 118, 118)
+                        .addComponent(jNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jBackgroundLayout.createSequentialGroup()
-                        .addGap(706, 706, 706)
-                        .addComponent(jNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1020, Short.MAX_VALUE))
+                        .addGap(61, 61, 61)
+                        .addComponent(jTitreJeu, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(614, Short.MAX_VALUE))
         );
         jBackgroundLayout.setVerticalGroup(
             jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jBackgroundLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(59, 59, 59)
                 .addComponent(jTitreJeu, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89)
+                .addGap(34, 34, 34)
                 .addComponent(jNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(809, Short.MAX_VALUE))
+                .addContainerGap(843, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 1902, Short.MAX_VALUE)
+            .addComponent(jBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
