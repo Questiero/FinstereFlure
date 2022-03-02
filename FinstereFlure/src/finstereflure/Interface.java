@@ -11,12 +11,12 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
-        jTitreJeu.setIcon(new ImageIcon("./img/logo_finistere.gif"));
+        jTitreJeu.setIcon(new ImageIcon("./img/logo_finstere.gif"));
      
         File f = new File(".");
         System.out.println(f.getAbsolutePath());
     }
-//    jTitreJeu.setIcon(new ImageIcon(".\\img\\logo_finistere.gif"));
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,10 +35,8 @@ public class Interface extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jBackground.setBackground(new java.awt.Color(204, 255, 204));
-        jBackground.setPreferredSize(new java.awt.Dimension(1920, 1080));
 
         jTitreJeu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jTitreJeu.setText("TEST");
         jTitreJeu.setAlignmentX(50.0F);
 
         jNewGame.setText("NEW GAME");
@@ -53,23 +51,23 @@ public class Interface extends javax.swing.JFrame {
         jBackgroundLayout.setHorizontalGroup(
             jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jBackgroundLayout.createSequentialGroup()
+                .addContainerGap(383, Short.MAX_VALUE)
                 .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jBackgroundLayout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(jNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jBackgroundLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jTitreJeu, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(614, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jBackgroundLayout.createSequentialGroup()
+                        .addComponent(jTitreJeu, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(223, 223, 223))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jBackgroundLayout.createSequentialGroup()
+                        .addComponent(jNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(368, 368, 368))))
         );
         jBackgroundLayout.setVerticalGroup(
             jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jBackgroundLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
+                .addGap(26, 26, 26)
                 .addComponent(jTitreJeu, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(78, 78, 78)
                 .addComponent(jNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(843, Short.MAX_VALUE))
+                .addContainerGap(832, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -80,7 +78,7 @@ public class Interface extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
         );
 
         pack();
