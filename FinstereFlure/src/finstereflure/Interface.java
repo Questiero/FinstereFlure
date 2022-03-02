@@ -20,6 +20,7 @@ public class Interface extends javax.swing.JFrame {
     public Interface() {
         initComponents();
         jTitre.setIcon (new ImageIcon ("./img/logo_finstere_grand.gif"));
+        //jBackground.setIcon(new ImageIcon ("./img/brick_wall.jpg"));
     }
 
     /**
@@ -31,6 +32,14 @@ public class Interface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jConnexionPage = new javax.swing.JFrame();
+        jBG = new javax.swing.JPanel();
+        jPseudoField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jPasswordField = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jOkConnexion = new javax.swing.JButton();
         jBackground = new javax.swing.JPanel();
         jTitre = new javax.swing.JLabel();
         jNewGame = new javax.swing.JButton();
@@ -39,6 +48,80 @@ public class Interface extends javax.swing.JFrame {
         jCredit = new javax.swing.JButton();
         jPseudo = new javax.swing.JLabel();
         jConnexion = new javax.swing.JButton();
+
+        jBG.setBackground(new java.awt.Color(0, 102, 51));
+
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(249, 240, 118));
+        jLabel1.setText("PSEUDO :");
+
+        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(249, 240, 118));
+        jLabel2.setText("PASSWORD :");
+
+        jLabel3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(249, 240, 118));
+        jLabel3.setText("CONNEXION");
+
+        jOkConnexion.setBackground(new java.awt.Color(0, 18, 2));
+        jOkConnexion.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jOkConnexion.setForeground(new java.awt.Color(249, 240, 118));
+        jOkConnexion.setText("OK");
+        jOkConnexion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jOkConnexionMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jBGLayout = new javax.swing.GroupLayout(jBG);
+        jBG.setLayout(jBGLayout);
+        jBGLayout.setHorizontalGroup(
+            jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jBGLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPseudoField, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(144, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jBGLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jBGLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jOkConnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+        );
+        jBGLayout.setVerticalGroup(
+            jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jBGLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPseudoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(jOkConnexion)
+                .addGap(18, 18, 18))
+        );
+
+        javax.swing.GroupLayout jConnexionPageLayout = new javax.swing.GroupLayout(jConnexionPage.getContentPane());
+        jConnexionPage.getContentPane().setLayout(jConnexionPageLayout);
+        jConnexionPageLayout.setHorizontalGroup(
+            jConnexionPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jBG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jConnexionPageLayout.setVerticalGroup(
+            jConnexionPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jBG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,6 +158,11 @@ public class Interface extends javax.swing.JFrame {
         jConnexion.setForeground(new java.awt.Color(249, 240, 118));
         jConnexion.setText("CONNEXION");
         jConnexion.setBorder(null);
+        jConnexion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jConnexionMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jBackgroundLayout = new javax.swing.GroupLayout(jBackground);
         jBackground.setLayout(jBackgroundLayout);
@@ -138,6 +226,19 @@ public class Interface extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jConnexionMouseClicked
+        // TODO add your handling code here:
+        boolean b = jConnexionPage.requestFocusInWindow();
+        jConnexionPage.pack();
+        jConnexionPage.setVisible(true);
+        
+    }//GEN-LAST:event_jConnexionMouseClicked
+
+    private void jOkConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jOkConnexionMouseClicked
+        // TODO add your handling code here:
+        jConnexionPage.dispose();
+    }//GEN-LAST:event_jOkConnexionMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -177,13 +278,21 @@ public class Interface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jBG;
     private javax.swing.JPanel jBackground;
     private javax.swing.JButton jConnexion;
+    private javax.swing.JFrame jConnexionPage;
     private javax.swing.JButton jContinue;
     private javax.swing.JButton jCredit;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton jNewGame;
+    private javax.swing.JButton jOkConnexion;
+    private javax.swing.JTextField jPasswordField;
     private javax.swing.JButton jPrevious;
     private javax.swing.JLabel jPseudo;
+    private javax.swing.JTextField jPseudoField;
     private javax.swing.JLabel jTitre;
     // End of variables declaration//GEN-END:variables
 }
