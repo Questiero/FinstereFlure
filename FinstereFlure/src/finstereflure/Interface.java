@@ -19,8 +19,9 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
-        jTitre.setIcon (new ImageIcon ("./img/logo_finstere_grand.gif"));
-        jNewGame.setEnabled(false);
+        jTitre.setIcon (new ImageIcon ("./img/logo_finstere_grand.gif"));   //image titre jeu
+            //griser les boutons :
+        jNewGame.setEnabled(false);                                         
         jContinue.setEnabled(false);
         
     }
@@ -50,7 +51,7 @@ public class Interface extends javax.swing.JFrame {
         jShowPassword = new javax.swing.JLabel();
         jShowButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jBackground = new javax.swing.JPanel();
+        jMenuPrincipal = new javax.swing.JPanel();
         jTitre = new javax.swing.JLabel();
         jNewGame = new javax.swing.JButton();
         jContinue = new javax.swing.JButton();
@@ -120,12 +121,6 @@ public class Interface extends javax.swing.JFrame {
 
         jBG.setBackground(new java.awt.Color(0, 102, 0));
 
-        jPseudoField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPseudoFieldActionPerformed(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(249, 240, 118));
         jLabel1.setText("PSEUDO :");
@@ -151,7 +146,9 @@ public class Interface extends javax.swing.JFrame {
         jShowPassword.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
         jShowPassword.setForeground(new java.awt.Color(255, 255, 255));
 
-        jShowButton.setText("?");
+        jShowButton.setBackground(new java.awt.Color(0, 50, 7));
+        jShowButton.setForeground(new java.awt.Color(249, 240, 118));
+        jShowButton.setText("👁");
         jShowButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jShowButtonMousePressed(evt);
@@ -165,6 +162,11 @@ public class Interface extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(249, 240, 118));
         jButton1.setText("←");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jBGLayout = new javax.swing.GroupLayout(jBG);
         jBG.setLayout(jBGLayout);
@@ -185,7 +187,7 @@ public class Interface extends javax.swing.JFrame {
                         .addGap(22, 22, 22))
                     .addGroup(jBGLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jShowButton)
+                        .addComponent(jShowButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jBGLayout.createSequentialGroup()
                 .addContainerGap()
@@ -231,7 +233,7 @@ public class Interface extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jBackground.setBackground(new java.awt.Color(0, 102, 0));
+        jMenuPrincipal.setBackground(new java.awt.Color(0, 102, 0));
 
         jNewGame.setBackground(new java.awt.Color(0, 18, 2));
         jNewGame.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 39)); // NOI18N
@@ -278,36 +280,36 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jBackgroundLayout = new javax.swing.GroupLayout(jBackground);
-        jBackground.setLayout(jBackgroundLayout);
-        jBackgroundLayout.setHorizontalGroup(
-            jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jBackgroundLayout.createSequentialGroup()
+        javax.swing.GroupLayout jMenuPrincipalLayout = new javax.swing.GroupLayout(jMenuPrincipal);
+        jMenuPrincipal.setLayout(jMenuPrincipalLayout);
+        jMenuPrincipalLayout.setHorizontalGroup(
+            jMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jMenuPrincipalLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jContinue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jNewGame, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
-                    .addGroup(jBackgroundLayout.createSequentialGroup()
+                    .addGroup(jMenuPrincipalLayout.createSequentialGroup()
                         .addComponent(jTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)))
                 .addGap(512, 512, 512))
-            .addGroup(jBackgroundLayout.createSequentialGroup()
-                .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jBackgroundLayout.createSequentialGroup()
+            .addGroup(jMenuPrincipalLayout.createSequentialGroup()
+                .addGroup(jMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jMenuPrincipalLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(jCredit, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jBackgroundLayout.createSequentialGroup()
+                    .addGroup(jMenuPrincipalLayout.createSequentialGroup()
                         .addGap(1139, 1139, 1139)
-                        .addGroup(jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPseudo, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jConnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
-        jBackgroundLayout.setVerticalGroup(
-            jBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jBackgroundLayout.createSequentialGroup()
+        jMenuPrincipalLayout.setVerticalGroup(
+            jMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jMenuPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPseudo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -329,11 +331,11 @@ public class Interface extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jMenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jMenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -341,15 +343,19 @@ public class Interface extends javax.swing.JFrame {
 
     private void jOkConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jOkConnexionMouseClicked
         // TODO add your handling code here:
-        jConnexionPage.dispose();                       //ferme la fenêtre popup
-        String pseudo = jPseudoField.getText();         //a revoir du coup avec objet Joueur ?
-        String password = jPasswordField.getText();
-        System.out.println(pseudo+" "+password);
+        if (jOkConnexion.isEnabled()){
+            jConnexionPage.dispose(); //ferme la fenêtre popup de connexion
+        }
+                              
     }//GEN-LAST:event_jOkConnexionMouseClicked
 
     private void jConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jConnexionMouseClicked
         // TODO add your handling code here:
-        jPasswordField.setText("");
+            //clear les champs
+        jPasswordField.setText(""); 
+        jPseudoField.setText("");
+        jOkConnexion.setEnabled(false);
+            //apparition de la fenêtre
         jConnexionPage.setVisible(true);
         jConnexionPage.requestFocusInWindow();
         jConnexionPage.pack();
@@ -359,6 +365,7 @@ public class Interface extends javax.swing.JFrame {
 
     private void jCreditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCreditMouseClicked
         // TODO add your handling code here:
+            //apparition de la fenêtre
         jCreditPage.setVisible(true);
         jCreditPage.requestFocusInWindow();
         jCreditPage.pack();
@@ -366,23 +373,24 @@ public class Interface extends javax.swing.JFrame {
 
     private void jBackCreditsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBackCreditsMouseClicked
         // TODO add your handling code here:
-        jCreditPage.dispose();
+        jCreditPage.dispose();  //ferme la fenêtre
     }//GEN-LAST:event_jBackCreditsMouseClicked
-
-    private void jPseudoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPseudoFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPseudoFieldActionPerformed
 
     private void jShowButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jShowButtonMousePressed
         // TODO add your handling code here:
-        String mdp = jPasswordField.getText();
-        jShowPassword.setText(mdp);
+            
+        jShowPassword.setText(jPasswordField.getText());    //affichage su mdp masqué
     }//GEN-LAST:event_jShowButtonMousePressed
 
     private void jShowButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jShowButtonMouseReleased
         // TODO add your handling code here:
-        jShowPassword.setText("");
+        jShowPassword.setText("");  //enlève l'affichage du mdp
     }//GEN-LAST:event_jShowButtonMouseReleased
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        jConnexionPage.dispose();   
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -425,7 +433,6 @@ public class Interface extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jBG;
     private javax.swing.JButton jBackCredits;
-    private javax.swing.JPanel jBackground;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jConnexion;
     private javax.swing.JFrame jConnexionPage;
@@ -437,6 +444,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jMenuPrincipal;
     private javax.swing.JButton jNewGame;
     private javax.swing.JButton jOkConnexion;
     private javax.swing.JPanel jPanel1;
