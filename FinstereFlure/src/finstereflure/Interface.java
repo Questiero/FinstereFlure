@@ -49,6 +49,7 @@ public class Interface extends javax.swing.JFrame {
         jPasswordField = new javax.swing.JPasswordField();
         jShowPassword = new javax.swing.JLabel();
         jShowButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jBackground = new javax.swing.JPanel();
         jTitre = new javax.swing.JLabel();
         jNewGame = new javax.swing.JButton();
@@ -147,6 +148,9 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
+        jShowPassword.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
+        jShowPassword.setForeground(new java.awt.Color(255, 255, 255));
+
         jShowButton.setText("?");
         jShowButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -157,14 +161,15 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(0, 18, 2));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(249, 240, 118));
+        jButton1.setText("←");
+
         javax.swing.GroupLayout jBGLayout = new javax.swing.GroupLayout(jBG);
         jBG.setLayout(jBGLayout);
         jBGLayout.setHorizontalGroup(
             jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jBGLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jBGLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -182,12 +187,20 @@ public class Interface extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jShowButton)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jBGLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(104, 104, 104))
         );
         jBGLayout.setVerticalGroup(
             jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jBGLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
+                .addGroup(jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jButton1))
                 .addGap(38, 38, 38)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -200,7 +213,7 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(jShowButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jShowPassword)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(jOkConnexion)
                 .addGap(18, 18, 18))
         );
@@ -413,6 +426,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JPanel jBG;
     private javax.swing.JButton jBackCredits;
     private javax.swing.JPanel jBackground;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jConnexion;
     private javax.swing.JFrame jConnexionPage;
     private javax.swing.JButton jContinue;
