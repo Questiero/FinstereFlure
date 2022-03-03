@@ -427,12 +427,14 @@ public class Interface extends javax.swing.JFrame {
                 }
             } else {
                 jErrorLabel.setText("Passwords are not similar");
+
             }
 
         } else {
             if (jOkConnexion.isEnabled()) {
                 jConnexionPage.dispose(); //ferme la fenêtre popup de connexion
-
+                jPseudo.setText(jPseudoField.getText());
+                jConnexion.setText("DECONNEXION");
             }
         }
 
