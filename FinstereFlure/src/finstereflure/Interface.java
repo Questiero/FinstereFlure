@@ -19,11 +19,11 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
-        jTitre.setIcon (new ImageIcon ("./img/logo_finstere_grand.gif"));   //image titre jeu
-            //griser les boutons :
-        jNewGame.setEnabled(false);                                         
+        jTitre.setIcon(new ImageIcon("./img/logo_finstere_grand.gif"));   //image titre jeu
+        //griser les boutons :
+        jNewGame.setEnabled(false);
         jContinue.setEnabled(false);
-        
+
     }
 
     /**
@@ -51,6 +51,13 @@ public class Interface extends javax.swing.JFrame {
         jShowPassword = new javax.swing.JLabel();
         jShowButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jNewAccount = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jConfirmPasswordField = new javax.swing.JPasswordField();
+        jShowConfirm = new javax.swing.JButton();
+        jShowConfirmPassword = new javax.swing.JLabel();
+        jErrorLabel = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jMenuPrincipal = new javax.swing.JPanel();
         jTitre = new javax.swing.JLabel();
         jNewGame = new javax.swing.JButton();
@@ -119,6 +126,8 @@ public class Interface extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jConnexionPage.setPreferredSize(new java.awt.Dimension(370, 400));
+
         jBG.setBackground(new java.awt.Color(0, 102, 0));
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
@@ -140,6 +149,12 @@ public class Interface extends javax.swing.JFrame {
         jOkConnexion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jOkConnexionMouseClicked(evt);
+            }
+        });
+
+        jPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordFieldKeyPressed(evt);
             }
         });
 
@@ -168,33 +183,74 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
+        jNewAccount.setBackground(new java.awt.Color(0, 18, 2));
+        jNewAccount.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jNewAccount.setForeground(new java.awt.Color(249, 240, 118));
+        jNewAccount.setText("NEW ACCOUNT");
+        jNewAccount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jNewAccountMouseClicked(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(249, 240, 118));
+
+        jShowConfirm.setBackground(new java.awt.Color(0, 50, 7));
+        jShowConfirm.setForeground(new java.awt.Color(249, 240, 118));
+        jShowConfirm.setText("👁");
+        jShowConfirm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jShowConfirmMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jShowConfirmMouseReleased(evt);
+            }
+        });
+
+        jShowConfirmPassword.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
+        jShowConfirmPassword.setForeground(new java.awt.Color(255, 255, 255));
+
+        jErrorLabel.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jErrorLabel.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout jBGLayout = new javax.swing.GroupLayout(jBG);
         jBG.setLayout(jBGLayout);
         jBGLayout.setHorizontalGroup(
             jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jBGLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jShowPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPasswordField)
-                    .addComponent(jPseudoField, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jBGLayout.createSequentialGroup()
+                .addGroup(jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jBGLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3))
+                    .addGroup(jBGLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPasswordField)
+                            .addComponent(jConfirmPasswordField)
+                            .addComponent(jPseudoField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jShowPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jShowConfirmPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jBGLayout.createSequentialGroup()
+                                .addGroup(jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jNewAccount))
+                                .addGap(0, 71, Short.MAX_VALUE))
+                            .addComponent(jErrorLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jBGLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                        .addComponent(jOkConnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22))
-                    .addGroup(jBGLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jShowButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jBGLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(104, 104, 104))
+                        .addGroup(jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jShowButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jShowConfirm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(79, 79, 79))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jBGLayout.createSequentialGroup()
+                        .addComponent(jOkConnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14))))
         );
         jBGLayout.setVerticalGroup(
             jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,21 +259,33 @@ public class Interface extends javax.swing.JFrame {
                 .addGroup(jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jButton1))
-                .addGap(38, 38, 38)
+                .addGap(4, 4, 4)
+                .addComponent(jErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPseudoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jShowButton))
+                .addGap(8, 8, 8)
+                .addComponent(jShowPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jShowPassword)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(jOkConnexion)
-                .addGap(18, 18, 18))
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jShowConfirm)
+                    .addComponent(jConfirmPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jShowConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addGroup(jBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jNewAccount)
+                    .addComponent(jOkConnexion))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jConnexionPageLayout = new javax.swing.GroupLayout(jConnexionPage.getContentPane());
@@ -230,6 +298,8 @@ public class Interface extends javax.swing.JFrame {
             jConnexionPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jBG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -266,7 +336,7 @@ public class Interface extends javax.swing.JFrame {
 
         jPseudo.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
         jPseudo.setForeground(new java.awt.Color(249, 240, 118));
-        jPseudo.setText("Pseudo");
+        jPseudo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPseudo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jConnexion.setBackground(new java.awt.Color(0, 18, 2));
@@ -302,9 +372,10 @@ public class Interface extends javax.swing.JFrame {
                         .addComponent(jCredit, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jMenuPrincipalLayout.createSequentialGroup()
                         .addGap(1139, 1139, 1139)
-                        .addGroup(jMenuPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPseudo, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jConnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jPseudo, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jMenuPrincipalLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jConnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         jMenuPrincipalLayout.setVerticalGroup(
@@ -314,7 +385,7 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(jPseudo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jConnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(120, 120, 120)
                 .addComponent(jTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(91, 91, 91)
                 .addComponent(jNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -322,7 +393,7 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(jContinue, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(jCredit, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -342,30 +413,60 @@ public class Interface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jOkConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jOkConnexionMouseClicked
-        // TODO add your handling code here:
-        if (jOkConnexion.isEnabled()){
-            jConnexionPage.dispose(); //ferme la fenêtre popup de connexion
+
+        //Verif si password et confirmation identiques
+        if (jConfirmPasswordField.isVisible()) {
+            String p1 = jPasswordField.getText();
+            String p2 = jConfirmPasswordField.getText();
+            boolean b = p1.equals(p2);
+            if (b) {
+                if (jOkConnexion.isEnabled()) {
+                    jConnexionPage.dispose(); //ferme la fenêtre popup de connexion
+                    jPseudo.setText(jPseudoField.getText());
+                    jConnexion.setText("DECONNEXION");
+                }
+            } else {
+                jErrorLabel.setText("Passwords are not similar");
+            }
+
+        } else {
+            if (jOkConnexion.isEnabled()) {
+                jConnexionPage.dispose(); //ferme la fenêtre popup de connexion
+
+            }
         }
-                              
+
+
     }//GEN-LAST:event_jOkConnexionMouseClicked
 
     private void jConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jConnexionMouseClicked
         // TODO add your handling code here:
-            //clear les champs
-        jPasswordField.setText(""); 
-        jPseudoField.setText("");
-        jOkConnexion.setEnabled(false);
-            //apparition de la fenêtre
-        jConnexionPage.setVisible(true);
-        jConnexionPage.requestFocusInWindow();
-        jConnexionPage.pack();
-        
 
+        boolean b = jConnexion.getText().equals("CONNEXION");
+        if (b) {
+            //clear les champs
+            jPasswordField.setText("");
+            jPseudoField.setText("");
+            jOkConnexion.setEnabled(false);
+            jShowConfirm.setVisible(false);
+            jConfirmPasswordField.setVisible(false);
+            jLabel6.setText("");
+            jErrorLabel.setText("");
+            jConfirmPasswordField.setText("");
+            //apparition de la fenêtre
+            jConnexionPage.setVisible(true);
+            jConnexionPage.requestFocusInWindow();
+            jConnexionPage.pack();
+        } else {
+            jPseudo.setText("");
+            jConnexion.setText("CONNEXION");
+
+        }
     }//GEN-LAST:event_jConnexionMouseClicked
 
     private void jCreditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCreditMouseClicked
         // TODO add your handling code here:
-            //apparition de la fenêtre
+        //apparition de la fenêtre
         jCreditPage.setVisible(true);
         jCreditPage.requestFocusInWindow();
         jCreditPage.pack();
@@ -378,8 +479,8 @@ public class Interface extends javax.swing.JFrame {
 
     private void jShowButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jShowButtonMousePressed
         // TODO add your handling code here:
-            
-        jShowPassword.setText(jPasswordField.getText());    //affichage su mdp masqué
+
+        jShowPassword.setText(jPasswordField.getText());    //affichage du mdp masqué
     }//GEN-LAST:event_jShowButtonMousePressed
 
     private void jShowButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jShowButtonMouseReleased
@@ -389,8 +490,32 @@ public class Interface extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        jConnexionPage.dispose();   
+        jConnexionPage.dispose();
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jNewAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jNewAccountMouseClicked
+        // TODO add your handling code here:
+        //apparition pour nouveau compte
+        jLabel6.setText("CONFIRM PASSWORD :");
+        jShowConfirm.setVisible(true);
+        jConfirmPasswordField.setVisible(true);
+    }//GEN-LAST:event_jNewAccountMouseClicked
+
+    private void jPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldKeyPressed
+        // TODO add your handling code here:
+        jOkConnexion.setEnabled(true);
+
+    }//GEN-LAST:event_jPasswordFieldKeyPressed
+
+    private void jShowConfirmMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jShowConfirmMousePressed
+        // TODO add your handling code here:
+        jShowConfirmPassword.setText(jConfirmPasswordField.getText());    //affichage su mdp masqué
+    }//GEN-LAST:event_jShowConfirmMousePressed
+
+    private void jShowConfirmMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jShowConfirmMouseReleased
+        // TODO add your handling code here:
+        jShowConfirmPassword.setText("");  //enlève l'affichage du mdp
+    }//GEN-LAST:event_jShowConfirmMouseReleased
 
     /**
      * @param args the command line arguments
@@ -434,17 +559,22 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JPanel jBG;
     private javax.swing.JButton jBackCredits;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JPasswordField jConfirmPasswordField;
     private javax.swing.JButton jConnexion;
     private javax.swing.JFrame jConnexionPage;
     private javax.swing.JButton jContinue;
     private javax.swing.JButton jCredit;
     private javax.swing.JFrame jCreditPage;
+    private javax.swing.JLabel jErrorLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jMenuPrincipal;
+    private javax.swing.JButton jNewAccount;
     private javax.swing.JButton jNewGame;
     private javax.swing.JButton jOkConnexion;
     private javax.swing.JPanel jPanel1;
@@ -453,6 +583,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jPseudo;
     private javax.swing.JTextField jPseudoField;
     private javax.swing.JButton jShowButton;
+    private javax.swing.JButton jShowConfirm;
+    private javax.swing.JLabel jShowConfirmPassword;
     private javax.swing.JLabel jShowPassword;
     private javax.swing.JLabel jTitre;
     // End of variables declaration//GEN-END:variables
