@@ -434,7 +434,11 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jOkConnexionMouseClicked
 
     private void jConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jConnexionMouseClicked
-
+        
+        //réinitialisation de la page
+        jLabel3.setText("CONNEXION");
+        jNewAccount.setVisible(true);
+        
         boolean b = jConnexion.getText().equals("CONNEXION");
         if (b) {    //si le bouton = connexion
             //clear les champs
@@ -454,6 +458,8 @@ public class Interface extends javax.swing.JFrame {
             jPseudo.setText("");                //clear du champ du pseudo
             jConnexion.setText("CONNEXION");    //changement du bouton de deconnexion
         }
+        
+        
     }//GEN-LAST:event_jConnexionMouseClicked
 
     private void jCreditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCreditMouseClicked
@@ -486,6 +492,9 @@ public class Interface extends javax.swing.JFrame {
         jLabel6.setText("CONFIRM PASSWORD :");
         jShowConfirm.setVisible(true);
         jConfirmPasswordField.setVisible(true);
+        //changement pour nouveau compte
+        jLabel3.setText("CREATE AN ACCOUNT");
+        jNewAccount.setVisible(false);
     }//GEN-LAST:event_jNewAccountMouseClicked
 
     private void jPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldKeyPressed
