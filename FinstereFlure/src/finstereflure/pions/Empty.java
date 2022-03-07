@@ -1,14 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package finstereflure.pions;
 
+import javax.swing.ImageIcon;
+
 /**
- *
- * @author jules
+ * Pion vide, placeholder
  */
-public class Empty {
+public final class Empty extends Pion {
+    
+    public Empty() {
+        super("");
+    }
     
 }
