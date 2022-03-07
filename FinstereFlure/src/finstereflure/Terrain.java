@@ -1,7 +1,7 @@
 package finstereflure;
 
+import finstereflure.pions.Empty;
 import finstereflure.pions.Pion;
-import java.util.Arrays;
 
 /**
  * Terrain de jeu
@@ -34,7 +34,11 @@ public class Terrain {
      */
     private void init() {
         
-        Arrays.fill(map, null);
+        for(int i = 0; i<this.map.length; i++) {
+            for(int j = 0; j<this.map[i].length; j++) {
+                this.map[i][j] = new Empty();
+            }
+        }
         
     }
     
