@@ -5,6 +5,8 @@
  */
 package finstereflure;
 
+import finstereflure.players.Player;
+import finstereflure.players.PlayerType;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -14,6 +16,8 @@ import javax.swing.JFrame;
  * @author Amandine S
  */
 public class Interface extends javax.swing.JFrame {
+    
+    Host h1;
 
     /**
      * Creates new form InterfaceBis
@@ -61,19 +65,19 @@ public class Interface extends javax.swing.JFrame {
         jConfigurationPage = new javax.swing.JFrame();
         jPanel2 = new javax.swing.JPanel();
         jConfigLeft = new javax.swing.JPanel();
-        jPseudoLeft = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jSelecLeft = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jColorLeft = new javax.swing.JComboBox<>();
         jPionImageLeft = new javax.swing.JLabel();
+        jGamePseudoLeft = new javax.swing.JTextField();
         jConfigRight = new javax.swing.JPanel();
-        jPseudoRight = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jSelecRight = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         jColorRight = new javax.swing.JComboBox<>();
         jPionImageRight = new javax.swing.JLabel();
+        jGamePseudoRight = new javax.swing.JTextField();
         jAdvancedCheck = new javax.swing.JCheckBox();
         jLabel11 = new javax.swing.JLabel();
         jStartButton = new javax.swing.JButton();
@@ -322,10 +326,6 @@ public class Interface extends javax.swing.JFrame {
         jConfigLeft.setBackground(new java.awt.Color(51, 153, 0));
         jConfigLeft.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
-        jPseudoLeft.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
-        jPseudoLeft.setForeground(new java.awt.Color(249, 240, 118));
-        jPseudoLeft.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-
         jLabel7.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(249, 240, 118));
         jLabel7.setText("PLAYER / IA");
@@ -349,17 +349,14 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
+        jGamePseudoLeft.setBackground(new java.awt.Color(0, 18, 2));
+        jGamePseudoLeft.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jGamePseudoLeft.setForeground(new java.awt.Color(249, 240, 118));
+
         javax.swing.GroupLayout jConfigLeftLayout = new javax.swing.GroupLayout(jConfigLeft);
         jConfigLeft.setLayout(jConfigLeftLayout);
         jConfigLeftLayout.setHorizontalGroup(
             jConfigLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jConfigLeftLayout.createSequentialGroup()
-                .addGroup(jConfigLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPseudoLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jConfigLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jSelecLeft, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)))
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jConfigLeftLayout.createSequentialGroup()
                 .addContainerGap(198, Short.MAX_VALUE)
                 .addGroup(jConfigLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -373,12 +370,21 @@ public class Interface extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jConfigLeftLayout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(175, 175, 175))))
+            .addGroup(jConfigLeftLayout.createSequentialGroup()
+                .addGroup(jConfigLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jConfigLeftLayout.createSequentialGroup()
+                        .addGap(209, 209, 209)
+                        .addGroup(jConfigLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jSelecLeft, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)))
+                    .addComponent(jGamePseudoLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jConfigLeftLayout.setVerticalGroup(
             jConfigLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jConfigLeftLayout.createSequentialGroup()
-                .addComponent(jPseudoLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addComponent(jGamePseudoLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addComponent(jSelecLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -393,10 +399,6 @@ public class Interface extends javax.swing.JFrame {
 
         jConfigRight.setBackground(new java.awt.Color(51, 153, 0));
         jConfigRight.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-
-        jPseudoRight.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
-        jPseudoRight.setForeground(new java.awt.Color(249, 240, 118));
-        jPseudoRight.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         jLabel8.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(249, 240, 118));
@@ -421,17 +423,15 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
+        jGamePseudoRight.setBackground(new java.awt.Color(0, 18, 2));
+        jGamePseudoRight.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jGamePseudoRight.setForeground(new java.awt.Color(249, 240, 118));
+        jGamePseudoRight.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
         javax.swing.GroupLayout jConfigRightLayout = new javax.swing.GroupLayout(jConfigRight);
         jConfigRight.setLayout(jConfigRightLayout);
         jConfigRightLayout.setHorizontalGroup(
             jConfigRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jConfigRightLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jConfigRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPseudoRight, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jConfigRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jSelecRight, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jConfigRightLayout.createSequentialGroup()
                 .addContainerGap(193, Short.MAX_VALUE)
                 .addGroup(jConfigRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -445,12 +445,21 @@ public class Interface extends javax.swing.JFrame {
                 .addGap(182, 182, 182)
                 .addComponent(jLabel10)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jConfigRightLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jConfigRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jConfigRightLayout.createSequentialGroup()
+                        .addGroup(jConfigRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jSelecRight, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
+                        .addGap(209, 209, 209))
+                    .addComponent(jGamePseudoRight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jConfigRightLayout.setVerticalGroup(
             jConfigRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jConfigRightLayout.createSequentialGroup()
-                .addComponent(jPseudoRight, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addComponent(jGamePseudoRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
                 .addComponent(jSelecRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -533,7 +542,7 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(jAdvancedCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(jStartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jConfigurationPageLayout = new javax.swing.GroupLayout(jConfigurationPage.getContentPane());
@@ -674,6 +683,10 @@ public class Interface extends javax.swing.JFrame {
                 if (jOkConnexion.isEnabled()) {
                     jConnexionPage.dispose();               //ferme la fenêtre popup de connexion
                     jPseudo.setText(jPseudoField.getText());//inscrit le pseudo
+                    
+                    //Création du compte (host)
+                    h1 = new Host(jPseudoField.getText());                            
+                    
                     jConnexion.setText("DECONNEXION");      //change le bouton de connexion
                 }
             } else {    //si passwords différents 
@@ -790,10 +803,10 @@ public class Interface extends javax.swing.JFrame {
             
 
             //remplissage pseudos
-            jPseudoLeft.setText(jPseudoField.getText());
+            jGamePseudoLeft.setText(jPseudoField.getText());
 
-            //ICI RAJOUTER PARTIE PSUEDO ALEATOIRE RIGHT
-            jPseudoRight.setText("faire le pseudo");
+            //ICI RAJOUTER  PSUEDO ALEATOIRE 
+            
 
         }
 
@@ -811,7 +824,15 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jColorRightActionPerformed
 
     private void jStartButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jStartButtonMouseClicked
-        // TODO add your handling code here:
+        Partie game = new Partie(h1);
+        String namep1 = jGamePseudoLeft.getText();
+        String namep2 = jGamePseudoRight.getText();
+        Couleur colorp1;
+        Couleur colorp2;
+        PlayerType typep1;
+        PlayerType typep2;
+        boolean isAdvanced = jAdvancedCheck.isSelected();
+        //init(namep1, colorp1, typep1, namep2, colorp2, typep2, isAdvanced);
     }//GEN-LAST:event_jStartButtonMouseClicked
 
     private void jBackConfigurationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBackConfigurationMouseClicked
@@ -823,6 +844,7 @@ public class Interface extends javax.swing.JFrame {
         jColorRight.setSelectedIndex(0);
         jPionImageLeft.setIcon(new ImageIcon());
         jPionImageRight.setIcon(new ImageIcon());
+        jAdvancedCheck.setSelected(false);
     }//GEN-LAST:event_jBackConfigurationMouseClicked
 
     /**
@@ -881,6 +903,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jCredit;
     private javax.swing.JFrame jCreditPage;
     private javax.swing.JLabel jErrorLabel;
+    private javax.swing.JTextField jGamePseudoLeft;
+    private javax.swing.JTextField jGamePseudoRight;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -904,8 +928,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jPrevious;
     private javax.swing.JLabel jPseudo;
     private javax.swing.JTextField jPseudoField;
-    private javax.swing.JLabel jPseudoLeft;
-    private javax.swing.JLabel jPseudoRight;
     private javax.swing.JComboBox<String> jSelecLeft;
     private javax.swing.JComboBox<String> jSelecRight;
     private javax.swing.JButton jShowButton;

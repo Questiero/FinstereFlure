@@ -15,5 +15,10 @@ public class Host {
     public void setName(String name) {
         this.name = name;
     }
+    
+    //juste pour nous uwu
+    public String toString(){
+        return this.name;
+    }
 
 }
