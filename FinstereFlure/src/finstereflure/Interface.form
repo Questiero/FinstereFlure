@@ -211,22 +211,20 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel6" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel2" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jLabel1" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jLabel6" alignment="1" max="32767" attributes="0"/>
                                   <Component id="jPasswordField" alignment="1" max="32767" attributes="0"/>
                                   <Component id="jConfirmPasswordField" alignment="1" max="32767" attributes="0"/>
                                   <Component id="jPseudoField" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jShowPassword" alignment="1" max="32767" attributes="0"/>
                                   <Component id="jShowConfirmPassword" alignment="1" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jNewAccount" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="0" pref="71" max="32767" attributes="0"/>
+                                      <Component id="jNewAccount" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="110" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="jErrorLabel" alignment="0" max="32767" attributes="0"/>
                               </Group>
@@ -257,9 +255,7 @@
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jBackConnexion" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                      <Component id="jErrorLabel" min="-2" pref="12" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPseudoField" min="-2" max="-2" attributes="0"/>
@@ -271,7 +267,7 @@
                           <Component id="jShowButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                      <Component id="jShowPassword" min="-2" pref="12" max="-2" attributes="0"/>
+                      <Component id="jShowPassword" min="-2" pref="20" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" pref="24" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -280,8 +276,10 @@
                           <Component id="jConfirmPasswordField" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jShowConfirmPassword" min="-2" pref="12" max="-2" attributes="0"/>
-                      <EmptySpace pref="111" max="32767" attributes="0"/>
+                      <Component id="jShowConfirmPassword" min="-2" pref="21" max="-2" attributes="0"/>
+                      <EmptySpace pref="64" max="32767" attributes="0"/>
+                      <Component id="jErrorLabel" min="-2" pref="12" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jNewAccount" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jOkConnexion" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -293,6 +291,9 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JTextField" name="jPseudoField">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jPseudoFieldKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -313,7 +314,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="76" green="f0" red="f9" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="PASSWORD :"/>
+                <Property name="text" type="java.lang.String" value="PASSWORD : "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
@@ -346,7 +347,7 @@
             </Component>
             <Component class="javax.swing.JPasswordField" name="jPasswordField">
               <Events>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jPasswordFieldKeyPressed"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jPasswordFieldKeyReleased"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jShowPassword">
@@ -957,6 +958,9 @@
           <Color blue="0" green="66" red="0" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jMenuPrincipalMouseMoved"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -965,10 +969,19 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jBloodDrop" min="-2" pref="477" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPseudo" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
-                              <Component id="jConnexion" min="-2" pref="143" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jPseudo" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
+                                      <Component id="jConnexion" min="-2" pref="143" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                                  <Component id="jErrorNewGameLabel" min="-2" pref="153" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -1007,7 +1020,7 @@
                   <Component id="jPseudo" min="-2" pref="25" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jConnexion" min="-2" pref="46" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="213" max="32767" attributes="0"/>
                   <Component id="jMonsterImage" min="-2" pref="424" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
@@ -1015,16 +1028,18 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
                           <Component id="jTitre" min="-2" pref="100" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                          <Component id="jErrorNewGameLabel" min="-2" pref="16" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jNewGame" min="-2" pref="52" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jBloodDrop" alignment="0" min="-2" pref="333" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jContinue" min="-2" pref="52" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jPrevious" min="-2" pref="52" max="-2" attributes="0"/>
-                  <EmptySpace pref="119" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jCredit" min="-2" pref="49" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
@@ -1051,6 +1066,7 @@
             </Property>
           </Properties>
           <Events>
+            <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jNewGameMouseMoved"/>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jNewGameMouseClicked"/>
           </Events>
         </Component>
@@ -1070,6 +1086,9 @@
               <Border info="null"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jContinueMouseMoved"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jPrevious">
           <Properties>
@@ -1143,6 +1162,17 @@
         <Component class="javax.swing.JLabel" name="jMonsterImage">
         </Component>
         <Component class="javax.swing.JLabel" name="jBloodDrop">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jErrorNewGameLabel">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tw Cen MT Condensed" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="0" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
