@@ -17,10 +17,10 @@ import javax.swing.JFrame;
  */
 public class Interface extends javax.swing.JFrame {
 
-    Host h1;
+    private Host h1;
 
-    boolean notEmptyPseudo = false;
-    boolean notEmptyPassword = false;
+    private boolean notEmptyPseudo = false;
+    private boolean notEmptyPassword = false;
 
     /**
      * Creates new form InterfaceBis
