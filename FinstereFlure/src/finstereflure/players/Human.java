@@ -8,4 +8,9 @@ public class Human extends Player {
         super(name, color);
     }
 
+    @Override
+    public PlayerType getType() {
+        return PlayerType.HUMAN;
+    }
+
 }

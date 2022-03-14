@@ -8,11 +8,11 @@ public class Host {
         this.name = name;
     }
 
-    public String getName() {
+    public String getNameHost() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setNameHost(String name) {
         this.name = name;
     }
     

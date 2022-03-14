@@ -52,12 +52,12 @@ public class Partie {
 
         Player p2;
 
-        switch (typep1) {
+        switch (typep2) {
             case HUMAN:
-                p2 = new Human(namep1, colorp1);
+                p2 = new Human(namep2, colorp2);
                 break;
             case BOB:
-                p2 = new Bob(namep1, colorp1);
+                p2 = new Bob(namep2, colorp2);
                 break;
             default:
                 p2 = null;
@@ -83,8 +83,9 @@ public class Partie {
 
     }
     @Override
-    private String toString(){
-        return ("Joueur "+this.namep1);
+    public String toString(){
+        
+        return ("Joueur 1 : \t" + players[0] + "\nJoueur 2 : \t" + players[1]);
     }
 
 }

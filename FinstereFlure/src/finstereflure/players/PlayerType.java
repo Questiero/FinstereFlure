@@ -18,7 +18,7 @@ public enum PlayerType {
             case "human":
                 type = PlayerType.HUMAN;
                 break;
-            case "bob":
+            case "ai - bob":
                 type = PlayerType.BOB;
                 break;
         }
@@ -27,4 +27,17 @@ public enum PlayerType {
 
     }
 
+    public String toString() {
+
+        switch (this) {
+            case HUMAN:
+                return "Human";
+            case BOB:
+                return "Bob";
+
+        }
+
+        return null;
+
+    }
 }
