@@ -398,7 +398,7 @@ public class Interface extends javax.swing.JFrame {
         jSelecLeft.setBackground(new java.awt.Color(0, 18, 2));
         jSelecLeft.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 20)); // NOI18N
         jSelecLeft.setForeground(new java.awt.Color(249, 240, 118));
-        jSelecLeft.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Human", "IA" }));
+        jSelecLeft.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Human", "IA - Bob", " " }));
 
         jLabel9.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(249, 240, 118));
@@ -472,7 +472,7 @@ public class Interface extends javax.swing.JFrame {
         jSelecRight.setBackground(new java.awt.Color(0, 18, 2));
         jSelecRight.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 20)); // NOI18N
         jSelecRight.setForeground(new java.awt.Color(249, 240, 118));
-        jSelecRight.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Human", "IA" }));
+        jSelecRight.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Human", "IA - Bob " }));
 
         jLabel10.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 36)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(249, 240, 118));
@@ -919,10 +919,10 @@ public class Interface extends javax.swing.JFrame {
         String namep2 = jGamePseudoRight.getText();
         Couleur colorp1 = Couleur.getType((String)jColorLeft.getSelectedItem());
         Couleur colorp2 = Couleur.getType((String)jColorRight.getSelectedItem());
-        PlayerType typep1;
-        PlayerType typep2;
+        PlayerType typep1 = PlayerType.getType((String)jSelecLeft.getSelectedItem());
+        PlayerType typep2 = PlayerType.getType((String)jSelecRight.getSelectedItem());
         boolean isAdvanced = jAdvancedCheck.isSelected();
-        //init(namep1, colorp1, typep1, namep2, colorp2, typep2, isAdvanced);
+        game.init(namep1, colorp1, typep1, namep2, colorp2, typep2, isAdvanced);
     }//GEN-LAST:event_jStartButtonMouseClicked
 
     private void jBackConfigurationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBackConfigurationMouseClicked

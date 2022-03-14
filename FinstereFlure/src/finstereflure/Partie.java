@@ -82,5 +82,9 @@ public class Partie {
         this.advancedMode = isAdvanced;
 
     }
+    @Override
+    private String toString(){
+        return ("Joueur "+this.namep1);
+    }
 
 }
