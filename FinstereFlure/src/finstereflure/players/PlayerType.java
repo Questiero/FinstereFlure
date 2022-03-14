@@ -7,7 +7,7 @@ public enum PlayerType {
     HUMAN,
     BOB;
 
-    public PlayerType getType(String s) {
+    public static PlayerType getType(String s) {
 
         PlayerType type = null;
 

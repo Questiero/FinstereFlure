@@ -36,7 +36,7 @@ public enum Couleur {
 
     }
 
-    public Couleur getType(String s) {
+    public static Couleur getType(String s) {
 
         Couleur color = null;
 

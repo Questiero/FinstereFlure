@@ -917,8 +917,8 @@ public class Interface extends javax.swing.JFrame {
         Partie game = new Partie(h1);
         String namep1 = jGamePseudoLeft.getText();
         String namep2 = jGamePseudoRight.getText();
-        Couleur colorp1;
-        Couleur colorp2;
+        Couleur colorp1 = Couleur.getType((String)jColorLeft.getSelectedItem());
+        Couleur colorp2 = Couleur.getType((String)jColorRight.getSelectedItem());
         PlayerType typep1;
         PlayerType typep2;
         boolean isAdvanced = jAdvancedCheck.isSelected();
