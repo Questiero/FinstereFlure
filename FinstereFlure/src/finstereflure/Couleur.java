@@ -17,19 +17,19 @@ public enum Couleur {
 
         switch (this) {
             case BLUE:
-                return "bleu";
+                return "blue";
             case BROWN:
-                return "brun";
+                return "brown";
             case GRAY:
-                return "gris";
+                return "gray";
             case GREEN:
-                return "vert";
+                return "green";
             case PURPLE:
-                return "violet";
+                return "purple";
             case RED:
-                return "rouge";
+                return "red";
             case YELLOW:
-                return "jaune";
+                return "yellow";
         }
 
         return null;
