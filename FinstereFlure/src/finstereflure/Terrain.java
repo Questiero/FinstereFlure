@@ -15,7 +15,6 @@ public class Terrain {
      */
     public Terrain() {
         this.map = new Pion[16][11];
-        this.init();
     }
     
     /**
@@ -24,22 +23,35 @@ public class Terrain {
      * @param x largeur du terrain
      * @param y hauteur du terrain
      */
-    public Terrain(int x, int y) {
+    public Terrain(int x, int y, boolean isAdvanced) {
         this.map = new Pion[x][y];
-        this.init();
     }
 
     /**
      * Initialisation du terrain
+     * 
+     * @param isAdvanced
      */
-    private void init() {
+    public void init(boolean isAdvanced) {
         
         for(int i = 0; i<this.map.length; i++) {
             for(int j = 0; j<this.map[i].length; j++) {
-                this.map[i][j] = new Empty();
+                this.map[i][j] = new Empty(this, i, j);
             }
         }
         
+        if(!isAdvanced) {
+            
+            //TODO
+            
+        } else {
+            
+            //TODO
+            
+        }
+        
     }
+    
+    
     
 }

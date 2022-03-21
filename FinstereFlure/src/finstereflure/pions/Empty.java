@@ -1,14 +1,14 @@
 package finstereflure.pions;
 
-import javax.swing.ImageIcon;
+import finstereflure.Terrain;
 
 /**
  * Pion vide, placeholder
  */
 public final class Empty extends Pion {
     
-    public Empty() {
-        super("");
+    public Empty(Terrain terrain, int x, int y) {
+        super(terrain, x, y, "");
     }
     
 }

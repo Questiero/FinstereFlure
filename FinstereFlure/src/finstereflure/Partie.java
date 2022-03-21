@@ -11,7 +11,7 @@ public class Partie {
     private final Host host;
 
     private Player[] players = new Player[2];
-    private Terrain map;
+    private Terrain terrain;
 
     private boolean advancedMode = false;
 
@@ -81,6 +81,20 @@ public class Partie {
 
         this.advancedMode = isAdvanced;
 
+        this.terrain.init(this.advancedMode);
+        
+    }
+    
+    public Player[] getPlayers() {
+        return this.players;
+    }
+    
+    public Player getPlayer1() {
+        return this.players[0];
+    }
+    
+    public Player getPlayer2() {
+        return this.players[1];
     }
     @Override
     public String toString(){
