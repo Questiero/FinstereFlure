@@ -10,8 +10,8 @@ public class Partie {
 
     private final Host host;
 
-    private Player[] players = new Player[2];
-    private Terrain terrain;
+    private final Player[] players = new Player[2];
+    private final Terrain terrain = new Terrain();
 
     private boolean advancedMode = false;
 
