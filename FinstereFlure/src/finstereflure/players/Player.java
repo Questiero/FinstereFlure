@@ -14,7 +14,6 @@ public abstract class Player {
         this.name = name;
         this.color = color;
     }
-<<<<<<< Updated upstream
 
     @Override
     public String toString() {
@@ -24,17 +23,7 @@ public abstract class Player {
                 + "\tType : " + this.getType());
     }
 
-    public String getNamePlayer() {
-        return name;
-    }
-
-    public Couleur getColor() {
-        return color;
-    }
-
     public abstract PlayerType getType();
-
-=======
     
     public String getName() {
         return this.name;
@@ -44,5 +33,4 @@ public abstract class Player {
         return this.color;
     }
     
->>>>>>> Stashed changes
 }
