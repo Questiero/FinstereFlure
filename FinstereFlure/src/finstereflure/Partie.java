@@ -25,8 +25,9 @@ public class Partie {
     }
 
     /**
-     * Initialisaiton de la partie en fonction des données fournies via l'interface graphique
-     * 
+     * Initialisaiton de la partie en fonction des données fournies via
+     * l'interface graphique
+     *
      * @param namep1 Nom du premier joueur
      * @param colorp1 Couleur du premier joueur
      * @param typep1 Type du premier joueur
@@ -62,14 +63,14 @@ public class Partie {
             default:
                 p2 = null;
         }
-        
+
         this.init(p1, p2, isAdvanced);
 
     }
 
     /**
      * Initialiisation de la partie à partir de deux joueurs
-     * 
+     *
      * @param p1 Premier joueur
      * @param p2 Second joueur
      * @param isAdvanced Mode avancé
@@ -82,23 +83,23 @@ public class Partie {
         this.advancedMode = isAdvanced;
 
         this.terrain.init(this.advancedMode);
-        
+
     }
-    
+
     public Player[] getPlayers() {
         return this.players;
     }
-    
+
     public Player getPlayer1() {
         return this.players[0];
     }
-    
+
     public Player getPlayer2() {
         return this.players[1];
     }
+
     @Override
-    public String toString(){
-        
+    public String toString() {
         return ("Joueur 1 : \t" + players[0] + "\nJoueur 2 : \t" + players[1]);
     }
 

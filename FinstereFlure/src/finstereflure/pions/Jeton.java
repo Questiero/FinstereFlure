@@ -32,7 +32,7 @@ public final class Jeton extends Pion implements Moveable {
     public Jeton(Terrain terrain, int x, int y, String spritePath) {
         super(terrain, x, y, spritePath);
     }
-    
+
     @Override
     public void moveUp() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -52,5 +52,5 @@ public final class Jeton extends Pion implements Moveable {
     public void moveLeft() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

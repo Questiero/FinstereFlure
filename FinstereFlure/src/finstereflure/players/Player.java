@@ -24,13 +24,13 @@ public abstract class Player {
     }
 
     public abstract PlayerType getType();
-    
+
     public String getName() {
         return this.name;
     }
-    
+
     public Couleur getColor() {
         return this.color;
     }
-    
+
 }

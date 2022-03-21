@@ -15,9 +15,9 @@ public class Host {
     public void setNameHost(String name) {
         this.name = name;
     }
-    
+
     //juste pour nous uwu
-    public String toString(){
+    public String toString() {
         return this.name;
     }
 
