@@ -57,5 +57,12 @@ public abstract class Pion {
     public int getY() {
         return this.coords[1];
     }
+    
+    /**
+     * Draw le sprite du Jeton
+     */
+    public void draw() {
+        this.terrain.getSpriteMap()[this.getX()][this.getY()].setIcon(this.sprite);
+    }
 
 }
