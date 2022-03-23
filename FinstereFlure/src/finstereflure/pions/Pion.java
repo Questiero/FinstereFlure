@@ -12,7 +12,7 @@ public abstract class Pion {
     protected final Terrain terrain;
 
     //Coordonnées
-    protected final int[] coords = new int[2];
+    private final int[] coords = new int[2];
 
     /**
      * Constructeur de Pion en fonction d'un ImageIcon pour sprite
