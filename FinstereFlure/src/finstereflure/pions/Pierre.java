@@ -37,5 +37,20 @@ public final class Pierre extends Pion implements Moveable {
     public void moveLeft() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void setX(int x) {
+        this.coords[0] = x;
+    }
+
+    @Override
+    public void setY(int y) {
+        this.coords[1] = y;
+    }
+
+    @Override
+    public void setListIndex(int listIndex) {
+        this.listIndex = listIndex;
+    }
     
 }

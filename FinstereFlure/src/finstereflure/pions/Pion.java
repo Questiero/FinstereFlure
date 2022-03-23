@@ -12,8 +12,8 @@ public abstract class Pion {
     protected final Terrain terrain;
 
     //Coordonnées
-    private final int[] coords = new int[2];
-    private int listIndex;
+    protected final int[] coords = new int[2];
+    protected int listIndex;
 
     /**
      * Constructeur de Pion en fonction d'un ImageIcon pour sprite
@@ -63,6 +63,10 @@ public abstract class Pion {
 
     public int getY() {
         return this.coords[1];
+    }
+    
+    public int getListIndex() {
+        return this.listIndex;
     }
     
     /**
