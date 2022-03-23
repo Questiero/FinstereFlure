@@ -10,6 +10,7 @@ import finstereflure.players.PlayerType;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 /**
  *
@@ -19,7 +20,6 @@ public class Interface extends javax.swing.JFrame {
 
     private Host h1;
     private Partie game = new Partie(h1);   //initialisation partie
-
 
     private boolean notEmptyPseudo = false;
     private boolean notEmptyPassword = false;
@@ -98,6 +98,38 @@ public class Interface extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jStartButton = new javax.swing.JButton();
         jBackConfiguration = new javax.swing.JButton();
+        jGamingPage = new javax.swing.JFrame();
+        jPanel3 = new javax.swing.JPanel();
+        jLayeredPane = new javax.swing.JLayeredPane();
+        jMap = new javax.swing.JLabel();
+        jBackGaming = new javax.swing.JButton();
+        jTitreGame = new javax.swing.JLabel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        jPanel4 = new javax.swing.JPanel();
+        jGamePseudoP1 = new javax.swing.JLabel();
+        jPion1P1 = new javax.swing.JLabel();
+        jPion2P1 = new javax.swing.JLabel();
+        jPion3P1 = new javax.swing.JLabel();
+        jPion4P1 = new javax.swing.JLabel();
+        jGameColorP1 = new javax.swing.JLabel();
+        jLayeredPane2 = new javax.swing.JLayeredPane();
+        jPanel5 = new javax.swing.JPanel();
+        jGamePseudoP2 = new javax.swing.JLabel();
+        jPion1P2 = new javax.swing.JLabel();
+        jPion2P2 = new javax.swing.JLabel();
+        jPion3P2 = new javax.swing.JLabel();
+        jPion4P2 = new javax.swing.JLabel();
+        jGameColorP2 = new javax.swing.JLabel();
+        jLayeredPane3 = new javax.swing.JLayeredPane();
+        jPanel6 = new javax.swing.JPanel();
+        jGamePseudoP3 = new javax.swing.JLabel();
+        jUpButton = new javax.swing.JButton();
+        jUpButton1 = new javax.swing.JButton();
+        jUpButton2 = new javax.swing.JButton();
+        jUpButton3 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jMenuPrincipal = new javax.swing.JPanel();
         jTitre = new javax.swing.JLabel();
         jNewGame = new javax.swing.JButton();
@@ -623,6 +655,312 @@ public class Interface extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jGamingPage.setBackground(new java.awt.Color(0, 102, 0));
+
+        jPanel3.setBackground(new java.awt.Color(0, 102, 0));
+
+        jLayeredPane.setBackground(new java.awt.Color(50, 10, 200));
+        jLayeredPane.setBorder(new javax.swing.border.MatteBorder(null));
+        jLayeredPane.setForeground(new java.awt.Color(50, 10, 200));
+
+        jLayeredPane.setLayer(jMap, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPaneLayout = new javax.swing.GroupLayout(jLayeredPane);
+        jLayeredPane.setLayout(jLayeredPaneLayout);
+        jLayeredPaneLayout.setHorizontalGroup(
+            jLayeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jMap, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)
+        );
+        jLayeredPaneLayout.setVerticalGroup(
+            jLayeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jMap, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
+        );
+
+        jBackGaming.setBackground(new java.awt.Color(0, 18, 2));
+        jBackGaming.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jBackGaming.setForeground(new java.awt.Color(249, 240, 118));
+        jBackGaming.setText("←");
+        jBackGaming.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBackGamingMouseClicked(evt);
+            }
+        });
+
+        jTitreGame.setBorder(new javax.swing.border.MatteBorder(null));
+
+        jLayeredPane1.setBorder(new javax.swing.border.MatteBorder(null));
+
+        jPanel4.setBackground(new java.awt.Color(51, 153, 0));
+
+        jGamePseudoP1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jGamePseudoP1.setForeground(new java.awt.Color(249, 240, 118));
+
+        jGameColorP1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jGameColorP1.setForeground(new java.awt.Color(249, 240, 118));
+        jGameColorP1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(148, 148, 148)
+                .addComponent(jPion1P1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPion2P1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPion3P1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPion4P1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addComponent(jGamePseudoP1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addComponent(jGameColorP1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jGamePseudoP1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jGameColorP1, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPion1P1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPion3P1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPion4P1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPion2P1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14))
+        );
+
+        jLayeredPane1.setLayer(jPanel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jLayeredPane2.setBorder(new javax.swing.border.MatteBorder(null));
+
+        jPanel5.setBackground(new java.awt.Color(51, 153, 0));
+
+        jGamePseudoP2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jGamePseudoP2.setForeground(new java.awt.Color(249, 240, 118));
+
+        jGameColorP2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jGameColorP2.setForeground(new java.awt.Color(249, 240, 118));
+        jGameColorP2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPion1P2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPion2P2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPion3P2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPion4P2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(142, 142, 142))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(jGamePseudoP2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jGameColorP2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jGamePseudoP2, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                    .addComponent(jGameColorP2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPion1P2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPion3P2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPion4P2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPion2P2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14))
+        );
+
+        jLayeredPane2.setLayer(jPanel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
+        jLayeredPane2.setLayout(jLayeredPane2Layout);
+        jLayeredPane2Layout.setHorizontalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jLayeredPane2Layout.setVerticalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel6.setBackground(new java.awt.Color(249, 240, 118));
+
+        jGamePseudoP3.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jGamePseudoP3.setForeground(new java.awt.Color(51, 153, 0));
+        jGamePseudoP3.setText("Monster info :");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(jGamePseudoP3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jGamePseudoP3, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addGap(66, 66, 66))
+        );
+
+        jLayeredPane3.setLayer(jPanel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane3Layout = new javax.swing.GroupLayout(jLayeredPane3);
+        jLayeredPane3.setLayout(jLayeredPane3Layout);
+        jLayeredPane3Layout.setHorizontalGroup(
+            jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jLayeredPane3Layout.setVerticalGroup(
+            jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jUpButton.setBackground(new java.awt.Color(0, 18, 2));
+        jUpButton.setFont(new java.awt.Font("Segoe UI", 0, 33)); // NOI18N
+        jUpButton.setForeground(new java.awt.Color(249, 240, 118));
+        jUpButton.setText("▲");
+
+        jUpButton1.setBackground(new java.awt.Color(0, 18, 2));
+        jUpButton1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jUpButton1.setForeground(new java.awt.Color(249, 240, 118));
+        jUpButton1.setText("►");
+
+        jUpButton2.setBackground(new java.awt.Color(0, 18, 2));
+        jUpButton2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jUpButton2.setForeground(new java.awt.Color(249, 240, 118));
+        jUpButton2.setText("◄");
+
+        jUpButton3.setBackground(new java.awt.Color(0, 18, 2));
+        jUpButton3.setFont(new java.awt.Font("Segoe UI", 0, 33)); // NOI18N
+        jUpButton3.setForeground(new java.awt.Color(249, 240, 118));
+        jUpButton3.setText("▼");
+
+        jButton1.setBackground(new java.awt.Color(0, 18, 2));
+        jButton1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(249, 240, 118));
+        jButton1.setText("END");
+
+        jLabel16.setText("CHAT");
+
+        jLabel17.setText("game info");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jBackGaming)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jTitreGame, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(173, 173, 173))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jUpButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jUpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jUpButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jUpButton1))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLayeredPane2)
+                                .addComponent(jLayeredPane1)
+                                .addComponent(jLayeredPane3)))
+                        .addGap(20, 20, 20))))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jBackGaming)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jTitreGame, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(jUpButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jUpButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jUpButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jUpButton3))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(26, 26, 26)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jGamingPageLayout = new javax.swing.GroupLayout(jGamingPage.getContentPane());
+        jGamingPage.getContentPane().setLayout(jGamingPageLayout);
+        jGamingPageLayout.setHorizontalGroup(
+            jGamingPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jGamingPageLayout.setVerticalGroup(
+            jGamingPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenuPrincipal.setBackground(new java.awt.Color(0, 102, 0));
@@ -815,6 +1153,7 @@ public class Interface extends javax.swing.JFrame {
         jConnexionPage.setResizable(false);
         jLabel3.setText("CONNEXION");
         jNewAccount.setVisible(true);
+
         jNewGame.setEnabled(false);
         jContinue.setEnabled(false);
         notEmptyPseudo = false;
@@ -833,6 +1172,7 @@ public class Interface extends javax.swing.JFrame {
             jConfirmPasswordField.setText("");
             //apparition de la fenêtre
             jConnexionPage.setVisible(true);
+            jConnexionPage.setTitle("Finstere Flure - Connexion");
             jConnexionPage.requestFocusInWindow();
             jConnexionPage.pack();
         } else {    //sinon, si le bouton = déconnexion
@@ -847,6 +1187,7 @@ public class Interface extends javax.swing.JFrame {
 
         //apparition de la fenêtre
         jCreditPage.setVisible(true);
+        jCreditPage.setTitle("Finstere Flure - Credits");
         jCreditPage.requestFocusInWindow();
         jCreditPage.pack();
         jCreditPage.setResizable(false);
@@ -892,9 +1233,15 @@ public class Interface extends javax.swing.JFrame {
         if (jNewGame.isEnabled()) {
             //initialisation fenêtre
             jConfigurationPage.setVisible(true);
+            jConfigurationPage.setTitle("Finstere Flure - Configuration");
             jConfigurationPage.requestFocus();
             jConfigurationPage.pack();
             jConfigurationPage.setResizable(false);
+
+            colorL = "Blue";
+            jPionImageLeft.setIcon(new ImageIcon("./img/pion" + colorL + "_1_6_clair.gif"));
+            colorR = "Blue";
+            jPionImageRight.setIcon(new ImageIcon("./img/pion" + colorL + "_1_6_clair.gif"));
 
             //remplissage pseudos
             jGamePseudoLeft.setText(jPseudoField.getText());
@@ -905,28 +1252,80 @@ public class Interface extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jNewGameMouseClicked
 
+    private String colorL;
+    private String colorR;
     private void jColorLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jColorLeftActionPerformed
-        String colorL = (String) jColorLeft.getSelectedItem();
+        colorL = (String) jColorLeft.getSelectedItem();
+        System.out.println(colorL);
         jPionImageLeft.setIcon(new ImageIcon("./img/pion" + colorL + "_1_6_clair.gif"));
     }//GEN-LAST:event_jColorLeftActionPerformed
 
+
     private void jColorRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jColorRightActionPerformed
-        String colorR = (String) jColorRight.getSelectedItem();
+        colorR = (String) jColorRight.getSelectedItem();
         jPionImageRight.setIcon(new ImageIcon("./img/pion" + colorR + "_1_6_clair.gif"));
     }//GEN-LAST:event_jColorRightActionPerformed
 
     private void jStartButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jStartButtonMouseClicked
-        
+
         String namep1 = jGamePseudoLeft.getText();
         String namep2 = jGamePseudoRight.getText();
-        Couleur colorp1 = Couleur.getType((String)jColorLeft.getSelectedItem());
-        Couleur colorp2 = Couleur.getType((String)jColorRight.getSelectedItem());
-        PlayerType typep1 = PlayerType.getType((String)jSelecLeft.getSelectedItem());
-        PlayerType typep2 = PlayerType.getType((String)jSelecRight.getSelectedItem());
+        Couleur colorp1 = Couleur.getType((String) jColorLeft.getSelectedItem());
+        Couleur colorp2 = Couleur.getType((String) jColorRight.getSelectedItem());
+        PlayerType typep1 = PlayerType.getType((String) jSelecLeft.getSelectedItem());
+        PlayerType typep2 = PlayerType.getType((String) jSelecRight.getSelectedItem());
         boolean isAdvanced = jAdvancedCheck.isSelected();
-        
+
         game.init(namep1, colorp1, typep1, namep2, colorp2, typep2, isAdvanced);
-        System.out.println(game);
+        System.out.println(game);   //test pour admins
+
+        jConfigurationPage.dispose();
+        jGamingPage.setVisible(true);
+        jGamingPage.requestFocus();
+        jGamingPage.pack();
+        jGamingPage.setResizable(false);
+        jGamingPage.setTitle("Finstere Flure - Game");
+        jTitreGame.setIcon(new ImageIcon("./img/logo_finstere_grand.gif"));
+
+        jLayeredPane.setPosition(jMap,-1);
+        jMap.setIcon(new ImageIcon("./img/fns_plateau.jpg"));
+        
+        jGamePseudoP1.setText(namep1);
+        jGameColorP1.setText("Color : " + colorL);
+
+        jGamePseudoP2.setText(namep2);
+        jGameColorP2.setText("Color : " + colorR);
+
+        switch (colorL) {
+            case "Blue", "Green", "Red", "Yellow":
+                jPion1P1.setIcon(new ImageIcon("./img/pion" + colorL + "_1_6_clair.gif"));
+                jPion2P1.setIcon(new ImageIcon("./img/pion" + colorL + "_3_4_clair.gif"));
+                jPion3P1.setIcon(new ImageIcon("./img/pion" + colorL + "_4_3_clair.gif"));
+                jPion4P1.setIcon(new ImageIcon("./img/pion" + colorL + "_5_2_clair.gif"));
+                break;
+            case "Brown", "Purple", "Gray":
+                jPion1P1.setIcon(new ImageIcon("./img/pion" + colorL + "_1_6_clair.gif"));
+                jPion2P1.setIcon(new ImageIcon("./img/pion" + colorL + "_4_3_clair.gif"));
+                jPion3P1.setIcon(new ImageIcon("./img/pion" + colorL + "_5_2_clair.gif"));
+                break;
+        }
+
+        System.out.println(colorR);
+        switch (colorR) {
+            case "Blue", "Green", "Red", "Yellow":
+                jPion1P2.setIcon(new ImageIcon("./img/pion" + colorR + "_1_6_clair.gif"));
+                jPion2P2.setIcon(new ImageIcon("./img/pion" + colorR + "_3_4_clair.gif"));
+                jPion3P2.setIcon(new ImageIcon("./img/pion" + colorR + "_4_3_clair.gif"));
+                jPion4P2.setIcon(new ImageIcon("./img/pion" + colorR + "_5_2_clair.gif"));
+                break;
+            case "Brown", "Purple", "Gray":
+                jPion1P2.setIcon(new ImageIcon("./img/pion" + colorR + "_1_6_clair.gif"));
+                jPion2P2.setIcon(new ImageIcon("./img/pion" + colorR + "_4_3_clair.gif"));
+                jPion3P2.setIcon(new ImageIcon("./img/pion" + colorR + "_5_2_clair.gif"));
+                break;
+
+        }
+
     }//GEN-LAST:event_jStartButtonMouseClicked
 
     private void jBackConfigurationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBackConfigurationMouseClicked
@@ -962,33 +1361,38 @@ public class Interface extends javax.swing.JFrame {
 
     private void jPseudoFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPseudoFieldKeyReleased
         // TODO add your handling code here:
-          notEmptyPseudo = true;  //text field ne soit pas vide
+        notEmptyPseudo = true;  //text field ne soit pas vide
 
-        if (jPseudoField.getText().length()== 0) {  //si on efface et que le text est vide, passe à faux
+        if (jPseudoField.getText().length() == 0) {  //si on efface et que le text est vide, passe à faux
             notEmptyPseudo = false;
-        }        
+        }
 
         if ((notEmptyPassword == true) && (notEmptyPseudo == true)) {  //si les deux textfield sont remplis, actionne le bouton ok
             jOkConnexion.setEnabled(true);  //permet de rendre le bouton utilisable une fois que quelquechose est rempli
-        } else
+        } else {
             jOkConnexion.setEnabled(false);
-       
+        }
+
     }//GEN-LAST:event_jPseudoFieldKeyReleased
 
     private void jPasswordFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldKeyReleased
         // TODO add your handling code here:
         notEmptyPassword = true;    //text field ne soit pas vide      
-        
-        if (jPasswordField.getText().length() == 0){    //si on efface et que le text est vide, passe à faux
+
+        if (jPasswordField.getText().length() == 0) {    //si on efface et que le text est vide, passe à faux
             notEmptyPassword = false;
-        }               
-        
+        }
+
         if ((notEmptyPseudo == true) && (notEmptyPassword == true)) { //si les deux textfield sont remplis, actionne le bouton ok
             jOkConnexion.setEnabled(true);  //permet de rendre le bouton utilisable une fois que quelquechose est rempli
         } else {
             jOkConnexion.setEnabled(false);
         }
     }//GEN-LAST:event_jPasswordFieldKeyReleased
+
+    private void jBackGamingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBackGamingMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBackGamingMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1023,6 +1427,7 @@ public class Interface extends javax.swing.JFrame {
             public void run() {
                 JFrame menuP = new Interface();
                 menuP.setVisible(true);
+                menuP.setTitle("Finstere Flure - Menu");
                 menuP.setResizable(false);  //empêche la redimension
             }
         });
@@ -1034,7 +1439,9 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jBackConfiguration;
     private javax.swing.JButton jBackConnexion;
     private javax.swing.JButton jBackCredits;
+    private javax.swing.JButton jBackGaming;
     private javax.swing.JLabel jBloodDrop;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jColorLeft;
     private javax.swing.JComboBox<String> jColorRight;
     private javax.swing.JPanel jConfigLeft;
@@ -1048,8 +1455,14 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JFrame jCreditPage;
     private javax.swing.JLabel jErrorLabel;
     private javax.swing.JLabel jErrorNewGameLabel;
+    private javax.swing.JLabel jGameColorP1;
+    private javax.swing.JLabel jGameColorP2;
     private javax.swing.JTextField jGamePseudoLeft;
+    private javax.swing.JLabel jGamePseudoP1;
+    private javax.swing.JLabel jGamePseudoP2;
+    private javax.swing.JLabel jGamePseudoP3;
     private javax.swing.JTextField jGamePseudoRight;
+    private javax.swing.JFrame jGamingPage;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1057,6 +1470,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1065,6 +1480,11 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLayeredPane jLayeredPane;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLayeredPane jLayeredPane2;
+    private javax.swing.JLayeredPane jLayeredPane3;
+    private javax.swing.JLabel jMap;
     private javax.swing.JPanel jMenuPrincipal;
     private javax.swing.JLabel jMonsterImage;
     private javax.swing.JButton jNewAccount;
@@ -1072,8 +1492,20 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jOkConnexion;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JLabel jPhoto;
+    private javax.swing.JLabel jPion1P1;
+    private javax.swing.JLabel jPion1P2;
+    private javax.swing.JLabel jPion2P1;
+    private javax.swing.JLabel jPion2P2;
+    private javax.swing.JLabel jPion3P1;
+    private javax.swing.JLabel jPion3P2;
+    private javax.swing.JLabel jPion4P1;
+    private javax.swing.JLabel jPion4P2;
     private javax.swing.JLabel jPionImageLeft;
     private javax.swing.JLabel jPionImageRight;
     private javax.swing.JButton jPrevious;
@@ -1087,5 +1519,10 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jShowPassword;
     private javax.swing.JButton jStartButton;
     private javax.swing.JLabel jTitre;
+    private javax.swing.JLabel jTitreGame;
+    private javax.swing.JButton jUpButton;
+    private javax.swing.JButton jUpButton1;
+    private javax.swing.JButton jUpButton2;
+    private javax.swing.JButton jUpButton3;
     // End of variables declaration//GEN-END:variables
 }
