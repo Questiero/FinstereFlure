@@ -13,6 +13,7 @@ public abstract class Pion {
 
     //Coordonnées
     private final int[] coords = new int[2];
+    private int listIndex;
 
     /**
      * Constructeur de Pion en fonction d'un ImageIcon pour sprite
@@ -20,15 +21,18 @@ public abstract class Pion {
      * @param terrain référence du terrain
      * @param x coordonnée du Pion en x sur le terrain
      * @param y coordonnée du Pion en y sur le terrain
+     * @param listIndex indice du Pion dans la LinkedList correspondant à sa case
      * @param sprite
      */
-    public Pion(Terrain terrain, int x, int y, ImageIcon sprite) {
+    public Pion(Terrain terrain, int x, int y, int listIndex, ImageIcon sprite) {
 
         this.terrain = terrain;
         this.sprite = sprite;
 
         this.coords[0] = x;
         this.coords[1] = y;
+        
+        this.listIndex = listIndex; 
 
     }
 
@@ -38,15 +42,18 @@ public abstract class Pion {
      * @param terrain référence du terrain
      * @param x coordonnée du Pion en x sur le terrain
      * @param y coordonnée du Pion en y sur le terrain
+     * @param listIndex indice du Pion dans la LinkedList correspondant à sa case
      * @param spritePath chemin d'accès au sprite
      */
-    public Pion(Terrain terrain, int x, int y, String spritePath) {
+    public Pion(Terrain terrain, int x, int y, int listIndex, String spritePath) {
 
         this.terrain = terrain;
         this.sprite = new ImageIcon(spritePath);
 
         this.coords[0] = x;
         this.coords[1] = y;
+        
+        this.listIndex = listIndex; 
 
     }
 
@@ -62,7 +69,7 @@ public abstract class Pion {
      * Draw le sprite du Jeton
      */
     public void draw() {
-        this.terrain.getSpriteMap()[this.getX()][this.getY()].setIcon(this.sprite);
+        this.terrain.getSpriteMap()[this.getX()][this.getY()].get(this.listIndex).setIcon(this.sprite);
     }
 
 }

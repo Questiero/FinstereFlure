@@ -15,10 +15,11 @@ public final class Jeton extends Pion implements Moveable {
      * @param terrain référence du terrain
      * @param x coordonnée du Pion en x sur le terrain
      * @param y coordonnée du Pion en y sur le terrain
+     * @param listIndex indice du Pion dans la LinkedList correspondant à sa case
      * @param sprite
      */
-    public Jeton(Terrain terrain, int x, int y, ImageIcon sprite) {
-        super(terrain, x, y, sprite);
+    public Jeton(Terrain terrain, int x, int y, int listIndex, ImageIcon sprite) {
+        super(terrain, x, y, listIndex, sprite);
     }
 
     /**
@@ -27,10 +28,11 @@ public final class Jeton extends Pion implements Moveable {
      * @param terrain référence du terrain
      * @param x coordonnée du Pion en x sur le terrain
      * @param y coordonnée du Pion en y sur le terrain
+     * @param listIndex indice du Pion dans la LinkedList correspondant à sa case
      * @param spritePath chemin d'accès au sprite
      */
-    public Jeton(Terrain terrain, int x, int y, String spritePath) {
-        super(terrain, x, y, spritePath);
+    public Jeton(Terrain terrain, int x, int y, int listIndex, String spritePath) {
+        super(terrain, x, y, listIndex, spritePath);
     }
 
     @Override
