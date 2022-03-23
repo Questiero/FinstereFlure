@@ -87,8 +87,4 @@ public class Terrain {
         }
     }
 
-    private Pion Empty(Terrain aThis, int i, int j) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }
