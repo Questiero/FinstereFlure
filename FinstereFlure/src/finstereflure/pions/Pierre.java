@@ -4,7 +4,7 @@ import finstereflure.Terrain;
 import finstereflure.pions.interfaces.Moveable;
 import javax.swing.ImageIcon;
 
-public class Pierre extends Pion implements Moveable {
+public final class Pierre extends Pion implements Moveable {
 
     /**
      * Constructeur de Pierre en fonction d'un ImageIcon pour sprite

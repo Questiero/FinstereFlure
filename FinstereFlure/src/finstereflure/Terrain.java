@@ -1,6 +1,7 @@
 package finstereflure;
 
 import finstereflure.pions.Empty;
+import finstereflure.pions.Monstre;
 import finstereflure.pions.Pierre;
 import finstereflure.pions.Pion;
 import java.util.LinkedList;
@@ -40,27 +41,29 @@ public class Terrain {
      */
     public void init(boolean isAdvanced) {
 
+        // Init empty
         for (int i = 0; i < this.pionMap.length; i++) {
             for (int j = 0; j < this.pionMap[i].length; j++) {
-                this.pionMap[i][j].add(Empty(this, i, j));
+                this.pionMap[i][j].add(new Empty(this, i, j));
             }
         }
 
+        // Init Monstre
+        this.pionMap[0][0].add(new Monstre(this, 0, 0, 1));
+
         if (!isAdvanced) {
 
-            int[][] coordsPierres = {{2,2},{7,4},{8,5},{12,3},{13,5},{6,6},{4,7},{11,7},{14,8},{5,9},{8,9}};
-            
-            for(int[] coord : coordsPierres) {
+            int[][] coordsPierres = {{2, 2}, {7, 4}, {8, 5}, {12, 3}, {13, 5}, {6, 6}, {4, 7}, {11, 7}, {14, 8}, {5, 9}, {8, 9}};
+
+            for (int[] coord : coordsPierres) {
                 LinkedList<Pion> ll = this.pionMap[coord[0]][coord[1]];
                 ll.add(new Pierre(this, coord[0], coord[1], ll.size()));
             }
-            
+
             // TODO Flaques
-            
         } else {
 
             // TODO
-            
         }
 
     }
@@ -77,8 +80,8 @@ public class Terrain {
      * Redraw tout les sprites du terrain
      */
     public void update() {
-        for(LinkedList[] array : this.pionMap) {
-            for(LinkedList<Pion> ll : array) {
+        for (LinkedList[] array : this.pionMap) {
+            for (LinkedList<Pion> ll : array) {
                 ll.getFirst().draw();
             }
         }
@@ -87,5 +90,5 @@ public class Terrain {
     private Pion Empty(Terrain aThis, int i, int j) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

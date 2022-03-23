@@ -8,7 +8,7 @@ import finstereflure.Terrain;
 public final class Empty extends Pion {
 
     public Empty(Terrain terrain, int x, int y) {
-        super(terrain, x, y, "");
+        super(terrain, x, y, 0, "");
     }
 
 }
