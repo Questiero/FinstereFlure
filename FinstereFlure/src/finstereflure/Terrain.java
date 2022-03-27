@@ -49,6 +49,7 @@ public class Terrain {
         // Init empty
         for (int i = 0; i < this.pionMap.length; i++) {
             for (int j = 0; j < this.pionMap[i].length; j++) {
+                this.pionMap[i][j] = new LinkedList<Pion>();
                 this.pionMap[i][j].add(new Empty(this, i, j));
             }
         }
