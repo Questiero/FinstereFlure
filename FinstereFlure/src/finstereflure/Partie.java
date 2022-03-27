@@ -2,6 +2,7 @@ package finstereflure;
 
 import finstereflure.players.*;
 import finstereflure.players.ai.*;
+import javax.swing.JLayeredPane;
 
 /**
  * Gestion d'une partie de jeu
@@ -11,7 +12,7 @@ public class Partie {
     private final Host host;
 
     private final Player[] players = new Player[2];
-    private final Terrain terrain = new Terrain();
+    private final Terrain terrain;
 
     private boolean advancedMode = false;
 
@@ -20,8 +21,9 @@ public class Partie {
      *
      * @param host Hôte de la partie
      */
-    public Partie(Host host) {
+    public Partie(Host host, JLayeredPane layeredPane) {
         this.host = host;
+        this.terrain = new Terrain(layeredPane);
     }
 
     /**

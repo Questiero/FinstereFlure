@@ -19,7 +19,7 @@ import javax.swing.JLabel;
 public class Interface extends javax.swing.JFrame {
 
     private Host h1;
-    private Partie game = new Partie(h1);   //initialisation partie
+    private final Partie game;   //initialisation partie
 
     private boolean notEmptyPseudo = false;
     private boolean notEmptyPassword = false;
@@ -29,6 +29,9 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
+        
+        game = new Partie(h1, jLayeredPane);
+        
         jTitre.setIcon(new ImageIcon("./img/logo_finstere_grand.gif"));   //image titre jeu
         //griser les boutons :
         jNewGame.setEnabled(false);

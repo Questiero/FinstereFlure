@@ -6,11 +6,14 @@ import finstereflure.pions.Pierre;
 import finstereflure.pions.Pion;
 import java.util.LinkedList;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 
 /**
  * Terrain de jeu
  */
 public class Terrain {
+
+    private final JLayeredPane layeredPane;
 
     private LinkedList<Pion>[][] pionMap;
     private LinkedList<JLabel>[][] spriteMap;
@@ -18,7 +21,8 @@ public class Terrain {
     /**
      * Constructeur de Terrain avec dimensions classiques
      */
-    public Terrain() {
+    public Terrain(JLayeredPane layeredPane) {
+        this.layeredPane = layeredPane;
         this.pionMap = new LinkedList[16][11];
         this.spriteMap = new LinkedList[16][11];
     }
@@ -29,7 +33,8 @@ public class Terrain {
      * @param x largeur du terrain
      * @param y hauteur du terrain
      */
-    public Terrain(int x, int y, boolean isAdvanced) {
+    public Terrain(int x, int y, JLayeredPane layeredPane) {
+        this.layeredPane = layeredPane;
         this.pionMap = new LinkedList[x][y];
         this.spriteMap = new LinkedList[x][y];
     }
