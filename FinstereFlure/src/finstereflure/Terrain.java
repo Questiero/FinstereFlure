@@ -57,7 +57,7 @@ public class Terrain {
                 
                 // Init layeredPane
                 this.spriteMap[i][j] = new JLabel();
-                this.spriteMap[i][j].setBounds(i*43, j*43, 43, 43);
+                this.spriteMap[i][j].setBounds(24+i*40, 19+j*40, 40, 40);
                 this.layeredPane.add(this.spriteMap[i][j]);
                 
             }
