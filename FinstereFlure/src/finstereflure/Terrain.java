@@ -16,7 +16,7 @@ public class Terrain {
     private final JLayeredPane layeredPane;
 
     private LinkedList<Pion>[][] pionMap;
-    private LinkedList<JLabel>[][] spriteMap;
+    private JLabel[][] spriteMap;
 
     /**
      * Constructeur de Terrain avec dimensions classiques
@@ -24,7 +24,7 @@ public class Terrain {
     public Terrain(JLayeredPane layeredPane) {
         this.layeredPane = layeredPane;
         this.pionMap = new LinkedList[16][11];
-        this.spriteMap = new LinkedList[16][11];
+        this.spriteMap = new JLabel[16][11];
     }
 
     /**
@@ -36,7 +36,7 @@ public class Terrain {
     public Terrain(int x, int y, JLayeredPane layeredPane) {
         this.layeredPane = layeredPane;
         this.pionMap = new LinkedList[x][y];
-        this.spriteMap = new LinkedList[x][y];
+        this.spriteMap = new JLabel[x][y];
     }
 
     /**
@@ -46,11 +46,20 @@ public class Terrain {
      */
     public void init(boolean isAdvanced) {
 
-        // Init empty
         for (int i = 0; i < this.pionMap.length; i++) {
             for (int j = 0; j < this.pionMap[i].length; j++) {
+
+                // Init pionMap
                 this.pionMap[i][j] = new LinkedList<Pion>();
+
+                // Init Empty
                 this.pionMap[i][j].add(new Empty(this, i, j));
+                
+                // Init layeredPane
+                this.spriteMap[i][j] = new JLabel();
+                this.spriteMap[i][j].setBounds(i*43, j*43, 43, 43);
+                this.layeredPane.add(this.spriteMap[i][j]);
+                
             }
         }
 
@@ -72,13 +81,15 @@ public class Terrain {
             // TODO
         }
 
+        this.update();
+        
     }
 
     public LinkedList<Pion>[][] getPionMap() {
         return this.pionMap;
     }
 
-    public LinkedList<JLabel>[][] getSpriteMap() {
+    public JLabel[][] getSpriteMap() {
         return this.spriteMap;
     }
 
@@ -88,7 +99,7 @@ public class Terrain {
     public void update() {
         for (LinkedList[] array : this.pionMap) {
             for (LinkedList<Pion> ll : array) {
-                ll.getFirst().draw();
+                ll.getLast().draw();
             }
         }
     }

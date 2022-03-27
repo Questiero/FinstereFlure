@@ -15,7 +15,7 @@ public final class Pierre extends Pion implements Moveable {
      * @param listIndex indice du Pion dans la LinkedList correspondant à sa case
      */
     public Pierre(Terrain terrain, int x, int y, int listIndex) {
-        super(terrain, x, y, listIndex, "mur.png");
+        super(terrain, x, y, listIndex, "./img/mur.png");
     }
     
     @Override

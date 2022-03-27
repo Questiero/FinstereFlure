@@ -8,6 +8,7 @@ package finstereflure;
 import finstereflure.players.PlayerType;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 /**
  *
