@@ -19,7 +19,7 @@ public final class Monstre extends Pion implements Moveable {
      * case
      */
     public Monstre(Terrain terrain, int x, int y, int listIndex) {
-        super(terrain, x, y, listIndex, "./img/monstre1.gif");
+        super(terrain, x, y, listIndex, "./img/monstre2.gif");
     }
 
     @Override
