@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
  */
 public abstract class Pion {
 
-    private final ImageIcon sprite;
+    protected ImageIcon sprite;
     protected final Terrain terrain;
 
     //Coordonnées
