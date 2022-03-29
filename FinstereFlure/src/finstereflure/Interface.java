@@ -1473,6 +1473,8 @@ public class Interface extends javax.swing.JFrame {
         jLayeredPane.add(jMap);
     }//GEN-LAST:event_jGamingPageWindowClosing
 
+    
+    
     private void jPion1P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P1MouseClicked
         System.out.println("J1 : Pion 1");
         setBorder(1, 1);
