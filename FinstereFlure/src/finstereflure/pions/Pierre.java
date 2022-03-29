@@ -40,4 +40,9 @@ public final class Pierre extends Pion implements Moveable {
         this.listIndex = listIndex;
     }
 
+    @Override
+    public String generateSpritePath() {
+        return "./img/mur.png";
+    }
+
 }

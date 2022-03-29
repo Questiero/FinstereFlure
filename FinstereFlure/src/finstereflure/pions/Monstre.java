@@ -10,6 +10,8 @@ import javax.swing.ImageIcon;
  */
 public final class Monstre extends Pion implements Moveable {
 
+    private Direction direction = Direction.RIGHT;
+
     /**
      * Constructeur de Monstre en fonction d'un ImageIcon pour sprite
      *
@@ -41,6 +43,31 @@ public final class Monstre extends Pion implements Moveable {
     @Override
     public void setListIndex(int listIndex) {
         this.listIndex = listIndex;
+    }
+
+    @Override
+    public String generateSpritePath() {
+
+        String s = "./img/monstre";
+
+        switch (this.direction) {
+            case UP:
+                s += "1";
+                break;
+            case RIGHT:
+                s += "2";
+                break;
+            case DOWN:
+                s += "3";
+                break;
+            case LEFT:
+                s += "4";
+                break;
+
+        }
+
+        return s += ".gif";
+
     }
 
 }

@@ -71,6 +71,7 @@ public final class Jeton extends Pion implements Moveable {
         this.listIndex = listIndex;
     }
 
+    @Override
     public String generateSpritePath() {
         
         String s = "./img/pion" + this.player.getColor();

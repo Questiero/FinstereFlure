@@ -11,4 +11,9 @@ public final class Empty extends Pion {
         super(terrain, x, y, 0, "");
     }
 
+    @Override
+    public String generateSpritePath() {
+        return "";
+    }
+
 }
