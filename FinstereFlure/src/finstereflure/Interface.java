@@ -675,6 +675,11 @@ public class Interface extends javax.swing.JFrame {
         );
 
         jGamingPage.setBackground(new java.awt.Color(0, 102, 0));
+        jGamingPage.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                jGamingPageWindowClosing(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 0));
 
@@ -713,6 +718,30 @@ public class Interface extends javax.swing.JFrame {
 
         jGamePseudoP1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         jGamePseudoP1.setForeground(new java.awt.Color(249, 240, 118));
+
+        jPion1P1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPion1P1MouseClicked(evt);
+            }
+        });
+
+        jPion2P1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPion2P1MouseClicked(evt);
+            }
+        });
+
+        jPion3P1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPion3P1MouseClicked(evt);
+            }
+        });
+
+        jPion4P1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPion4P1MouseClicked(evt);
+            }
+        });
 
         jGameColorP1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         jGameColorP1.setForeground(new java.awt.Color(249, 240, 118));
@@ -775,6 +804,30 @@ public class Interface extends javax.swing.JFrame {
         jGamePseudoP2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         jGamePseudoP2.setForeground(new java.awt.Color(249, 240, 118));
 
+        jPion1P2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPion1P2MouseClicked(evt);
+            }
+        });
+
+        jPion2P2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPion2P2MouseClicked(evt);
+            }
+        });
+
+        jPion3P2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPion3P2MouseClicked(evt);
+            }
+        });
+
+        jPion4P2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPion4P2MouseClicked(evt);
+            }
+        });
+
         jGameColorP2.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
         jGameColorP2.setForeground(new java.awt.Color(249, 240, 118));
         jGameColorP2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -784,7 +837,7 @@ public class Interface extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(144, Short.MAX_VALUE)
                 .addComponent(jPion1P2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPion2P2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1397,7 +1450,9 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordFieldKeyReleased
 
     private void jBackGamingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBackGamingMouseClicked
-        // TODO add your handling code here:
+        jGamingPage.dispose();
+        jLayeredPane.removeAll();
+        jLayeredPane.add(jMap);
     }//GEN-LAST:event_jBackGamingMouseClicked
 
     private void jStartButtonMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jStartButtonMouseMoved
@@ -1409,6 +1464,44 @@ public class Interface extends javax.swing.JFrame {
     private void jPanel2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseMoved
         jErrorStartLabel.setText("");
     }//GEN-LAST:event_jPanel2MouseMoved
+
+    private void jGamingPageWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jGamingPageWindowClosing
+        jGamingPage.dispose();
+        jLayeredPane.removeAll();
+        jLayeredPane.add(jMap);
+    }//GEN-LAST:event_jGamingPageWindowClosing
+
+    private void jPion1P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P1MouseClicked
+        System.out.println("J1 : Pion 1");
+    }//GEN-LAST:event_jPion1P1MouseClicked
+
+    private void jPion2P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P1MouseClicked
+        System.out.println("J1 : Pion 2");
+    }//GEN-LAST:event_jPion2P1MouseClicked
+
+    private void jPion3P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P1MouseClicked
+        System.out.println("J1 : Pion 3");
+    }//GEN-LAST:event_jPion3P1MouseClicked
+
+    private void jPion4P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P1MouseClicked
+        System.out.println("J1 : Pion 4");
+    }//GEN-LAST:event_jPion4P1MouseClicked
+
+    private void jPion1P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P2MouseClicked
+        System.out.println("J2 : Pion 1");
+    }//GEN-LAST:event_jPion1P2MouseClicked
+
+    private void jPion2P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P2MouseClicked
+        System.out.println("J2 : Pion 2");
+    }//GEN-LAST:event_jPion2P2MouseClicked
+
+    private void jPion3P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P2MouseClicked
+        System.out.println("J2 : Pion 3");
+    }//GEN-LAST:event_jPion3P2MouseClicked
+
+    private void jPion4P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P2MouseClicked
+        System.out.println("J2 : Pion 4");
+    }//GEN-LAST:event_jPion4P2MouseClicked
 
     /**
      * @param args the command line arguments
