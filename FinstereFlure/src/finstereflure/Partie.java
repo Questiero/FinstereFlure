@@ -100,6 +100,10 @@ public class Partie {
         return this.players[1];
     }
 
+    public Terrain getTerrain() {
+        return this.terrain;
+    }
+    
     @Override
     public String toString() {
         return ("Joueur 1 : \t" + players[0] + "\nJoueur 2 : \t" + players[1]);
