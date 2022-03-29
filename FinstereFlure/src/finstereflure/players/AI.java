@@ -1,6 +1,6 @@
 package finstereflure.players;
 
-import finstereflure.Couleur;
+import finstereflure.enums.Couleur;
 
 public abstract class AI extends Player {
 

@@ -1,5 +1,7 @@
 package finstereflure;
 
+import finstereflure.enums.Couleur;
+import finstereflure.enums.PlayerType;
 import finstereflure.players.*;
 import finstereflure.players.ai.*;
 import javax.swing.JLayeredPane;

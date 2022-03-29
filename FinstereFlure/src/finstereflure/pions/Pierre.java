@@ -1,6 +1,7 @@
 package finstereflure.pions;
 
 import finstereflure.Terrain;
+import finstereflure.enums.Direction;
 import finstereflure.pions.interfaces.Moveable;
 import javax.swing.ImageIcon;
 
@@ -12,29 +13,15 @@ public final class Pierre extends Pion implements Moveable {
      * @param terrain référence du terrain
      * @param x coordonnée du Pion en x sur le terrain
      * @param y coordonnée du Pion en y sur le terrain
-     * @param listIndex indice du Pion dans la LinkedList correspondant à sa case
+     * @param listIndex indice du Pion dans la LinkedList correspondant à sa
+     * case
      */
     public Pierre(Terrain terrain, int x, int y, int listIndex) {
         super(terrain, x, y, listIndex, "./img/mur.png");
     }
-    
-    @Override
-    public void moveUp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
-    public void moveRight() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void moveDown() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void moveLeft() {
+    public void move(Direction dir) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -52,5 +39,5 @@ public final class Pierre extends Pion implements Moveable {
     public void setListIndex(int listIndex) {
         this.listIndex = listIndex;
     }
-    
+
 }

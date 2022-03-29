@@ -1,6 +1,7 @@
 package finstereflure.pions;
 
 import finstereflure.Terrain;
+import finstereflure.enums.Direction;
 import finstereflure.pions.interfaces.Moveable;
 import javax.swing.ImageIcon;
 
@@ -38,32 +39,9 @@ public final class Jeton extends Pion implements Moveable {
     }
 
     @Override
-    public void moveUp() {
-        this.getTile().remove(this);
-        this.coords[1]++;
-        this.getTile().add(this);
-    }
-
-    @Override
-    public void moveRight() {
-        this.getTile().remove(this);
-        this.coords[0]++;
-        this.getTile().add(this);
-    }
-
-    @Override
-    public void moveDown() {
-        this.getTile().remove(this);
-        this.coords[1]--;
-        this.getTile().add(this);
-    }
-
-    @Override
-    public void moveLeft() {
-        this.getTile().remove(this);
-        this.coords[0]--;
-        this.getTile().add(this);
-    }
+    public void move(Direction dir) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }    
 
     @Override
     public void setX(int x) {

@@ -1,11 +1,10 @@
 package finstereflure.pions.interfaces;
 
+import finstereflure.enums.Direction;
+
 public interface Moveable {
     
-    public void moveUp();
-    public void moveRight();
-    public void moveDown();
-    public void moveLeft();
+    public void move(Direction dir);
     
     public void setX(int x);
     public void setY(int y);

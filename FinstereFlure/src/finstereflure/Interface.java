@@ -5,7 +5,8 @@
  */
 package finstereflure;
 
-import finstereflure.players.PlayerType;
+import finstereflure.enums.Couleur;
+import finstereflure.enums.PlayerType;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;

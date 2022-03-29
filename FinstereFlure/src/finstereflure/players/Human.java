@@ -1,6 +1,7 @@
 package finstereflure.players;
 
-import finstereflure.Couleur;
+import finstereflure.enums.PlayerType;
+import finstereflure.enums.Couleur;
 
 public class Human extends Player {
 

@@ -21,24 +21,9 @@ public final class Monstre extends Pion implements Moveable {
     public Monstre(Terrain terrain, int x, int y, int listIndex) {
         super(terrain, x, y, listIndex, "./img/monstre2.gif");
     }
-    
-    @Override
-    public void moveUp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
-    public void moveRight() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void moveDown() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void moveLeft() {
+    public void move(Direction dir) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

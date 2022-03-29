@@ -1,4 +1,4 @@
-package finstereflure;
+package finstereflure.enums;
 
 /**
  * Couleur disponibles pour les jetons

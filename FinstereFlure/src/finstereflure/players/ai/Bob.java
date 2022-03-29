@@ -1,8 +1,8 @@
 package finstereflure.players.ai;
 
-import finstereflure.Couleur;
+import finstereflure.enums.Couleur;
 import finstereflure.players.AI;
-import finstereflure.players.PlayerType;
+import finstereflure.enums.PlayerType;
 
 public class Bob extends AI {
 

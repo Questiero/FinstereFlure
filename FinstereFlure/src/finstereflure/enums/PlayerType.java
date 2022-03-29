@@ -1,4 +1,4 @@
-package finstereflure.players;
+package finstereflure.enums;
 
 /**
  * Type du joueur
