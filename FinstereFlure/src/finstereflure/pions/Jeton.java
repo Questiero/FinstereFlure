@@ -2,7 +2,6 @@ package finstereflure.pions;
 
 import finstereflure.Terrain;
 import finstereflure.pions.interfaces.Moveable;
-import java.util.LinkedList;
 import javax.swing.ImageIcon;
 
 /**
