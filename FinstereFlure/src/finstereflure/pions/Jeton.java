@@ -2,6 +2,7 @@ package finstereflure.pions;
 
 import finstereflure.Terrain;
 import finstereflure.pions.interfaces.Moveable;
+import java.util.LinkedList;
 import javax.swing.ImageIcon;
 
 /**
@@ -37,24 +38,36 @@ public final class Jeton extends Pion implements Moveable {
         super(terrain, x, y, listIndex, spritePath);
     }
 
+    private LinkedList<Pion> getTile() {
+        return this.terrain.getPionMap()[this.coords[0]][this.coords[1]];
+    }
+
     @Override
     public void moveUp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.getTile().remove(this);
+        this.coords[1]++;
+        this.getTile().add(this);
     }
 
     @Override
     public void moveRight() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.getTile().remove(this);
+        this.coords[0]++;
+        this.getTile().add(this);
     }
 
     @Override
     public void moveDown() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.getTile().remove(this);
+        this.coords[1]--;
+        this.getTile().add(this);
     }
 
     @Override
     public void moveLeft() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.getTile().remove(this);
+        this.coords[0]--;
+        this.getTile().add(this);
     }
 
     @Override
