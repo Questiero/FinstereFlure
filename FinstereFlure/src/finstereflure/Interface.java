@@ -7,6 +7,8 @@ package finstereflure;
 
 import finstereflure.enums.Couleur;
 import finstereflure.enums.PlayerType;
+import java.awt.Color;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -1473,35 +1475,97 @@ public class Interface extends javax.swing.JFrame {
 
     private void jPion1P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P1MouseClicked
         System.out.println("J1 : Pion 1");
+        setBorder(1, 1);
     }//GEN-LAST:event_jPion1P1MouseClicked
 
     private void jPion2P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P1MouseClicked
         System.out.println("J1 : Pion 2");
+        setBorder(1, 2);
     }//GEN-LAST:event_jPion2P1MouseClicked
 
     private void jPion3P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P1MouseClicked
         System.out.println("J1 : Pion 3");
+        setBorder(1, 3);
     }//GEN-LAST:event_jPion3P1MouseClicked
 
     private void jPion4P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P1MouseClicked
         System.out.println("J1 : Pion 4");
+        setBorder(1, 4);
     }//GEN-LAST:event_jPion4P1MouseClicked
 
     private void jPion1P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P2MouseClicked
         System.out.println("J2 : Pion 1");
+        setBorder(2, 1);
     }//GEN-LAST:event_jPion1P2MouseClicked
 
     private void jPion2P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P2MouseClicked
         System.out.println("J2 : Pion 2");
+        setBorder(2, 2);
     }//GEN-LAST:event_jPion2P2MouseClicked
 
     private void jPion3P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P2MouseClicked
         System.out.println("J2 : Pion 3");
+        setBorder(2, 3);
     }//GEN-LAST:event_jPion3P2MouseClicked
 
     private void jPion4P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P2MouseClicked
         System.out.println("J2 : Pion 4");
+        setBorder(2, 4);
     }//GEN-LAST:event_jPion4P2MouseClicked
+
+    private void setBorder(int player, int pion) {  //affichage dynamique de la sélection des pions du joueur joué
+        jPion1P1.setBorder(BorderFactory.createEmptyBorder());
+        jPion2P1.setBorder(BorderFactory.createEmptyBorder());
+        jPion3P1.setBorder(BorderFactory.createEmptyBorder());
+        jPion4P1.setBorder(BorderFactory.createEmptyBorder());
+        jPion1P2.setBorder(BorderFactory.createEmptyBorder());
+        jPion2P2.setBorder(BorderFactory.createEmptyBorder());
+        jPion3P2.setBorder(BorderFactory.createEmptyBorder());
+        jPion4P2.setBorder(BorderFactory.createEmptyBorder());
+
+        switch (player) {
+            case 1:
+                switch (pion) {
+                    case 1:
+                        jPion1P1.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+                        break;
+                    case 2:
+                        jPion2P1.setBorder(BorderFactory.createLineBorder(Color.black,2));
+                        break;
+                    case 3:
+                        jPion3P1.setBorder(BorderFactory.createLineBorder(Color.black,2));
+                        break;
+                    case 4:
+                        if (colorL == "Brown" || colorL == "Gray" || colorL == "Purple") {
+                            jPion4P1.setBorder(BorderFactory.createEmptyBorder());
+                        } else {
+                            jPion4P1.setBorder(BorderFactory.createLineBorder(Color.black,2));
+                        }
+                        break;
+                }
+                break;
+            case 2:
+                switch (pion) {
+                    case 1:
+                        jPion1P2.setBorder(BorderFactory.createLineBorder(Color.black,2));
+                        break;
+                    case 2:
+                        jPion2P2.setBorder(BorderFactory.createLineBorder(Color.black,2));
+                        break;
+                    case 3:
+                        jPion3P2.setBorder(BorderFactory.createLineBorder(Color.black,2));
+                        break;
+                    case 4:
+                        if (colorL == "Brown" || colorL == "Gray" || colorL == "Purple") {
+                            jPion4P2.setBorder(BorderFactory.createEmptyBorder());
+                        } else {
+                            jPion4P2.setBorder(BorderFactory.createLineBorder(Color.black,2));
+                        }
+                        break;
+                }
+                break;
+        }
+    }
 
     /**
      * @param args the command line arguments
