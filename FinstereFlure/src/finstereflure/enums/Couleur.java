@@ -70,6 +70,10 @@ public enum Couleur {
             case "yellow":
                 color = Couleur.YELLOW;
                 break;
+            case "red":
+            case "rouge":
+                color = Couleur.RED;
+                break;
 
         }
 

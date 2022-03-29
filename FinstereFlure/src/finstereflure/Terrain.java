@@ -85,7 +85,7 @@ public class Terrain {
             }
         }
 
-        Player p2 = this.game.getPlayer1();
+        Player p2 = this.game.getPlayer2();
         for (int value : values) {
             if (!(p2.getMaxJetons() == 3 && value == 3)) {
                 Jeton jeton = new Jeton(this, 15, 10, this.pionMap[15][10].size(), "", p2, value);

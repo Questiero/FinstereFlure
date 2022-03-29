@@ -1276,9 +1276,9 @@ public class Interface extends javax.swing.JFrame {
     private String colorR;
     private void jColorLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jColorLeftActionPerformed
         colorL = (String) jColorLeft.getSelectedItem();
-        if (!colorL.equals(colorR)){
+        if (!colorL.equals(colorR)) {
             jStartButton.setEnabled(true);
-        }else{
+        } else {
             jStartButton.setEnabled(false);
         }
         jPionImageLeft.setIcon(new ImageIcon("./img/pion" + colorL + "_1_6_clair.gif"));
@@ -1287,9 +1287,9 @@ public class Interface extends javax.swing.JFrame {
 
     private void jColorRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jColorRightActionPerformed
         colorR = (String) jColorRight.getSelectedItem();
-        if (!colorL.equals(colorR)){
+        if (!colorL.equals(colorR)) {
             jStartButton.setEnabled(true);
-        }else{
+        } else {
             jStartButton.setEnabled(false);
         }
         jPionImageRight.setIcon(new ImageIcon("./img/pion" + colorR + "_1_6_clair.gif"));
@@ -1326,35 +1326,8 @@ public class Interface extends javax.swing.JFrame {
             jGamePseudoP2.setText(namep2);
             jGameColorP2.setText("Color : " + colorR);
 
-            switch (colorL) {
-                case "Blue", "Green", "Red", "Yellow":
-                    jPion1P1.setIcon(new ImageIcon("./img/pion" + colorL + "_1_6_clair.gif"));
-                    jPion2P1.setIcon(new ImageIcon("./img/pion" + colorL + "_3_4_clair.gif"));
-                    jPion3P1.setIcon(new ImageIcon("./img/pion" + colorL + "_4_3_clair.gif"));
-                    jPion4P1.setIcon(new ImageIcon("./img/pion" + colorL + "_5_2_clair.gif"));
-                    break;
-                case "Brown", "Purple", "Gray":
-                    jPion1P1.setIcon(new ImageIcon("./img/pion" + colorL + "_1_6_clair.gif"));
-                    jPion2P1.setIcon(new ImageIcon("./img/pion" + colorL + "_4_3_clair.gif"));
-                    jPion3P1.setIcon(new ImageIcon("./img/pion" + colorL + "_5_2_clair.gif"));
-                    break;
-            }
-
-            System.out.println(colorR);
-            switch (colorR) {
-                case "Blue", "Green", "Red", "Yellow":
-                    jPion1P2.setIcon(new ImageIcon("./img/pion" + colorR + "_1_6_clair.gif"));
-                    jPion2P2.setIcon(new ImageIcon("./img/pion" + colorR + "_3_4_clair.gif"));
-                    jPion3P2.setIcon(new ImageIcon("./img/pion" + colorR + "_4_3_clair.gif"));
-                    jPion4P2.setIcon(new ImageIcon("./img/pion" + colorR + "_5_2_clair.gif"));
-                    break;
-                case "Brown", "Purple", "Gray":
-                    jPion1P2.setIcon(new ImageIcon("./img/pion" + colorR + "_1_6_clair.gif"));
-                    jPion2P2.setIcon(new ImageIcon("./img/pion" + colorR + "_4_3_clair.gif"));
-                    jPion3P2.setIcon(new ImageIcon("./img/pion" + colorR + "_5_2_clair.gif"));
-                    break;
-
-            }
+            this.updateDisplayJeton();
+            
         }
 
     }//GEN-LAST:event_jStartButtonMouseClicked
@@ -1426,7 +1399,7 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jBackGamingMouseClicked
 
     private void jStartButtonMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jStartButtonMouseMoved
-        if (!jStartButton.isEnabled()){
+        if (!jStartButton.isEnabled()) {
             jErrorStartLabel.setText("2 differents colors are required");
         }
     }//GEN-LAST:event_jStartButtonMouseMoved
@@ -1472,6 +1445,21 @@ public class Interface extends javax.swing.JFrame {
                 menuP.setResizable(false);  //empêche la redimension
             }
         });
+    }
+
+    private void updateDisplayJeton() {
+
+        JLabel[] labelsP1 = {jPion1P1, jPion2P1, jPion3P1, jPion4P1};
+        JLabel[] labelsP2 = {jPion1P2, jPion2P2, jPion3P2, jPion4P2};
+        
+        for(int i = 0; i < this.game.getPlayer1().getJetons().size(); i++) {
+            labelsP1[i].setIcon(new ImageIcon(this.game.getPlayer1().getJetons().get(i).generateSpritePath()));
+        }
+        
+        for(int i = 0; i < this.game.getPlayer2().getJetons().size(); i++) {
+            labelsP2[i].setIcon(new ImageIcon(this.game.getPlayer2().getJetons().get(i).generateSpritePath()));
+        }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
