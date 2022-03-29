@@ -38,10 +38,6 @@ public final class Jeton extends Pion implements Moveable {
         super(terrain, x, y, listIndex, spritePath);
     }
 
-    private LinkedList<Pion> getTile() {
-        return this.terrain.getPionMap()[this.coords[0]][this.coords[1]];
-    }
-
     @Override
     public void moveUp() {
         this.getTile().remove(this);
