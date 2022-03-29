@@ -27,9 +27,9 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
-        
+
         game = new Partie(h1, jLayeredPane);
-        
+
         jTitre.setIcon(new ImageIcon("./img/logo_finstere_grand.gif"));   //image titre jeu
         //griser les boutons :
         jNewGame.setEnabled(false);
@@ -99,6 +99,7 @@ public class Interface extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jStartButton = new javax.swing.JButton();
         jBackConfiguration = new javax.swing.JButton();
+        jErrorStartLabel = new javax.swing.JLabel();
         jGamingPage = new javax.swing.JFrame();
         jPanel3 = new javax.swing.JPanel();
         jLayeredPane = new javax.swing.JLayeredPane();
@@ -422,6 +423,11 @@ public class Interface extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 0));
+        jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jPanel2MouseMoved(evt);
+            }
+        });
 
         jConfigLeft.setBackground(new java.awt.Color(51, 153, 0));
         jConfigLeft.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -585,6 +591,11 @@ public class Interface extends javax.swing.JFrame {
         jStartButton.setForeground(new java.awt.Color(249, 240, 118));
         jStartButton.setText("START");
         jStartButton.setBorder(null);
+        jStartButton.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jStartButtonMouseMoved(evt);
+            }
+        });
         jStartButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jStartButtonMouseClicked(evt);
@@ -600,6 +611,10 @@ public class Interface extends javax.swing.JFrame {
                 jBackConfigurationMouseClicked(evt);
             }
         });
+
+        jErrorStartLabel.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jErrorStartLabel.setForeground(new java.awt.Color(153, 0, 51));
+        jErrorStartLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -618,7 +633,9 @@ public class Interface extends javax.swing.JFrame {
                         .addComponent(jAdvancedCheck)
                         .addGap(512, 512, 512))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jStartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jStartButton, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(jErrorStartLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(524, 524, 524))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
@@ -642,7 +659,9 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(jAdvancedCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(jStartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jErrorStartLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jConfigurationPageLayout = new javax.swing.GroupLayout(jConfigurationPage.getContentPane());
@@ -933,20 +952,18 @@ public class Interface extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jUpButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jUpButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jUpButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jUpButton3))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jUpButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jUpButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addComponent(jUpButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jUpButton3))
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGap(26, 26, 26)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
@@ -1238,6 +1255,7 @@ public class Interface extends javax.swing.JFrame {
             jConfigurationPage.requestFocus();
             jConfigurationPage.pack();
             jConfigurationPage.setResizable(false);
+            jStartButton.setEnabled(false);
 
             colorL = "Blue";
             jPionImageLeft.setIcon(new ImageIcon("./img/pion" + colorL + "_1_6_clair.gif"));
@@ -1257,74 +1275,85 @@ public class Interface extends javax.swing.JFrame {
     private String colorR;
     private void jColorLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jColorLeftActionPerformed
         colorL = (String) jColorLeft.getSelectedItem();
-        System.out.println(colorL);
+        if (!colorL.equals(colorR)){
+            jStartButton.setEnabled(true);
+        }else{
+            jStartButton.setEnabled(false);
+        }
         jPionImageLeft.setIcon(new ImageIcon("./img/pion" + colorL + "_1_6_clair.gif"));
     }//GEN-LAST:event_jColorLeftActionPerformed
 
 
     private void jColorRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jColorRightActionPerformed
         colorR = (String) jColorRight.getSelectedItem();
+        if (!colorL.equals(colorR)){
+            jStartButton.setEnabled(true);
+        }else{
+            jStartButton.setEnabled(false);
+        }
         jPionImageRight.setIcon(new ImageIcon("./img/pion" + colorR + "_1_6_clair.gif"));
     }//GEN-LAST:event_jColorRightActionPerformed
 
     private void jStartButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jStartButtonMouseClicked
 
-        String namep1 = jGamePseudoLeft.getText();
-        String namep2 = jGamePseudoRight.getText();
-        Couleur colorp1 = Couleur.getType((String) jColorLeft.getSelectedItem());
-        Couleur colorp2 = Couleur.getType((String) jColorRight.getSelectedItem());
-        PlayerType typep1 = PlayerType.getType((String) jSelecLeft.getSelectedItem());
-        PlayerType typep2 = PlayerType.getType((String) jSelecRight.getSelectedItem());
-        boolean isAdvanced = jAdvancedCheck.isSelected();
+        if (jStartButton.isEnabled() == true) {
+            String namep1 = jGamePseudoLeft.getText();
+            String namep2 = jGamePseudoRight.getText();
+            Couleur colorp1 = Couleur.getType((String) jColorLeft.getSelectedItem());
+            Couleur colorp2 = Couleur.getType((String) jColorRight.getSelectedItem());
+            PlayerType typep1 = PlayerType.getType((String) jSelecLeft.getSelectedItem());
+            PlayerType typep2 = PlayerType.getType((String) jSelecRight.getSelectedItem());
+            boolean isAdvanced = jAdvancedCheck.isSelected();
 
-        game.init(namep1, colorp1, typep1, namep2, colorp2, typep2, isAdvanced);
-        System.out.println(game);   //test pour admins
+            game.init(namep1, colorp1, typep1, namep2, colorp2, typep2, isAdvanced);
+            System.out.println(game);   //test pour admins
 
-        jConfigurationPage.dispose();
-        jGamingPage.setVisible(true);
-        jGamingPage.requestFocus();
-        jGamingPage.pack();
-        jGamingPage.setResizable(false);
-        jGamingPage.setTitle("Finstere Flure - Game");
-        jTitreGame.setIcon(new ImageIcon("./img/logo_finstere_grand.gif"));
+            jConfigurationPage.dispose();
+            jGamingPage.setVisible(true);
+            jGamingPage.requestFocus();
+            jGamingPage.pack();
+            jGamingPage.setResizable(false);
+            jGamingPage.setTitle("Finstere Flure - Game");
+            jTitreGame.setIcon(new ImageIcon("./img/logo_finstere_grand.gif"));
 
-        jLayeredPane.setPosition(jMap,-1);
-        jMap.setIcon(new ImageIcon("./img/fns_plateau.jpg"));
-        
-        jGamePseudoP1.setText(namep1);
-        jGameColorP1.setText("Color : " + colorL);
+            jLayeredPane.setPosition(jMap, -1);
+            jMap.setIcon(new ImageIcon("./img/fns_plateau.jpg"));
 
-        jGamePseudoP2.setText(namep2);
-        jGameColorP2.setText("Color : " + colorR);
+            jGamePseudoP1.setText(namep1);
+            jGameColorP1.setText("Color : " + colorL);
 
-        switch (colorL) {
-            case "Blue", "Green", "Red", "Yellow":
-                jPion1P1.setIcon(new ImageIcon("./img/pion" + colorL + "_1_6_clair.gif"));
-                jPion2P1.setIcon(new ImageIcon("./img/pion" + colorL + "_3_4_clair.gif"));
-                jPion3P1.setIcon(new ImageIcon("./img/pion" + colorL + "_4_3_clair.gif"));
-                jPion4P1.setIcon(new ImageIcon("./img/pion" + colorL + "_5_2_clair.gif"));
-                break;
-            case "Brown", "Purple", "Gray":
-                jPion1P1.setIcon(new ImageIcon("./img/pion" + colorL + "_1_6_clair.gif"));
-                jPion2P1.setIcon(new ImageIcon("./img/pion" + colorL + "_4_3_clair.gif"));
-                jPion3P1.setIcon(new ImageIcon("./img/pion" + colorL + "_5_2_clair.gif"));
-                break;
-        }
+            jGamePseudoP2.setText(namep2);
+            jGameColorP2.setText("Color : " + colorR);
 
-        System.out.println(colorR);
-        switch (colorR) {
-            case "Blue", "Green", "Red", "Yellow":
-                jPion1P2.setIcon(new ImageIcon("./img/pion" + colorR + "_1_6_clair.gif"));
-                jPion2P2.setIcon(new ImageIcon("./img/pion" + colorR + "_3_4_clair.gif"));
-                jPion3P2.setIcon(new ImageIcon("./img/pion" + colorR + "_4_3_clair.gif"));
-                jPion4P2.setIcon(new ImageIcon("./img/pion" + colorR + "_5_2_clair.gif"));
-                break;
-            case "Brown", "Purple", "Gray":
-                jPion1P2.setIcon(new ImageIcon("./img/pion" + colorR + "_1_6_clair.gif"));
-                jPion2P2.setIcon(new ImageIcon("./img/pion" + colorR + "_4_3_clair.gif"));
-                jPion3P2.setIcon(new ImageIcon("./img/pion" + colorR + "_5_2_clair.gif"));
-                break;
+            switch (colorL) {
+                case "Blue", "Green", "Red", "Yellow":
+                    jPion1P1.setIcon(new ImageIcon("./img/pion" + colorL + "_1_6_clair.gif"));
+                    jPion2P1.setIcon(new ImageIcon("./img/pion" + colorL + "_3_4_clair.gif"));
+                    jPion3P1.setIcon(new ImageIcon("./img/pion" + colorL + "_4_3_clair.gif"));
+                    jPion4P1.setIcon(new ImageIcon("./img/pion" + colorL + "_5_2_clair.gif"));
+                    break;
+                case "Brown", "Purple", "Gray":
+                    jPion1P1.setIcon(new ImageIcon("./img/pion" + colorL + "_1_6_clair.gif"));
+                    jPion2P1.setIcon(new ImageIcon("./img/pion" + colorL + "_4_3_clair.gif"));
+                    jPion3P1.setIcon(new ImageIcon("./img/pion" + colorL + "_5_2_clair.gif"));
+                    break;
+            }
 
+            System.out.println(colorR);
+            switch (colorR) {
+                case "Blue", "Green", "Red", "Yellow":
+                    jPion1P2.setIcon(new ImageIcon("./img/pion" + colorR + "_1_6_clair.gif"));
+                    jPion2P2.setIcon(new ImageIcon("./img/pion" + colorR + "_3_4_clair.gif"));
+                    jPion3P2.setIcon(new ImageIcon("./img/pion" + colorR + "_4_3_clair.gif"));
+                    jPion4P2.setIcon(new ImageIcon("./img/pion" + colorR + "_5_2_clair.gif"));
+                    break;
+                case "Brown", "Purple", "Gray":
+                    jPion1P2.setIcon(new ImageIcon("./img/pion" + colorR + "_1_6_clair.gif"));
+                    jPion2P2.setIcon(new ImageIcon("./img/pion" + colorR + "_4_3_clair.gif"));
+                    jPion3P2.setIcon(new ImageIcon("./img/pion" + colorR + "_5_2_clair.gif"));
+                    break;
+
+            }
         }
 
     }//GEN-LAST:event_jStartButtonMouseClicked
@@ -1395,6 +1424,16 @@ public class Interface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBackGamingMouseClicked
 
+    private void jStartButtonMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jStartButtonMouseMoved
+        if (!jStartButton.isEnabled()){
+            jErrorStartLabel.setText("2 differents colors are required");
+        }
+    }//GEN-LAST:event_jStartButtonMouseMoved
+
+    private void jPanel2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseMoved
+        jErrorStartLabel.setText("");
+    }//GEN-LAST:event_jPanel2MouseMoved
+
     /**
      * @param args the command line arguments
      */
@@ -1456,6 +1495,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JFrame jCreditPage;
     private javax.swing.JLabel jErrorLabel;
     private javax.swing.JLabel jErrorNewGameLabel;
+    private javax.swing.JLabel jErrorStartLabel;
     private javax.swing.JLabel jGameColorP1;
     private javax.swing.JLabel jGameColorP2;
     private javax.swing.JTextField jGamePseudoLeft;
