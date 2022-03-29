@@ -1,6 +1,7 @@
 package finstereflure.pions;
 
 import finstereflure.Terrain;
+import finstereflure.enums.Direction;
 import finstereflure.pions.interfaces.Moveable;
 import javax.swing.ImageIcon;
 
