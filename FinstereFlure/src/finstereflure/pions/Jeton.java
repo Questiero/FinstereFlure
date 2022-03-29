@@ -3,12 +3,19 @@ package finstereflure.pions;
 import finstereflure.Terrain;
 import finstereflure.enums.Direction;
 import finstereflure.pions.interfaces.Moveable;
+import finstereflure.players.Player;
 import javax.swing.ImageIcon;
 
 /**
  * Clase représentant les jetons d'un joueur
  */
 public final class Jeton extends Pion implements Moveable {
+
+    private final Player player;
+    private final int maxCoupsClairs;
+    
+    private boolean estClair = true;
+    private int coups;
 
     /**
      * Constructeur de Jeton en fonction d'un ImageIcon pour sprite
@@ -20,8 +27,11 @@ public final class Jeton extends Pion implements Moveable {
      * case
      * @param sprite
      */
-    public Jeton(Terrain terrain, int x, int y, int listIndex, ImageIcon sprite) {
+    public Jeton(Terrain terrain, int x, int y, int listIndex, ImageIcon sprite, Player player, int maxCoupsClairs) {
         super(terrain, x, y, listIndex, sprite);
+        this.player = player;
+        this.maxCoupsClairs = maxCoupsClairs;
+        coups = maxCoupsClairs;
     }
 
     /**
@@ -34,14 +44,17 @@ public final class Jeton extends Pion implements Moveable {
      * case
      * @param spritePath chemin d'accès au sprite
      */
-    public Jeton(Terrain terrain, int x, int y, int listIndex, String spritePath) {
+    public Jeton(Terrain terrain, int x, int y, int listIndex, String spritePath, Player player, int maxCoupsClairs) {
         super(terrain, x, y, listIndex, spritePath);
+        this.player = player;
+        this.maxCoupsClairs = maxCoupsClairs;
+        coups = maxCoupsClairs;
     }
 
     @Override
     public void move(Direction dir) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }    
+    }
 
     @Override
     public void setX(int x) {
