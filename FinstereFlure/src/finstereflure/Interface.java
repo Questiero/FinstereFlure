@@ -1248,9 +1248,9 @@ public class Interface extends javax.swing.JFrame {
 
     private void jNewGameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jNewGameMouseClicked
         if (jNewGame.isEnabled()) {
-            
+
             game = new Partie(this.h1, this.jLayeredPane);
-            
+
             //initialisation fenêtre
             jConfigurationPage.setVisible(true);
             jConfigurationPage.setTitle("Finstere Flure - Configuration");
@@ -1258,6 +1258,11 @@ public class Interface extends javax.swing.JFrame {
             jConfigurationPage.pack();
             jConfigurationPage.setResizable(false);
             jStartButton.setEnabled(false);
+
+            jSelecLeft.setSelectedIndex(0);
+            jSelecRight.setSelectedIndex(0);
+            jColorLeft.setSelectedIndex(0);
+            jColorRight.setSelectedIndex(0);
 
             colorL = "Blue";
             jPionImageLeft.setIcon(new ImageIcon("./img/pion" + colorL + "_1_6_clair.gif"));
@@ -1328,7 +1333,7 @@ public class Interface extends javax.swing.JFrame {
             jGameColorP2.setText("Color : " + colorR);
 
             this.updateDisplayJeton();
-            
+
         }
 
     }//GEN-LAST:event_jStartButtonMouseClicked
@@ -1336,10 +1341,6 @@ public class Interface extends javax.swing.JFrame {
     private void jBackConfigurationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBackConfigurationMouseClicked
         jConfigurationPage.dispose();
         jMenuPrincipal.setVisible(true);
-        jSelecLeft.setSelectedIndex(0);
-        jSelecRight.setSelectedIndex(0);
-        jColorLeft.setSelectedIndex(0);
-        jColorRight.setSelectedIndex(0);
         jPionImageLeft.setIcon(new ImageIcon());
         jPionImageRight.setIcon(new ImageIcon());
         jAdvancedCheck.setSelected(false);
@@ -1452,12 +1453,19 @@ public class Interface extends javax.swing.JFrame {
 
         JLabel[] labelsP1 = {jPion1P1, jPion2P1, jPion3P1, jPion4P1};
         JLabel[] labelsP2 = {jPion1P2, jPion2P2, jPion3P2, jPion4P2};
-        
-        for(int i = 0; i < this.game.getPlayer1().getJetons().size(); i++) {
+
+        for (JLabel label : labelsP1) {
+            label.setIcon(new ImageIcon(""));
+        }
+        for (JLabel label : labelsP2) {
+            label.setIcon(new ImageIcon(""));
+        }
+
+        for (int i = 0; i < this.game.getPlayer1().getJetons().size(); i++) {
             labelsP1[i].setIcon(new ImageIcon(this.game.getPlayer1().getJetons().get(i).generateSpritePath()));
         }
-        
-        for(int i = 0; i < this.game.getPlayer2().getJetons().size(); i++) {
+
+        for (int i = 0; i < this.game.getPlayer2().getJetons().size(); i++) {
             labelsP2[i].setIcon(new ImageIcon(this.game.getPlayer2().getJetons().get(i).generateSpritePath()));
         }
 
