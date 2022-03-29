@@ -76,7 +76,7 @@ public final class Jeton extends Pion implements Moveable {
         
         String s = "./img/pion" + this.player.getColor();
         
-        s += "-" + this.maxCoupsClairs + "_" + (7-this.maxCoupsClairs) + "_";
+        s += "_" + this.maxCoupsClairs + "_" + (7-this.maxCoupsClairs) + "_";
         
         if(this.estClair) {
             s += "clair";

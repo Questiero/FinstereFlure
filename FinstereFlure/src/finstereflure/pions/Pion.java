@@ -82,7 +82,11 @@ public abstract class Pion {
     protected LinkedList<Pion> getTile() {
         return this.terrain.getPionMap()[this.coords[0]][this.coords[1]];
     }
-    
+
     public abstract String generateSpritePath();
+
+    public void generateSprite() {
+        this.sprite = new ImageIcon(this.generateSpritePath());
+    }
 
 }

@@ -1,9 +1,11 @@
 package finstereflure;
 
 import finstereflure.pions.Empty;
+import finstereflure.pions.Jeton;
 import finstereflure.pions.Monstre;
 import finstereflure.pions.Pierre;
 import finstereflure.pions.Pion;
+import finstereflure.players.Player;
 import java.util.LinkedList;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -16,7 +18,7 @@ public class Terrain {
     private final JLayeredPane layeredPane;
 
     private final Partie game;
-    
+
     private LinkedList<Pion>[][] pionMap;
     private JLabel[][] spriteMap;
 
@@ -58,17 +60,40 @@ public class Terrain {
 
                 // Init Empty
                 this.pionMap[i][j].add(new Empty(this, i, j));
-                
+
                 // Init layeredPane
                 this.spriteMap[i][j] = new JLabel();
-                this.spriteMap[i][j].setBounds(24+i*40, 19+j*40, 40, 40);
+                this.spriteMap[i][j].setBounds(24 + i * 40, 19 + j * 40, 40, 40);
                 this.layeredPane.add(this.spriteMap[i][j]);
-                
+
             }
         }
 
         // Init Monstre
         this.pionMap[0][0].add(new Monstre(this, 0, 0, 1));
+
+        // Init jetons
+        int[] values = {1, 3, 4, 5};
+
+        Player p1 = this.game.getPlayer1();
+        for (int value : values) {
+            if (!(p1.getMaxJetons() == 3 && value == 3)) {
+                Jeton jeton = new Jeton(this, 15, 10, this.pionMap[15][10].size(), "", p1, value);
+                this.pionMap[15][10].add(jeton);
+                jeton.generateSprite();
+                p1.getJetons().add(jeton);
+            }
+        }
+
+        Player p2 = this.game.getPlayer1();
+        for (int value : values) {
+            if (!(p2.getMaxJetons() == 3 && value == 3)) {
+                Jeton jeton = new Jeton(this, 15, 10, this.pionMap[15][10].size(), "", p2, value);
+                this.pionMap[15][10].add(jeton);
+                jeton.generateSprite();
+                p2.getJetons().add(jeton);
+            }
+        }
 
         if (!isAdvanced) {
 
@@ -86,7 +111,7 @@ public class Terrain {
         }
 
         this.update();
-        
+
     }
 
     public LinkedList<Pion>[][] getPionMap() {
