@@ -25,7 +25,7 @@ public class Partie {
      */
     public Partie(Host host, JLayeredPane layeredPane) {
         this.host = host;
-        this.terrain = new Terrain(layeredPane);
+        this.terrain = new Terrain(layeredPane, this);
     }
 
     /**

@@ -15,16 +15,19 @@ public class Terrain {
 
     private final JLayeredPane layeredPane;
 
+    private final Partie game;
+    
     private LinkedList<Pion>[][] pionMap;
     private JLabel[][] spriteMap;
 
     /**
      * Constructeur de Terrain avec dimensions classiques
      */
-    public Terrain(JLayeredPane layeredPane) {
+    public Terrain(JLayeredPane layeredPane, Partie game) {
         this.layeredPane = layeredPane;
         this.pionMap = new LinkedList[16][11];
         this.spriteMap = new JLabel[16][11];
+        this.game = game;
     }
 
     /**
@@ -33,10 +36,11 @@ public class Terrain {
      * @param x largeur du terrain
      * @param y hauteur du terrain
      */
-    public Terrain(int x, int y, JLayeredPane layeredPane) {
+    public Terrain(int x, int y, JLayeredPane layeredPane, Partie game) {
         this.layeredPane = layeredPane;
         this.pionMap = new LinkedList[x][y];
         this.spriteMap = new JLabel[x][y];
+        this.game = game;
     }
 
     /**
