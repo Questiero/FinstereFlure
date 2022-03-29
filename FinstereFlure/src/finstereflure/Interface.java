@@ -1271,7 +1271,7 @@ public class Interface extends javax.swing.JFrame {
 
             //remplissage pseudos
             jGamePseudoLeft.setText(jPseudoField.getText());
-
+            jGamePseudoRight.setText("");
             //ICI RAJOUTER  PSUEDO ALEATOIRE 
         }
 
