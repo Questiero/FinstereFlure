@@ -71,4 +71,22 @@ public final class Jeton extends Pion implements Moveable {
         this.listIndex = listIndex;
     }
 
+    public String generateSpritePath() {
+        
+        String s = "./img/pion" + this.player.getColor();
+        
+        s += "-" + this.maxCoupsClairs + "_" + (7-this.maxCoupsClairs) + "_";
+        
+        if(this.estClair) {
+            s += "clair";
+        } else {
+            s += "fonce";
+        }
+        
+        s += ".gif";
+        
+        return s;
+        
+    }
+    
 }
