@@ -18,7 +18,7 @@ import javax.swing.JLabel;
 public class Interface extends javax.swing.JFrame {
 
     private Host h1;
-    private final Partie game;   //initialisation partie
+    private Partie game;   //initialisation partie
 
     private boolean notEmptyPseudo = false;
     private boolean notEmptyPassword = false;
@@ -28,8 +28,6 @@ public class Interface extends javax.swing.JFrame {
      */
     public Interface() {
         initComponents();
-
-        game = new Partie(h1, jLayeredPane);
 
         jTitre.setIcon(new ImageIcon("./img/logo_finstere_grand.gif"));   //image titre jeu
         //griser les boutons :
@@ -1250,6 +1248,9 @@ public class Interface extends javax.swing.JFrame {
 
     private void jNewGameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jNewGameMouseClicked
         if (jNewGame.isEnabled()) {
+            
+            game = new Partie(this.h1, this.jLayeredPane);
+            
             //initialisation fenêtre
             jConfigurationPage.setVisible(true);
             jConfigurationPage.setTitle("Finstere Flure - Configuration");
