@@ -1499,7 +1499,6 @@ public class Interface extends javax.swing.JFrame {
         System.out.println("J1 : Pion 1");
         this.selectJeton(1, 1);
         this.updateDisplayJeton();
-        this.updateMoveButtons();
     }//GEN-LAST:event_jPion1P1MouseClicked
 
     private void jPion2P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P1MouseClicked
@@ -1507,49 +1506,42 @@ public class Interface extends javax.swing.JFrame {
         this.selectJeton(1, 2);
         this.game.getCurrentJeton().flip();
         this.updateDisplayJeton();
-        this.updateMoveButtons();
     }//GEN-LAST:event_jPion2P1MouseClicked
 
     private void jPion3P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P1MouseClicked
         System.out.println("J1 : Pion 3");
         this.selectJeton(1, 3);
         this.updateDisplayJeton();
-        this.updateMoveButtons();
     }//GEN-LAST:event_jPion3P1MouseClicked
 
     private void jPion4P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P1MouseClicked
         System.out.println("J1 : Pion 4");
         this.selectJeton(1, 4);
         this.updateDisplayJeton();
-        this.updateMoveButtons();
     }//GEN-LAST:event_jPion4P1MouseClicked
 
     private void jPion1P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P2MouseClicked
         System.out.println("J2 : Pion 1");
         this.selectJeton(2, 1);
         this.updateDisplayJeton();
-        this.updateMoveButtons();
     }//GEN-LAST:event_jPion1P2MouseClicked
 
     private void jPion2P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P2MouseClicked
         System.out.println("J2 : Pion 2");
         this.selectJeton(2, 2);
         this.updateDisplayJeton();
-        this.updateMoveButtons();
     }//GEN-LAST:event_jPion2P2MouseClicked
 
     private void jPion3P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P2MouseClicked
         System.out.println("J2 : Pion 3");
         this.selectJeton(2, 3);
         this.updateDisplayJeton();
-        this.updateMoveButtons();
     }//GEN-LAST:event_jPion3P2MouseClicked
 
     private void jPion4P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P2MouseClicked
         System.out.println("J2 : Pion 4");
         this.selectJeton(2, 4);
         this.updateDisplayJeton();
-        this.updateMoveButtons();
     }//GEN-LAST:event_jPion4P2MouseClicked
 
     private void jUpButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jUpButtonMouseClicked
@@ -1601,6 +1593,8 @@ public class Interface extends javax.swing.JFrame {
         labelsPlayers[player][pion].setBorder(BorderFactory.createLineBorder(Color.black, 2));
 
         this.game.selectJeton(player, pion);
+
+        this.updateMoveButtons();
 
     }
 
@@ -1677,14 +1671,20 @@ public class Interface extends javax.swing.JFrame {
             jLeftButton.setEnabled(false);
             jRightButton.setEnabled(false);
             jDownButton.setEnabled(false);
-        } else if (!(this.game.getCurrentJeton().canMove(Direction.UP))) {
-            jUpButton.setEnabled(false);
-        } else if (!(this.game.getCurrentJeton().canMove(Direction.LEFT))) {
-            jLeftButton.setEnabled(false);
-        } else if (!(this.game.getCurrentJeton().canMove(Direction.RIGHT))) {
-            jRightButton.setEnabled(false);
-        } else if (!(this.game.getCurrentJeton().canMove(Direction.DOWN))) {
-            jDownButton.setEnabled(false);
+        } else {
+
+            if (!(this.game.getCurrentJeton().canMove(Direction.UP))) {
+                jUpButton.setEnabled(false);
+            }
+            if (!(this.game.getCurrentJeton().canMove(Direction.LEFT))) {
+                jLeftButton.setEnabled(false);
+            }
+            if (!(this.game.getCurrentJeton().canMove(Direction.RIGHT))) {
+                jRightButton.setEnabled(false);
+            }
+            if (!(this.game.getCurrentJeton().canMove(Direction.DOWN))) {
+                jDownButton.setEnabled(false);
+            }
         }
 
     }

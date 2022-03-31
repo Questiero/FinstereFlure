@@ -77,7 +77,10 @@ public final class Jeton extends Pion implements Moveable {
         
         switch (dir){
             case UP :
+                this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
                 this.setY(getY()-1);
+                this.terrain.getPionMap()[this.getX()][this.getY()].add(this);
+                this.listIndex = this.terrain.getPionMap()[this.getX()][this.getY()].size();
             break;
             case LEFT :
                 this.setX(getX()-1);
@@ -89,6 +92,8 @@ public final class Jeton extends Pion implements Moveable {
                 this.setY(getY()+1);
             break;
         }
+        
+        this.terrain.update();
         
     }
 
@@ -174,20 +179,17 @@ public final class Jeton extends Pion implements Moveable {
     }
 
     @Override
-    public void setX(int x
-    ) {
+    public void setX(int x) {
         this.coords[0] = x;
     }
 
     @Override
-    public void setY(int y
-    ) {
+    public void setY(int y) {
         this.coords[1] = y;
     }
 
     @Override
-    public void setListIndex(int listIndex
-    ) {
+    public void setListIndex(int listIndex) {
         this.listIndex = listIndex;
     }
 
