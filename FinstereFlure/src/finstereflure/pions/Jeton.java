@@ -92,6 +92,10 @@ public final class Jeton extends Pion implements Moveable {
         
     }
 
+    public boolean isCanPlay() {
+        return canPlay;
+    }
+
     @Override
     //!!!!!!!!!!!!!!!!!!!!!!!!! AJOUTER LES VERIF AVEC LES PIERRES !!!!!!!!!!!!!!!!!!!!!!!
     public boolean canMove(Direction dir) {

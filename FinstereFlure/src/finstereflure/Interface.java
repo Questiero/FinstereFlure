@@ -6,6 +6,7 @@
 package finstereflure;
 
 import finstereflure.enums.Couleur;
+import finstereflure.enums.Direction;
 import finstereflure.enums.PlayerType;
 import java.awt.Color;
 import javax.swing.BorderFactory;
@@ -924,21 +925,41 @@ public class Interface extends javax.swing.JFrame {
         jUpButton.setFont(new java.awt.Font("Segoe UI", 0, 33)); // NOI18N
         jUpButton.setForeground(new java.awt.Color(249, 240, 118));
         jUpButton.setText("▲");
+        jUpButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jUpButtonMouseClicked(evt);
+            }
+        });
 
         jRightButton.setBackground(new java.awt.Color(0, 18, 2));
         jRightButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jRightButton.setForeground(new java.awt.Color(249, 240, 118));
         jRightButton.setText("►");
+        jRightButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRightButtonMouseClicked(evt);
+            }
+        });
 
         jLeftButton.setBackground(new java.awt.Color(0, 18, 2));
         jLeftButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLeftButton.setForeground(new java.awt.Color(249, 240, 118));
         jLeftButton.setText("◄");
+        jLeftButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLeftButtonMouseClicked(evt);
+            }
+        });
 
         jDownButton.setBackground(new java.awt.Color(0, 18, 2));
         jDownButton.setFont(new java.awt.Font("Segoe UI", 0, 33)); // NOI18N
         jDownButton.setForeground(new java.awt.Color(249, 240, 118));
         jDownButton.setText("▼");
+        jDownButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jDownButtonMouseClicked(evt);
+            }
+        });
 
         jEndTurnButton.setBackground(new java.awt.Color(0, 18, 2));
         jEndTurnButton.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
@@ -1477,8 +1498,8 @@ public class Interface extends javax.swing.JFrame {
     private void jPion1P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P1MouseClicked
         System.out.println("J1 : Pion 1");
         this.selectJeton(1, 1);
-        this.game.getCurrentJeton().flip();
         this.updateDisplayJeton();
+        this.updateMoveButtons();
     }//GEN-LAST:event_jPion1P1MouseClicked
 
     private void jPion2P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P1MouseClicked
@@ -1486,49 +1507,82 @@ public class Interface extends javax.swing.JFrame {
         this.selectJeton(1, 2);
         this.game.getCurrentJeton().flip();
         this.updateDisplayJeton();
+        this.updateMoveButtons();
     }//GEN-LAST:event_jPion2P1MouseClicked
 
     private void jPion3P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P1MouseClicked
         System.out.println("J1 : Pion 3");
         this.selectJeton(1, 3);
-        this.game.getCurrentJeton().flip();
         this.updateDisplayJeton();
+        this.updateMoveButtons();
     }//GEN-LAST:event_jPion3P1MouseClicked
 
     private void jPion4P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P1MouseClicked
         System.out.println("J1 : Pion 4");
         this.selectJeton(1, 4);
-        this.game.getCurrentJeton().flip();
         this.updateDisplayJeton();
+        this.updateMoveButtons();
     }//GEN-LAST:event_jPion4P1MouseClicked
 
     private void jPion1P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P2MouseClicked
         System.out.println("J2 : Pion 1");
         this.selectJeton(2, 1);
-        this.game.getCurrentJeton().flip();
         this.updateDisplayJeton();
+        this.updateMoveButtons();
     }//GEN-LAST:event_jPion1P2MouseClicked
 
     private void jPion2P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P2MouseClicked
         System.out.println("J2 : Pion 2");
         this.selectJeton(2, 2);
-        this.game.getCurrentJeton().flip();
         this.updateDisplayJeton();
+        this.updateMoveButtons();
     }//GEN-LAST:event_jPion2P2MouseClicked
 
     private void jPion3P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P2MouseClicked
         System.out.println("J2 : Pion 3");
         this.selectJeton(2, 3);
-        this.game.getCurrentJeton().flip();
         this.updateDisplayJeton();
+        this.updateMoveButtons();
     }//GEN-LAST:event_jPion3P2MouseClicked
 
     private void jPion4P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P2MouseClicked
         System.out.println("J2 : Pion 4");
         this.selectJeton(2, 4);
-        this.game.getCurrentJeton().flip();
         this.updateDisplayJeton();
+        this.updateMoveButtons();
     }//GEN-LAST:event_jPion4P2MouseClicked
+
+    private void jUpButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jUpButtonMouseClicked
+        if (jUpButton.isEnabled()) {
+            this.game.getCurrentJeton().move(Direction.UP);
+            this.updateMoveButtons();
+
+        }
+    }//GEN-LAST:event_jUpButtonMouseClicked
+
+    private void jLeftButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLeftButtonMouseClicked
+        if (jLeftButton.isEnabled()) {
+            this.game.getCurrentJeton().move(Direction.LEFT);
+            this.updateMoveButtons();
+
+        }
+    }//GEN-LAST:event_jLeftButtonMouseClicked
+
+    private void jRightButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRightButtonMouseClicked
+        if (jRightButton.isEnabled()) {
+            this.game.getCurrentJeton().move(Direction.RIGHT);
+            this.updateMoveButtons();
+
+        }
+    }//GEN-LAST:event_jRightButtonMouseClicked
+
+    private void jDownButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDownButtonMouseClicked
+        if (jDownButton.isEnabled()) {
+            this.game.getCurrentJeton().move(Direction.DOWN);
+            this.updateMoveButtons();
+
+        }
+    }//GEN-LAST:event_jDownButtonMouseClicked
 
     private void selectJeton(int player, int pion) {
 
@@ -1611,10 +1665,28 @@ public class Interface extends javax.swing.JFrame {
 
     }
 
-    private void updateButtons() {
+    private void updateMoveButtons() {
+        jUpButton.setEnabled(true);
+        jLeftButton.setEnabled(true);
+        jRightButton.setEnabled(true);
+        jDownButton.setEnabled(true);
 
+        if (!(this.game.getCurrentJeton().isCanPlay())) {
+            System.out.println("oui");
+            jUpButton.setEnabled(false);
+            jLeftButton.setEnabled(false);
+            jRightButton.setEnabled(false);
+            jDownButton.setEnabled(false);
+        } else if (!(this.game.getCurrentJeton().canMove(Direction.UP))) {
+            jUpButton.setEnabled(false);
+        } else if (!(this.game.getCurrentJeton().canMove(Direction.LEFT))) {
+            jLeftButton.setEnabled(false);
+        } else if (!(this.game.getCurrentJeton().canMove(Direction.RIGHT))) {
+            jRightButton.setEnabled(false);
+        } else if (!(this.game.getCurrentJeton().canMove(Direction.DOWN))) {
+            jDownButton.setEnabled(false);
+        }
 
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
