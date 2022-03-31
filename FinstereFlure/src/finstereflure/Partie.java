@@ -18,6 +18,10 @@ public class Partie {
 
     private boolean advancedMode = false;
 
+    private int manche = 1;
+    private int tour = 1;
+    private int playerTurn = 1;
+
     /**
      * Constructeur de Partie en fonction de son hôte
      *
@@ -105,7 +109,45 @@ public class Partie {
     public Terrain getTerrain() {
         return this.terrain;
     }
-    
+
+    public int getManche() {
+        return manche;
+    }
+
+    public void nextManche() {
+        this.manche++;
+        this.resetTour();
+    }
+
+    public int getTour() {
+        return tour;
+    }
+
+    public void nextTour() {
+        this.tour++;
+    }
+
+    public void resetTour() {
+        this.tour = 1;
+        this.resetPlayerTurn();
+    }
+
+    public int getPlayerTurn() {
+        return playerTurn;
+    }
+
+    public void nextPlayerTurn() {
+        this.playerTurn++;
+        if (this.playerTurn > 3) {
+            this.playerTurn = 1;
+            this.nextTour();
+        }
+    }
+
+    public void resetPlayerTurn() {
+        this.resetPlayerTurn();
+    }
+
     @Override
     public String toString() {
         return ("Joueur 1 : \t" + players[0] + "\nJoueur 2 : \t" + players[1]);
