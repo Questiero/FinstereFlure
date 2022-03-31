@@ -67,8 +67,23 @@ public final class Jeton extends Pion implements Moveable {
 
     @Override
     public void move(Direction dir) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        //coups--
+        this.coups--;
+        
+        switch (dir){
+            case UP :
+                this.setY(getY()-1);
+            break;
+            case LEFT :
+                this.setX(getX()-1);
+            break;
+            case RIGHT :
+                this.setX(getX()+1);
+            break;
+            case DOWN :
+                this.setY(getY()+1);
+            break;
+        }
+        
     }
 
     @Override
