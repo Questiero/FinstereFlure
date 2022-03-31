@@ -152,6 +152,10 @@ public class Partie {
         this.playerTurn = 1;
     }
 
+    public Jeton getCurrentJeton() {
+        return currentJeton;
+    }
+    
     public void selectJeton(int player, int pion) {
         this.currentJeton = this.players[0].getJetons().get(pion);
     }
@@ -159,6 +163,8 @@ public class Partie {
     public boolean shouldMancheEnd() {
         return this.getPlayer2().getJetons().isEmpty() && this.getPlayer1().getJetons().isEmpty();
     }
+    
+    
 
     @Override
     public String toString() {

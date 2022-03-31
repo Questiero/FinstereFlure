@@ -1531,7 +1531,7 @@ public class Interface extends javax.swing.JFrame {
         labelsPlayers[player][pion].setBorder(BorderFactory.createLineBorder(Color.black, 2));
 
         this.game.selectJeton(player, pion);
-        
+
     }
 
     /**
