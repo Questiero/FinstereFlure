@@ -26,6 +26,7 @@ public class Partie {
      * Constructeur de Partie en fonction de son hôte
      *
      * @param host Hôte de la partie
+     * @param layeredPane
      */
     public Partie(Host host, JLayeredPane layeredPane) {
         this.host = host;
@@ -145,7 +146,7 @@ public class Partie {
     }
 
     public void resetPlayerTurn() {
-        this.resetPlayerTurn();
+        this.playerTurn = 1;
     }
 
     public boolean shouldMancheEnd() {
