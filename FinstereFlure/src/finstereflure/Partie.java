@@ -163,8 +163,6 @@ public class Partie {
     public boolean shouldMancheEnd() {
         return this.getPlayer2().getJetons().isEmpty() && this.getPlayer1().getJetons().isEmpty();
     }
-    
-    
 
     @Override
     public String toString() {
