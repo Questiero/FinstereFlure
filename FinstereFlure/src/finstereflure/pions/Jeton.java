@@ -13,7 +13,7 @@ public final class Jeton extends Pion implements Moveable {
 
     private final Player player;
     private final int maxCoupsClairs;
-    
+
     private boolean estClair = true;
     private int coups;
 
@@ -57,6 +57,11 @@ public final class Jeton extends Pion implements Moveable {
     }
 
     @Override
+    public void canMove(Direction dir) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
     public void setX(int x) {
         this.coords[0] = x;
     }
@@ -73,21 +78,21 @@ public final class Jeton extends Pion implements Moveable {
 
     @Override
     public String generateSpritePath() {
-        
+
         String s = "./img/pion" + this.player.getColor();
-        
-        s += "_" + this.maxCoupsClairs + "_" + (7-this.maxCoupsClairs) + "_";
-        
-        if(this.estClair) {
+
+        s += "_" + this.maxCoupsClairs + "_" + (7 - this.maxCoupsClairs) + "_";
+
+        if (this.estClair) {
             s += "clair";
         } else {
             s += "fonce";
         }
-        
+
         s += ".gif";
-        
+
         return s;
-        
+
     }
-    
+
 }

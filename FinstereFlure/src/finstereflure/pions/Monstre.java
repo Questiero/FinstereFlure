@@ -31,6 +31,11 @@ public final class Monstre extends Pion implements Moveable {
     }
 
     @Override
+    public void canMove(Direction dir) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
     public void setX(int x) {
         this.coords[0] = x;
     }
