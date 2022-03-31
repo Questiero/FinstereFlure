@@ -148,6 +148,10 @@ public class Partie {
         this.resetPlayerTurn();
     }
 
+    public boolean shouldMancheEnd() {
+        return this.getPlayer1().getJetons().size() == 0 && this.getPlayer2().getJetons().size() == 0;
+    }
+
     @Override
     public String toString() {
         return ("Joueur 1 : \t" + players[0] + "\nJoueur 2 : \t" + players[1]);
