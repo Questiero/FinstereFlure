@@ -22,7 +22,7 @@ public class Partie {
     private int manche = 1;
     private int tour = 1;
     private int playerTurn = 1;
-    
+
     private Jeton currentJeton;
 
     /**
@@ -109,7 +109,7 @@ public class Partie {
     public Player getPlayer2() {
         return this.players[1];
     }
-    
+
     public Terrain getTerrain() {
         return this.terrain;
     }
@@ -155,11 +155,13 @@ public class Partie {
     public Jeton getCurrentJeton() {
         return currentJeton;
     }
-    
+
     public void selectJeton(int player, int pion) {
-        this.currentJeton = this.players[0].getJetons().get(pion);
+        if (this.players[player].getJetons().size()>pion) {
+            this.currentJeton = this.players[player].getJetons().get(pion);
+        }
     }
-    
+
     public boolean shouldMancheEnd() {
         return this.getPlayer2().getJetons().isEmpty() && this.getPlayer1().getJetons().isEmpty();
     }

@@ -1477,41 +1477,57 @@ public class Interface extends javax.swing.JFrame {
     private void jPion1P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P1MouseClicked
         System.out.println("J1 : Pion 1");
         this.selectJeton(1, 1);
+        this.game.getCurrentJeton().flip();
+        this.updateDisplayJeton();
     }//GEN-LAST:event_jPion1P1MouseClicked
 
     private void jPion2P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P1MouseClicked
         System.out.println("J1 : Pion 2");
         this.selectJeton(1, 2);
+        this.game.getCurrentJeton().flip();
+        this.updateDisplayJeton();
     }//GEN-LAST:event_jPion2P1MouseClicked
 
     private void jPion3P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P1MouseClicked
         System.out.println("J1 : Pion 3");
         this.selectJeton(1, 3);
+        this.game.getCurrentJeton().flip();
+        this.updateDisplayJeton();
     }//GEN-LAST:event_jPion3P1MouseClicked
 
     private void jPion4P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P1MouseClicked
         System.out.println("J1 : Pion 4");
         this.selectJeton(1, 4);
+        this.game.getCurrentJeton().flip();
+        this.updateDisplayJeton();
     }//GEN-LAST:event_jPion4P1MouseClicked
 
     private void jPion1P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P2MouseClicked
         System.out.println("J2 : Pion 1");
         this.selectJeton(2, 1);
+        this.game.getCurrentJeton().flip();
+        this.updateDisplayJeton();
     }//GEN-LAST:event_jPion1P2MouseClicked
 
     private void jPion2P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P2MouseClicked
         System.out.println("J2 : Pion 2");
         this.selectJeton(2, 2);
+        this.game.getCurrentJeton().flip();
+        this.updateDisplayJeton();
     }//GEN-LAST:event_jPion2P2MouseClicked
 
     private void jPion3P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P2MouseClicked
         System.out.println("J2 : Pion 3");
         this.selectJeton(2, 3);
+        this.game.getCurrentJeton().flip();
+        this.updateDisplayJeton();
     }//GEN-LAST:event_jPion3P2MouseClicked
 
     private void jPion4P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P2MouseClicked
         System.out.println("J2 : Pion 4");
         this.selectJeton(2, 4);
+        this.game.getCurrentJeton().flip();
+        this.updateDisplayJeton();
     }//GEN-LAST:event_jPion4P2MouseClicked
 
     private void selectJeton(int player, int pion) {
