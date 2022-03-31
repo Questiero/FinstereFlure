@@ -1504,7 +1504,6 @@ public class Interface extends javax.swing.JFrame {
     private void jPion2P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P1MouseClicked
         System.out.println("J1 : Pion 2");
         this.selectJeton(1, 2);
-        this.game.getCurrentJeton().flip();
         this.updateDisplayJeton();
     }//GEN-LAST:event_jPion2P1MouseClicked
 
