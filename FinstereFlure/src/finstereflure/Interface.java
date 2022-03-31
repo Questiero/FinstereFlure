@@ -1473,100 +1473,63 @@ public class Interface extends javax.swing.JFrame {
         jLayeredPane.add(jMap);
     }//GEN-LAST:event_jGamingPageWindowClosing
 
-    
-    
+
     private void jPion1P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P1MouseClicked
         System.out.println("J1 : Pion 1");
-        setBorder(1, 1);
+        this.selectJeton(1, 1);
     }//GEN-LAST:event_jPion1P1MouseClicked
 
     private void jPion2P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P1MouseClicked
         System.out.println("J1 : Pion 2");
-        setBorder(1, 2);
+        this.selectJeton(1, 2);
     }//GEN-LAST:event_jPion2P1MouseClicked
 
     private void jPion3P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P1MouseClicked
         System.out.println("J1 : Pion 3");
-        setBorder(1, 3);
+        this.selectJeton(1, 3);
     }//GEN-LAST:event_jPion3P1MouseClicked
 
     private void jPion4P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P1MouseClicked
         System.out.println("J1 : Pion 4");
-        setBorder(1, 4);
+        this.selectJeton(1, 4);
     }//GEN-LAST:event_jPion4P1MouseClicked
 
     private void jPion1P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P2MouseClicked
         System.out.println("J2 : Pion 1");
-        setBorder(2, 1);
+        this.selectJeton(2, 1);
     }//GEN-LAST:event_jPion1P2MouseClicked
 
     private void jPion2P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P2MouseClicked
         System.out.println("J2 : Pion 2");
-        setBorder(2, 2);
+        this.selectJeton(2, 2);
     }//GEN-LAST:event_jPion2P2MouseClicked
 
     private void jPion3P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P2MouseClicked
         System.out.println("J2 : Pion 3");
-        setBorder(2, 3);
+        this.selectJeton(2, 3);
     }//GEN-LAST:event_jPion3P2MouseClicked
 
     private void jPion4P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P2MouseClicked
         System.out.println("J2 : Pion 4");
-        setBorder(2, 4);
+        this.selectJeton(2, 4);
     }//GEN-LAST:event_jPion4P2MouseClicked
 
-    private void setBorder(int player, int pion) {  //affichage dynamique de la sélection des pions du joueur joué
-        jPion1P1.setBorder(BorderFactory.createEmptyBorder());
-        jPion2P1.setBorder(BorderFactory.createEmptyBorder());
-        jPion3P1.setBorder(BorderFactory.createEmptyBorder());
-        jPion4P1.setBorder(BorderFactory.createEmptyBorder());
-        jPion1P2.setBorder(BorderFactory.createEmptyBorder());
-        jPion2P2.setBorder(BorderFactory.createEmptyBorder());
-        jPion3P2.setBorder(BorderFactory.createEmptyBorder());
-        jPion4P2.setBorder(BorderFactory.createEmptyBorder());
+    private void selectJeton(int player, int pion) {
 
-        switch (player) {
-            case 1:
-                switch (pion) {
-                    case 1:
-                        jPion1P1.setBorder(BorderFactory.createLineBorder(Color.black, 2));
-                        break;
-                    case 2:
-                        jPion2P1.setBorder(BorderFactory.createLineBorder(Color.black,2));
-                        break;
-                    case 3:
-                        jPion3P1.setBorder(BorderFactory.createLineBorder(Color.black,2));
-                        break;
-                    case 4:
-                        if (colorL == "Brown" || colorL == "Gray" || colorL == "Purple") {
-                            jPion4P1.setBorder(BorderFactory.createEmptyBorder());
-                        } else {
-                            jPion4P1.setBorder(BorderFactory.createLineBorder(Color.black,2));
-                        }
-                        break;
-                }
-                break;
-            case 2:
-                switch (pion) {
-                    case 1:
-                        jPion1P2.setBorder(BorderFactory.createLineBorder(Color.black,2));
-                        break;
-                    case 2:
-                        jPion2P2.setBorder(BorderFactory.createLineBorder(Color.black,2));
-                        break;
-                    case 3:
-                        jPion3P2.setBorder(BorderFactory.createLineBorder(Color.black,2));
-                        break;
-                    case 4:
-                        if (colorL == "Brown" || colorL == "Gray" || colorL == "Purple") {
-                            jPion4P2.setBorder(BorderFactory.createEmptyBorder());
-                        } else {
-                            jPion4P2.setBorder(BorderFactory.createLineBorder(Color.black,2));
-                        }
-                        break;
-                }
-                break;
+        JLabel[][] labelsPlayers = {{jPion1P1, jPion2P1, jPion3P1, jPion4P1}, {jPion1P2, jPion2P2, jPion3P2, jPion4P2}};
+
+        player--;
+        pion--;
+
+        // Affichage
+        for (JLabel[] array : labelsPlayers) {
+            for (JLabel label : array) {
+                label.setBorder(BorderFactory.createEmptyBorder());
+            }
         }
+
+        labelsPlayers[player][pion].setBorder(BorderFactory.createLineBorder(Color.black, 2));
+
     }
 
     /**
@@ -1627,6 +1590,7 @@ public class Interface extends javax.swing.JFrame {
         for (int i = 0; i < this.game.getPlayer2().getJetons().size(); i++) {
             labelsP2[i].setIcon(new ImageIcon(this.game.getPlayer2().getJetons().get(i).generateSpritePath()));
         }
+
 
     }
 

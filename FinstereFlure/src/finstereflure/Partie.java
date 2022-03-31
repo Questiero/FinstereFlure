@@ -106,7 +106,7 @@ public class Partie {
     public Player getPlayer2() {
         return this.players[1];
     }
-
+    
     public Terrain getTerrain() {
         return this.terrain;
     }
@@ -149,6 +149,10 @@ public class Partie {
         this.playerTurn = 1;
     }
 
+    public void selectJeton(int player, int pion) {
+        
+    }
+    
     public boolean shouldMancheEnd() {
         return this.getPlayer2().getJetons().isEmpty() && this.getPlayer1().getJetons().isEmpty();
     }
