@@ -51,6 +51,19 @@ public final class Jeton extends Pion implements Moveable {
         coups = maxCoupsClairs;
     }
 
+    public void flip() {
+
+        this.estClair = !this.estClair;
+        if (this.estClair) {
+            this.coups = this.maxCoupsClairs;
+        } else {
+            this.coups = 7 - this.maxCoupsClairs;
+        }
+
+        this.generateSprite();
+        
+    }
+
     @Override
     public void move(Direction dir) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
