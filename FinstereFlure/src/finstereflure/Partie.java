@@ -2,6 +2,7 @@ package finstereflure;
 
 import finstereflure.enums.Couleur;
 import finstereflure.enums.PlayerType;
+import finstereflure.pions.Jeton;
 import finstereflure.players.*;
 import finstereflure.players.ai.*;
 import javax.swing.JLayeredPane;
@@ -21,6 +22,8 @@ public class Partie {
     private int manche = 1;
     private int tour = 1;
     private int playerTurn = 1;
+    
+    private Jeton currentJeton;
 
     /**
      * Constructeur de Partie en fonction de son hôte
@@ -150,7 +153,7 @@ public class Partie {
     }
 
     public void selectJeton(int player, int pion) {
-        
+        this.currentJeton = this.players[0].getJetons().get(pion);
     }
     
     public boolean shouldMancheEnd() {
