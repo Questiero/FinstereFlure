@@ -150,7 +150,7 @@ public class Partie {
     }
 
     public boolean shouldMancheEnd() {
-        return this.getPlayer1().getJetons().size() == 0 && this.getPlayer2().getJetons().size() == 0;
+        return this.getPlayer2().getJetons().isEmpty() && this.getPlayer1().getJetons().isEmpty();
     }
 
     @Override
