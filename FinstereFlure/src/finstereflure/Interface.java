@@ -1591,7 +1591,6 @@ public class Interface extends javax.swing.JFrame {
             labelsP2[i].setIcon(new ImageIcon(this.game.getPlayer2().getJetons().get(i).generateSpritePath()));
         }
 
-
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
