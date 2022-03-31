@@ -72,6 +72,7 @@ public final class Jeton extends Pion implements Moveable {
     }
 
     @Override
+    //!!!!!!!!!!!!!!!!!!!!!!!!! AJOUTER LES VERIF AVEC LES PIERRES !!!!!!!!!!!!!!!!!!!!!!!
     public boolean canMove(Direction dir) {
         LinkedList<Pion>[][] pionmap = new LinkedList[16][11];
         pionmap = super.terrain.getPionMap();
