@@ -26,7 +26,7 @@ public final class Pierre extends Pion implements Moveable {
     }
 
     @Override
-    public void canMove(Direction dir) {
+    public boolean canMove(Direction dir) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
