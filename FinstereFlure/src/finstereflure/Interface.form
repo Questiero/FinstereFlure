@@ -996,15 +996,15 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="jUpButton2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLeftButton" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="jUpButton" max="32767" attributes="0"/>
-                                          <Component id="jUpButton3" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="jButton1" alignment="0" pref="0" max="32767" attributes="0"/>
+                                          <Component id="jDownButton" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="jEndTurnButton" alignment="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jUpButton1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRightButton" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="jLayeredPane2" max="32767" attributes="0"/>
@@ -1042,12 +1042,12 @@
                               <Component id="jUpButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jUpButton2" alignment="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="jUpButton1" alignment="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="jButton1" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="jLeftButton" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jRightButton" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jEndTurnButton" min="-2" pref="41" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jUpButton3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jDownButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
@@ -1429,7 +1429,7 @@
                 <Property name="text" type="java.lang.String" value="&#x25b2;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jUpButton1">
+            <Component class="javax.swing.JButton" name="jRightButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="2" green="12" red="0" type="rgb"/>
@@ -1443,7 +1443,7 @@
                 <Property name="text" type="java.lang.String" value="&#x25ba;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jUpButton2">
+            <Component class="javax.swing.JButton" name="jLeftButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="2" green="12" red="0" type="rgb"/>
@@ -1457,7 +1457,7 @@
                 <Property name="text" type="java.lang.String" value="&#x25c4;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jUpButton3">
+            <Component class="javax.swing.JButton" name="jDownButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="2" green="12" red="0" type="rgb"/>
@@ -1471,7 +1471,7 @@
                 <Property name="text" type="java.lang.String" value="&#x25bc;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="jEndTurnButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="2" green="12" red="0" type="rgb"/>

@@ -127,10 +127,10 @@ public class Interface extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jGamePseudoP3 = new javax.swing.JLabel();
         jUpButton = new javax.swing.JButton();
-        jUpButton1 = new javax.swing.JButton();
-        jUpButton2 = new javax.swing.JButton();
-        jUpButton3 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jRightButton = new javax.swing.JButton();
+        jLeftButton = new javax.swing.JButton();
+        jDownButton = new javax.swing.JButton();
+        jEndTurnButton = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jMenuPrincipal = new javax.swing.JPanel();
@@ -925,25 +925,25 @@ public class Interface extends javax.swing.JFrame {
         jUpButton.setForeground(new java.awt.Color(249, 240, 118));
         jUpButton.setText("▲");
 
-        jUpButton1.setBackground(new java.awt.Color(0, 18, 2));
-        jUpButton1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jUpButton1.setForeground(new java.awt.Color(249, 240, 118));
-        jUpButton1.setText("►");
+        jRightButton.setBackground(new java.awt.Color(0, 18, 2));
+        jRightButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jRightButton.setForeground(new java.awt.Color(249, 240, 118));
+        jRightButton.setText("►");
 
-        jUpButton2.setBackground(new java.awt.Color(0, 18, 2));
-        jUpButton2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jUpButton2.setForeground(new java.awt.Color(249, 240, 118));
-        jUpButton2.setText("◄");
+        jLeftButton.setBackground(new java.awt.Color(0, 18, 2));
+        jLeftButton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLeftButton.setForeground(new java.awt.Color(249, 240, 118));
+        jLeftButton.setText("◄");
 
-        jUpButton3.setBackground(new java.awt.Color(0, 18, 2));
-        jUpButton3.setFont(new java.awt.Font("Segoe UI", 0, 33)); // NOI18N
-        jUpButton3.setForeground(new java.awt.Color(249, 240, 118));
-        jUpButton3.setText("▼");
+        jDownButton.setBackground(new java.awt.Color(0, 18, 2));
+        jDownButton.setFont(new java.awt.Font("Segoe UI", 0, 33)); // NOI18N
+        jDownButton.setForeground(new java.awt.Color(249, 240, 118));
+        jDownButton.setText("▼");
 
-        jButton1.setBackground(new java.awt.Color(0, 18, 2));
-        jButton1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(249, 240, 118));
-        jButton1.setText("END");
+        jEndTurnButton.setBackground(new java.awt.Color(0, 18, 2));
+        jEndTurnButton.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
+        jEndTurnButton.setForeground(new java.awt.Color(249, 240, 118));
+        jEndTurnButton.setText("END");
 
         jLabel16.setText("CHAT");
 
@@ -973,14 +973,14 @@ public class Interface extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jUpButton2)
+                                .addComponent(jLeftButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jUpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jUpButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                    .addComponent(jDownButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jEndTurnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jUpButton1))
+                                .addComponent(jRightButton))
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jLayeredPane2)
                                 .addComponent(jLayeredPane1)
@@ -1009,11 +1009,11 @@ public class Interface extends javax.swing.JFrame {
                         .addComponent(jUpButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jUpButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jUpButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLeftButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jRightButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jEndTurnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jUpButton3))
+                        .addComponent(jDownButton))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1611,6 +1611,12 @@ public class Interface extends javax.swing.JFrame {
 
     }
 
+    private void updateButtons() {
+
+
+        
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox jAdvancedCheck;
     private javax.swing.JPanel jBG;
@@ -1619,7 +1625,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jBackCredits;
     private javax.swing.JButton jBackGaming;
     private javax.swing.JLabel jBloodDrop;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jColorLeft;
     private javax.swing.JComboBox<String> jColorRight;
     private javax.swing.JPanel jConfigLeft;
@@ -1631,6 +1636,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jContinue;
     private javax.swing.JButton jCredit;
     private javax.swing.JFrame jCreditPage;
+    private javax.swing.JButton jDownButton;
+    private javax.swing.JButton jEndTurnButton;
     private javax.swing.JLabel jErrorLabel;
     private javax.swing.JLabel jErrorNewGameLabel;
     private javax.swing.JLabel jErrorStartLabel;
@@ -1663,6 +1670,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JLayeredPane jLayeredPane3;
+    private javax.swing.JButton jLeftButton;
     private javax.swing.JLabel jMap;
     private javax.swing.JPanel jMenuPrincipal;
     private javax.swing.JLabel jMonsterImage;
@@ -1690,6 +1698,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jPrevious;
     private javax.swing.JLabel jPseudo;
     private javax.swing.JTextField jPseudoField;
+    private javax.swing.JButton jRightButton;
     private javax.swing.JComboBox<String> jSelecLeft;
     private javax.swing.JComboBox<String> jSelecRight;
     private javax.swing.JButton jShowButton;
@@ -1700,8 +1709,5 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jTitre;
     private javax.swing.JLabel jTitreGame;
     private javax.swing.JButton jUpButton;
-    private javax.swing.JButton jUpButton1;
-    private javax.swing.JButton jUpButton2;
-    private javax.swing.JButton jUpButton3;
     // End of variables declaration//GEN-END:variables
 }
