@@ -66,7 +66,7 @@ public final class Jeton extends Pion implements Moveable {
         this.generateSprite();
 
     }
-    
+
     public void resetPlay() {
         this.canPlay = true;
     }
@@ -74,27 +74,29 @@ public final class Jeton extends Pion implements Moveable {
     @Override
     public void move(Direction dir) {
         this.coups--;
-        
-        switch (dir){
-            case UP :
-                this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
-                this.setY(getY()-1);
-                this.terrain.getPionMap()[this.getX()][this.getY()].add(this);
-                this.listIndex = this.terrain.getPionMap()[this.getX()][this.getY()].size();
-            break;
-            case LEFT :
-                this.setX(getX()-1);
-            break;
-            case RIGHT :
-                this.setX(getX()+1);
-            break;
-            case DOWN :
-                this.setY(getY()+1);
-            break;
+
+        this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
+
+        switch (dir) {
+            case UP:
+                this.setY(getY() - 1);
+                break;
+            case LEFT:
+                this.setX(getX() - 1);
+                break;
+            case RIGHT:
+                this.setX(getX() + 1);
+                break;
+            case DOWN:
+                this.setY(getY() + 1);
+                break;
         }
-        
+
+        this.terrain.getPionMap()[this.getX()][this.getY()].add(this);
+        this.listIndex = this.terrain.getPionMap()[this.getX()][this.getY()].size();
+
         this.terrain.update();
-        
+
     }
 
     public boolean isCanPlay() {
