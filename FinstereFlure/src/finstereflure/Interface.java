@@ -1665,7 +1665,6 @@ public class Interface extends javax.swing.JFrame {
         jDownButton.setEnabled(true);
 
         if (!(this.game.getCurrentJeton().isCanPlay())) {
-            System.out.println("oui");
             jUpButton.setEnabled(false);
             jLeftButton.setEnabled(false);
             jRightButton.setEnabled(false);

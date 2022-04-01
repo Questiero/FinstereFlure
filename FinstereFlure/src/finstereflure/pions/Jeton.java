@@ -50,7 +50,7 @@ public final class Jeton extends Pion implements Moveable {
         super(terrain, x, y, listIndex, spritePath);
         this.player = player;
         this.maxCoupsClairs = maxCoupsClairs;
-        coups = maxCoupsClairs;
+        coups = maxCoupsClairs - 1;
     }
 
     public void flip() {
@@ -73,6 +73,7 @@ public final class Jeton extends Pion implements Moveable {
 
     @Override
     public void move(Direction dir) {
+
         this.coups--;
 
         this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
@@ -106,78 +107,106 @@ public final class Jeton extends Pion implements Moveable {
     @Override
     //!!!!!!!!!!!!!!!!!!!!!!!!! AJOUTER LES VERIF AVEC LES PIERRES !!!!!!!!!!!!!!!!!!!!!!!
     public boolean canMove(Direction dir) {
+
         LinkedList<Pion>[][] pionmap = new LinkedList[16][11];
         pionmap = super.terrain.getPionMap();
+
         Pion nextPos;   //donne dans chaque direction l'occupant de la case (après traitement)
+
+        if (this.coups == 0) {
+            return false;
+        }
+
         switch (dir) {
             case UP:
+
                 if (this.getY() == 0) {
                     return false;
-                } else if ((this.getX() == 12 && this.getY() == 1) || (this.getX() == 13 && this.getY() == 2)
+                }
+
+                if ((this.getX() == 12 && this.getY() == 1) || (this.getX() == 13 && this.getY() == 2)
                         || //cas de "l'escalier" en haut à droite
                         (this.getX() == 14 && this.getY() == 3) || (this.getX() == 15 && this.getY() == 4)) {
                     return false;
 
-                } else if (this.coups == 1) {   //ici on vérif s'il y a de la place ou pas 
-                    nextPos = pionmap[getX()][getY() - 1].getLast();
-                    if (nextPos instanceof Jeton) {    //cas où il y a un jeton joueur 
+                }
+
+                nextPos = pionmap[this.getX()][this.getY() - 1].getLast();
+
+                if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
+                    if (this.coups == 1) {
                         return false;
                     }
-                } else {
-                    return true;
                 }
+
                 break;
+
             case LEFT:
+
                 if (this.getX() == 0) {
                     return false;
-                } else if ((this.getX() == 1 && this.getY() == 7) || (this.getX() == 2 && this.getY() == 8)
+                }
+
+                if ((this.getX() == 1 && this.getY() == 7) || (this.getX() == 2 && this.getY() == 8)
                         || //escalier en bas à gauche
                         (this.getX() == 3 && this.getY() == 9) || (this.getX() == 4 && this.getY() == 10)) {
                     return false;
-                } else if (this.coups == 1) {   //ici on vérif s'il y a de la place ou pas 
-                    nextPos = pionmap[getX() - 1][getY()].getLast();
-                    if (nextPos instanceof Jeton) {    //cas où il y a un jeton joueur 
+                }
+
+                nextPos = pionmap[this.getX() - 1][this.getY()].getLast();
+
+                if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
+                    if (this.coups == 1) {
                         return false;
                     }
-                } else {
-                    return true;
                 }
+
                 break;
 
             case RIGHT:
                 if (this.getX() == 15) {
                     return false;
-                } else if ((this.getX() == 14 && this.getY() == 3) || (this.getX() == 13 && this.getY() == 2)
+                }
+
+                if ((this.getX() == 14 && this.getY() == 3) || (this.getX() == 13 && this.getY() == 2)
                         || (this.getX() == 12 && this.getY() == 1) || (this.getX() == 11 && this.getY() == 0)) {
                     return false;
 
-                } else if (this.coups == 1) {   //ici on vérif s'il y a de la place ou pas 
-                    nextPos = pionmap[getX() + 1][getY()].getLast();
-                    if (nextPos instanceof Jeton) {    //cas où il y a un jeton joueur 
+                }
+
+                nextPos = pionmap[this.getX() + 1][this.getY()].getLast();
+
+                if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
+                    if (this.coups == 1) {
                         return false;
                     }
-                } else {
-                    return true;
                 }
                 break;
             case DOWN:
+
                 if (this.getY() == 10) {
                     return false;
-                } else if ((this.getX() == 3 && this.getY() == 9) || (this.getX() == 2 && this.getY() == 8)
+                }
+
+                if ((this.getX() == 3 && this.getY() == 9) || (this.getX() == 2 && this.getY() == 8)
                         || (this.getX() == 1 && this.getY() == 7) || (this.getX() == 0 && this.getY() == 6)) {
                     return false;
 
-                } else if (this.coups == 1) {   //ici on vérif s'il y a de la place ou pas 
-                    nextPos = pionmap[getX()][getY() + 1].getLast();
-                    if (nextPos instanceof Jeton) {    //cas où il y a un jeton joueur 
+                }
+
+                nextPos = pionmap[this.getX()][this.getY() + 1].getLast();
+
+                if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
+                    if (this.coups == 1) {
                         return false;
                     }
-                } else {
-                    return true;
                 }
+
                 break;
         }
-        return false;
+
+        return true;
+
     }
 
     @Override
