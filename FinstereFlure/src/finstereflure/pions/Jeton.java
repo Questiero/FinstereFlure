@@ -182,6 +182,7 @@ public final class Jeton extends Pion implements Moveable {
                     }
                 }
                 break;
+                
             case DOWN:
 
                 if (this.getY() == 10) {
@@ -203,6 +204,7 @@ public final class Jeton extends Pion implements Moveable {
                 }
 
                 break;
+                
         }
 
         return true;
