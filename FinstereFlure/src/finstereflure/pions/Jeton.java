@@ -91,28 +91,28 @@ public final class Jeton extends Pion implements Moveable {
                 Pion nextPos = pionmap[this.getX()][this.getY() - 1].getLast();
                 this.setY(getY() - 1);
                 if (nextPos instanceof Pierre){
-                    ((Pierre) nextPos).move(UP);
+                    ((Pierre) nextPos).move(dir);
                 }
                 break;
             case LEFT:
                 nextPos = pionmap[this.getX() - 1][this.getY()].getLast();
                 this.setX(getX() - 1);
                 if (nextPos instanceof Pierre){
-                    ((Pierre) nextPos).move(LEFT);
+                    ((Pierre) nextPos).move(dir);
                 }
                 break;
             case RIGHT:
                 nextPos = pionmap[this.getX() + 1][this.getY()].getLast();
                 this.setX(getX() + 1);
                 if (nextPos instanceof Pierre){
-                    ((Pierre) nextPos).move(RIGHT);
+                    ((Pierre) nextPos).move(dir);
                 }
                 break;
             case DOWN:
                 nextPos = pionmap[this.getX()][this.getY() + 1].getLast();
                 this.setY(getY() + 1);
                 if (nextPos instanceof Pierre){
-                    ((Pierre) nextPos).move(RIGHT);
+                    ((Pierre) nextPos).move(dir);
                 }
                 break;
         }
