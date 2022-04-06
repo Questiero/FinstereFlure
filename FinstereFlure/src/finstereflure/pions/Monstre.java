@@ -27,12 +27,49 @@ public final class Monstre extends Pion implements Moveable {
 
     @Override
     public void move(Direction dir) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
+
+        switch (dir) {
+            case UP:
+                if (this.getY() == 0) {
+                    this.setY(15);
+                } else {
+                    this.setY(getY() - 1);
+                }
+                break;
+            case LEFT:
+                if (this.getX() == 0) {
+                    this.setX(11);
+                } else {
+                    this.setX(getX() - 1);
+                }
+                break;
+            case RIGHT:
+                if (this.getX() == 11) {
+                    this.setX(0);
+                } else {
+                    this.setX(getX() + 1);
+                }
+                break;
+            case DOWN:
+                if (this.getY() == 15) {
+                    this.setY(0);
+                } else {
+                    this.setY(getY() + 1);
+                }
+                break;
+        }
+
+        this.terrain.getPionMap()[this.getX()][this.getY()].add(this);
+        this.listIndex = this.terrain.getPionMap()[this.getX()][this.getY()].size();
+
+        this.terrain.update();
     }
 
     @Override
     public boolean canMove(Direction dir) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
 
     @Override
