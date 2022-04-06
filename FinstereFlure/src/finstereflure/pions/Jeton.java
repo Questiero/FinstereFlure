@@ -64,8 +64,9 @@ public final class Jeton extends Pion implements Moveable {
             this.coups = this.maxCoupsClairs;
         } else {
             this.coups = 7 - this.maxCoupsClairs;   //ici c'est le nb de coups foncés
-            this.canPlay = false;
         }
+
+        this.canPlay = false;
 
         this.generateSprite();
 
