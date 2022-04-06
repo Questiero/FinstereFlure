@@ -965,6 +965,11 @@ public class Interface extends javax.swing.JFrame {
         jEndTurnButton.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         jEndTurnButton.setForeground(new java.awt.Color(249, 240, 118));
         jEndTurnButton.setText("END");
+        jEndTurnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jEndTurnButtonActionPerformed(evt);
+            }
+        });
 
         jLabel16.setText("CHAT");
 
@@ -1496,51 +1501,121 @@ public class Interface extends javax.swing.JFrame {
 
 
     private void jPion1P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P1MouseClicked
-        System.out.println("J1 : Pion 1");
-        this.selectJeton(1, 1);
-        this.updateDisplayJeton();
+
+        int player = 1;
+        int pion = 1;
+
+        if (this.game.getPlayerTurn() == player) {
+
+            System.out.println("J" + player + " : Pion " + pion);
+            this.selectJeton(player, pion);
+            this.updateDisplayJeton();
+
+        }
+
     }//GEN-LAST:event_jPion1P1MouseClicked
 
     private void jPion2P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P1MouseClicked
-        System.out.println("J1 : Pion 2");
-        this.selectJeton(1, 2);
-        this.updateDisplayJeton();
+
+        int player = 1;
+        int pion = 2;
+
+        if (this.game.getPlayerTurn() == player) {
+
+            System.out.println("J" + player + " : Pion " + pion);
+            this.selectJeton(player, pion);
+            this.updateDisplayJeton();
+
+        }
+
     }//GEN-LAST:event_jPion2P1MouseClicked
 
     private void jPion3P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P1MouseClicked
-        System.out.println("J1 : Pion 3");
-        this.selectJeton(1, 3);
-        this.updateDisplayJeton();
+
+        int player = 1;
+        int pion = 3;
+
+        if (this.game.getPlayerTurn() == player) {
+
+            System.out.println("J" + player + " : Pion " + pion);
+            this.selectJeton(player, pion);
+            this.updateDisplayJeton();
+
+        }
+
     }//GEN-LAST:event_jPion3P1MouseClicked
 
     private void jPion4P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P1MouseClicked
-        System.out.println("J1 : Pion 4");
-        this.selectJeton(1, 4);
-        this.updateDisplayJeton();
+
+        int player = 1;
+        int pion = 4;
+
+        if (this.game.getPlayerTurn() == player) {
+
+            System.out.println("J" + player + " : Pion " + pion);
+            this.selectJeton(player, pion);
+            this.updateDisplayJeton();
+
+        }
     }//GEN-LAST:event_jPion4P1MouseClicked
 
     private void jPion1P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P2MouseClicked
-        System.out.println("J2 : Pion 1");
-        this.selectJeton(2, 1);
-        this.updateDisplayJeton();
+
+        int player = 2;
+        int pion = 1;
+
+        if (this.game.getPlayerTurn() == player) {
+
+            System.out.println("J" + player + " : Pion " + pion);
+            this.selectJeton(player, pion);
+            this.updateDisplayJeton();
+
+        }
     }//GEN-LAST:event_jPion1P2MouseClicked
 
     private void jPion2P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P2MouseClicked
-        System.out.println("J2 : Pion 2");
-        this.selectJeton(2, 2);
-        this.updateDisplayJeton();
+
+        int player = 2;
+        int pion = 2;
+
+        if (this.game.getPlayerTurn() == player) {
+
+            System.out.println("J" + player + " : Pion " + pion);
+            this.selectJeton(player, pion);
+            this.updateDisplayJeton();
+
+        }
+
     }//GEN-LAST:event_jPion2P2MouseClicked
 
     private void jPion3P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P2MouseClicked
-        System.out.println("J2 : Pion 3");
-        this.selectJeton(2, 3);
-        this.updateDisplayJeton();
+
+        int player = 2;
+        int pion = 3;
+
+        if (this.game.getPlayerTurn() == player) {
+
+            System.out.println("J" + player + " : Pion " + pion);
+            this.selectJeton(player, pion);
+            this.updateDisplayJeton();
+
+        }
+
     }//GEN-LAST:event_jPion3P2MouseClicked
 
     private void jPion4P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P2MouseClicked
-        System.out.println("J2 : Pion 4");
-        this.selectJeton(2, 4);
-        this.updateDisplayJeton();
+
+        int player = 2;
+        int pion = 4;
+
+        if (this.game.getPlayerTurn() == player) {
+
+            System.out.println("J" + player + " : Pion " + pion);
+            this.selectJeton(player, pion);
+            this.updateDisplayJeton();
+
+        }
+
     }//GEN-LAST:event_jPion4P2MouseClicked
 
     private void jUpButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jUpButtonMouseClicked
@@ -1575,25 +1650,37 @@ public class Interface extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jDownButtonMouseClicked
 
-    private void selectJeton(int player, int pion) {
+    private void jEndTurnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEndTurnButtonActionPerformed
 
-        JLabel[][] labelsPlayers = {{jPion1P1, jPion2P1, jPion3P1, jPion4P1}, {jPion1P2, jPion2P2, jPion3P2, jPion4P2}};
-
-        player--;
-        pion--;
-
-        // Affichage
-        for (JLabel[] array : labelsPlayers) {
-            for (JLabel label : array) {
-                label.setBorder(BorderFactory.createEmptyBorder());
-            }
+        if(jEndTurnButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
+            this.game.getCurrentJeton().flip();
+            this.updateDisplayJeton();
+            this.updateMoveButtons();
         }
 
-        labelsPlayers[player][pion].setBorder(BorderFactory.createLineBorder(Color.black, 2));
+    }//GEN-LAST:event_jEndTurnButtonActionPerformed
 
-        this.game.selectJeton(player, pion);
+    private void selectJeton(int player, int pion) {
 
-        this.updateMoveButtons();
+        if (player == this.game.getPlayerTurn()) {
+            JLabel[][] labelsPlayers = {{jPion1P1, jPion2P1, jPion3P1, jPion4P1}, {jPion1P2, jPion2P2, jPion3P2, jPion4P2}};
+
+            player--;
+            pion--;
+
+            // Affichage
+            for (JLabel[] array : labelsPlayers) {
+                for (JLabel label : array) {
+                    label.setBorder(BorderFactory.createEmptyBorder());
+                }
+            }
+
+            labelsPlayers[player][pion].setBorder(BorderFactory.createLineBorder(Color.black, 2));
+
+            this.game.selectJeton(player, pion);
+
+            this.updateMoveButtons();
+        }
 
     }
 
