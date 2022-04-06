@@ -965,9 +965,9 @@ public class Interface extends javax.swing.JFrame {
         jEndTurnButton.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 14)); // NOI18N
         jEndTurnButton.setForeground(new java.awt.Color(249, 240, 118));
         jEndTurnButton.setText("END");
-        jEndTurnButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jEndTurnButtonActionPerformed(evt);
+        jEndTurnButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jEndTurnButtonMouseClicked(evt);
             }
         });
 
@@ -1382,9 +1382,11 @@ public class Interface extends javax.swing.JFrame {
         jPionImageRight.setIcon(new ImageIcon("./img/pion" + colorR + "_1_6_clair.gif"));
     }//GEN-LAST:event_jColorRightActionPerformed
 
+    Color colorBackgroundOrig;
     private void jStartButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jStartButtonMouseClicked
 
         if (jStartButton.isEnabled() == true) {
+            //initialisation
             String namep1 = jGamePseudoLeft.getText();
             String namep2 = jGamePseudoRight.getText();
             Couleur colorp1 = Couleur.getType((String) jColorLeft.getSelectedItem());
@@ -1412,6 +1414,10 @@ public class Interface extends javax.swing.JFrame {
 
             jGamePseudoP2.setText(namep2);
             jGameColorP2.setText("Color : " + colorR);
+
+            colorBackgroundOrig = jPanel5.getBackground();
+            jPanel4.setBackground(Color.green);
+            jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 5));
 
             this.updateDisplayJeton();
 
@@ -1650,7 +1656,8 @@ public class Interface extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jDownButtonMouseClicked
 
-    private void jEndTurnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEndTurnButtonActionPerformed
+
+    private void jEndTurnButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jEndTurnButtonMouseClicked
 
         if (jEndTurnButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
 
@@ -1661,11 +1668,24 @@ public class Interface extends javax.swing.JFrame {
             if (this.game.canNextPlayerTurn()) {
                 this.game.nextPlayerTurn();
                 this.updateDisplayJeton();
+
+                if (this.game.getPlayerTurn() == 2) {
+                    jPanel4.setBackground(colorBackgroundOrig);
+                    jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+                    jPanel5.setBackground(Color.green);
+                    jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 5));
+                } else {
+                    jPanel5.setBackground(colorBackgroundOrig);
+                    jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+                    jPanel4.setBackground(Color.green);
+                    jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 5));
+                }
+
             }
 
         }
 
-    }//GEN-LAST:event_jEndTurnButtonActionPerformed
+    }//GEN-LAST:event_jEndTurnButtonMouseClicked
 
     private void selectJeton(int player, int pion) {
 
@@ -1877,4 +1897,5 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jTitreGame;
     private javax.swing.JButton jUpButton;
     // End of variables declaration//GEN-END:variables
+
 }
