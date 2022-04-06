@@ -40,7 +40,11 @@ public final class Pierre extends Pion implements Moveable {
                 break;
         }
 
-        this.terrain.getPionMap()[this.getX()][this.getY()].add(this);
+        if (!((this.getX() == 0 && this.getY() == 0) || (this.getX() == 15 && this.getY() == 10))) {
+            this.terrain.getPionMap()[this.getX()][this.getY()].add(this);
+
+        }
+
         this.listIndex = this.terrain.getPionMap()[this.getX()][this.getY()].size();
 
         this.terrain.update();
