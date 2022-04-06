@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import finstereflure.pions.Jeton;
+import finstereflure.pions.Monstre;
 
 /**
  *
@@ -23,6 +24,7 @@ public class Interface extends javax.swing.JFrame {
 
     private Host h1;
     private Partie game;   //initialisation partie
+    private Monstre monster;
 
     private boolean notEmptyPseudo = false;
     private boolean notEmptyPassword = false;
@@ -1402,7 +1404,7 @@ public class Interface extends javax.swing.JFrame {
         jPionImageRight.setIcon(new ImageIcon("./img/pion" + colorR + "_1_6_clair.gif"));
     }//GEN-LAST:event_jColorRightActionPerformed
 
-    Color colorBackgroundOrig;
+    Color colorBgJoueurs, colorBgMonstre;
     private void jStartButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jStartButtonMouseClicked
 
         if (jStartButton.isEnabled() == true) {
@@ -1435,8 +1437,9 @@ public class Interface extends javax.swing.JFrame {
             jGamePseudoP2.setText(namep2);
             jGameColorP2.setText("Color : " + colorR);
 
-            colorBackgroundOrig = jPanel5.getBackground();
-            jPanel4.setBackground(new Color(51,190,84));
+            colorBgJoueurs = jPanel5.getBackground();
+            colorBgMonstre = jPanel6.getBackground();
+            jPanel4.setBackground(new Color(51, 190, 84));
             jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 5));
 
             this.updateDisplayJeton();
@@ -1702,18 +1705,34 @@ public class Interface extends javax.swing.JFrame {
             this.updateMoveButtons();
 
             if (this.game.canNextPlayerTurn()) {
+
+//                if (this.game.getPlayerTurn() == 2) {        //tour du monstre           
+//                    jPanel4.setBackground(colorBgJoueurs);
+//                    jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+//                    jPanel5.setBackground(colorBgJoueurs);
+//                    jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+//                    jPanel6.setBackground(new Color(51, 190, 84));
+//                    jPanel6.setBorder(BorderFactory.createLineBorder(Color.black, 5));
+//
+//                    this.game.monsterTurn();
+//                    this.monster.move(monster.targetDirection());
+//
+//                }
+//                  Tout ça c'est probablement faux mais là mon cerveau arrive plus à réfléchir, du coup j'arrive pas à faire bouger le monstre voila
+//                  ce que j'ai laissé c'est les lignes qui resserviront surement, le reste c'était naze
+
                 this.game.nextPlayerTurn();
                 this.updateDisplayJeton();
 
                 if (this.game.getPlayerTurn() == 2) {
-                    jPanel4.setBackground(colorBackgroundOrig);
+                    jPanel4.setBackground(colorBgJoueurs);
                     jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 2));
-                    jPanel5.setBackground(new Color(51,190,84));
+                    jPanel5.setBackground(new Color(51, 190, 84));
                     jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 5));
                 } else {
-                    jPanel5.setBackground(colorBackgroundOrig);
+                    jPanel5.setBackground(colorBgJoueurs);
                     jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 2));
-                    jPanel4.setBackground(new Color(51,190,84));
+                    jPanel4.setBackground(new Color(51, 190, 84));
                     jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 5));
                 }
 
