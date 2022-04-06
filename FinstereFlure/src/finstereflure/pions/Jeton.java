@@ -141,19 +141,10 @@ public final class Jeton extends Pion implements Moveable {
                     if (this.coups == 1) {
                         return false;
                     }
-                }
-                if (nextPos instanceof Pierre) {    //cas où il y a une pierre dans la direction voulue
-                    if (this.getY() == 0) {
-                        return false;
-                    }
-                    if ((nextPos.getX() == 12 && nextPos.getY() == 1) || (nextPos.getX() == 13 && nextPos.getY() == 2)
-                            || //cas où la pierre est en bord de map
-                            (nextPos.getX() == 14 && nextPos.getY() == 3) || (nextPos.getX() == 15 && nextPos.getY() == 4)) {
-                        return false;
-                    } else {
-                        ((Pierre) nextPos).move(UP);
-                        return true;
-                    }
+                } else if (nextPos instanceof Pierre) {    //cas où il y a une pierre dans la direction voulue
+                    return ((Pierre) nextPos).canMove(UP);
+                } else {
+                    return true;
                 }
 
                 break;
