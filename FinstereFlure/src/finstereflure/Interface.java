@@ -978,7 +978,12 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel17.setText("game info");
 
+        jLabel18.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(249, 240, 118));
         jLabel18.setText("Remaining moves :");
+
+        jCoupsRestants.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        jCoupsRestants.setForeground(new java.awt.Color(249, 240, 118));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1431,7 +1436,7 @@ public class Interface extends javax.swing.JFrame {
             jGameColorP2.setText("Color : " + colorR);
 
             colorBackgroundOrig = jPanel5.getBackground();
-            jPanel4.setBackground(Color.green);
+            jPanel4.setBackground(new Color(51,190,84));
             jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 5));
 
             this.updateDisplayJeton();
@@ -1673,7 +1678,7 @@ public class Interface extends javax.swing.JFrame {
         if (jRightButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
             this.game.getCurrentJeton().move(Direction.RIGHT);
             this.updateMoveButtons();
-            updateCoupsRestants();
+            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
 
         }
     }//GEN-LAST:event_jRightButtonMouseClicked
@@ -1682,7 +1687,7 @@ public class Interface extends javax.swing.JFrame {
         if (jDownButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
             this.game.getCurrentJeton().move(Direction.DOWN);
             this.updateMoveButtons();
-            updateCoupsRestants();
+            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
 
         }
     }//GEN-LAST:event_jDownButtonMouseClicked
@@ -1703,12 +1708,12 @@ public class Interface extends javax.swing.JFrame {
                 if (this.game.getPlayerTurn() == 2) {
                     jPanel4.setBackground(colorBackgroundOrig);
                     jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 2));
-                    jPanel5.setBackground(Color.green);
+                    jPanel5.setBackground(new Color(51,190,84));
                     jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 5));
                 } else {
                     jPanel5.setBackground(colorBackgroundOrig);
                     jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 2));
-                    jPanel4.setBackground(Color.green);
+                    jPanel4.setBackground(new Color(51,190,84));
                     jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 5));
                 }
 
