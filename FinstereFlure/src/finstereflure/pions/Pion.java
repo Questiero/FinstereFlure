@@ -87,6 +87,7 @@ public abstract class Pion {
 
     public void generateSprite() {
         this.sprite = new ImageIcon(this.generateSpritePath());
+        this.terrain.update();
     }
 
 }
