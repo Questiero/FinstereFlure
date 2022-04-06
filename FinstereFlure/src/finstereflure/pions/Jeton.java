@@ -82,19 +82,38 @@ public final class Jeton extends Pion implements Moveable {
         this.coups--;
 
         this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
+        
+        LinkedList<Pion>[][] pionmap = new LinkedList[16][11];
+        pionmap = super.terrain.getPionMap();
 
         switch (dir) {
             case UP:
+                Pion nextPos = pionmap[this.getX()][this.getY() - 1].getLast();
                 this.setY(getY() - 1);
+                if (nextPos instanceof Pierre){
+                    ((Pierre) nextPos).move(UP);
+                }
                 break;
             case LEFT:
+                nextPos = pionmap[this.getX() - 1][this.getY()].getLast();
                 this.setX(getX() - 1);
+                if (nextPos instanceof Pierre){
+                    ((Pierre) nextPos).move(LEFT);
+                }
                 break;
             case RIGHT:
+                nextPos = pionmap[this.getX() + 1][this.getY()].getLast();
                 this.setX(getX() + 1);
+                if (nextPos instanceof Pierre){
+                    ((Pierre) nextPos).move(RIGHT);
+                }
                 break;
             case DOWN:
+                nextPos = pionmap[this.getX()][this.getY() + 1].getLast();
                 this.setY(getY() + 1);
+                if (nextPos instanceof Pierre){
+                    ((Pierre) nextPos).move(RIGHT);
+                }
                 break;
         }
 
@@ -142,19 +161,12 @@ public final class Jeton extends Pion implements Moveable {
                     if (this.coups == 1) {
                         return false;
                     }
-                }
-                if (nextPos instanceof Pierre) {    //cas où il y a une pierre dans la direction voulue
-                    if (this.getY() == 0) {
-                        return false;
-                    }
-                    if ((nextPos.getX() == 12 && nextPos.getY() == 1) || (nextPos.getX() == 13 && nextPos.getY() == 2)
-                            || //cas où la pierre est en bord de map
-                            (nextPos.getX() == 14 && nextPos.getY() == 3) || (nextPos.getX() == 15 && nextPos.getY() == 4)) {
-                        return false;
-                    } else {
-                        ((Pierre) nextPos).move(UP);
-                        return true;
-                    }
+
+                } else if (nextPos instanceof Pierre) {    //cas où il y a une pierre dans la direction voulue
+                    return ((Pierre) nextPos).canMove(UP);
+
+                } else {
+                    return true;
                 }
 
                 break;
@@ -183,14 +195,11 @@ public final class Jeton extends Pion implements Moveable {
                         return false;
                     }
 
-                    if ((nextPos.getX() == 1 && nextPos.getY() == 7) || (nextPos.getX() == 2 && nextPos.getY() == 8)
-                            || //escalier en bas à gauche
-                            (nextPos.getX() == 3 && nextPos.getY() == 9) || (nextPos.getX() == 4 && nextPos.getY() == 10)) {
-                        return false;
-                    } else {
-                        ((Pierre) nextPos).move(LEFT);
-                        return true;
-                    }
+                } else if (nextPos instanceof Pierre) {    //cas où il y a une pierre dans la direction voulue
+                    return ((Pierre) nextPos).canMove(LEFT);
+
+                } else {
+                    return true;
                 }
 
                 break;
@@ -214,18 +223,16 @@ public final class Jeton extends Pion implements Moveable {
                     }
                 }
                 if (nextPos instanceof Pierre) {
-                    if (nextPos.getX() == 15) {
+
+                    if (nextPos.getX() == 0) {
                         return false;
                     }
 
-                    if ((nextPos.getX() == 14 && nextPos.getY() == 3) || (nextPos.getX() == 13 && nextPos.getY() == 2)
-                            || (nextPos.getX() == 12 && nextPos.getY() == 1) || (nextPos.getX() == 11 && nextPos.getY() == 0)) {
-                        return false;
+                } else if (nextPos instanceof Pierre) {    //cas où il y a une pierre dans la direction voulue
+                    return ((Pierre) nextPos).canMove(RIGHT);
 
-                    } else {
-                        ((Pierre) nextPos).move(RIGHT);
-                        return true;
-                    }
+                } else {
+                    return true;
                 }
                 break;
 
@@ -249,17 +256,15 @@ public final class Jeton extends Pion implements Moveable {
                     }
                 }
                 if (nextPos instanceof Pierre) {
-                    if (nextPos.getY() == 10) {
+                    if (nextPos.getX() == 0) {
                         return false;
                     }
 
-                    if ((nextPos.getX() == 3 && nextPos.getY() == 9) || (nextPos.getX() == 2 && nextPos.getY() == 8)
-                            || (nextPos.getX() == 1 && nextPos.getY() == 7) || (nextPos.getX() == 0 && nextPos.getY() == 6)) {
-                        return false;
-                    } else {
-                        ((Pierre) nextPos).move(DOWN);
-                        return true;
-                    }
+                } else if (nextPos instanceof Pierre) {    //cas où il y a une pierre dans la direction voulue
+                    return ((Pierre) nextPos).canMove(DOWN);
+
+                } else {
+                    return true;
                 }
                 break;
         }
