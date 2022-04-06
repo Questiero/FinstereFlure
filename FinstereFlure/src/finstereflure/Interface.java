@@ -13,6 +13,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import finstereflure.pions.Jeton;
 
 /**
  *
@@ -134,6 +135,8 @@ public class Interface extends javax.swing.JFrame {
         jEndTurnButton = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jCoupsRestants = new javax.swing.JLabel();
         jMenuPrincipal = new javax.swing.JPanel();
         jTitre = new javax.swing.JLabel();
         jNewGame = new javax.swing.JButton();
@@ -975,6 +978,8 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel17.setText("game info");
 
+        jLabel18.setText("Remaining moves :");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -997,9 +1002,17 @@ public class Interface extends javax.swing.JFrame {
                         .addComponent(jTitreGame, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(173, 173, 173))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLeftButton)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 330, Short.MAX_VALUE)
+                                        .addComponent(jLeftButton))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel18)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCoupsRestants, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jUpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1007,10 +1020,9 @@ public class Interface extends javax.swing.JFrame {
                                     .addComponent(jEndTurnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jRightButton))
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLayeredPane2)
-                                .addComponent(jLayeredPane1)
-                                .addComponent(jLayeredPane3)))
+                            .addComponent(jLayeredPane2)
+                            .addComponent(jLayeredPane1)
+                            .addComponent(jLayeredPane3))
                         .addGap(20, 20, 20))))
         );
         jPanel3Layout.setVerticalGroup(
@@ -1041,7 +1053,10 @@ public class Interface extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jDownButton))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18)
+                            .addComponent(jCoupsRestants))
+                        .addGap(10, 10, 10)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -1516,9 +1531,9 @@ public class Interface extends javax.swing.JFrame {
             System.out.println("J" + player + " : Pion " + pion);
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
-
         }
 
+        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
     }//GEN-LAST:event_jPion1P1MouseClicked
 
     private void jPion2P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P1MouseClicked
@@ -1533,6 +1548,8 @@ public class Interface extends javax.swing.JFrame {
             this.updateDisplayJeton();
 
         }
+
+        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
 
     }//GEN-LAST:event_jPion2P1MouseClicked
 
@@ -1549,6 +1566,7 @@ public class Interface extends javax.swing.JFrame {
 
         }
 
+        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
     }//GEN-LAST:event_jPion3P1MouseClicked
 
     private void jPion4P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P1MouseClicked
@@ -1563,6 +1581,8 @@ public class Interface extends javax.swing.JFrame {
             this.updateDisplayJeton();
 
         }
+
+        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
     }//GEN-LAST:event_jPion4P1MouseClicked
 
     private void jPion1P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P2MouseClicked
@@ -1577,6 +1597,8 @@ public class Interface extends javax.swing.JFrame {
             this.updateDisplayJeton();
 
         }
+
+        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
     }//GEN-LAST:event_jPion1P2MouseClicked
 
     private void jPion2P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P2MouseClicked
@@ -1591,6 +1613,8 @@ public class Interface extends javax.swing.JFrame {
             this.updateDisplayJeton();
 
         }
+
+        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
 
     }//GEN-LAST:event_jPion2P2MouseClicked
 
@@ -1607,6 +1631,8 @@ public class Interface extends javax.swing.JFrame {
 
         }
 
+        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
+
     }//GEN-LAST:event_jPion3P2MouseClicked
 
     private void jPion4P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P2MouseClicked
@@ -1622,13 +1648,15 @@ public class Interface extends javax.swing.JFrame {
 
         }
 
+        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
     }//GEN-LAST:event_jPion4P2MouseClicked
+
 
     private void jUpButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jUpButtonMouseClicked
         if (jUpButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
             this.game.getCurrentJeton().move(Direction.UP);
             this.updateMoveButtons();
-
+            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
         }
     }//GEN-LAST:event_jUpButtonMouseClicked
 
@@ -1636,6 +1664,7 @@ public class Interface extends javax.swing.JFrame {
         if (jLeftButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
             this.game.getCurrentJeton().move(Direction.LEFT);
             this.updateMoveButtons();
+            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
 
         }
     }//GEN-LAST:event_jLeftButtonMouseClicked
@@ -1644,6 +1673,7 @@ public class Interface extends javax.swing.JFrame {
         if (jRightButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
             this.game.getCurrentJeton().move(Direction.RIGHT);
             this.updateMoveButtons();
+            updateCoupsRestants();
 
         }
     }//GEN-LAST:event_jRightButtonMouseClicked
@@ -1652,6 +1682,7 @@ public class Interface extends javax.swing.JFrame {
         if (jDownButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
             this.game.getCurrentJeton().move(Direction.DOWN);
             this.updateMoveButtons();
+            updateCoupsRestants();
 
         }
     }//GEN-LAST:event_jDownButtonMouseClicked
@@ -1821,6 +1852,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jConnexion;
     private javax.swing.JFrame jConnexionPage;
     private javax.swing.JButton jContinue;
+    private javax.swing.JLabel jCoupsRestants;
     private javax.swing.JButton jCredit;
     private javax.swing.JFrame jCreditPage;
     private javax.swing.JButton jDownButton;
@@ -1845,6 +1877,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

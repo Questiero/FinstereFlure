@@ -307,4 +307,9 @@ public final class Jeton extends Pion implements Moveable {
 
     }
 
+    public int getCoups() {
+        return coups;
+    }
+
+    
 }
