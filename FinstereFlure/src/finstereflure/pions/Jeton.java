@@ -2,6 +2,10 @@ package finstereflure.pions;
 
 import finstereflure.Terrain;
 import finstereflure.enums.Direction;
+import static finstereflure.enums.Direction.DOWN;
+import static finstereflure.enums.Direction.LEFT;
+import static finstereflure.enums.Direction.RIGHT;
+import static finstereflure.enums.Direction.UP;
 import finstereflure.pions.interfaces.Moveable;
 import finstereflure.players.Player;
 import java.util.LinkedList;
@@ -148,6 +152,7 @@ public final class Jeton extends Pion implements Moveable {
                             (nextPos.getX() == 14 && nextPos.getY() == 3) || (nextPos.getX() == 15 && nextPos.getY() == 4)) {
                         return false;
                     } else {
+                        ((Pierre) nextPos).move(UP);
                         return true;
                     }
                 }
@@ -183,6 +188,7 @@ public final class Jeton extends Pion implements Moveable {
                             (nextPos.getX() == 3 && nextPos.getY() == 9) || (nextPos.getX() == 4 && nextPos.getY() == 10)) {
                         return false;
                     } else {
+                        ((Pierre) nextPos).move(LEFT);
                         return true;
                     }
                 }
@@ -217,6 +223,7 @@ public final class Jeton extends Pion implements Moveable {
                         return false;
 
                     } else {
+                        ((Pierre) nextPos).move(RIGHT);
                         return true;
                     }
                 }
@@ -250,6 +257,7 @@ public final class Jeton extends Pion implements Moveable {
                             || (nextPos.getX() == 1 && nextPos.getY() == 7) || (nextPos.getX() == 0 && nextPos.getY() == 6)) {
                         return false;
                     } else {
+                        ((Pierre) nextPos).move(DOWN);
                         return true;
                     }
                 }
