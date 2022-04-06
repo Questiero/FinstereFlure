@@ -138,6 +138,18 @@ public final class Jeton extends Pion implements Moveable {
                         return false;
                     }
                 }
+                if (nextPos instanceof Pierre) {    //cas où il y a une pierre dans la direction voulue
+                    if (this.getY() == 0) {
+                        return false;
+                    }
+                    if ((nextPos.getX() == 12 && nextPos.getY() == 1) || (nextPos.getX() == 13 && nextPos.getY() == 2)
+                            || //cas où la pierre est en bord de map
+                            (nextPos.getX() == 14 && nextPos.getY() == 3) || (nextPos.getX() == 15 && nextPos.getY() == 4)) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
 
                 break;
 
@@ -158,6 +170,19 @@ public final class Jeton extends Pion implements Moveable {
                 if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
                     if (this.coups == 1) {
                         return false;
+                    }
+                }
+                if (nextPos instanceof Pierre) {
+                    if (nextPos.getX() == 0) {
+                        return false;
+                    }
+
+                    if ((nextPos.getX() == 1 && nextPos.getY() == 7) || (nextPos.getX() == 2 && nextPos.getY() == 8)
+                            || //escalier en bas à gauche
+                            (nextPos.getX() == 3 && nextPos.getY() == 9) || (nextPos.getX() == 4 && nextPos.getY() == 10)) {
+                        return false;
+                    } else {
+                        return true;
                     }
                 }
 
@@ -181,8 +206,21 @@ public final class Jeton extends Pion implements Moveable {
                         return false;
                     }
                 }
+                if (nextPos instanceof Pierre) {
+                    if (nextPos.getX() == 15) {
+                        return false;
+                    }
+
+                    if ((nextPos.getX() == 14 && nextPos.getY() == 3) || (nextPos.getX() == 13 && nextPos.getY() == 2)
+                            || (nextPos.getX() == 12 && nextPos.getY() == 1) || (nextPos.getX() == 11 && nextPos.getY() == 0)) {
+                        return false;
+
+                    } else {
+                        return true;
+                    }
+                }
                 break;
-                
+
             case DOWN:
 
                 if (this.getY() == 10) {
@@ -202,9 +240,19 @@ public final class Jeton extends Pion implements Moveable {
                         return false;
                     }
                 }
+                if (nextPos instanceof Pierre) {
+                    if (nextPos.getY() == 10) {
+                        return false;
+                    }
 
+                    if ((nextPos.getX() == 3 && nextPos.getY() == 9) || (nextPos.getX() == 2 && nextPos.getY() == 8)
+                            || (nextPos.getX() == 1 && nextPos.getY() == 7) || (nextPos.getX() == 0 && nextPos.getY() == 6)) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
                 break;
-                
         }
 
         return true;
