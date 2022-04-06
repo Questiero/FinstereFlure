@@ -141,7 +141,13 @@ public class Partie {
     }
 
     public void nextPlayerTurn() {
+
+        for (Jeton j : this.players[this.playerTurn - 1].getJetons()) {
+            j.resetPlay();
+        }
+
         this.playerTurn++;
+
         if (this.playerTurn == 3) {
             this.monsterTurn();
         }
