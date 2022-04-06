@@ -1653,9 +1653,16 @@ public class Interface extends javax.swing.JFrame {
     private void jEndTurnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEndTurnButtonActionPerformed
 
         if(jEndTurnButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
+            
             this.game.getCurrentJeton().flip();
             this.updateDisplayJeton();
             this.updateMoveButtons();
+            
+            if(this.game.canNextPlayerTurn()) {
+                this.game.nextPlayerTurn();
+                this.updateDisplayJeton();
+            }
+            
         }
 
     }//GEN-LAST:event_jEndTurnButtonActionPerformed
@@ -1750,12 +1757,14 @@ public class Interface extends javax.swing.JFrame {
         jLeftButton.setEnabled(true);
         jRightButton.setEnabled(true);
         jDownButton.setEnabled(true);
+        jEndTurnButton.setEnabled(true);
 
         if (!(this.game.getCurrentJeton().isCanPlay())) {
             jUpButton.setEnabled(false);
             jLeftButton.setEnabled(false);
             jRightButton.setEnabled(false);
             jDownButton.setEnabled(false);
+            jEndTurnButton.setEnabled(false);
         } else {
 
             if (!(this.game.getCurrentJeton().canMove(Direction.UP))) {
@@ -1770,6 +1779,7 @@ public class Interface extends javax.swing.JFrame {
             if (!(this.game.getCurrentJeton().canMove(Direction.DOWN))) {
                 jDownButton.setEnabled(false);
             }
+            
         }
 
     }

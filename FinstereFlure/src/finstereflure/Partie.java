@@ -142,10 +142,25 @@ public class Partie {
 
     public void nextPlayerTurn() {
         this.playerTurn++;
-        if (this.playerTurn > 3) {
-            this.playerTurn = 1;
-            this.nextTour();
+        if (this.playerTurn == 3) {
+            this.monsterTurn();
         }
+        this.currentJeton = null;
+    }
+
+    public boolean canNextPlayerTurn() {
+
+        if (this.playerTurn == 3) {
+            //TODO Monstre
+        } else {
+            for (Jeton j : this.players[this.playerTurn - 1].getJetons()) {
+                if (j.isCanPlay()) {
+                    return false;
+                }
+            }
+        }
+        return true;
+
     }
 
     public void resetPlayerTurn() {
@@ -157,7 +172,7 @@ public class Partie {
     }
 
     public void selectJeton(int player, int pion) {
-        if (this.players[player].getJetons().size()>pion) {
+        if (this.players[player].getJetons().size() > pion) {
             this.currentJeton = this.players[player].getJetons().get(pion);
         }
     }
@@ -169,6 +184,13 @@ public class Partie {
     @Override
     public String toString() {
         return ("Joueur 1 : \t" + players[0] + "\nJoueur 2 : \t" + players[1]);
+    }
+
+    public void monsterTurn() {
+        //TODO
+        System.out.println("Tour du monstre");
+        this.playerTurn = 1;
+        this.nextTour();
     }
 
 }
