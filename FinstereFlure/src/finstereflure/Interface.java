@@ -15,6 +15,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import finstereflure.pions.Jeton;
 import finstereflure.pions.Monstre;
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -93,6 +95,7 @@ public class Interface extends javax.swing.JFrame {
         jColorLeft = new javax.swing.JComboBox<>();
         jPionImageLeft = new javax.swing.JLabel();
         jGamePseudoLeft = new javax.swing.JTextField();
+        jRandomPseudoLeft = new javax.swing.JButton();
         jConfigRight = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jSelecRight = new javax.swing.JComboBox<>();
@@ -100,6 +103,7 @@ public class Interface extends javax.swing.JFrame {
         jColorRight = new javax.swing.JComboBox<>();
         jPionImageRight = new javax.swing.JLabel();
         jGamePseudoRight = new javax.swing.JTextField();
+        jRandomPseudoRight = new javax.swing.JButton();
         jAdvancedCheck = new javax.swing.JCheckBox();
         jLabel11 = new javax.swing.JLabel();
         jStartButton = new javax.swing.JButton();
@@ -466,6 +470,16 @@ public class Interface extends javax.swing.JFrame {
         jGamePseudoLeft.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jGamePseudoLeft.setForeground(new java.awt.Color(249, 240, 118));
 
+        jRandomPseudoLeft.setBackground(new java.awt.Color(0, 18, 2));
+        jRandomPseudoLeft.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 14)); // NOI18N
+        jRandomPseudoLeft.setForeground(new java.awt.Color(249, 240, 118));
+        jRandomPseudoLeft.setText("?");
+        jRandomPseudoLeft.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRandomPseudoLeftMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jConfigLeftLayout = new javax.swing.GroupLayout(jConfigLeft);
         jConfigLeft.setLayout(jConfigLeftLayout);
         jConfigLeftLayout.setHorizontalGroup(
@@ -490,13 +504,18 @@ public class Interface extends javax.swing.JFrame {
                         .addGroup(jConfigLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jSelecLeft, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)))
-                    .addComponent(jGamePseudoLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jConfigLeftLayout.createSequentialGroup()
+                        .addComponent(jGamePseudoLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRandomPseudoLeft)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jConfigLeftLayout.setVerticalGroup(
             jConfigLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jConfigLeftLayout.createSequentialGroup()
-                .addComponent(jGamePseudoLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jConfigLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jGamePseudoLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRandomPseudoLeft))
                 .addGap(40, 40, 40)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
@@ -541,6 +560,16 @@ public class Interface extends javax.swing.JFrame {
         jGamePseudoRight.setForeground(new java.awt.Color(249, 240, 118));
         jGamePseudoRight.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
+        jRandomPseudoRight.setBackground(new java.awt.Color(0, 18, 2));
+        jRandomPseudoRight.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 14)); // NOI18N
+        jRandomPseudoRight.setForeground(new java.awt.Color(249, 240, 118));
+        jRandomPseudoRight.setText("?");
+        jRandomPseudoRight.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRandomPseudoRightMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jConfigRightLayout = new javax.swing.GroupLayout(jConfigRight);
         jConfigRight.setLayout(jConfigRightLayout);
         jConfigRightLayout.setHorizontalGroup(
@@ -566,12 +595,17 @@ public class Interface extends javax.swing.JFrame {
                             .addComponent(jSelecRight, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
                         .addGap(209, 209, 209))
-                    .addComponent(jGamePseudoRight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jConfigRightLayout.createSequentialGroup()
+                        .addComponent(jRandomPseudoRight)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jGamePseudoRight, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jConfigRightLayout.setVerticalGroup(
             jConfigRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jConfigRightLayout.createSequentialGroup()
-                .addComponent(jGamePseudoRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jConfigRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jGamePseudoRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRandomPseudoRight))
                 .addGap(35, 35, 35)
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
@@ -1720,7 +1754,6 @@ public class Interface extends javax.swing.JFrame {
 //                }
 //                  Tout ça c'est probablement faux mais là mon cerveau arrive plus à réfléchir, du coup j'arrive pas à faire bouger le monstre voila
 //                  ce que j'ai laissé c'est les lignes qui resserviront surement, le reste c'était naze
-
                 this.game.nextPlayerTurn();
                 this.updateDisplayJeton();
 
@@ -1741,6 +1774,66 @@ public class Interface extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jEndTurnButtonMouseClicked
+
+    private void jRandomPseudoRightMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRandomPseudoRightMouseClicked
+        //création pseudo aléatoire joueurs de droite
+
+        jGamePseudoRight.setText("");
+
+        ArrayList<String> adjectif = new ArrayList<>() {    //création de la listes des adjectifs pour le pseudo
+            {
+                add("little");
+                add("big");
+                add("sweet");
+                add("dark"); 
+            }
+        };
+        ArrayList<String> nom = new ArrayList<>(){      //création de la listes des noms pour le pseudo
+            {
+                add("shit");
+                add("chicken");
+                add("apple");
+            }
+        };
+
+        //randoms pour sélections dans les listes
+        Random rand1 = new Random();
+        int rAdj = rand1.nextInt((adjectif.size()-1) - 0 + 1);
+        Random rand2 = new Random();
+        int rNom = rand2.nextInt((nom.size()-1) - 0 + 1);
+
+        jGamePseudoRight.setText(adjectif.get(rAdj) + " " + nom.get(rNom)); //affichage du résultat dans la ligne de pseudo
+    }//GEN-LAST:event_jRandomPseudoRightMouseClicked
+
+    private void jRandomPseudoLeftMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRandomPseudoLeftMouseClicked
+        //création pseudo aléatoire joueur de gauche
+
+        jGamePseudoLeft.setText("");
+
+        ArrayList<String> adjectif = new ArrayList<>() {    //création de la listes des adjectifs pour le pseudo
+            {
+                add("little");
+                add("big");
+                add("sweet");
+                add("dark"); 
+            }
+        };
+        ArrayList<String> nom = new ArrayList<>(){      //création de la listes des noms pour le pseudo
+            {
+                add("shit");
+                add("chicken");
+                add("apple");
+            }
+        };
+
+        //randoms pour sélections dans les listes
+        Random rand1 = new Random();
+        int rAdj = rand1.nextInt((adjectif.size()-1) - 0 + 1);
+        Random rand2 = new Random();
+        int rNom = rand2.nextInt((nom.size()-1) - 0 + 1);
+
+        jGamePseudoLeft.setText(adjectif.get(rAdj) + " " + nom.get(rNom)); //affichage du résultat dans la ligne de pseudo
+    }//GEN-LAST:event_jRandomPseudoLeftMouseClicked
 
     private void selectJeton(int player, int pion) {
 
@@ -1942,6 +2035,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jPrevious;
     private javax.swing.JLabel jPseudo;
     private javax.swing.JTextField jPseudoField;
+    private javax.swing.JButton jRandomPseudoLeft;
+    private javax.swing.JButton jRandomPseudoRight;
     private javax.swing.JButton jRightButton;
     private javax.swing.JComboBox<String> jSelecLeft;
     private javax.swing.JComboBox<String> jSelecRight;
