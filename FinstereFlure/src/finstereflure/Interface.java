@@ -1777,30 +1777,19 @@ public class Interface extends javax.swing.JFrame {
 
     private void jRandomPseudoRightMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRandomPseudoRightMouseClicked
         //création pseudo aléatoire joueurs de droite
+        String s = "pseudos.csv";   //nom du fichier
 
+        Parser p = new Parser(s);
+        ArrayList<String> adjectif = p.getAdjectifs(); //retourne la liste des adjectifs contenus dans le fichier .csv
+        ArrayList<String> nom = p.getNoms(); //retourne la liste des noms contenus dans le fichier .csv
+        
         jGamePseudoRight.setText("");
-
-        ArrayList<String> adjectif = new ArrayList<>() {    //création de la listes des adjectifs pour le pseudo
-            {
-                add("little");
-                add("big");
-                add("sweet");
-                add("dark"); 
-            }
-        };
-        ArrayList<String> nom = new ArrayList<>(){      //création de la listes des noms pour le pseudo
-            {
-                add("shit");
-                add("chicken");
-                add("apple");
-            }
-        };
 
         //randoms pour sélections dans les listes
         Random rand1 = new Random();
-        int rAdj = rand1.nextInt((adjectif.size()-1) - 0 + 1);
+        int rAdj = rand1.nextInt((adjectif.size() - 1) - 0 + 1);
         Random rand2 = new Random();
-        int rNom = rand2.nextInt((nom.size()-1) - 0 + 1);
+        int rNom = rand2.nextInt((nom.size() - 1) - 0 + 1);
 
         jGamePseudoRight.setText(adjectif.get(rAdj) + " " + nom.get(rNom)); //affichage du résultat dans la ligne de pseudo
     }//GEN-LAST:event_jRandomPseudoRightMouseClicked
@@ -1808,29 +1797,19 @@ public class Interface extends javax.swing.JFrame {
     private void jRandomPseudoLeftMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRandomPseudoLeftMouseClicked
         //création pseudo aléatoire joueur de gauche
 
-        jGamePseudoLeft.setText("");
+        String s = "pseudos.csv";   //nom du fichier
 
-        ArrayList<String> adjectif = new ArrayList<>() {    //création de la listes des adjectifs pour le pseudo
-            {
-                add("little");
-                add("big");
-                add("sweet");
-                add("dark"); 
-            }
-        };
-        ArrayList<String> nom = new ArrayList<>(){      //création de la listes des noms pour le pseudo
-            {
-                add("shit");
-                add("chicken");
-                add("apple");
-            }
-        };
+        Parser p = new Parser(s);
+        ArrayList<String> adjectif = p.getAdjectifs(); //retourne la liste des adjectifs contenus dans le fichier .csv
+        ArrayList<String> nom = p.getNoms(); //retourne la liste des noms contenus dans le fichier .csv
+
+        jGamePseudoLeft.setText("");        //réinitialisation du champs
 
         //randoms pour sélections dans les listes
         Random rand1 = new Random();
-        int rAdj = rand1.nextInt((adjectif.size()-1) - 0 + 1);
+        int rAdj = rand1.nextInt((adjectif.size() - 1) - 0 + 1);
         Random rand2 = new Random();
-        int rNom = rand2.nextInt((nom.size()-1) - 0 + 1);
+        int rNom = rand2.nextInt((nom.size() - 1) - 0 + 1);
 
         jGamePseudoLeft.setText(adjectif.get(rAdj) + " " + nom.get(rNom)); //affichage du résultat dans la ligne de pseudo
     }//GEN-LAST:event_jRandomPseudoLeftMouseClicked
