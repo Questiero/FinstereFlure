@@ -24,8 +24,9 @@ import java.util.Random;
  */
 public class Interface extends javax.swing.JFrame {
 
+    //initialisation partie
     private Host h1;
-    private Partie game;   //initialisation partie
+    private Partie game;
     private Monstre monster;
 
     private boolean notEmptyPseudo = false;
@@ -42,11 +43,11 @@ public class Interface extends javax.swing.JFrame {
         jNewGame.setEnabled(false);
         jContinue.setEnabled(false);
 
+        //image monstre page d'accueil
         jMonsterImage.setIcon(new ImageIcon("./img/frankenstein.png"));
-        //https://www.freepng.fr/png-7v8cpy/ METTRE CREDIT
 
+        //image sang page d'accueil
         jBloodDrop.setIcon(new ImageIcon("./img/blood.png"));
-        //https://www.pngegg.com/en/png-zglxd
 
     }
 
@@ -1268,6 +1269,7 @@ public class Interface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jOkConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jOkConnexionMouseClicked
+        //bouton "OK" de la page connexion
 
         if (jConfirmPasswordField.isVisible()) {    //si nouveau compte (car confirmation visible)
             //comparaison des deux password
@@ -1288,7 +1290,7 @@ public class Interface extends javax.swing.JFrame {
                 jErrorLabel.setText("Passwords are not similar");
             }
 
-        } else {    //sinon (si simple connexion sans nouveau compte
+        } else {    //sinon (si simple connexion sans nouveau compte)
             if (jOkConnexion.isEnabled()) {
                 jConnexionPage.dispose();                   //ferme la fenêtre popup de connexion
                 jPseudo.setText(jPseudoField.getText());    //inscrit le pseudo
@@ -1296,24 +1298,24 @@ public class Interface extends javax.swing.JFrame {
             }
         }
 
-        //débloquer boutons game
+        //débloquer boutons game une fois connecté
         jNewGame.setEnabled(true);
         jContinue.setEnabled(true);
     }//GEN-LAST:event_jOkConnexionMouseClicked
 
     private void jConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jConnexionMouseClicked
+        //bouton pour connexion (et deconnexion)
 
-        //réinitialisation de la page
+        //réinitialisation de la page de connexion
         jConnexionPage.setResizable(false);
         jLabel3.setText("CONNEXION");
         jNewAccount.setVisible(true);
-
         jNewGame.setEnabled(false);
         jContinue.setEnabled(false);
         notEmptyPseudo = false;
         notEmptyPassword = false;
 
-        boolean b = jConnexion.getText().equals("CONNEXION");
+        boolean b = jConnexion.getText().equals("CONNEXION");   //passe à vrai si le bouton est à l'état connexion
         if (b) {    //si le bouton = connexion
             //clear les champs
             jPasswordField.setText("");
@@ -1338,7 +1340,7 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jConnexionMouseClicked
 
     private void jCreditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCreditMouseClicked
-
+        //bouton des crédits
         //apparition de la fenêtre
         jCreditPage.setVisible(true);
         jCreditPage.setTitle("Finstere Flure - Credits");
@@ -1349,6 +1351,7 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jCreditMouseClicked
 
     private void jBackCreditsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBackCreditsMouseClicked
+        //bouton retour de la page crédits
         jCreditPage.dispose();      //ferme la fenêtre
     }//GEN-LAST:event_jBackCreditsMouseClicked
 
@@ -1361,11 +1364,12 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jShowButtonMouseReleased
 
     private void jBackConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBackConnexionMouseClicked
+        //bouton retour de la page crédits
         jConnexionPage.dispose();   //ferme la fenêtre
     }//GEN-LAST:event_jBackConnexionMouseClicked
 
     private void jNewAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jNewAccountMouseClicked
-
+//bouton nouveau compte
         //apparition pour nouveau compte
         jLabel6.setText("CONFIRM PASSWORD :");
         jShowConfirm.setVisible(true);
@@ -1376,17 +1380,17 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jNewAccountMouseClicked
 
     private void jShowConfirmMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jShowConfirmMousePressed
-        jShowConfirmPassword.setText(jConfirmPasswordField.getText());    //affichage du mdp masqué
+        jShowConfirmPassword.setText(jConfirmPasswordField.getText());    //affichage du mdp masqué dans nouveau compte
     }//GEN-LAST:event_jShowConfirmMousePressed
 
     private void jShowConfirmMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jShowConfirmMouseReleased
-        jShowConfirmPassword.setText("");  //enlève l'affichage du mdp
+        jShowConfirmPassword.setText("");  //enlève l'affichage du mdp dans nouveau compte
     }//GEN-LAST:event_jShowConfirmMouseReleased
 
     private void jNewGameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jNewGameMouseClicked
-        if (jNewGame.isEnabled()) {
+        if (jNewGame.isEnabled()) { //si le bouton est disponible (= connexion faite)
 
-            game = new Partie(this.h1, this.jLayeredPane);
+            game = new Partie(this.h1, this.jLayeredPane);  //initialisation partie
 
             //initialisation fenêtre
             jConfigurationPage.setVisible(true);
@@ -1395,12 +1399,12 @@ public class Interface extends javax.swing.JFrame {
             jConfigurationPage.pack();
             jConfigurationPage.setResizable(false);
             jStartButton.setEnabled(false);
-
             jSelecLeft.setSelectedIndex(0);
             jSelecRight.setSelectedIndex(0);
             jColorLeft.setSelectedIndex(0);
             jColorRight.setSelectedIndex(0);
 
+            //ajout des images des pions dans la page de selection
             colorL = "Blue";
             jPionImageLeft.setIcon(new ImageIcon("./img/pion" + colorL + "_1_6_clair.gif"));
             colorR = "Blue";
@@ -1409,16 +1413,17 @@ public class Interface extends javax.swing.JFrame {
             //remplissage pseudos
             jGamePseudoLeft.setText(jPseudoField.getText());
             jGamePseudoRight.setText("");
-            //ICI RAJOUTER  PSUEDO ALEATOIRE 
         }
 
 
     }//GEN-LAST:event_jNewGameMouseClicked
 
+    //permet l'initialisation des couleurs des pions
     private String colorL;
     private String colorR;
     private void jColorLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jColorLeftActionPerformed
         colorL = (String) jColorLeft.getSelectedItem();
+        //vérifier que les deux joueurs n'ont pas pris la même couleur
         if (!colorL.equals(colorR)) {
             jStartButton.setEnabled(true);
         } else {
@@ -1430,6 +1435,7 @@ public class Interface extends javax.swing.JFrame {
 
     private void jColorRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jColorRightActionPerformed
         colorR = (String) jColorRight.getSelectedItem();
+        //vérifier que les deux joueurs n'ont pas pris la même couleur
         if (!colorL.equals(colorR)) {
             jStartButton.setEnabled(true);
         } else {
@@ -1438,9 +1444,9 @@ public class Interface extends javax.swing.JFrame {
         jPionImageRight.setIcon(new ImageIcon("./img/pion" + colorR + "_1_6_clair.gif"));
     }//GEN-LAST:event_jColorRightActionPerformed
 
-    Color colorBgJoueurs, colorBgMonstre;
+    Color colorBgJoueurs, colorBgMonstre; //couleur des arriere-plan pour voir le tour des joueurs
     private void jStartButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jStartButtonMouseClicked
-
+        //lancement de la partie
         if (jStartButton.isEnabled() == true) {
             //initialisation
             String namep1 = jGamePseudoLeft.getText();
@@ -1483,6 +1489,7 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jStartButtonMouseClicked
 
     private void jBackConfigurationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBackConfigurationMouseClicked
+        //bouton retour page configuration
         jConfigurationPage.dispose();
         jMenuPrincipal.setVisible(true);
         jPionImageLeft.setIcon(new ImageIcon());
@@ -1491,26 +1498,26 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jBackConfigurationMouseClicked
 
     private void jNewGameMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jNewGameMouseMoved
-        // TODO add your handling code here:
+        //affichage message d'erreur qd passage de la souris sur bouton grisé
         if (!jNewGame.isEnabled()) {        //affiche un message d'erreur tant que pas connecté lors du passage de la souris
             jErrorNewGameLabel.setText("Connexion is required");
         }
     }//GEN-LAST:event_jNewGameMouseMoved
 
     private void jMenuPrincipalMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuPrincipalMouseMoved
-        // TODO add your handling code here:
+        //suppression de l'affichage message d'erreur qd passage de la souris sur bouton grisé
         jErrorNewGameLabel.setText("");     //efface le message d'erreur
     }//GEN-LAST:event_jMenuPrincipalMouseMoved
 
     private void jContinueMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jContinueMouseMoved
-        // TODO add your handling code here:
+        // affichage message d'erreur qd passage de la souris sur bouton grisé
         if (!jContinue.isEnabled()) {   //affiche un message d'erreur tant que pas connecté lors du passage de la souris
             jErrorNewGameLabel.setText("Connexion is required");
         }
     }//GEN-LAST:event_jContinueMouseMoved
 
     private void jPseudoFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPseudoFieldKeyReleased
-        // TODO add your handling code here:
+        //vérifier qu'un texte à été rempli dans le champs
         notEmptyPseudo = true;  //text field ne soit pas vide
 
         if (jPseudoField.getText().length() == 0) {  //si on efface et que le text est vide, passe à faux
@@ -1526,7 +1533,7 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jPseudoFieldKeyReleased
 
     private void jPasswordFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldKeyReleased
-        // TODO add your handling code here:
+        //vérifier qu'un texte à été rempli dans le champs
         notEmptyPassword = true;    //text field ne soit pas vide      
 
         if (jPasswordField.getText().length() == 0) {    //si on efface et que le text est vide, passe à faux
@@ -1541,22 +1548,26 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordFieldKeyReleased
 
     private void jBackGamingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBackGamingMouseClicked
+        //bouton retour page de jeu, pas fonctionnel car on ne peut pas relancer une partie après
         jGamingPage.dispose();
         jLayeredPane.removeAll();
         jLayeredPane.add(jMap);
     }//GEN-LAST:event_jBackGamingMouseClicked
 
     private void jStartButtonMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jStartButtonMouseMoved
+        // affichage message d'erreur qd passage de la souris sur bouton grisé
         if (!jStartButton.isEnabled()) {
             jErrorStartLabel.setText("2 differents colors are required");
         }
     }//GEN-LAST:event_jStartButtonMouseMoved
 
     private void jPanel2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseMoved
+        //suppression de l'affichage message d'erreur qd passage de la souris sur bouton grisé
         jErrorStartLabel.setText("");
     }//GEN-LAST:event_jPanel2MouseMoved
 
     private void jGamingPageWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jGamingPageWindowClosing
+        //appuies sur la croix de la page
         jGamingPage.dispose();
         jLayeredPane.removeAll();
         jLayeredPane.add(jMap);
@@ -1564,26 +1575,27 @@ public class Interface extends javax.swing.JFrame {
 
 
     private void jPion1P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P1MouseClicked
-
+//appuie sur l'image du premier pion du joueur 1
+        
         int player = 1;
         int pion = 1;
 
-        if (this.game.getPlayerTurn() == player) {
+        if (this.game.getPlayerTurn() == player) {  //si tour du joueur 1
 
-            System.out.println("J" + player + " : Pion " + pion);
-            this.selectJeton(player, pion);
-            this.updateDisplayJeton();
+            System.out.println("J" + player + " : Pion " + pion);   //affichage admin
+            this.selectJeton(player, pion); //selection du jeton lors de l'appuie sur l'image
+            this.updateDisplayJeton();  //actualisation de l'affichage du jeton
         }
 
-        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
+        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups())); //actualisation nombre coups restants du jeton
     }//GEN-LAST:event_jPion1P1MouseClicked
 
     private void jPion2P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P1MouseClicked
-
+//appuie sur l'image du deuxième pion du joueur 1
         int player = 1;
         int pion = 2;
 
-        if (this.game.getPlayerTurn() == player) {
+        if (this.game.getPlayerTurn() == player) {//si tour du joueur 1
 
             System.out.println("J" + player + " : Pion " + pion);
             this.selectJeton(player, pion);
@@ -1591,16 +1603,16 @@ public class Interface extends javax.swing.JFrame {
 
         }
 
-        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
+        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
 
     }//GEN-LAST:event_jPion2P1MouseClicked
 
     private void jPion3P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P1MouseClicked
-
+//appuie sur l'image du trisième pion du joueur 1
         int player = 1;
         int pion = 3;
 
-        if (this.game.getPlayerTurn() == player) {
+        if (this.game.getPlayerTurn() == player) {//si tour du joueur 1
 
             System.out.println("J" + player + " : Pion " + pion);
             this.selectJeton(player, pion);
@@ -1608,15 +1620,15 @@ public class Interface extends javax.swing.JFrame {
 
         }
 
-        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
+        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
     }//GEN-LAST:event_jPion3P1MouseClicked
 
     private void jPion4P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P1MouseClicked
-
+//appuie sur l'image du quatrième pion du joueur 1
         int player = 1;
         int pion = 4;
 
-        if (this.game.getPlayerTurn() == player) {
+        if (this.game.getPlayerTurn() == player) {//si tour du joueur 1
 
             System.out.println("J" + player + " : Pion " + pion);
             this.selectJeton(player, pion);
@@ -1624,15 +1636,15 @@ public class Interface extends javax.swing.JFrame {
 
         }
 
-        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
+        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
     }//GEN-LAST:event_jPion4P1MouseClicked
 
     private void jPion1P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P2MouseClicked
-
+//appuie sur l'image du premier pion du joueur 2
         int player = 2;
         int pion = 1;
 
-        if (this.game.getPlayerTurn() == player) {
+        if (this.game.getPlayerTurn() == player) {//si tour du joueur 2
 
             System.out.println("J" + player + " : Pion " + pion);
             this.selectJeton(player, pion);
@@ -1640,15 +1652,15 @@ public class Interface extends javax.swing.JFrame {
 
         }
 
-        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
+        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
     }//GEN-LAST:event_jPion1P2MouseClicked
 
     private void jPion2P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P2MouseClicked
-
+//appuie sur l'image du deuxième pion du joueur 2
         int player = 2;
         int pion = 2;
 
-        if (this.game.getPlayerTurn() == player) {
+        if (this.game.getPlayerTurn() == player) {//si tour du joueur 2
 
             System.out.println("J" + player + " : Pion " + pion);
             this.selectJeton(player, pion);
@@ -1656,16 +1668,16 @@ public class Interface extends javax.swing.JFrame {
 
         }
 
-        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
+        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
 
     }//GEN-LAST:event_jPion2P2MouseClicked
 
     private void jPion3P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P2MouseClicked
-
+//appuie sur l'image du troisième pion du joueur 2
         int player = 2;
         int pion = 3;
 
-        if (this.game.getPlayerTurn() == player) {
+        if (this.game.getPlayerTurn() == player) {//si tour du joueur 2
 
             System.out.println("J" + player + " : Pion " + pion);
             this.selectJeton(player, pion);
@@ -1673,16 +1685,16 @@ public class Interface extends javax.swing.JFrame {
 
         }
 
-        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
+        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
 
     }//GEN-LAST:event_jPion3P2MouseClicked
 
     private void jPion4P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P2MouseClicked
-
+//appuie sur l'image du quatrième pion du joueur 2
         int player = 2;
         int pion = 4;
 
-        if (this.game.getPlayerTurn() == player) {
+        if (this.game.getPlayerTurn() == player) {//si tour du joueur 2
 
             System.out.println("J" + player + " : Pion " + pion);
             this.selectJeton(player, pion);
@@ -1690,7 +1702,7 @@ public class Interface extends javax.swing.JFrame {
 
         }
 
-        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
+        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
     }//GEN-LAST:event_jPion4P2MouseClicked
 
 
@@ -1782,7 +1794,7 @@ public class Interface extends javax.swing.JFrame {
         Parser p = new Parser(s);
         ArrayList<String> adjectif = p.getAdjectifs(); //retourne la liste des adjectifs contenus dans le fichier .csv
         ArrayList<String> nom = p.getNoms(); //retourne la liste des noms contenus dans le fichier .csv
-        
+
         jGamePseudoRight.setText("");
 
         //randoms pour sélections dans les listes
@@ -1878,7 +1890,7 @@ public class Interface extends javax.swing.JFrame {
     }
 
     private void updateDisplayJeton() {
-
+//actualisa=tion affichage des jetons sur la carte du jeu
         JLabel[] labelsP1 = {jPion1P1, jPion2P1, jPion3P1, jPion4P1};
         JLabel[] labelsP2 = {jPion1P2, jPion2P2, jPion3P2, jPion4P2};
 
@@ -1900,6 +1912,7 @@ public class Interface extends javax.swing.JFrame {
     }
 
     private void updateMoveButtons() {
+        //actualisation de la disponibilité des boutons de déplacements en fonction des déplacement possibles du jeton
         jUpButton.setEnabled(true);
         jLeftButton.setEnabled(true);
         jRightButton.setEnabled(true);
