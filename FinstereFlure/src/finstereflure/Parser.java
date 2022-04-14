@@ -113,17 +113,5 @@ public class Parser {
         return temp;
     }
 
-    private String getTextBetween(String text, String begin, String end) {
-        String temp = "";
-        int i = text.indexOf(begin);
-        int j = text.indexOf(end);
-        int tailleBegin = begin.length();
-        if (i + tailleBegin >= j) {
-            j = text.indexOf(end, i + tailleBegin);
-        }
-        if (i >= 0 && j >= 0) {
-            temp = text.substring(i + tailleBegin, j);
-        }
-        return temp;
-    }
+    
 }

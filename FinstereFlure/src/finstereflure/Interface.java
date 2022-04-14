@@ -17,6 +17,9 @@ import finstereflure.pions.Jeton;
 import finstereflure.pions.Monstre;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.text.BadLocationException;
 
 /**
  *
@@ -140,10 +143,13 @@ public class Interface extends javax.swing.JFrame {
         jLeftButton = new javax.swing.JButton();
         jDownButton = new javax.swing.JButton();
         jEndTurnButton = new javax.swing.JButton();
-        jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jCoupsRestants = new javax.swing.JLabel();
+        jNewChat = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jPreviousChat = new javax.swing.JTextArea();
+        jSendChat = new javax.swing.JButton();
         jMenuPrincipal = new javax.swing.JPanel();
         jTitre = new javax.swing.JLabel();
         jNewGame = new javax.swing.JButton();
@@ -655,7 +661,7 @@ public class Interface extends javax.swing.JFrame {
         });
 
         jErrorStartLabel.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
-        jErrorStartLabel.setForeground(new java.awt.Color(153, 0, 51));
+        jErrorStartLabel.setForeground(new java.awt.Color(255, 0, 51));
         jErrorStartLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1011,8 +1017,6 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
-        jLabel16.setText("CHAT");
-
         jLabel17.setText("game info");
 
         jLabel18.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
@@ -1021,6 +1025,27 @@ public class Interface extends javax.swing.JFrame {
 
         jCoupsRestants.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jCoupsRestants.setForeground(new java.awt.Color(249, 240, 118));
+
+        jNewChat.setBackground(new java.awt.Color(0, 18, 2));
+        jNewChat.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jNewChat.setForeground(new java.awt.Color(249, 240, 118));
+
+        jPreviousChat.setBackground(new java.awt.Color(0, 18, 2));
+        jPreviousChat.setColumns(20);
+        jPreviousChat.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 14)); // NOI18N
+        jPreviousChat.setForeground(new java.awt.Color(249, 240, 118));
+        jPreviousChat.setRows(5);
+        jScrollPane2.setViewportView(jPreviousChat);
+
+        jSendChat.setBackground(new java.awt.Color(0, 18, 2));
+        jSendChat.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jSendChat.setForeground(new java.awt.Color(249, 240, 118));
+        jSendChat.setText("SEND");
+        jSendChat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jSendChatMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1032,13 +1057,18 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jNewChat, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSendChat, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jTitreGame, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1073,36 +1103,39 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jBackGaming)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jUpButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLeftButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(jRightButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(jEndTurnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jDownButton))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel18)
+                                .addComponent(jCoupsRestants))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jNewChat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSendChat)))
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jTitreGame, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15)
                         .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jUpButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLeftButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jRightButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jEndTurnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jDownButton))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel18)
-                            .addComponent(jCoupsRestants))
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jGamingPageLayout = new javax.swing.GroupLayout(jGamingPage.getContentPane());
@@ -1576,7 +1609,7 @@ public class Interface extends javax.swing.JFrame {
 
     private void jPion1P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P1MouseClicked
 //appuie sur l'image du premier pion du joueur 1
-        
+
         int player = 1;
         int pion = 1;
 
@@ -1826,6 +1859,14 @@ public class Interface extends javax.swing.JFrame {
         jGamePseudoLeft.setText(adjectif.get(rAdj) + " " + nom.get(rNom)); //affichage du résultat dans la ligne de pseudo
     }//GEN-LAST:event_jRandomPseudoLeftMouseClicked
 
+    
+    private void jSendChatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSendChatMouseClicked
+        
+        jPreviousChat.append(jNewChat.getText() + "\n");   ////récupérer l'ancien chat + y ajouter le nouveau et un retour à la ligne et l'afficher
+        jNewChat.setText("");   //remise à zéro du champs pour écrire un nouveau chat
+
+    }//GEN-LAST:event_jSendChatMouseClicked
+
     private void selectJeton(int player, int pion) {
 
         if (player == this.game.getPlayerTurn()) {
@@ -1984,7 +2025,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
@@ -2004,6 +2044,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JPanel jMenuPrincipal;
     private javax.swing.JLabel jMonsterImage;
     private javax.swing.JButton jNewAccount;
+    private javax.swing.JTextField jNewChat;
     private javax.swing.JButton jNewGame;
     private javax.swing.JButton jOkConnexion;
     private javax.swing.JPanel jPanel1;
@@ -2025,13 +2066,16 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jPionImageLeft;
     private javax.swing.JLabel jPionImageRight;
     private javax.swing.JButton jPrevious;
+    private javax.swing.JTextArea jPreviousChat;
     private javax.swing.JLabel jPseudo;
     private javax.swing.JTextField jPseudoField;
     private javax.swing.JButton jRandomPseudoLeft;
     private javax.swing.JButton jRandomPseudoRight;
     private javax.swing.JButton jRightButton;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JComboBox<String> jSelecLeft;
     private javax.swing.JComboBox<String> jSelecRight;
+    private javax.swing.JButton jSendChat;
     private javax.swing.JButton jShowButton;
     private javax.swing.JButton jShowConfirm;
     private javax.swing.JLabel jShowConfirmPassword;
