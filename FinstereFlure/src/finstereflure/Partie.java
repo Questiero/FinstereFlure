@@ -208,10 +208,6 @@ public class Partie {
         System.out.println("Tour du monstre");
 
         this.monstre.move(this.monstre.getTargetDirection());
-        this.monstre.move(this.monstre.getTargetDirection());
-        this.monstre.move(this.monstre.getTargetDirection());
-        this.monstre.move(this.monstre.getTargetDirection());
-        this.monstre.move(this.monstre.getTargetDirection());
 
         this.playerTurn = 1;
         this.nextTour();
