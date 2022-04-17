@@ -78,86 +78,87 @@ public final class Monstre extends Pion implements Moveable {
         return true;
     }
 
-    public Direction targetDirection() {
+    public Direction getTargetDirection() {
         //il faut récup les infos dans les 4 directions (joueur, pierre ou rien)
         //ensuite on les compare et on return la direction la + opti
         //si aucune direction opti : le monstre continue d'avancer dans sa direction précedante
         //penser à actualiser l'image en fonction de la direction
+        
+        Direction targetDirection = this.direction;
+        
+        int distanceFront = this.getTargetDistance(this.direction);
+        int distanceLeft = this.getTargetDistance(this.direction.rotateLeft());
+        int distanceRight = this.getTargetDistance(this.direction.rotateRight());
 
-        LinkedList<Pion>[][] pionmap = new LinkedList[16][11];
-        pionmap = super.terrain.getPionMap();
-
-        Pion nextPosUP = pionmap[this.getX()][this.getY()].getLast();       //initialisation à la position actuelle du monstre car modification dans la boucle while
-        Pion nextPosLEFT = pionmap[this.getX()][this.getY()].getLast();
-        Pion nextPosRIGHT = pionmap[this.getX()][this.getY()].getLast();
-        Pion nextPosDOWN = pionmap[this.getX()][this.getY()].getLast();
-
-        //Pion[] tabNextPos = new Pion[]{nextPosUP, nextPosLEFT, nextPosRIGHT, nextPosDOWN};  //tableau contenant les positions suivantes
-        ArrayList listNextPos = new ArrayList();
-        listNextPos.add(nextPosUP);
-        listNextPos.add(nextPosLEFT);
-        listNextPos.add(nextPosRIGHT);
-        listNextPos.add(nextPosDOWN);
-
-        //boolean found = false;  //passe à vrai si on trouve un pion différent de Empty
-        int indiceDirection = 0;    //permet de définir la direction du pion trouvé
-
-        boolean isSmthArround = false;  //test si on agrandit la recherche, si le monstre voit un jeton ou non
-
-        while (!isSmthArround && !listNextPos.isEmpty()) {            //tant que le monstre ne 'voit' pas de jeton et que la liste de positions suivantes n'est pas vide
-
-            nextPosUP = pionmap[this.getX()][this.getY() - 1].getLast();    //changement de la position à la position suivante
-            nextPosLEFT = pionmap[this.getX() - 1][this.getY()].getLast();
-            nextPosRIGHT = pionmap[this.getX() + 1][this.getY()].getLast();
-            nextPosDOWN = pionmap[this.getX()][this.getY() + 1].getLast();
-
-            
-            for (int i = 0; i < listNextPos.size(); i++) {   //pour chaque position suivante autour du monstre
-
-                //si on atteint une case à l'extérieur de la carte, qui n'existe pas, on l'enlève de la liste pour que ça ne soit plus traité
-                if (nextPosUP.getY() == -1) {
-                    listNextPos.remove(nextPosUP);
-                }
-                if (nextPosLEFT.getX() == -1) {
-                    listNextPos.remove(nextPosLEFT);
-                }
-                if (nextPosRIGHT.getX() == 16) {
-                    listNextPos.remove(nextPosRIGHT);
-                }
-                if (nextPosDOWN.getY() == 11) {
-                    listNextPos.remove(nextPosDOWN);
-                }
-
-                if (listNextPos.get(i) instanceof Jeton) {    //si le pion sur la position un jeton
-                    indiceDirection = i;   //si deux joueurs à la même distance, il ira vers le dernier vu
-                    isSmthArround = true;
-                } else if (listNextPos.get(i) instanceof Pierre) {
-                    listNextPos.remove(listNextPos.get(i));     //si le pion est une pierre, alors on l'enl-ve de la liste car lke monstre ne pourra plus voir derrière
-                }
-            }
-
-            if (isSmthArround) {        //si pion trouvé
-                switch (indiceDirection) {
-                    case 0:
-                        this.direction = UP;
-                        break;
-
-                    case 1:
-                        this.direction = LEFT;
-                        break;
-
-                    case 2:
-                        this.direction = RIGHT;
-                        break;
-
-                    case 3:
-                        this.direction = DOWN;
-                        break;
-                }
-
-            }
+        if(distanceFront >= distanceLeft && distanceFront >= distanceRight) {
+            targetDirection = this.direction;
+        } else if(distanceLeft >= distanceFront && distanceLeft >= distanceRight) {
+            targetDirection = this.direction.rotateLeft();
+        } else if(distanceRight >= distanceFront && distanceRight >= distanceLeft) {
+            targetDirection = this.direction.rotateRight();
         }
-        return this.direction;  //dans le cas ou aucun jeton n'est dans le champs de vision du monstre, il gardera sa direction actuelle pour avancer
+
+        return targetDirection;
+
+    }
+
+    /**
+     * Evalue la distance auquel est le pion à une cible
+     *
+     * @param dir direction dans laquelle le monstre doit estimer
+     * @return distance du pion à une cible, -1 si il n'y en a pas
+     */
+    private int getTargetDistance(Direction dir) {
+
+        int distance = 0;
+
+        int targetX = this.getX();
+        int targetY = this.getY();
+
+        Pion target;
+
+        while (targetX != 0 && targetY != 0 && targetX != 10 && targetY != 15) {
+
+            target = this.terrain.getPionMap()[targetX][targetY].getLast();
+            distance++;
+
+            if (!(target instanceof Empty)) {
+                if (target instanceof Jeton) {
+                    return distance;
+                } else {
+                    return -1;
+                }
+            }
+
+            switch (dir) {
+
+                case UP:
+                    while (targetX != 0) {
+                        targetX++;
+                    }
+                    break;
+                case LEFT:
+                    while (targetY != 0) {
+                        targetY++;
+                    }
+                    break;
+                case DOWN:
+                    while (targetX != 10) {
+                        targetX++;
+                    }
+                    break;
+                case RIGHT:
+                    while (targetY != 15) {
+                        targetY++;
+                    }
+                    break;
+
+            }
+
+        }
+
+        return -1;
+
     }
 
     @Override
