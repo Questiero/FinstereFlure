@@ -1517,6 +1517,12 @@ public class Interface extends javax.swing.JFrame {
 
             this.updateDisplayJeton();
 
+            jUpButton.setEnabled(false);
+            jLeftButton.setEnabled(false);
+            jRightButton.setEnabled(false);
+            jDownButton.setEnabled(false);
+            jEndTurnButton.setEnabled(false);
+
         }
 
     }//GEN-LAST:event_jStartButtonMouseClicked
@@ -1859,11 +1865,13 @@ public class Interface extends javax.swing.JFrame {
         jGamePseudoLeft.setText(adjectif.get(rAdj) + " " + nom.get(rNom)); //affichage du résultat dans la ligne de pseudo
     }//GEN-LAST:event_jRandomPseudoLeftMouseClicked
 
-    
+
     private void jSendChatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSendChatMouseClicked
-        
+
         jPreviousChat.append(jNewChat.getText() + "\n");   ////récupérer l'ancien chat + y ajouter le nouveau et un retour à la ligne et l'afficher
         jNewChat.setText("");   //remise à zéro du champs pour écrire un nouveau chat
+
+        this.game.monsterTurn();
 
     }//GEN-LAST:event_jSendChatMouseClicked
 

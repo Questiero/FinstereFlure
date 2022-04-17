@@ -61,16 +61,16 @@ public final class Monstre extends Pion implements Moveable {
                 break;
 
             case RIGHT:
-                
+
                 if ((this.getY() >= 4 && this.getX() == 15) || this.getX() == (11 + this.getY())) {
                     this.setX(15 - this.getX());
                     this.setY(10 - this.getY());
                 } else {
                     this.setX(getX() + 1);
                 }
-                
+
                 break;
-                
+
             case DOWN:
 
                 if ((this.getX() >= 4 && this.getY() == 10) || this.getY() == (6 + this.getX())) {
@@ -88,7 +88,7 @@ public final class Monstre extends Pion implements Moveable {
         this.listIndex = this.terrain.getPionMap()[this.getX()][this.getY()].size();
 
         this.direction = dir;
-        this.generateSpritePath();
+        this.generateSprite();
 
         this.terrain.update();
 
@@ -143,15 +143,17 @@ public final class Monstre extends Pion implements Moveable {
 
         Pion target;
 
-        while (targetX != 0 && targetY != 0 && targetX != 10 && targetY != 15) {
+        while (targetX >= 0 && targetY >= 0 && targetX <= 15 && targetY <= 10) {
 
             target = this.terrain.getPionMap()[targetX][targetY].getLast();
             distance++;
 
-            if (!(target instanceof Empty)) {
+            if (!(target instanceof Empty) && !(target instanceof Monstre)) {
                 if (target instanceof Jeton) {
+                    System.out.println("oui");
                     return distance;
                 } else {
+                    System.out.println("non");
                     return -1;
                 }
             }
@@ -159,30 +161,23 @@ public final class Monstre extends Pion implements Moveable {
             switch (dir) {
 
                 case UP:
-                    while (targetX != 0) {
-                        targetX++;
-                    }
+                    targetY--;
                     break;
                 case LEFT:
-                    while (targetY != 0) {
-                        targetY++;
-                    }
+                    targetX--;
                     break;
                 case DOWN:
-                    while (targetX != 10) {
-                        targetX++;
-                    }
+                    targetY++;
                     break;
                 case RIGHT:
-                    while (targetY != 15) {
-                        targetY++;
-                    }
+                    targetX++;
                     break;
 
             }
 
         }
 
+        System.out.println("euh");
         return -1;
 
     }
