@@ -110,7 +110,7 @@ public class Terrain {
 
             JLabel flaqueLongue = new JLabel();
             flaqueLongue.setIcon(new ImageIcon("./img/tachesang_lineaireH.png"));
-            this.layeredPane.add(flaqueLongue, 0);
+            this.layeredPane.add(flaqueLongue, -1);
             flaqueLongue.setBounds(184, 339, 160, 40);
             
             for (int i = 4; i <= 7; i++) {
@@ -119,7 +119,7 @@ public class Terrain {
             
             JLabel flaqueCarre = new JLabel();
             flaqueCarre.setIcon(new ImageIcon("./img/tachesang_carree.png"));
-            this.layeredPane.add(flaqueCarre, 0);
+            this.layeredPane.add(flaqueCarre, -1);
             flaqueCarre.setBounds(344, 99, 80, 80);
             
             for (int i = 8; i <= 9; i++) {
