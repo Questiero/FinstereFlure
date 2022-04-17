@@ -1624,9 +1624,12 @@ public class Interface extends javax.swing.JFrame {
             System.out.println("J" + player + " : Pion " + pion);   //affichage admin
             this.selectJeton(player, pion); //selection du jeton lors de l'appuie sur l'image
             this.updateDisplayJeton();  //actualisation de l'affichage du jeton
+
+            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups())); //actualisation nombre coups restants du jeton
+
         }
 
-        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups())); //actualisation nombre coups restants du jeton
+
     }//GEN-LAST:event_jPion1P1MouseClicked
 
     private void jPion2P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P1MouseClicked
@@ -1640,9 +1643,9 @@ public class Interface extends javax.swing.JFrame {
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
 
-        }
+            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
 
-        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
+        }
 
     }//GEN-LAST:event_jPion2P1MouseClicked
 
@@ -1657,9 +1660,10 @@ public class Interface extends javax.swing.JFrame {
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
 
+            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
+
         }
 
-        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
     }//GEN-LAST:event_jPion3P1MouseClicked
 
     private void jPion4P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P1MouseClicked
@@ -1673,9 +1677,10 @@ public class Interface extends javax.swing.JFrame {
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
 
+            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
+
         }
 
-        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
     }//GEN-LAST:event_jPion4P1MouseClicked
 
     private void jPion1P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P2MouseClicked
@@ -1689,9 +1694,10 @@ public class Interface extends javax.swing.JFrame {
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
 
+            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
+
         }
 
-        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
     }//GEN-LAST:event_jPion1P2MouseClicked
 
     private void jPion2P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P2MouseClicked
@@ -1705,9 +1711,9 @@ public class Interface extends javax.swing.JFrame {
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
 
-        }
+            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
 
-        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
+        }
 
     }//GEN-LAST:event_jPion2P2MouseClicked
 
@@ -1722,9 +1728,9 @@ public class Interface extends javax.swing.JFrame {
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
 
-        }
+            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
 
-        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
+        }
 
     }//GEN-LAST:event_jPion3P2MouseClicked
 
@@ -1739,9 +1745,10 @@ public class Interface extends javax.swing.JFrame {
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
 
+            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
+
         }
 
-        jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
     }//GEN-LAST:event_jPion4P2MouseClicked
 
 
@@ -1791,22 +1798,9 @@ public class Interface extends javax.swing.JFrame {
 
             if (this.game.canNextPlayerTurn()) {
 
-//                if (this.game.getPlayerTurn() == 2) {        //tour du monstre           
-//                    jPanel4.setBackground(colorBgJoueurs);
-//                    jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 2));
-//                    jPanel5.setBackground(colorBgJoueurs);
-//                    jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 2));
-//                    jPanel6.setBackground(new Color(51, 190, 84));
-//                    jPanel6.setBorder(BorderFactory.createLineBorder(Color.black, 5));
-//
-//                    this.game.monsterTurn();
-//                    this.monster.move(monster.targetDirection());
-//
-//                }
-//                  Tout ça c'est probablement faux mais là mon cerveau arrive plus à réfléchir, du coup j'arrive pas à faire bouger le monstre voila
-//                  ce que j'ai laissé c'est les lignes qui resserviront surement, le reste c'était naze
                 this.game.nextPlayerTurn();
                 this.updateDisplayJeton();
+                this.updateMoveButtons();
 
                 if (this.game.getPlayerTurn() == 2) {
                     jPanel4.setBackground(colorBgJoueurs);
@@ -1968,7 +1962,7 @@ public class Interface extends javax.swing.JFrame {
         jDownButton.setEnabled(true);
         jEndTurnButton.setEnabled(true);
 
-        if (!(this.game.getCurrentJeton().isCanPlay())) {
+        if (this.game.getCurrentJeton() == null || !(this.game.getCurrentJeton().isCanPlay())) {
             jUpButton.setEnabled(false);
             jLeftButton.setEnabled(false);
             jRightButton.setEnabled(false);

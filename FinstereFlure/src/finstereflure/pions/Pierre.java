@@ -1,10 +1,9 @@
 package finstereflure.pions;
 
-import finstereflure.Terrain;
+import finstereflure.Partie;
 import finstereflure.enums.Direction;
 import finstereflure.pions.interfaces.Moveable;
 import java.util.LinkedList;
-import javax.swing.ImageIcon;
 
 public final class Pierre extends Pion implements Moveable {
 
@@ -17,8 +16,8 @@ public final class Pierre extends Pion implements Moveable {
      * @param listIndex indice du Pion dans la LinkedList correspondant à sa
      * case
      */
-    public Pierre(Terrain terrain, int x, int y, int listIndex) {
-        super(terrain, x, y, listIndex, "./img/mur.png");
+    public Pierre(Partie partie, int x, int y, int listIndex) {
+        super(partie, x, y, listIndex, "./img/mur.png");
     }
 
     @Override

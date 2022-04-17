@@ -1,14 +1,14 @@
 package finstereflure.pions;
 
-import finstereflure.Terrain;
+import finstereflure.Partie;
 
 /**
  * Pion vide, placeholder
  */
 public final class Empty extends Pion {
 
-    public Empty(Terrain terrain, int x, int y) {
-        super(terrain, x, y, 0, "");
+    public Empty(Partie partie, int x, int y) {
+        super(partie, x, y, 0, "");
     }
 
     @Override

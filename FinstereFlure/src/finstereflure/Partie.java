@@ -21,7 +21,7 @@ public class Partie {
 
     private boolean advancedMode = false;
 
-    private int manche = 1;
+    private int manche = 2;
     private int tour = 1;
     private int playerTurn = 1;
 
@@ -154,7 +154,9 @@ public class Partie {
         if (this.playerTurn == 3) {
             this.monsterTurn();
         }
+        
         this.currentJeton = null;
+        
     }
 
     public boolean canNextPlayerTurn() {

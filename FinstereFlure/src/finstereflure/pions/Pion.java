@@ -1,5 +1,6 @@
 package finstereflure.pions;
 
+import finstereflure.Partie;
 import finstereflure.Terrain;
 import java.util.LinkedList;
 import javax.swing.ImageIcon;
@@ -10,6 +11,7 @@ import javax.swing.ImageIcon;
 public abstract class Pion {
 
     protected ImageIcon sprite;
+    protected final Partie partie;
     protected final Terrain terrain;
 
     //Coordonnées
@@ -25,9 +27,10 @@ public abstract class Pion {
      * case
      * @param sprite
      */
-    public Pion(Terrain terrain, int x, int y, int listIndex, ImageIcon sprite) {
+    public Pion(Partie partie, int x, int y, int listIndex, ImageIcon sprite) {
 
-        this.terrain = terrain;
+        this.partie = partie;
+        this.terrain = partie.getTerrain();
         this.sprite = sprite;
 
         this.coords[0] = x;
@@ -45,9 +48,10 @@ public abstract class Pion {
      * case
      * @param spritePath chemin d'accès au sprite
      */
-    public Pion(Terrain terrain, int x, int y, int listIndex, String spritePath) {
+    public Pion(Partie partie, int x, int y, int listIndex, String spritePath) {
 
-        this.terrain = terrain;
+        this.partie = partie;
+        this.terrain = partie.getTerrain();
         this.sprite = new ImageIcon(spritePath);
 
         this.coords[0] = x;

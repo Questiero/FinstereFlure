@@ -1,11 +1,11 @@
 package finstereflure.pions;
 
-import finstereflure.Terrain;
+import finstereflure.Partie;
 
 public final class Hemoglobine extends Pion {
 
-    public Hemoglobine(Terrain terrain, int x, int y) {
-        super(terrain, x, y, 0, "");
+    public Hemoglobine(Partie partie, int x, int y) {
+        super(partie, x, y, 0, "");
     }
 
     @Override

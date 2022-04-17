@@ -61,7 +61,7 @@ public class Terrain {
                 this.pionMap[i][j] = new LinkedList<Pion>();
 
                 // Init Empty
-                this.pionMap[i][j].add(new Empty(this, i, j));
+                this.pionMap[i][j].add(new Empty(this.game, i, j));
 
                 // Init layeredPane
                 this.spriteMap[i][j] = new JLabel();
@@ -72,7 +72,7 @@ public class Terrain {
         }
 
         // Init Monstre
-        Monstre monstre = new Monstre(this, 0, 0, 1);
+        Monstre monstre = new Monstre(this.game, 0, 0, 1);
         this.pionMap[0][0].add(monstre);
         this.game.setMonstre(monstre);
 
@@ -82,7 +82,7 @@ public class Terrain {
         Player p1 = this.game.getPlayer1();
         for (int value : values) {
             if (!(p1.getMaxJetons() == 3 && value == 3)) {
-                Jeton jeton = new Jeton(this, 15, 10, this.pionMap[15][10].size(), "", p1, value);
+                Jeton jeton = new Jeton(this.game, 15, 10, this.pionMap[15][10].size(), "", p1, value);
                 this.pionMap[15][10].add(jeton);
                 jeton.generateSprite();
                 p1.getJetons().add(jeton);
@@ -92,7 +92,7 @@ public class Terrain {
         Player p2 = this.game.getPlayer2();
         for (int value : values) {
             if (!(p2.getMaxJetons() == 3 && value == 3)) {
-                Jeton jeton = new Jeton(this, 15, 10, this.pionMap[15][10].size(), "", p2, value);
+                Jeton jeton = new Jeton(this.game, 15, 10, this.pionMap[15][10].size(), "", p2, value);
                 this.pionMap[15][10].add(jeton);
                 jeton.generateSprite();
                 p2.getJetons().add(jeton);
@@ -105,7 +105,7 @@ public class Terrain {
 
             for (int[] coord : coordsPierres) {
                 LinkedList<Pion> ll = this.pionMap[coord[0]][coord[1]];
-                ll.add(new Pierre(this, coord[0], coord[1], ll.size()));
+                ll.add(new Pierre(this.game, coord[0], coord[1], ll.size()));
             }
 
             JLabel flaqueLongue = new JLabel();
@@ -114,7 +114,7 @@ public class Terrain {
             flaqueLongue.setBounds(184, 339, 160, 40);
             
             for (int i = 4; i <= 7; i++) {
-                this.pionMap[i][8].add(new Hemoglobine(this, i, 8));
+                this.pionMap[i][8].add(new Hemoglobine(this.game, i, 8));
             }
             
             JLabel flaqueCarre = new JLabel();
@@ -124,7 +124,7 @@ public class Terrain {
             
             for (int i = 8; i <= 9; i++) {
                 for (int j = 2; j <= 3; j++) {
-                    this.pionMap[i][j].add(new Hemoglobine(this, i, j));
+                    this.pionMap[i][j].add(new Hemoglobine(this.game, i, j));
                 }
             }
 

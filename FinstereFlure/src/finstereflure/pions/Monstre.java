@@ -1,15 +1,15 @@
 package finstereflure.pions;
 
-import finstereflure.Terrain;
+import finstereflure.Partie;
 import finstereflure.enums.Direction;
 import static finstereflure.enums.Direction.DOWN;
 import static finstereflure.enums.Direction.LEFT;
 import static finstereflure.enums.Direction.RIGHT;
 import static finstereflure.enums.Direction.UP;
 import finstereflure.pions.interfaces.Moveable;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
-import javax.swing.ImageIcon;
+import java.util.Map;
 
 /**
  * Clase représentant le monstre
@@ -27,8 +27,8 @@ public final class Monstre extends Pion implements Moveable {
      * @param listIndex indice du Pion dans la LinkedList correspondant à sa
      * case
      */
-    public Monstre(Terrain terrain, int x, int y, int listIndex) {
-        super(terrain, x, y, listIndex, "./img/monstre2.gif");
+    public Monstre(Partie partie, int x, int y, int listIndex) {
+        super(partie, x, y, listIndex, "./img/monstre2.gif");
     }
 
     @Override
@@ -95,6 +95,9 @@ public final class Monstre extends Pion implements Moveable {
 
         if (nextPos instanceof Hemoglobine && this.canMove(dir)) {
             this.move(dir);
+        } else if (nextPos instanceof Jeton) {
+            Jeton j = (Jeton) nextPos;
+            j.die();
         }
 
         this.terrain.update();
@@ -112,18 +115,41 @@ public final class Monstre extends Pion implements Moveable {
         //si aucune direction opti : le monstre continue d'avancer dans sa direction précedante
         //penser à actualiser l'image en fonction de la direction
 
+        HashMap<Direction, Integer> directionDistances = new HashMap<Direction, Integer>();
+
         Direction targetDirection = this.direction;
 
         int distanceFront = this.getTargetDistance(this.direction);
-        int distanceLeft = this.getTargetDistance(this.direction.rotateLeft());
-        int distanceRight = this.getTargetDistance(this.direction.rotateRight());
+        if (distanceFront != -1) {
+            directionDistances.put(this.direction, distanceFront);
 
-        if (distanceFront >= distanceLeft && distanceFront >= distanceRight) {
-            targetDirection = this.direction;
-        } else if (distanceLeft >= distanceFront && distanceLeft >= distanceRight) {
-            targetDirection = this.direction.rotateLeft();
-        } else if (distanceRight >= distanceFront && distanceRight >= distanceLeft) {
-            targetDirection = this.direction.rotateRight();
+        }
+
+        int distanceLeft = this.getTargetDistance(this.direction.rotateLeft());
+        if (distanceLeft != -1) {
+            directionDistances.put(this.direction.rotateLeft(), distanceLeft);
+        }
+
+        int distanceRight = this.getTargetDistance(this.direction.rotateRight());
+        if (distanceRight != -1) {
+            directionDistances.put(this.direction.rotateRight(), distanceRight);
+
+        }
+
+        for (Map.Entry entry1 : directionDistances.entrySet()) {
+
+            boolean min = true;
+            
+            for (Map.Entry entry2 : directionDistances.entrySet()) {
+                if((Integer) entry1.getValue() > (Integer) entry2.getValue()) {
+                    min = false;
+                }
+            }
+            
+            if(min) {
+                return (Direction) entry1.getKey();
+            }
+
         }
 
         return targetDirection;

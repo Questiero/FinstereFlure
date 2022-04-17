@@ -1,6 +1,6 @@
 package finstereflure.pions;
 
-import finstereflure.Terrain;
+import finstereflure.Partie;
 import finstereflure.enums.Direction;
 import static finstereflure.enums.Direction.DOWN;
 import static finstereflure.enums.Direction.LEFT;
@@ -33,8 +33,8 @@ public final class Jeton extends Pion implements Moveable {
      * case
      * @param sprite
      */
-    public Jeton(Terrain terrain, int x, int y, int listIndex, ImageIcon sprite, Player player, int maxCoupsClairs) {
-        super(terrain, x, y, listIndex, sprite);
+    public Jeton(Partie partie, int x, int y, int listIndex, ImageIcon sprite, Player player, int maxCoupsClairs) {
+        super(partie, x, y, listIndex, sprite);
         this.player = player;
         this.maxCoupsClairs = maxCoupsClairs - 1;
         coups = maxCoupsClairs - 1;
@@ -50,8 +50,8 @@ public final class Jeton extends Pion implements Moveable {
      * case
      * @param spritePath chemin d'accès au sprite
      */
-    public Jeton(Terrain terrain, int x, int y, int listIndex, String spritePath, Player player, int maxCoupsClairs) {
-        super(terrain, x, y, listIndex, spritePath);
+    public Jeton(Partie partie, int x, int y, int listIndex, String spritePath, Player player, int maxCoupsClairs) {
+        super(partie, x, y, listIndex, spritePath);
         this.player = player;
         this.maxCoupsClairs = maxCoupsClairs;
         coups = maxCoupsClairs - 1;
@@ -244,6 +244,37 @@ public final class Jeton extends Pion implements Moveable {
 
     public int getCoups() {
         return coups;
+    }
+
+    public void die() {
+
+        switch (this.partie.getManche()) {
+
+            case 1:
+
+                LinkedList<Pion>[][] pionMap = this.terrain.getPionMap();
+
+                pionMap[this.getX()][this.getY()].remove(this);
+                
+                this.setX(15);
+                this.setY(10);
+                
+                pionMap[15][10].add(this);
+
+                break;
+
+            case 2:
+
+                this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
+                this.player.getJetons().remove(this);
+                
+                break;
+
+            default:
+                System.out.println("Erreur");
+
+        }
+
     }
 
 }
