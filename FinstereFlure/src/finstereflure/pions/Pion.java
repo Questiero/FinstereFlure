@@ -14,7 +14,6 @@ public abstract class Pion {
 
     //Coordonnées
     protected final int[] coords = new int[2];
-    protected int listIndex;
 
     /**
      * Constructeur de Pion en fonction d'un ImageIcon pour sprite
@@ -33,8 +32,6 @@ public abstract class Pion {
 
         this.coords[0] = x;
         this.coords[1] = y;
-
-        this.listIndex = listIndex;
 
     }
 
@@ -56,8 +53,6 @@ public abstract class Pion {
         this.coords[0] = x;
         this.coords[1] = y;
 
-        this.listIndex = listIndex;
-
     }
 
     public int getX() {
@@ -66,10 +61,6 @@ public abstract class Pion {
 
     public int getY() {
         return this.coords[1];
-    }
-
-    public int getListIndex() {
-        return this.listIndex;
     }
 
     /**

@@ -1,12 +1,14 @@
 package finstereflure;
 
 import finstereflure.pions.Empty;
+import finstereflure.pions.Hemoglobine;
 import finstereflure.pions.Jeton;
 import finstereflure.pions.Monstre;
 import finstereflure.pions.Pierre;
 import finstereflure.pions.Pion;
 import finstereflure.players.Player;
 import java.util.LinkedList;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
@@ -64,7 +66,7 @@ public class Terrain {
                 // Init layeredPane
                 this.spriteMap[i][j] = new JLabel();
                 this.spriteMap[i][j].setBounds(24 + i * 40, 19 + j * 40, 40, 40);
-                this.layeredPane.add(this.spriteMap[i][j]);
+                this.layeredPane.add(this.spriteMap[i][j], 1);
 
             }
         }
@@ -106,7 +108,26 @@ public class Terrain {
                 ll.add(new Pierre(this, coord[0], coord[1], ll.size()));
             }
 
-            // TODO Flaques
+            JLabel flaqueLongue = new JLabel();
+            flaqueLongue.setIcon(new ImageIcon("./img/tachesang_lineaireH.png"));
+            this.layeredPane.add(flaqueLongue, 0);
+            flaqueLongue.setBounds(184, 339, 160, 40);
+            
+            for (int i = 4; i <= 7; i++) {
+                this.pionMap[i][8].add(new Hemoglobine(this, i, 8));
+            }
+            
+            JLabel flaqueCarre = new JLabel();
+            flaqueCarre.setIcon(new ImageIcon("./img/tachesang_carree.png"));
+            this.layeredPane.add(flaqueCarre, 0);
+            flaqueCarre.setBounds(344, 99, 80, 80);
+            
+            for (int i = 8; i <= 9; i++) {
+                for (int j = 2; j <= 3; j++) {
+                    this.pionMap[i][j].add(new Hemoglobine(this, i, j));
+                }
+            }
+
         } else {
 
             // TODO

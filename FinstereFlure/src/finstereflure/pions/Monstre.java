@@ -85,7 +85,6 @@ public final class Monstre extends Pion implements Moveable {
         }
 
         this.terrain.getPionMap()[this.getX()][this.getY()].add(this);
-        this.listIndex = this.terrain.getPionMap()[this.getX()][this.getY()].size();
 
         this.direction = dir;
         this.generateSprite();
@@ -190,11 +189,6 @@ public final class Monstre extends Pion implements Moveable {
     @Override
     public void setY(int y) {
         this.coords[1] = y;
-    }
-
-    @Override
-    public void setListIndex(int listIndex) {
-        this.listIndex = listIndex;
     }
 
     @Override
