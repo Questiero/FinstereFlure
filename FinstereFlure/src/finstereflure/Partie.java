@@ -153,15 +153,15 @@ public class Partie {
         if (this.playerTurn == 3) {
             this.monsterTurn();
         }
-        
+
         this.currentJeton = null;
-        
+
     }
 
     public boolean canNextPlayerTurn() {
 
         if (this.playerTurn == 3) {
-            //TODO Monstre
+            //TODO pières tombales Monstre
         } else {
             for (Jeton j : this.players[this.playerTurn - 1].getJetons()) {
                 if (j.isCanPlay()) {
@@ -208,10 +208,28 @@ public class Partie {
 
         System.out.println("Tour du monstre");
 
+        //while (!this.canNextPlayerTurn()) {
         this.monstre.move(this.monstre.getTargetDirection());
+        //}
 
         this.playerTurn = 1;
         this.nextTour();
+
+    }
+
+    /**
+     *
+     * @return le numéro du joueur gagnant, 0 sinon
+     */
+    public int gameWon() {
+
+        if (this.players[0].canWin() || this.players[1].getJetons().size() == 0) {
+            return 1;
+        } else if (this.players[1].canWin() || this.players[0].getJetons().size() == 0) {
+            return 2;
+        }
+
+        return 0;
 
     }
 
