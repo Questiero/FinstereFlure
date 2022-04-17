@@ -107,11 +107,8 @@ public final class Monstre extends Pion implements Moveable {
         Direction targetDirection = this.direction;
 
         int distanceFront = this.getTargetDistance(this.direction);
-        System.out.println(distanceFront);
         int distanceLeft = this.getTargetDistance(this.direction.rotateLeft());
-        System.out.println(distanceLeft);
         int distanceRight = this.getTargetDistance(this.direction.rotateRight());
-        System.out.println(distanceRight);
 
         if (distanceFront >= distanceLeft && distanceFront >= distanceRight) {
             targetDirection = this.direction;
@@ -120,8 +117,6 @@ public final class Monstre extends Pion implements Moveable {
         } else if (distanceRight >= distanceFront && distanceRight >= distanceLeft) {
             targetDirection = this.direction.rotateRight();
         }
-
-        System.out.println(targetDirection);
 
         return targetDirection;
 
@@ -149,10 +144,8 @@ public final class Monstre extends Pion implements Moveable {
 
             if (!(target instanceof Empty) && !(target instanceof Monstre)) {
                 if (target instanceof Jeton) {
-                    System.out.println("oui");
                     return distance;
                 } else {
-                    System.out.println("non");
                     return -1;
                 }
             }
@@ -176,7 +169,6 @@ public final class Monstre extends Pion implements Moveable {
 
         }
 
-        System.out.println("euh");
         return -1;
 
     }

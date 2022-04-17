@@ -79,47 +79,47 @@ public final class Jeton extends Pion implements Moveable {
     @Override
     public void move(Direction dir) {
 
-        this.coups--;
+        if (!(this.terrain.getPionMap()[this.getX()][this.getY()].get(1) instanceof Hemoglobine)) {
+            this.coups--;
+        }
 
         this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
-        
+
         LinkedList<Pion>[][] pionmap = new LinkedList[16][11];
         pionmap = super.terrain.getPionMap();
 
+        Pion nextPos = null;
+
         switch (dir) {
             case UP:
-                Pion nextPos = pionmap[this.getX()][this.getY() - 1].getLast();
+                nextPos = pionmap[this.getX()][this.getY() - 1].getLast();
                 this.setY(getY() - 1);
-                if (nextPos instanceof Pierre){
-                    ((Pierre) nextPos).move(dir);
-                }
                 break;
             case LEFT:
                 nextPos = pionmap[this.getX() - 1][this.getY()].getLast();
                 this.setX(getX() - 1);
-                if (nextPos instanceof Pierre){
-                    ((Pierre) nextPos).move(dir);
-                }
                 break;
             case RIGHT:
                 nextPos = pionmap[this.getX() + 1][this.getY()].getLast();
                 this.setX(getX() + 1);
-                if (nextPos instanceof Pierre){
-                    ((Pierre) nextPos).move(dir);
-                }
                 break;
             case DOWN:
                 nextPos = pionmap[this.getX()][this.getY() + 1].getLast();
                 this.setY(getY() + 1);
-                if (nextPos instanceof Pierre){
-                    ((Pierre) nextPos).move(dir);
-                }
                 break;
         }
 
+        if (nextPos instanceof Pierre) {
+            ((Pierre) nextPos).move(dir);
+        }
+
         this.terrain.getPionMap()[this.getX()][this.getY()].add(this);
-        
+
         this.terrain.update();
+
+        if (nextPos instanceof Hemoglobine && this.canMove(dir)) {
+            this.move(dir);
+        }
 
     }
 
@@ -134,9 +134,9 @@ public final class Jeton extends Pion implements Moveable {
         LinkedList<Pion>[][] pionmap = new LinkedList[16][11];
         pionmap = super.terrain.getPionMap();
 
-        Pion nextPos;   //donne dans chaque direction l'occupant de la case (après traitement)
+        Pion nextPos = null;   //donne dans chaque direction l'occupant de la case (après traitement)
 
-        if (this.coups == 0) {
+        if (this.coups == 0 && !(pionmap[this.getX()][this.getY()].get(1) instanceof Hemoglobine)) {
             return false;
         }
 
@@ -156,18 +156,6 @@ public final class Jeton extends Pion implements Moveable {
 
                 nextPos = pionmap[this.getX()][this.getY() - 1].getLast();
 
-                if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
-                    if (this.coups == 1) {
-                        return false;
-                    }
-
-                } else if (nextPos instanceof Pierre) {    //cas où il y a une pierre dans la direction voulue
-                    return ((Pierre) nextPos).canMove(UP);
-
-                } else {
-                    return true;
-                }
-
                 break;
 
             case LEFT:
@@ -184,23 +172,6 @@ public final class Jeton extends Pion implements Moveable {
 
                 nextPos = pionmap[this.getX() - 1][this.getY()].getLast();
 
-                if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
-                    if (this.coups == 1) {
-                        return false;
-                    }
-                }
-                if (nextPos instanceof Pierre) {
-                    if (nextPos.getX() == 0) {
-                        return false;
-                    }
-
-                } else if (nextPos instanceof Pierre) {    //cas où il y a une pierre dans la direction voulue
-                    return ((Pierre) nextPos).canMove(LEFT);
-
-                } else {
-                    return true;
-                }
-
                 break;
 
             case RIGHT:
@@ -216,23 +187,6 @@ public final class Jeton extends Pion implements Moveable {
 
                 nextPos = pionmap[this.getX() + 1][this.getY()].getLast();
 
-                if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
-                    if (this.coups == 1) {
-                        return false;
-                    }
-                }
-                if (nextPos instanceof Pierre) {
-
-                    if (nextPos.getX() == 0) {
-                        return false;
-                    }
-
-                } else if (nextPos instanceof Pierre) {    //cas où il y a une pierre dans la direction voulue
-                    return ((Pierre) nextPos).canMove(RIGHT);
-
-                } else {
-                    return true;
-                }
                 break;
 
             case DOWN:
@@ -249,23 +203,15 @@ public final class Jeton extends Pion implements Moveable {
 
                 nextPos = pionmap[this.getX()][this.getY() + 1].getLast();
 
-                if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
-                    if (this.coups == 1) {
-                        return false;
-                    }
-                }
-                if (nextPos instanceof Pierre) {
-                    if (nextPos.getX() == 0) {
-                        return false;
-                    }
-
-                } else if (nextPos instanceof Pierre) {    //cas où il y a une pierre dans la direction voulue
-                    return ((Pierre) nextPos).canMove(DOWN);
-
-                } else {
-                    return true;
-                }
                 break;
+        }
+
+        if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
+            if (this.coups == 1) {
+                return false;
+            }
+        } else if (nextPos instanceof Pierre) {    //cas où il y a une pierre dans la direction voulue
+            return ((Pierre) nextPos).canMove(dir);
         }
 
         return true;
@@ -305,5 +251,4 @@ public final class Jeton extends Pion implements Moveable {
         return coups;
     }
 
-    
 }
