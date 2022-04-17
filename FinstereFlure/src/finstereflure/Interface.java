@@ -1610,8 +1610,6 @@ public class Interface extends javax.swing.JFrame {
             this.selectJeton(player, pion); //selection du jeton lors de l'appuie sur l'image
             this.updateDisplayJeton();  //actualisation de l'affichage du jeton
 
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups())); //actualisation nombre coups restants du jeton
-
         }
 
 
@@ -1628,8 +1626,6 @@ public class Interface extends javax.swing.JFrame {
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
 
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
-
         }
 
     }//GEN-LAST:event_jPion2P1MouseClicked
@@ -1644,8 +1640,6 @@ public class Interface extends javax.swing.JFrame {
             System.out.println("J" + player + " : Pion " + pion);
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
-
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
 
         }
 
@@ -1662,8 +1656,6 @@ public class Interface extends javax.swing.JFrame {
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
 
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
-
         }
 
     }//GEN-LAST:event_jPion4P1MouseClicked
@@ -1678,8 +1670,6 @@ public class Interface extends javax.swing.JFrame {
             System.out.println("J" + player + " : Pion " + pion);
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
-
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
 
         }
 
@@ -1696,8 +1686,6 @@ public class Interface extends javax.swing.JFrame {
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
 
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
-
         }
 
     }//GEN-LAST:event_jPion2P2MouseClicked
@@ -1713,8 +1701,6 @@ public class Interface extends javax.swing.JFrame {
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
 
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
-
         }
 
     }//GEN-LAST:event_jPion3P2MouseClicked
@@ -1729,8 +1715,6 @@ public class Interface extends javax.swing.JFrame {
             System.out.println("J" + player + " : Pion " + pion);
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
-
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
 
         }
 
@@ -1850,7 +1834,7 @@ public class Interface extends javax.swing.JFrame {
         jPreviousChat.append(jNewChat.getText() + "\n");   ////récupérer l'ancien chat + y ajouter le nouveau et un retour à la ligne et l'afficher
         jNewChat.setText("");   //remise à zéro du champs pour écrire un nouveau chat
 
-        this.game.playerTurn =3;
+        this.game.playerTurn = 3;
         this.game.monsterTurn();
 
     }//GEN-LAST:event_jSendChatMouseClicked
@@ -1863,18 +1847,23 @@ public class Interface extends javax.swing.JFrame {
             player--;
             pion--;
 
-            // Affichage
-            for (JLabel[] array : labelsPlayers) {
-                for (JLabel label : array) {
-                    label.setBorder(BorderFactory.createEmptyBorder());
+            if (this.game.selectJeton(player, pion)) {
+
+                // Affichage
+                for (JLabel[] array : labelsPlayers) {
+                    for (JLabel label : array) {
+                        label.setBorder(BorderFactory.createEmptyBorder());
+                    }
                 }
+
+                labelsPlayers[player][pion].setBorder(BorderFactory.createLineBorder(Color.black, 2));
+                
+                jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
+                
+                this.updateMoveButtons();
+
             }
 
-            labelsPlayers[player][pion].setBorder(BorderFactory.createLineBorder(Color.black, 2));
-
-            this.game.selectJeton(player, pion);
-
-            this.updateMoveButtons();
         }
 
     }
