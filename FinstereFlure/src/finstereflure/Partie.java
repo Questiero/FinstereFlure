@@ -1,7 +1,6 @@
 package finstereflure;
 
 import finstereflure.enums.Couleur;
-import finstereflure.enums.Direction;
 import finstereflure.enums.PlayerType;
 import finstereflure.pions.Jeton;
 import finstereflure.pions.Monstre;
