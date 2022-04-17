@@ -304,6 +304,8 @@ public final class Jeton extends Pion implements Moveable {
 
     public void die() {
 
+        this.partie.getMonstre().setVictimes(this.partie.getMonstre().getVictimes());
+
         switch (this.partie.getManche()) {
 
             case 1:
@@ -337,7 +339,7 @@ public final class Jeton extends Pion implements Moveable {
 
         if (this.getX() == 0 && this.getY() == 0 && this.coups > 0) {
 
-            this.die();
+            this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
             
             this.player.getJetons().remove(this);
             this.player.getJetonsWon().add(this);
