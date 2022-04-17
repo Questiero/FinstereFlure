@@ -1,8 +1,10 @@
 package finstereflure;
 
 import finstereflure.enums.Couleur;
+import finstereflure.enums.Direction;
 import finstereflure.enums.PlayerType;
 import finstereflure.pions.Jeton;
+import finstereflure.pions.Monstre;
 import finstereflure.players.*;
 import finstereflure.players.ai.*;
 import javax.swing.JLayeredPane;
@@ -24,6 +26,7 @@ public class Partie {
     private int playerTurn = 1;
 
     private Jeton currentJeton;
+    private Monstre monstre;
 
     /**
      * Constructeur de Partie en fonction de son hôte
@@ -177,6 +180,14 @@ public class Partie {
         return currentJeton;
     }
 
+    public Monstre getMonstre() {
+        return monstre;
+    }
+
+    public void setMonstre(Monstre monstre) {
+        this.monstre = monstre;
+    }
+
     public void selectJeton(int player, int pion) {
         if (this.players[player].getJetons().size() > pion) {
             this.currentJeton = this.players[player].getJetons().get(pion);
@@ -193,10 +204,18 @@ public class Partie {
     }
 
     public void monsterTurn() {
-        //TODO
+
         System.out.println("Tour du monstre");
+
+        this.monstre.move(this.monstre.getTargetDirection());
+        this.monstre.move(this.monstre.getTargetDirection());
+        this.monstre.move(this.monstre.getTargetDirection());
+        this.monstre.move(this.monstre.getTargetDirection());
+        this.monstre.move(this.monstre.getTargetDirection());
+
         this.playerTurn = 1;
         this.nextTour();
+
     }
 
 }

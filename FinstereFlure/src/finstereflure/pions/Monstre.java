@@ -37,40 +37,61 @@ public final class Monstre extends Pion implements Moveable {
         this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
 
         switch (dir) {
+
             case UP:
-                if (this.getY() == 0) {
-                    this.setY(10);
+
+                if ((this.getX() <= 11 && this.getY() == 0) || this.getX() == (11 + this.getY())) {
+                    this.setX(15 - this.getX());
+                    this.setY(10 - this.getY());
                 } else {
                     this.setY(getY() - 1);
                 }
+
                 break;
+
             case LEFT:
-                if (this.getX() == 0) {
-                    this.setX(15);
+
+                if ((this.getY() <= 6 && this.getX() == 0) || this.getY() == (6 + this.getX())) {
+                    this.setX(15 - this.getX());
+                    this.setY(10 - this.getY());
                 } else {
                     this.setX(getX() - 1);
                 }
+
                 break;
+
             case RIGHT:
-                if (this.getX() == 15) {
-                    this.setX(0);
+                
+                if ((this.getY() >= 4 && this.getX() == 15) || this.getX() == (11 + this.getY())) {
+                    this.setX(15 - this.getX());
+                    this.setY(10 - this.getY());
                 } else {
                     this.setX(getX() + 1);
                 }
+                
                 break;
+                
             case DOWN:
-                if (this.getY() == 10) {
-                    this.setY(0);
+
+                if ((this.getX() >= 4 && this.getY() == 10) || this.getY() == (6 + this.getX())) {
+                    this.setX(15 - this.getX());
+                    this.setY(10 - this.getY());
                 } else {
                     this.setY(getY() + 1);
                 }
+
                 break;
+
         }
 
         this.terrain.getPionMap()[this.getX()][this.getY()].add(this);
         this.listIndex = this.terrain.getPionMap()[this.getX()][this.getY()].size();
 
+        this.direction = dir;
+        this.generateSpritePath();
+
         this.terrain.update();
+
     }
 
     @Override
@@ -83,20 +104,25 @@ public final class Monstre extends Pion implements Moveable {
         //ensuite on les compare et on return la direction la + opti
         //si aucune direction opti : le monstre continue d'avancer dans sa direction précedante
         //penser à actualiser l'image en fonction de la direction
-        
-        Direction targetDirection = this.direction;
-        
-        int distanceFront = this.getTargetDistance(this.direction);
-        int distanceLeft = this.getTargetDistance(this.direction.rotateLeft());
-        int distanceRight = this.getTargetDistance(this.direction.rotateRight());
 
-        if(distanceFront >= distanceLeft && distanceFront >= distanceRight) {
+        Direction targetDirection = this.direction;
+
+        int distanceFront = this.getTargetDistance(this.direction);
+        System.out.println(distanceFront);
+        int distanceLeft = this.getTargetDistance(this.direction.rotateLeft());
+        System.out.println(distanceLeft);
+        int distanceRight = this.getTargetDistance(this.direction.rotateRight());
+        System.out.println(distanceRight);
+
+        if (distanceFront >= distanceLeft && distanceFront >= distanceRight) {
             targetDirection = this.direction;
-        } else if(distanceLeft >= distanceFront && distanceLeft >= distanceRight) {
+        } else if (distanceLeft >= distanceFront && distanceLeft >= distanceRight) {
             targetDirection = this.direction.rotateLeft();
-        } else if(distanceRight >= distanceFront && distanceRight >= distanceLeft) {
+        } else if (distanceRight >= distanceFront && distanceRight >= distanceLeft) {
             targetDirection = this.direction.rotateRight();
         }
+
+        System.out.println(targetDirection);
 
         return targetDirection;
 

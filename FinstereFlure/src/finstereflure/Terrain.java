@@ -70,7 +70,9 @@ public class Terrain {
         }
 
         // Init Monstre
-        this.pionMap[0][0].add(new Monstre(this, 0, 0, 1));
+        Monstre monstre = new Monstre(this, 0, 0, 1);
+        this.pionMap[0][0].add(monstre);
+        this.game.setMonstre(monstre);
 
         // Init jetons
         int[] values = {1, 3, 4, 5};
