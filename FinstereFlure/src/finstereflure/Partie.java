@@ -221,7 +221,7 @@ public class Partie {
      *
      * @return le numéro du joueur gagnant, 0 sinon
      */
-    public int gameWon() {
+    public int isGameWon() {
 
         if (this.players[0].canWin() || this.players[1].getJetons().size() == 0) {
             return 1;
