@@ -104,16 +104,14 @@ public final class Jeton extends Pion implements Moveable {
 
         Pion nextPos = pionmap[this.getX()][this.getY()].getLast();
 
-        if (nextPos instanceof Pierre) {
-            ((Pierre) nextPos).move(dir);
-        }
-
         pionmap[this.getX()][this.getY()].add(this);
 
         this.terrain.update();
 
         if (nextPos instanceof Hemoglobine && this.canMove(dir)) {
             this.move(dir);
+        } else if (nextPos instanceof Pierre) {
+            ((Pierre) nextPos).move(dir);
         }
 
     }
@@ -255,10 +253,10 @@ public final class Jeton extends Pion implements Moveable {
                 LinkedList<Pion>[][] pionMap = this.terrain.getPionMap();
 
                 pionMap[this.getX()][this.getY()].remove(this);
-                
+
                 this.setX(15);
                 this.setY(10);
-                
+
                 pionMap[15][10].add(this);
 
                 break;
@@ -267,7 +265,7 @@ public final class Jeton extends Pion implements Moveable {
 
                 this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
                 this.player.getJetons().remove(this);
-                
+
                 break;
 
             default:

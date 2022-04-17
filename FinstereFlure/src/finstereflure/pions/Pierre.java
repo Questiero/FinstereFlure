@@ -42,15 +42,18 @@ public final class Pierre extends Pion implements Moveable {
                 break;
         }
 
-        Pion nextPos = pionmap[this.getX()][this.getY()].getLast();
+        if (this.getX() >= 0 && this.getY() >= 0 && this.getX() < 16 && this.getY() < 11 && this.getX() != (12 + this.getY()) && this.getY() != (7 + this.getX())) {
 
-        if (!((this.getX() == 0 && this.getY() == 0) || (this.getX() == 15 && this.getY() == 10))) {
-            pionmap[this.getX()][this.getY()].add(this);
+            Pion nextPos = pionmap[this.getX()][this.getY()].getLast();
 
-        }
+            if (!((this.getX() == 0 && this.getY() == 0) || (this.getX() == 15 && this.getY() == 10))) {
+                pionmap[this.getX()][this.getY()].add(this);
+            }
 
-        if (nextPos instanceof Hemoglobine && this.canMove(dir)) {
-            this.move(dir);
+            if (nextPos instanceof Hemoglobine && this.canMove(dir)) {
+                this.move(dir);
+            }
+
         }
 
         this.terrain.update();
@@ -69,7 +72,7 @@ public final class Pierre extends Pion implements Moveable {
             case UP:
 
                 befPos = pionmap[this.getX()][this.getY() + 1].getLast();
-                
+
                 if (befPos instanceof Jeton) {   //cas du jeton qui pousse la pierre
 
                     if (this.getY() == 0) {
@@ -147,7 +150,7 @@ public final class Pierre extends Pion implements Moveable {
                 break;
 
             case DOWN:
-                
+
                 befPos = pionmap[this.getX()][this.getY() - 1].getLast();
 
                 if (befPos instanceof Jeton) {   //cas du jeton qui pousse la pierre

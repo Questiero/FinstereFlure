@@ -96,8 +96,15 @@ public final class Monstre extends Pion implements Moveable {
         if (nextPos instanceof Hemoglobine && this.canMove(dir)) {
             this.move(dir);
         } else if (nextPos instanceof Jeton) {
-            Jeton j = (Jeton) nextPos;
-            j.die();
+            for (Pion p : pionmap[this.getX()][this.getY()]) {
+                if (p instanceof Jeton) {
+                    Jeton j = (Jeton) p;
+                    j.die();
+                }
+            }
+
+        } else if (nextPos instanceof Pierre) {
+            ((Pierre) nextPos).move(dir);
         }
 
         this.terrain.update();
@@ -139,14 +146,14 @@ public final class Monstre extends Pion implements Moveable {
         for (Map.Entry entry1 : directionDistances.entrySet()) {
 
             boolean min = true;
-            
+
             for (Map.Entry entry2 : directionDistances.entrySet()) {
-                if((Integer) entry1.getValue() > (Integer) entry2.getValue()) {
+                if ((Integer) entry1.getValue() > (Integer) entry2.getValue()) {
                     min = false;
                 }
             }
-            
-            if(min) {
+
+            if (min) {
                 return (Direction) entry1.getKey();
             }
 
