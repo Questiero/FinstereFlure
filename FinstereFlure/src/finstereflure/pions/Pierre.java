@@ -23,26 +23,39 @@ public final class Pierre extends Pion implements Moveable {
 
     @Override
     public void move(Direction dir) {
-        this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
+
+        LinkedList<Pion>[][] pionmap = super.terrain.getPionMap();
+
+        pionmap[this.getX()][this.getY()].remove(this);
+
+        Pion nextPos = null;
 
         switch (dir) {
             case UP:
+                nextPos = pionmap[this.getX()][this.getY() - 1].getLast();
                 this.setY(getY() - 1);
                 break;
             case LEFT:
+                nextPos = pionmap[this.getX() - 1][this.getY()].getLast();
                 this.setX(getX() - 1);
                 break;
             case RIGHT:
+                nextPos = pionmap[this.getX() + 1][this.getY()].getLast();
                 this.setX(getX() + 1);
                 break;
             case DOWN:
+                nextPos = pionmap[this.getX()][this.getY() + 1].getLast();
                 this.setY(getY() + 1);
                 break;
         }
 
         if (!((this.getX() == 0 && this.getY() == 0) || (this.getX() == 15 && this.getY() == 10))) {
-            this.terrain.getPionMap()[this.getX()][this.getY()].add(this);
+            pionmap[this.getX()][this.getY()].add(this);
 
+        }
+
+        if (nextPos instanceof Hemoglobine && this.canMove(dir)) {
+            this.move(dir);
         }
 
         this.terrain.update();

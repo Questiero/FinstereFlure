@@ -79,14 +79,13 @@ public final class Jeton extends Pion implements Moveable {
     @Override
     public void move(Direction dir) {
 
-        if (!(this.terrain.getPionMap()[this.getX()][this.getY()].get(1) instanceof Hemoglobine)) {
+        LinkedList<Pion>[][] pionmap = super.terrain.getPionMap();
+        
+        if (!(pionmap[this.getX()][this.getY()].get(1) instanceof Hemoglobine)) {
             this.coups--;
         }
 
-        this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
-
-        LinkedList<Pion>[][] pionmap = new LinkedList[16][11];
-        pionmap = super.terrain.getPionMap();
+        pionmap[this.getX()][this.getY()].remove(this);        
 
         Pion nextPos = null;
 
@@ -113,7 +112,7 @@ public final class Jeton extends Pion implements Moveable {
             ((Pierre) nextPos).move(dir);
         }
 
-        this.terrain.getPionMap()[this.getX()][this.getY()].add(this);
+        pionmap[this.getX()][this.getY()].add(this);
 
         this.terrain.update();
 
