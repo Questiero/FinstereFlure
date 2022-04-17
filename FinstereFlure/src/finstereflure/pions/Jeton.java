@@ -80,33 +80,29 @@ public final class Jeton extends Pion implements Moveable {
     public void move(Direction dir) {
 
         LinkedList<Pion>[][] pionmap = super.terrain.getPionMap();
-        
+
         if (!(pionmap[this.getX()][this.getY()].get(1) instanceof Hemoglobine)) {
             this.coups--;
         }
 
-        pionmap[this.getX()][this.getY()].remove(this);        
-
-        Pion nextPos = null;
+        pionmap[this.getX()][this.getY()].remove(this);
 
         switch (dir) {
             case UP:
-                nextPos = pionmap[this.getX()][this.getY() - 1].getLast();
                 this.setY(getY() - 1);
                 break;
             case LEFT:
-                nextPos = pionmap[this.getX() - 1][this.getY()].getLast();
                 this.setX(getX() - 1);
                 break;
             case RIGHT:
-                nextPos = pionmap[this.getX() + 1][this.getY()].getLast();
                 this.setX(getX() + 1);
                 break;
             case DOWN:
-                nextPos = pionmap[this.getX()][this.getY() + 1].getLast();
                 this.setY(getY() + 1);
                 break;
         }
+
+        Pion nextPos = pionmap[this.getX()][this.getY()].getLast();
 
         if (nextPos instanceof Pierre) {
             ((Pierre) nextPos).move(dir);

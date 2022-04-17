@@ -34,7 +34,9 @@ public final class Monstre extends Pion implements Moveable {
     @Override
     public void move(Direction dir) {
 
-        this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
+        LinkedList<Pion>[][] pionmap = super.terrain.getPionMap();
+
+        pionmap[this.getX()][this.getY()].remove(this);
 
         switch (dir) {
 
@@ -84,10 +86,16 @@ public final class Monstre extends Pion implements Moveable {
 
         }
 
+        Pion nextPos = pionmap[this.getX()][this.getY()].getLast();
+
         this.terrain.getPionMap()[this.getX()][this.getY()].add(this);
 
         this.direction = dir;
         this.generateSprite();
+
+        if (nextPos instanceof Hemoglobine && this.canMove(dir)) {
+            this.move(dir);
+        }
 
         this.terrain.update();
 
@@ -142,7 +150,7 @@ public final class Monstre extends Pion implements Moveable {
             target = this.terrain.getPionMap()[targetX][targetY].getLast();
             distance++;
 
-            if (!(target instanceof Empty) && !(target instanceof Monstre)) {
+            if (!(target instanceof Empty) && !(target instanceof Monstre) && !(target instanceof Hemoglobine)) {
                 if (target instanceof Jeton) {
                     return distance;
                 } else {
