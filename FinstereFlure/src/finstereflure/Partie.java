@@ -23,7 +23,7 @@ public class Partie {
 
     private int manche = 2;
     private int tour = 1;
-    private int playerTurn = 1;
+    public int playerTurn = 1;
 
     private Jeton currentJeton;
     private Monstre monstre;

@@ -211,6 +211,58 @@ public final class Jeton extends Pion implements Moveable {
 
     }
 
+    public void push(Direction dir) {
+
+        LinkedList<Pion>[][] pionmap = super.terrain.getPionMap();
+
+        if (!(pionmap[this.getX()][this.getY()].get(1) instanceof Hemoglobine)) {
+            this.coups--;
+        }
+
+        pionmap[this.getX()][this.getY()].remove(this);
+
+        switch (dir) {
+            case UP:
+                this.setY(getY() - 1);
+                break;
+            case LEFT:
+                this.setX(getX() - 1);
+                break;
+            case RIGHT:
+                this.setX(getX() + 1);
+                break;
+            case DOWN:
+                this.setY(getY() + 1);
+                break;
+        }
+
+        if (this.getX() >= 0 && this.getY() >= 0 && this.getX() < 16 && this.getY() < 11 && this.getX() != (12 + this.getY()) && this.getY() != (7 + this.getX())) {
+
+            Pion nextPos = pionmap[this.getX()][this.getY()].getLast();
+
+            pionmap[this.getX()][this.getY()].add(this);
+
+            // Si monstre qui pousse
+            if (this.partie.getPlayerTurn() == 3) {
+                if (nextPos instanceof Jeton) {
+                    for (Pion p : pionmap[this.getX()][this.getY()]) {
+                        if (p instanceof Jeton) {
+                            ((Jeton) p).push(dir);
+                        }
+                    }
+                } else if (nextPos instanceof Pierre) {
+                    ((Pierre) nextPos).move(dir);
+                }
+            }
+
+            if (nextPos instanceof Hemoglobine && this.canMove(dir)) {
+                this.move(dir);
+            }
+
+        }
+
+    }
+
     @Override
     public void setX(int x) {
         this.coords[0] = x;

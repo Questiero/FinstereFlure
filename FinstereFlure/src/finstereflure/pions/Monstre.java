@@ -102,7 +102,6 @@ public final class Monstre extends Pion implements Moveable {
                     j.die();
                 }
             }
-
         } else if (nextPos instanceof Pierre) {
             ((Pierre) nextPos).move(dir);
         }

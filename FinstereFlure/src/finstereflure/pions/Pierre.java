@@ -46,8 +46,19 @@ public final class Pierre extends Pion implements Moveable {
 
             Pion nextPos = pionmap[this.getX()][this.getY()].getLast();
 
-            if (!((this.getX() == 0 && this.getY() == 0) || (this.getX() == 15 && this.getY() == 10))) {
-                pionmap[this.getX()][this.getY()].add(this);
+            pionmap[this.getX()][this.getY()].add(this);
+
+            // Si monstre qui pousse
+            if (this.partie.getPlayerTurn() == 3) {
+                if (nextPos instanceof Jeton) {
+                    for (Pion p : pionmap[this.getX()][this.getY()]) {
+                        if (p instanceof Jeton) {
+                            ((Jeton) p).push(dir);
+                        }
+                    }
+                } else if (nextPos instanceof Pierre) {
+                    ((Pierre) nextPos).move(dir);
+                }
             }
 
             if (nextPos instanceof Hemoglobine && this.canMove(dir)) {
@@ -66,112 +77,92 @@ public final class Pierre extends Pion implements Moveable {
         pionmap = super.terrain.getPionMap();
 
         Pion nextPos;   //donne dans chaque direction l'occupant de la case (après traitement)
-        Pion befPos;    //position du pion qui pousse la pierre (jeton ou monstre)
+
+        // Si c'est au monstre de jouer, ça peut que être lui qui pousse donc on peut toujours bouger (pas besoin befPos en fait)
+        if (this.partie.getPlayerTurn() == 3) {
+            return true;
+        }
 
         switch (dir) {
             case UP:
 
-                befPos = pionmap[this.getX()][this.getY() + 1].getLast();
+                if (this.getY() == 0) {
+                    return false;
+                }
 
-                if (befPos instanceof Jeton) {   //cas du jeton qui pousse la pierre
+                if ((this.getX() == 12 && this.getY() == 1) || (this.getX() == 13 && this.getY() == 2)
+                        || //cas de "l'escalier" en haut à droite
+                        (this.getX() == 14 && this.getY() == 3) || (this.getX() == 15 && this.getY() == 4)) {
+                    return false;
 
-                    if (this.getY() == 0) {
-                        return false;
-                    }
+                }
 
-                    if ((this.getX() == 12 && this.getY() == 1) || (this.getX() == 13 && this.getY() == 2)
-                            || //cas de "l'escalier" en haut à droite
-                            (this.getX() == 14 && this.getY() == 3) || (this.getX() == 15 && this.getY() == 4)) {
-                        return false;
+                nextPos = pionmap[this.getX()][this.getY() - 1].getLast();
 
-                    }
-
-                    nextPos = pionmap[this.getX()][this.getY() - 1].getLast();
-
-                    if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur                    
-                        return false;
-                    }
-
-                } else if (befPos instanceof Monstre) {
-                    return true;
+                if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur                    
+                    return false;
                 }
 
                 break;
 
             case LEFT:
 
-                befPos = pionmap[this.getX() + 1][this.getY()].getLast();
-
-                if (befPos instanceof Jeton) {   //cas du jeton qui pousse la pierre
-                    if (this.getX() == 0) {
-                        return false;
-                    }
-
-                    if ((this.getX() == 1 && this.getY() == 7) || (this.getX() == 2 && this.getY() == 8)
-                            || //escalier en bas à gauche
-                            (this.getX() == 3 && this.getY() == 9) || (this.getX() == 4 && this.getY() == 10)) {
-                        return false;
-                    }
-
-                    nextPos = pionmap[this.getX() - 1][this.getY()].getLast();
-
-                    if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
-                        return false;
-                    }
-                } else if (befPos instanceof Monstre) {
-                    return true;
+                if (this.getX() == 0) {
+                    return false;
                 }
+
+                if ((this.getX() == 1 && this.getY() == 7) || (this.getX() == 2 && this.getY() == 8)
+                        || //escalier en bas à gauche
+                        (this.getX() == 3 && this.getY() == 9) || (this.getX() == 4 && this.getY() == 10)) {
+                    return false;
+                }
+
+                nextPos = pionmap[this.getX() - 1][this.getY()].getLast();
+
+                if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
+                    return false;
+                }
+
                 break;
 
             case RIGHT:
 
-                befPos = pionmap[this.getX() - 1][this.getY()].getLast();
-
-                if (befPos instanceof Jeton) {   //cas du jeton qui pousse la pierre
-                    if (this.getX() == 15) {
-                        return false;
-                    }
-
-                    if ((this.getX() == 14 && this.getY() == 3) || (this.getX() == 13 && this.getY() == 2)
-                            || (this.getX() == 12 && this.getY() == 1) || (this.getX() == 11 && this.getY() == 0)) {
-                        return false;
-
-                    }
-
-                    nextPos = pionmap[this.getX() + 1][this.getY()].getLast();
-
-                    if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
-                        return false;
-                    }
-
-                } else if (befPos instanceof Monstre) {
-                    return true;
+                if (this.getX() == 15) {
+                    return false;
                 }
+
+                if ((this.getX() == 14 && this.getY() == 3) || (this.getX() == 13 && this.getY() == 2)
+                        || (this.getX() == 12 && this.getY() == 1) || (this.getX() == 11 && this.getY() == 0)) {
+                    return false;
+
+                }
+
+                nextPos = pionmap[this.getX() + 1][this.getY()].getLast();
+
+                if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
+                    return false;
+                }
+
                 break;
 
             case DOWN:
 
-                befPos = pionmap[this.getX()][this.getY() - 1].getLast();
-
-                if (befPos instanceof Jeton) {   //cas du jeton qui pousse la pierre
-                    if (this.getY() == 10) {
-                        return false;
-                    }
-
-                    if ((this.getX() == 3 && this.getY() == 9) || (this.getX() == 2 && this.getY() == 8)
-                            || (this.getX() == 1 && this.getY() == 7) || (this.getX() == 0 && this.getY() == 6)) {
-                        return false;
-
-                    }
-
-                    nextPos = pionmap[this.getX()][this.getY() + 1].getLast();
-
-                    if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
-                        return false;
-                    }
-                } else if (befPos instanceof Monstre) {
-                    return true;
+                if (this.getY() == 10) {
+                    return false;
                 }
+
+                if ((this.getX() == 3 && this.getY() == 9) || (this.getX() == 2 && this.getY() == 8)
+                        || (this.getX() == 1 && this.getY() == 7) || (this.getX() == 0 && this.getY() == 6)) {
+                    return false;
+
+                }
+
+                nextPos = pionmap[this.getX()][this.getY() + 1].getLast();
+
+                if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
+                    return false;
+                }
+
                 break;
 
         }

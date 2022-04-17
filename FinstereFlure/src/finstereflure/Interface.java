@@ -1865,6 +1865,7 @@ public class Interface extends javax.swing.JFrame {
         jPreviousChat.append(jNewChat.getText() + "\n");   ////récupérer l'ancien chat + y ajouter le nouveau et un retour à la ligne et l'afficher
         jNewChat.setText("");   //remise à zéro du champs pour écrire un nouveau chat
 
+        this.game.playerTurn =3;
         this.game.monsterTurn();
 
     }//GEN-LAST:event_jSendChatMouseClicked
