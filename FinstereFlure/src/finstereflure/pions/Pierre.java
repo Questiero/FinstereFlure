@@ -70,6 +70,7 @@ public final class Pierre extends Pion implements Moveable {
             case UP:
 
                 befPos = pionmap[this.getX()][this.getY() + 1].getLast();
+                
                 if (befPos instanceof Jeton) {   //cas du jeton qui pousse la pierre
 
                     if (this.getY() == 0) {
@@ -88,6 +89,7 @@ public final class Pierre extends Pion implements Moveable {
                     if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur                    
                         return false;
                     }
+
                 } else if (befPos instanceof Monstre) {
                     return true;
                 }
@@ -96,7 +98,7 @@ public final class Pierre extends Pion implements Moveable {
 
             case LEFT:
 
-                befPos = pionmap[this.getX() - 1][this.getY()].getLast();
+                befPos = pionmap[this.getX() + 1][this.getY()].getLast();
 
                 if (befPos instanceof Jeton) {   //cas du jeton qui pousse la pierre
                     if (this.getX() == 0) {
@@ -121,7 +123,7 @@ public final class Pierre extends Pion implements Moveable {
 
             case RIGHT:
 
-                befPos = pionmap[this.getX() + 1][this.getY()].getLast();
+                befPos = pionmap[this.getX() - 1][this.getY()].getLast();
 
                 if (befPos instanceof Jeton) {   //cas du jeton qui pousse la pierre
                     if (this.getX() == 15) {
@@ -146,7 +148,8 @@ public final class Pierre extends Pion implements Moveable {
                 break;
 
             case DOWN:
-                befPos = pionmap[this.getX()][this.getY() + 1].getLast();
+                
+                befPos = pionmap[this.getX()][this.getY() - 1].getLast();
 
                 if (befPos instanceof Jeton) {   //cas du jeton qui pousse la pierre
                     if (this.getY() == 10) {
