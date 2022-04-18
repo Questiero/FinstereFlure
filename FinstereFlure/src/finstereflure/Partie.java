@@ -255,7 +255,7 @@ public class Partie {
                     case VICTIME_1:
                     case VICTIME_2:
 
-                        if (monstre.getVictimes() >= tombstone.getValue()) {
+                        if (monstre.getVictimes() >= tombstone.getValue() || monstre.getPas() >= 20) {
                             this.cancel();
                             return;
                         }
