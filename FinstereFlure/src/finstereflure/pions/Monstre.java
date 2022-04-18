@@ -108,7 +108,7 @@ public final class Monstre extends Pion implements Moveable {
             ArrayList<Jeton> toDie = new ArrayList<>();
             
             for (Pion p : pionmap[this.getX()][this.getY()]) {
-                System.out.println("oui");
+
                 if (p instanceof Jeton) {
                     
                     this.victimes++;
