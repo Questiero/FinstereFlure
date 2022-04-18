@@ -30,7 +30,8 @@ public class Partie {
     private boolean advancedMode = false;
 
     private int manche = 1;
-    public int playerTurn = 1;
+    private int turn = 1;
+    private int playerTurn = 1;
 
     private Jeton currentJeton;
     private Monstre monstre;
@@ -161,6 +162,7 @@ public class Partie {
         }
 
         this.playerTurn++;
+        this.turn++;
 
         if (this.playerTurn == 3) {
             this.monsterTurn();
@@ -275,7 +277,8 @@ public class Partie {
                 }
                 future.cancel(false);
 
-                playerTurn = 1;
+                nextPlayerTurn();
+                
                 interf.updateNewTurn();
 
                 return;
@@ -307,10 +310,22 @@ public class Partie {
             this.nextManche();
         }
 
-        PierreTombale tombstone = this.tombstoneDeck.get((new Random()).nextInt(this.tombstoneDeck.size()));
+        PierreTombale tombstone = null;
 
-        this.tombstoneDeck.remove(tombstone);
-        this.tombstonePlayed.add(tombstone);
+        boolean found = false;
+
+        while (!found) {
+
+            tombstone = this.tombstoneDeck.get((new Random()).nextInt(this.tombstoneDeck.size()));
+
+            this.tombstoneDeck.remove(tombstone);
+            this.tombstonePlayed.add(tombstone);
+            
+            if(!(this.turn == 1 && (tombstone == PierreTombale.VICTIME_1 || tombstone == PierreTombale.VICTIME_2))){
+                found = true;
+            }
+
+        }
 
         return tombstone;
 
