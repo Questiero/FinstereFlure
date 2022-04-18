@@ -215,6 +215,8 @@ public class Partie {
 
         System.out.println("Tour du monstre");
 
+        //TODO changement de manche
+        
         PierreTombale tombstone = this.getTombstone();
         System.out.println(tombstone);
 
