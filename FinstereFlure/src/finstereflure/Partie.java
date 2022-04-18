@@ -20,6 +20,8 @@ import javax.swing.JLayeredPane;
  */
 public class Partie {
 
+    private final Interface interf;
+    
     private final Host host;
 
     private final Player[] players = new Player[2];
@@ -42,7 +44,8 @@ public class Partie {
      * @param host Hôte de la partie
      * @param layeredPane
      */
-    public Partie(Host host, JLayeredPane layeredPane) {
+    public Partie(Interface interf, Host host, JLayeredPane layeredPane) {
+        this.interf = interf;
         this.host = host;
         this.terrain = new Terrain(layeredPane, this);
     }
@@ -274,6 +277,7 @@ public class Partie {
                 future.cancel(false);
                 
                 playerTurn = 1;
+                interf.updateNewTurn();
 
                 return;
             }

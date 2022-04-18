@@ -1454,7 +1454,7 @@ public class Interface extends javax.swing.JFrame {
     private void jNewGameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jNewGameMouseClicked
         if (jNewGame.isEnabled()) { //si le bouton est disponible (= connexion faite)
 
-            game = new Partie(this.h1, this.jLayeredPane);  //initialisation partie
+            game = new Partie(this, this.h1, this.jLayeredPane);  //initialisation partie
 
             //initialisation fenêtre
             jConfigurationPage.setVisible(true);
@@ -1833,6 +1833,8 @@ public class Interface extends javax.swing.JFrame {
 
         if (jEndTurnButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
 
+            this.clearSelectedJeton();
+
             this.game.getCurrentJeton().flip();
             this.updateDisplayJeton();
             this.updateMoveButtons();
@@ -1843,16 +1845,17 @@ public class Interface extends javax.swing.JFrame {
                 this.updateDisplayJeton();
                 this.updateMoveButtons();
 
-                if (this.game.getPlayerTurn() == 2) {
-                    jPanel4.setBackground(colorBgJoueurs);
-                    jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 2));
-                    jPanel5.setBackground(new Color(51, 190, 84));
-                    jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 5));
-                } else {
-                    jPanel5.setBackground(colorBgJoueurs);
-                    jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+                jPanel5.setBackground(colorBgJoueurs);
+                jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+                jPanel4.setBackground(colorBgJoueurs);
+                jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+
+                if (this.game.getPlayerTurn() == 1) {
                     jPanel4.setBackground(new Color(51, 190, 84));
                     jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 5));
+                } else if (this.game.getPlayerTurn() == 2) {
+                    jPanel5.setBackground(new Color(51, 190, 84));
+                    jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 5));
                 }
 
             }
@@ -1906,9 +1909,6 @@ public class Interface extends javax.swing.JFrame {
         jPreviousChat.append(jNewChat.getText() + "\n");   ////récupérer l'ancien chat + y ajouter le nouveau et un retour à la ligne et l'afficher
         jNewChat.setText("");   //remise à zéro du champs pour écrire un nouveau chat
 
-        this.game.playerTurn = 3;
-        this.game.monsterTurn();
-
     }//GEN-LAST:event_jSendChatMouseClicked
 
     private void selectJeton(int player, int pion) {
@@ -1919,24 +1919,34 @@ public class Interface extends javax.swing.JFrame {
             player--;
             pion--;
 
+            this.clearSelectedJeton();
+
             if (this.game.selectJeton(player, pion)) {
 
-                // Affichage
-                for (JLabel[] array : labelsPlayers) {
-                    for (JLabel label : array) {
-                        label.setBorder(BorderFactory.createEmptyBorder());
-                    }
-                }
-
                 labelsPlayers[player][pion].setBorder(BorderFactory.createLineBorder(Color.black, 2));
-                
+
                 jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
-                
+
                 this.updateMoveButtons();
 
             }
 
         }
+
+    }
+
+    private void clearSelectedJeton() {
+
+        JLabel[][] labelsPlayers = {{jPion1P1, jPion2P1, jPion3P1, jPion4P1}, {jPion1P2, jPion2P2, jPion3P2, jPion4P2}};
+
+        // Affichage
+        for (JLabel[] array : labelsPlayers) {
+            for (JLabel label : array) {
+                label.setBorder(BorderFactory.createEmptyBorder());
+            }
+        }
+
+        jCoupsRestants.setText("0");//actualisation nombre coups restants du jeton
 
     }
 
@@ -1977,6 +1987,16 @@ public class Interface extends javax.swing.JFrame {
                 menuP.setResizable(false);  //empêche la redimension
             }
         });
+    }
+
+    public void updateNewTurn() {
+
+        jPanel4.setBackground(new Color(51, 190, 84));
+        jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 5));
+
+        updateMoveButtons();
+        updateDisplayJeton();
+
     }
 
     private void updateDisplayJeton() {
