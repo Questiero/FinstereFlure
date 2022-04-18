@@ -20,6 +20,7 @@ public final class Monstre extends Pion implements Moveable {
     private Direction direction = Direction.RIGHT;
 
     private int victimes = 0;
+    private int pas = 0;
 
     /**
      * Constructeur de Monstre en fonction d'un ImageIcon pour sprite
@@ -42,9 +43,19 @@ public final class Monstre extends Pion implements Moveable {
         this.victimes = victimes;
     }
 
+    public int getPas() {
+        return pas;
+    }
+
+    public void setPas(int pas) {
+        this.pas = pas;
+    }
+
     @Override
     public void move(Direction dir) {
 
+        this.pas++;
+        
         LinkedList<Pion>[][] pionmap = super.terrain.getPionMap();
 
         pionmap[this.getX()][this.getY()].remove(this);
@@ -104,31 +115,31 @@ public final class Monstre extends Pion implements Moveable {
         if (nextPos instanceof Hemoglobine && this.canMove(dir)) {
             this.move(dir);
         } else if (nextPos instanceof Jeton) {
-            
+
             ArrayList<Jeton> toDie = new ArrayList<>();
-            
+
             for (Pion p : pionmap[this.getX()][this.getY()]) {
 
                 if (p instanceof Jeton) {
-                    
+
                     this.victimes++;
-                    
+
                     Jeton j = (Jeton) p;
                     toDie.add(j);
-                    
+
                 }
             }
-            
-            for(Jeton j : toDie) {
-                
+
+            for (Jeton j : toDie) {
+
                 j.die();
-                
-                if(this.partie.getManche()==1) {
+
+                if (this.partie.getManche() == 1) {
                     j.revive();
                 }
-                
+
             }
-            
+
         } else if (nextPos instanceof Pierre) {
             ((Pierre) nextPos).move(dir);
         }

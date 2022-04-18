@@ -9,6 +9,10 @@ import finstereflure.players.*;
 import finstereflure.players.ai.*;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import javax.swing.JLayeredPane;
 
 /**
@@ -216,37 +220,57 @@ public class Partie {
         System.out.println("Tour du monstre");
 
         //TODO changement de manche
-        
         PierreTombale tombstone = this.getTombstone();
         System.out.println(tombstone);
 
-        switch (tombstone) {
+        this.monstre.setPas(0);
+        this.monstre.setVictimes(0);
 
-            case PAS_5:
-            case PAS_7:
-            case PAS_8:
-            case PAS_10:
+        ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
+        final Future<?>[] f = {null};
 
-                for (int i = 0; i < tombstone.getValue(); i++) {
-                    this.monstre.move(this.monstre.getTargetDirection());
+        f[0] = exec.scheduleAtFixedRate(new Runnable() {
+            @Override
+            public void run() {
+
+                monstre.move(monstre.getTargetDirection());
+
+                switch (tombstone) {
+
+                    case PAS_5:
+                    case PAS_7:
+                    case PAS_8:
+                    case PAS_10:
+
+                        if (monstre.getPas() >= tombstone.getValue()) {
+                            Future<?> future;
+                            while (null == (future = f[0])) {
+                                Thread.yield();//prevent exceptionally bad thread scheduling 
+                            }
+                            future.cancel(false);
+                            return;
+                        }
+
+                        break;
+
+                    case VICTIME_1:
+                    case VICTIME_2:
+
+                        if (monstre.getVictimes() >= tombstone.getValue()) {
+                            Future<?> future;
+                            while (null == (future = f[0])) {
+                                Thread.yield();//prevent exceptionally bad thread scheduling 
+                            }
+                            future.cancel(false);
+                            return;
+                        }
+
+                        break;
+
                 }
 
-                break;
-
-            case VICTIME_1:
-            case VICTIME_2:
-
-                this.monstre.setVictimes(0);
-                
-                while (this.monstre.getVictimes() < tombstone.getValue()) {
-                    this.monstre.move(this.monstre.getTargetDirection());
-                }
-                
-                this.monstre.setVictimes(0);
-
-                break;
-
-        }
+            }
+        }, 0, 200, TimeUnit.MILLISECONDS);
 
         this.playerTurn = 1;
 
