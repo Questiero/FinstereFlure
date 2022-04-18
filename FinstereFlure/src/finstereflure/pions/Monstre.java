@@ -188,7 +188,7 @@ public final class Monstre extends Pion implements Moveable {
             for (Map.Entry entry2 : directionDistances.entrySet()) {
                 if ((Integer) entry1.getValue() > (Integer) entry2.getValue()) {
                     min = false;
-                } else if((Integer) entry1.getValue() == (Integer) entry2.getValue()) {
+                } else if((Integer) entry1.getValue() == (Integer) entry2.getValue() && entry1.getKey() != entry2.getKey()) {
                     return this.direction;
                 }
             }
