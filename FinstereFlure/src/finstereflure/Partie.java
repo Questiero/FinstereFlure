@@ -230,6 +230,7 @@ public class Partie {
         final Future<?>[] f = {null};
 
         f[0] = exec.scheduleAtFixedRate(new Runnable() {
+            
             @Override
             public void run() {
 
@@ -243,11 +244,7 @@ public class Partie {
                     case PAS_10:
 
                         if (monstre.getPas() >= tombstone.getValue()) {
-                            Future<?> future;
-                            while (null == (future = f[0])) {
-                                Thread.yield();//prevent exceptionally bad thread scheduling 
-                            }
-                            future.cancel(false);
+                            this.cancel();
                             return;
                         }
 
@@ -257,11 +254,7 @@ public class Partie {
                     case VICTIME_2:
 
                         if (monstre.getVictimes() >= tombstone.getValue()) {
-                            Future<?> future;
-                            while (null == (future = f[0])) {
-                                Thread.yield();//prevent exceptionally bad thread scheduling 
-                            }
-                            future.cancel(false);
+                            this.cancel();
                             return;
                         }
 
@@ -270,9 +263,22 @@ public class Partie {
                 }
 
             }
-        }, 0, 200, TimeUnit.MILLISECONDS);
 
-        this.playerTurn = 1;
+            private void cancel() {
+                
+                Future<?> future;
+                
+                while (null == (future = f[0])) {
+                    Thread.yield();//prevent exceptionally bad thread scheduling 
+                }
+                future.cancel(false);
+                
+                playerTurn = 1;
+
+                return;
+            }
+
+        }, 0, 200, TimeUnit.MILLISECONDS);
 
     }
 
