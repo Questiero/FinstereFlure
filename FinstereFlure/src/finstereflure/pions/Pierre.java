@@ -77,7 +77,7 @@ public final class Pierre extends Pion implements Moveable {
         LinkedList<Pion>[][] pionmap = new LinkedList[16][11];
         pionmap = super.terrain.getPionMap();
 
-        Pion nextPos;   //donne dans chaque direction l'occupant de la case (après traitement)
+        Pion nextPos = null;   //donne dans chaque direction l'occupant de la case (après traitement)
 
         // Si c'est au monstre de jouer, ça peut que être lui qui pousse donc on peut toujours bouger (pas besoin befPos en fait)
         if (this.partie.getPlayerTurn() == 3) {
