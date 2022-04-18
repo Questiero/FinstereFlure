@@ -100,10 +100,6 @@ public final class Pierre extends Pion implements Moveable {
 
                 nextPos = pionmap[this.getX()][this.getY() - 1].getLast();
 
-                if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur                    
-                    return false;
-                }
-
                 break;
 
             case LEFT:
@@ -119,10 +115,6 @@ public final class Pierre extends Pion implements Moveable {
                 }
 
                 nextPos = pionmap[this.getX() - 1][this.getY()].getLast();
-
-                if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
-                    return false;
-                }
 
                 break;
 
@@ -140,10 +132,6 @@ public final class Pierre extends Pion implements Moveable {
 
                 nextPos = pionmap[this.getX() + 1][this.getY()].getLast();
 
-                if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
-                    return false;
-                }
-
                 break;
 
             case DOWN:
@@ -160,12 +148,12 @@ public final class Pierre extends Pion implements Moveable {
 
                 nextPos = pionmap[this.getX()][this.getY() + 1].getLast();
 
-                if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
-                    return false;
-                }
-
                 break;
 
+        }
+
+        if (nextPos instanceof Jeton || nextPos instanceof Monstre) {   //cas où il y a un jeton joueur                    
+            return false;
         }
 
         return true;
