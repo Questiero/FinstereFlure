@@ -21,7 +21,7 @@ import javax.swing.JLayeredPane;
 public class Partie {
 
     private final Interface interf;
-    
+
     private final Host host;
 
     private final Player[] players = new Player[2];
@@ -222,7 +222,6 @@ public class Partie {
 
         System.out.println("Tour du monstre");
 
-        //TODO changement de manche
         PierreTombale tombstone = this.getTombstone();
         System.out.println(tombstone);
 
@@ -233,7 +232,7 @@ public class Partie {
         final Future<?>[] f = {null};
 
         f[0] = exec.scheduleAtFixedRate(new Runnable() {
-            
+
             @Override
             public void run() {
 
@@ -268,14 +267,14 @@ public class Partie {
             }
 
             private void cancel() {
-                
+
                 Future<?> future;
-                
+
                 while (null == (future = f[0])) {
                     Thread.yield();//prevent exceptionally bad thread scheduling 
                 }
                 future.cancel(false);
-                
+
                 playerTurn = 1;
                 interf.updateNewTurn();
 
@@ -303,6 +302,10 @@ public class Partie {
     }
 
     public PierreTombale getTombstone() {
+
+        if (this.tombstoneDeck.size() == 1) {
+            this.nextManche();
+        }
 
         PierreTombale tombstone = this.tombstoneDeck.get((new Random()).nextInt(this.tombstoneDeck.size()));
 
