@@ -162,10 +162,12 @@ public class Partie {
         }
 
         this.playerTurn++;
-        this.turn++;
 
         if (this.playerTurn == 3) {
             this.monsterTurn();
+        } else if (this.playerTurn > 3) {
+            this.playerTurn = 1;
+            this.turn++;
         }
 
         this.currentJeton = null;
@@ -278,7 +280,7 @@ public class Partie {
                 future.cancel(false);
 
                 nextPlayerTurn();
-                
+
                 interf.updateNewTurn();
 
                 return;
@@ -320,8 +322,8 @@ public class Partie {
 
             this.tombstoneDeck.remove(tombstone);
             this.tombstonePlayed.add(tombstone);
-            
-            if(!(this.turn == 1 && (tombstone == PierreTombale.VICTIME_1 || tombstone == PierreTombale.VICTIME_2))){
+
+            if (!(this.turn == 1 && (tombstone == PierreTombale.VICTIME_1 || tombstone == PierreTombale.VICTIME_2))) {
                 found = true;
             }
 
