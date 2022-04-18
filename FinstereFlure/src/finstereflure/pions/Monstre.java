@@ -8,7 +8,7 @@ import static finstereflure.enums.Direction.RIGHT;
 import static finstereflure.enums.Direction.UP;
 import finstereflure.pions.interfaces.Moveable;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
@@ -161,14 +161,13 @@ public final class Monstre extends Pion implements Moveable {
         //si aucune direction opti : le monstre continue d'avancer dans sa direction précedante
         //penser à actualiser l'image en fonction de la direction
 
-        HashMap<Direction, Integer> directionDistances = new HashMap<Direction, Integer>();
+        LinkedHashMap<Direction, Integer> directionDistances = new LinkedHashMap<Direction, Integer>();
 
         Direction targetDirection = this.direction;
 
         int distanceFront = this.getTargetDistance(this.direction);
         if (distanceFront != -1) {
             directionDistances.put(this.direction, distanceFront);
-
         }
 
         int distanceLeft = this.getTargetDistance(this.direction.rotateLeft());
