@@ -165,9 +165,6 @@ public class Partie {
 
         if (this.playerTurn == 3) {
             this.monsterTurn();
-        } else if (this.playerTurn > 3) {
-            this.playerTurn = 1;
-            this.turn++;
         }
 
         this.currentJeton = null;
@@ -279,8 +276,9 @@ public class Partie {
                 }
                 future.cancel(false);
 
-                nextPlayerTurn();
-
+                playerTurn = 1;
+                turn++;
+                
                 interf.updateNewTurn();
 
                 return;
