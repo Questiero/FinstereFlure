@@ -269,12 +269,7 @@ public class Partie {
 
             private void cancel() {
 
-                Future<?> future;
-
-                while (null == (future = f[0])) {
-                    Thread.yield();//prevent exceptionally bad thread scheduling 
-                }
-                future.cancel(false);
+                f[0].cancel(false);
 
                 playerTurn = 1;
                 turn++;
