@@ -42,7 +42,8 @@ public final class Pierre extends Pion implements Moveable {
                 break;
         }
 
-        if (this.getX() >= 0 && this.getY() >= 0 && this.getX() < 16 && this.getY() < 11 && this.getX() != (12 + this.getY()) && this.getY() != (7 + this.getX())) {
+        if ((this.getX() >= 0 && this.getY() >= 0 && this.getX() < 16 && this.getY() < 11 && this.getX() != (12 + this.getY()) && this.getY() != (7 + this.getX()))
+                || (this.getX() == 0 && this.getY() == 0) || (this.getX() == 15 && this.getY() == 10)) {
 
             Pion nextPos = pionmap[this.getX()][this.getY()].getLast();
 

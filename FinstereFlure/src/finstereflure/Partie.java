@@ -1,11 +1,14 @@
 package finstereflure;
 
 import finstereflure.enums.Couleur;
+import finstereflure.enums.PierreTombale;
 import finstereflure.enums.PlayerType;
 import finstereflure.pions.Jeton;
 import finstereflure.pions.Monstre;
 import finstereflure.players.*;
 import finstereflure.players.ai.*;
+import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.JLayeredPane;
 
 /**
@@ -20,12 +23,14 @@ public class Partie {
 
     private boolean advancedMode = false;
 
-    private int manche = 2;
-    private int tour = 1;
+    private int manche = 1;
     public int playerTurn = 1;
 
     private Jeton currentJeton;
     private Monstre monstre;
+
+    private ArrayList<PierreTombale> tombstoneDeck = new ArrayList<>();
+    private ArrayList<PierreTombale> tombstonePlayed = new ArrayList<>();
 
     /**
      * Constructeur de Partie en fonction de son hôte
@@ -96,6 +101,15 @@ public class Partie {
 
         this.advancedMode = isAdvanced;
 
+        this.tombstoneDeck.add(PierreTombale.PAS_5);
+        this.tombstoneDeck.add(PierreTombale.PAS_7);
+        this.tombstoneDeck.add(PierreTombale.PAS_7);
+        this.tombstoneDeck.add(PierreTombale.PAS_8);
+        this.tombstoneDeck.add(PierreTombale.PAS_8);
+        this.tombstoneDeck.add(PierreTombale.PAS_10);
+        this.tombstoneDeck.add(PierreTombale.VICTIME_1);
+        this.tombstoneDeck.add(PierreTombale.VICTIME_2);
+
         this.terrain.init(this.advancedMode);
 
     }
@@ -121,21 +135,12 @@ public class Partie {
     }
 
     public void nextManche() {
+
         this.manche++;
-        this.resetTour();
-    }
 
-    public int getTour() {
-        return tour;
-    }
+        this.tombstoneDeck.addAll(this.tombstonePlayed);
+        this.tombstonePlayed.clear();
 
-    public void nextTour() {
-        this.tour++;
-    }
-
-    public void resetTour() {
-        this.tour = 1;
-        this.resetPlayerTurn();
     }
 
     public int getPlayerTurn() {
@@ -153,15 +158,15 @@ public class Partie {
         if (this.playerTurn == 3) {
             this.monsterTurn();
         }
-        
+
         this.currentJeton = null;
-        
+
     }
 
     public boolean canNextPlayerTurn() {
 
         if (this.playerTurn == 3) {
-            //TODO Monstre
+            return false;
         } else {
             for (Jeton j : this.players[this.playerTurn - 1].getJetons()) {
                 if (j.isCanPlay()) {
@@ -189,10 +194,12 @@ public class Partie {
         this.monstre = monstre;
     }
 
-    public void selectJeton(int player, int pion) {
+    public boolean selectJeton(int player, int pion) {
         if (this.players[player].getJetons().size() > pion) {
             this.currentJeton = this.players[player].getJetons().get(pion);
+            return true;
         }
+        return false;
     }
 
     public boolean shouldMancheEnd() {
@@ -208,10 +215,63 @@ public class Partie {
 
         System.out.println("Tour du monstre");
 
-        this.monstre.move(this.monstre.getTargetDirection());
+        PierreTombale tombstone = this.getTombstone();
+        System.out.println(tombstone);
+
+        switch (tombstone) {
+
+            case PAS_5:
+            case PAS_7:
+            case PAS_8:
+            case PAS_10:
+
+                for (int i = 0; i < tombstone.getValue(); i++) {
+                    this.monstre.move(this.monstre.getTargetDirection());
+                }
+
+                break;
+
+            case VICTIME_1:
+            case VICTIME_2:
+
+                while (this.monstre.getVictimes() < tombstone.getValue()) {
+                    this.monstre.move(this.monstre.getTargetDirection());
+                }
+                
+                this.monstre.setVictimes(0);
+
+                break;
+
+        }
 
         this.playerTurn = 1;
-        this.nextTour();
+
+    }
+
+    /**
+     *
+     * @return le numéro du joueur gagnant, 0 sinon
+     */
+    public int isGameWon() {
+
+        if (this.players[0].canWin() || this.players[1].getJetons().size() == 0) {
+            return 1;
+        } else if (this.players[1].canWin() || this.players[0].getJetons().size() == 0) {
+            return 2;
+        }
+
+        return 0;
+
+    }
+
+    public PierreTombale getTombstone() {
+
+        PierreTombale tombstone = this.tombstoneDeck.get((new Random()).nextInt(this.tombstoneDeck.size()));
+
+        this.tombstoneDeck.remove(tombstone);
+        this.tombstonePlayed.add(tombstone);
+
+        return tombstone;
 
     }
 

@@ -18,6 +18,8 @@ public final class Monstre extends Pion implements Moveable {
 
     private Direction direction = Direction.RIGHT;
 
+    private int victimes = 0;
+
     /**
      * Constructeur de Monstre en fonction d'un ImageIcon pour sprite
      *
@@ -29,6 +31,14 @@ public final class Monstre extends Pion implements Moveable {
      */
     public Monstre(Partie partie, int x, int y, int listIndex) {
         super(partie, x, y, listIndex, "./img/monstre2.gif");
+    }
+
+    public int getVictimes() {
+        return victimes;
+    }
+
+    public void setVictimes(int victimes) {
+        this.victimes = victimes;
     }
 
     @Override

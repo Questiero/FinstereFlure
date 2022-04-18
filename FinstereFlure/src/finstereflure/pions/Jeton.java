@@ -114,6 +114,8 @@ public final class Jeton extends Pion implements Moveable {
             ((Pierre) nextPos).move(dir);
         }
 
+        this.tryToEscape();
+
     }
 
     public boolean isCanPlay() {
@@ -205,6 +207,8 @@ public final class Jeton extends Pion implements Moveable {
             }
         } else if (nextPos instanceof Pierre) {    //cas où il y a une pierre dans la direction voulue
             return ((Pierre) nextPos).canMove(dir);
+        } else if (nextPos instanceof Monstre) {
+            return false;
         }
 
         return true;
@@ -261,6 +265,8 @@ public final class Jeton extends Pion implements Moveable {
 
         }
 
+        this.tryToEscape();
+
     }
 
     @Override
@@ -298,6 +304,8 @@ public final class Jeton extends Pion implements Moveable {
 
     public void die() {
 
+        this.partie.getMonstre().setVictimes(this.partie.getMonstre().getVictimes());
+
         switch (this.partie.getManche()) {
 
             case 1:
@@ -322,6 +330,19 @@ public final class Jeton extends Pion implements Moveable {
 
             default:
                 System.out.println("Erreur");
+
+        }
+
+    }
+
+    private void tryToEscape() {
+
+        if (this.getX() == 0 && this.getY() == 0 && this.coups > 0) {
+
+            this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
+            
+            this.player.getJetons().remove(this);
+            this.player.getJetonsWon().add(this);
 
         }
 

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package finstereflure;
 
 import finstereflure.enums.Couleur;
@@ -14,20 +9,14 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import finstereflure.pions.Monstre;
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- *
- * @author Amandine S
- */
 public class Interface extends javax.swing.JFrame {
 
     //initialisation partie
     private Host h1;
     private Partie game;
-    private Monstre monster;
 
     private boolean notEmptyPseudo = false;
     private boolean notEmptyPassword = false;
@@ -1693,8 +1682,6 @@ public class Interface extends javax.swing.JFrame {
             this.selectJeton(player, pion); //selection du jeton lors de l'appuie sur l'image
             this.updateDisplayJeton();  //actualisation de l'affichage du jeton
 
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups())); //actualisation nombre coups restants du jeton
-
         }
 
 
@@ -1711,8 +1698,6 @@ public class Interface extends javax.swing.JFrame {
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
 
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
-
         }
 
     }//GEN-LAST:event_jPion2P1MouseClicked
@@ -1727,8 +1712,6 @@ public class Interface extends javax.swing.JFrame {
             System.out.println("J" + player + " : Pion " + pion);
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
-
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
 
         }
 
@@ -1745,8 +1728,6 @@ public class Interface extends javax.swing.JFrame {
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
 
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
-
         }
 
     }//GEN-LAST:event_jPion4P1MouseClicked
@@ -1761,8 +1742,6 @@ public class Interface extends javax.swing.JFrame {
             System.out.println("J" + player + " : Pion " + pion);
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
-
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
 
         }
 
@@ -1779,8 +1758,6 @@ public class Interface extends javax.swing.JFrame {
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
 
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
-
         }
 
     }//GEN-LAST:event_jPion2P2MouseClicked
@@ -1796,8 +1773,6 @@ public class Interface extends javax.swing.JFrame {
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
 
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
-
         }
 
     }//GEN-LAST:event_jPion3P2MouseClicked
@@ -1812,8 +1787,6 @@ public class Interface extends javax.swing.JFrame {
             System.out.println("J" + player + " : Pion " + pion);
             this.selectJeton(player, pion);
             this.updateDisplayJeton();
-
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
 
         }
 
@@ -1946,18 +1919,23 @@ public class Interface extends javax.swing.JFrame {
             player--;
             pion--;
 
-            // Affichage
-            for (JLabel[] array : labelsPlayers) {
-                for (JLabel label : array) {
-                    label.setBorder(BorderFactory.createEmptyBorder());
+            if (this.game.selectJeton(player, pion)) {
+
+                // Affichage
+                for (JLabel[] array : labelsPlayers) {
+                    for (JLabel label : array) {
+                        label.setBorder(BorderFactory.createEmptyBorder());
+                    }
                 }
+
+                labelsPlayers[player][pion].setBorder(BorderFactory.createLineBorder(Color.black, 2));
+                
+                jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));//actualisation nombre coups restants du jeton
+                
+                this.updateMoveButtons();
+
             }
 
-            labelsPlayers[player][pion].setBorder(BorderFactory.createLineBorder(Color.black, 2));
-
-            this.game.selectJeton(player, pion);
-
-            this.updateMoveButtons();
         }
 
     }
