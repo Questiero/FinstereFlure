@@ -7,6 +7,7 @@ import static finstereflure.enums.Direction.LEFT;
 import static finstereflure.enums.Direction.RIGHT;
 import static finstereflure.enums.Direction.UP;
 import finstereflure.pions.interfaces.Moveable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -100,22 +101,40 @@ public final class Monstre extends Pion implements Moveable {
 
         this.terrain.getPionMap()[this.getX()][this.getY()].add(this);
 
-        this.direction = dir;
-        this.generateSprite();
-
         if (nextPos instanceof Hemoglobine && this.canMove(dir)) {
             this.move(dir);
         } else if (nextPos instanceof Jeton) {
+            
+            ArrayList<Jeton> toDie = new ArrayList<>();
+            
             for (Pion p : pionmap[this.getX()][this.getY()]) {
+                System.out.println("oui");
                 if (p instanceof Jeton) {
+                    
+                    this.victimes++;
+                    
                     Jeton j = (Jeton) p;
-                    j.die();
+                    toDie.add(j);
+                    
                 }
             }
+            
+            for(Jeton j : toDie) {
+                
+                j.die();
+                
+                if(this.partie.getManche()==1) {
+                    j.revive();
+                }
+                
+            }
+            
         } else if (nextPos instanceof Pierre) {
             ((Pierre) nextPos).move(dir);
         }
 
+        this.direction = dir;
+        this.generateSprite();
         this.terrain.update();
 
     }

@@ -234,6 +234,8 @@ public class Partie {
             case VICTIME_1:
             case VICTIME_2:
 
+                this.monstre.setVictimes(0);
+                
                 while (this.monstre.getVictimes() < tombstone.getValue()) {
                     this.monstre.move(this.monstre.getTargetDirection());
                 }

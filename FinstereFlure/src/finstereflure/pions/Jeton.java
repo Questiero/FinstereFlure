@@ -302,36 +302,20 @@ public final class Jeton extends Pion implements Moveable {
         return coups;
     }
 
+    public void revive() {
+
+        this.setX(15);
+        this.setY(10);
+
+        this.terrain.getPionMap()[15][10].add(this);
+        this.player.getJetons().add(this);
+
+    }
+
     public void die() {
 
-        this.partie.getMonstre().setVictimes(this.partie.getMonstre().getVictimes());
-
-        switch (this.partie.getManche()) {
-
-            case 1:
-
-                LinkedList<Pion>[][] pionMap = this.terrain.getPionMap();
-
-                pionMap[this.getX()][this.getY()].remove(this);
-
-                this.setX(15);
-                this.setY(10);
-
-                pionMap[15][10].add(this);
-
-                break;
-
-            case 2:
-
-                this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
-                this.player.getJetons().remove(this);
-
-                break;
-
-            default:
-                System.out.println("Erreur");
-
-        }
+        this.player.getJetons().remove(this);
+        this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
 
     }
 
@@ -340,7 +324,7 @@ public final class Jeton extends Pion implements Moveable {
         if (this.getX() == 0 && this.getY() == 0 && this.coups > 0) {
 
             this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
-            
+
             this.player.getJetons().remove(this);
             this.player.getJetonsWon().add(this);
 
