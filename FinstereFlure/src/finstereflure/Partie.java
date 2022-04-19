@@ -262,7 +262,7 @@ public class Partie {
 
         ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
         final Future<?>[] f = {null};
-
+        
         f[0] = exec.scheduleAtFixedRate(new Runnable() {
 
             @Override
@@ -313,6 +313,7 @@ public class Partie {
 
                 interf.setRoundText(String.valueOf(manche));
                 interf.setTurnText(String.valueOf(turn));
+                
                 return;
             }
 

@@ -147,7 +147,7 @@ public final class Monstre extends Pion implements Moveable {
         this.direction = dir;
         this.generateSprite();
         this.terrain.update();
-
+        
     }
 
     @Override
