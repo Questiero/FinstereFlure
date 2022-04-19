@@ -1528,18 +1528,18 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jGamePseudoP3" min="-2" pref="144" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="jLabel16" min="-2" pref="96" max="-2" attributes="0"/>
-                                  </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jGamePseudoP3" min="-2" pref="144" max="-2" attributes="0"/>
+                                  <Component id="jTombstoneDisplay" min="-2" pref="98" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="231" max="32767" attributes="0"/>
+                              <EmptySpace pref="111" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jTombstoneRemaining" alignment="1" min="-2" pref="114" max="-2" attributes="0"/>
+                                  <Component id="jMonsterObjective" alignment="1" min="-2" pref="114" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1547,10 +1547,16 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jGamePseudoP3" pref="27" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jTombstoneRemaining" max="32767" attributes="0"/>
+                                  <Component id="jGamePseudoP3" pref="27" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jTombstoneDisplay" min="-2" pref="59" max="-2" attributes="0"/>
+                                  <Component id="jMonsterObjective" min="-2" pref="61" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1567,9 +1573,19 @@
                         <Property name="text" type="java.lang.String" value="Monster info :"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel16">
+                    <Component class="javax.swing.JLabel" name="jTombstoneDisplay">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel16"/>
+                        <Property name="text" type="java.lang.String" value="pierre tombale"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jTombstoneRemaining">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="pierres tombales x/8"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jMonsterObjective">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="nombre de pas: x/5"/>
                       </Properties>
                     </Component>
                   </SubComponents>

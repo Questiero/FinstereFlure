@@ -36,6 +36,7 @@ public class Partie {
     private Jeton currentJeton;
     private Monstre monstre;
 
+    private int maxTombstone = 0;
     private ArrayList<PierreTombale> tombstoneDeck = new ArrayList<>();
     private ArrayList<PierreTombale> tombstonePlayed = new ArrayList<>();
 
@@ -117,6 +118,8 @@ public class Partie {
         this.tombstoneDeck.add(PierreTombale.PAS_10);
         this.tombstoneDeck.add(PierreTombale.VICTIME_1);
         this.tombstoneDeck.add(PierreTombale.VICTIME_2);
+
+        this.maxTombstone = this.tombstoneDeck.size();
 
         this.terrain.init(this.advancedMode);
 
@@ -224,7 +227,24 @@ public class Partie {
         System.out.println("Tour du monstre");
 
         PierreTombale tombstone = this.getTombstone();
-        System.out.println(tombstone);
+
+        String str = "";
+        switch (tombstone) {
+
+            case PAS_5:
+            case PAS_7:
+            case PAS_8:
+            case PAS_10:
+                str = tombstone.getValue() + " pas";
+                break;
+            case VICTIME_1:
+            case VICTIME_2:
+                str = tombstone.getValue() + " victimes";
+                break;
+        }
+        this.interf.setTombstoneDisplayText(str);
+
+        this.interf.setRemainingTombstoneText(this.tombstoneDeck.size() + "/" + this.maxTombstone);
 
         this.monstre.setPas(0);
         this.monstre.setVictimes(0);
@@ -246,6 +266,8 @@ public class Partie {
                     case PAS_8:
                     case PAS_10:
 
+                        interf.setMonsterObjectiveText("Pas " + monstre.getPas() + "/" + tombstone.getValue());
+
                         if (monstre.getPas() >= tombstone.getValue()) {
                             this.cancel();
                             return;
@@ -255,6 +277,8 @@ public class Partie {
 
                     case VICTIME_1:
                     case VICTIME_2:
+
+                        interf.setMonsterObjectiveText("Victime " + monstre.getVictimes() + "/" + tombstone.getValue());
 
                         if (monstre.getVictimes() >= tombstone.getValue() || monstre.getPas() >= 20) {
                             this.cancel();
@@ -273,7 +297,7 @@ public class Partie {
 
                 playerTurn = 1;
                 turn++;
-                
+
                 interf.updateNewTurn();
 
                 return;

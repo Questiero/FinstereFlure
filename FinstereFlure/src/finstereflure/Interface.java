@@ -128,7 +128,9 @@ public class Interface extends javax.swing.JFrame {
         jLayeredPane3 = new javax.swing.JLayeredPane();
         jPanel6 = new javax.swing.JPanel();
         jGamePseudoP3 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        jTombstoneDisplay = new javax.swing.JLabel();
+        jTombstoneRemaining = new javax.swing.JLabel();
+        jMonsterObjective = new javax.swing.JLabel();
         jUpButton = new javax.swing.JButton();
         jRightButton = new javax.swing.JButton();
         jLeftButton = new javax.swing.JButton();
@@ -969,30 +971,39 @@ public class Interface extends javax.swing.JFrame {
         jGamePseudoP3.setForeground(new java.awt.Color(51, 153, 0));
         jGamePseudoP3.setText("Monster info :");
 
-        jLabel16.setText("jLabel16");
+        jTombstoneDisplay.setText("pierre tombale");
+
+        jTombstoneRemaining.setText("pierres tombales x/8");
+
+        jMonsterObjective.setText("nombre de pas: x/5");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jGamePseudoP3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTombstoneDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jGamePseudoP3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(231, Short.MAX_VALUE))
+                    .addComponent(jTombstoneRemaining, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jMonsterObjective, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jGamePseudoP3, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel16)
-                .addGap(57, 57, 57))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTombstoneRemaining, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jGamePseudoP3, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTombstoneDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jMonsterObjective, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         jLayeredPane3.setLayer(jPanel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1960,6 +1971,19 @@ public class Interface extends javax.swing.JFrame {
 
     }
 
+    public void setTombstoneDisplayText(String str) {
+        jTombstoneDisplay.setText(str);
+    }
+    
+    public void setRemainingTombstoneText(String str) {
+        jTombstoneRemaining.setText(str);
+    }
+    
+    public void setMonsterObjectiveText(String str) {
+        jMonsterObjective.setText(str);
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -2106,7 +2130,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
@@ -2125,6 +2148,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jMap;
     private javax.swing.JPanel jMenuPrincipal;
     private javax.swing.JLabel jMonsterImage;
+    private javax.swing.JLabel jMonsterObjective;
     private javax.swing.JButton jNewAccount;
     private javax.swing.JTextField jNewChat;
     private javax.swing.JButton jNewGame;
@@ -2167,6 +2191,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jTeamNameR;
     private javax.swing.JLabel jTitre;
     private javax.swing.JLabel jTitreGame;
+    private javax.swing.JLabel jTombstoneDisplay;
+    private javax.swing.JLabel jTombstoneRemaining;
     private javax.swing.JButton jUpButton;
     // End of variables declaration//GEN-END:variables
 
