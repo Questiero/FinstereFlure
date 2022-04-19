@@ -208,6 +208,11 @@ public class Partie {
     public int getTurn() {
         return turn;
     }
+
+    public int getMaxTombstone() {
+        return maxTombstone;
+    }
+    
     
     
 
@@ -241,16 +246,16 @@ public class Partie {
             case PAS_7:
             case PAS_8:
             case PAS_10:
-                str = tombstone.getValue() + " pas";
+                str = tombstone.getValue() + " steps";
                 break;
             case VICTIME_1:
             case VICTIME_2:
-                str = tombstone.getValue() + " victimes";
+                str = tombstone.getValue() + " preys";
                 break;
         }
         this.interf.setTombstoneDisplayText(str);
 
-        this.interf.setRemainingTombstoneText(this.tombstoneDeck.size() + "/" + this.maxTombstone);
+        this.interf.setRemainingTombstoneText("Remaining tombstones : " + this.tombstoneDeck.size() + "/" + this.maxTombstone);
 
         this.monstre.setPas(0);
         this.monstre.setVictimes(0);
@@ -272,7 +277,7 @@ public class Partie {
                     case PAS_8:
                     case PAS_10:
 
-                        interf.setMonsterObjectiveText("Pas " + monstre.getPas() + "/" + tombstone.getValue());
+                        interf.setMonsterObjectiveText("Steps " + monstre.getPas() + "/" + tombstone.getValue());
 
                         if (monstre.getPas() >= tombstone.getValue()) {
                             this.cancel();
@@ -284,7 +289,7 @@ public class Partie {
                     case VICTIME_1:
                     case VICTIME_2:
 
-                        interf.setMonsterObjectiveText("Victime " + monstre.getVictimes() + "/" + tombstone.getValue());
+                        interf.setMonsterObjectiveText("Preys " + monstre.getVictimes() + "/" + tombstone.getValue());
 
                         if (monstre.getVictimes() >= tombstone.getValue() || monstre.getPas() >= 20) {
                             this.cancel();

@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.util.ArrayList;
 import java.util.Random;
+import javax.swing.DefaultListModel;
 
 public class Interface extends javax.swing.JFrame {
 
@@ -55,7 +56,6 @@ public class Interface extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jBackCredits = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jPhoto = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -139,13 +139,16 @@ public class Interface extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jCoupsRestants = new javax.swing.JLabel();
         jNewChat = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jPreviousChat = new javax.swing.JTextArea();
         jSendChat = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jRound = new javax.swing.JLabel();
         jTurn = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jEndGameFrame = new javax.swing.JFrame();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
         jMenuPrincipal = new javax.swing.JPanel();
         jTitre = new javax.swing.JLabel();
         jNewGame = new javax.swing.JButton();
@@ -184,11 +187,6 @@ public class Interface extends javax.swing.JFrame {
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Blood Image : https://www.pngegg.com/en/png-zglxd");
 
-        jLabel13.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(249, 240, 118));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("merci à nos supers profs");
-
         jLabel14.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(249, 240, 118));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -222,7 +220,6 @@ public class Interface extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -238,9 +235,7 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(50, 50, 50)
                 .addComponent(jPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -819,26 +814,24 @@ public class Interface extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(148, 148, 148)
-                .addComponent(jPion1P1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPion2P1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPion3P1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPion4P1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jGamePseudoP1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(jGameColorP1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jGameTeamP1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addGap(148, 148, 148)
+                        .addComponent(jPion1P1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPion2P1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPion3P1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPion4P1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jGamePseudoP1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jGameColorP1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jGameTeamP1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -928,8 +921,8 @@ public class Interface extends javax.swing.JFrame {
                 .addGap(142, 142, 142))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(jGamePseudoP2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(216, 216, 216)
+                .addComponent(jGamePseudoP2, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jGameColorP2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jGameTeamP2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -974,11 +967,15 @@ public class Interface extends javax.swing.JFrame {
         jGamePseudoP3.setForeground(new java.awt.Color(51, 153, 0));
         jGamePseudoP3.setText("Monster info :");
 
-        jTombstoneDisplay.setText("pierre tombale");
+        jTombstoneDisplay.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 22)); // NOI18N
+        jTombstoneDisplay.setForeground(new java.awt.Color(51, 153, 0));
 
-        jTombstoneRemaining.setText("pierres tombales x/8");
+        jTombstoneRemaining.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 22)); // NOI18N
+        jTombstoneRemaining.setForeground(new java.awt.Color(51, 153, 0));
+        jTombstoneRemaining.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
-        jMonsterObjective.setText("nombre de pas: x/5");
+        jMonsterObjective.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 22)); // NOI18N
+        jMonsterObjective.setForeground(new java.awt.Color(51, 153, 0));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -986,26 +983,32 @@ public class Interface extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jGamePseudoP3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTombstoneDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTombstoneRemaining, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jMonsterObjective, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jGamePseudoP3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTombstoneRemaining, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                        .addComponent(jTombstoneDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(jMonsterObjective, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTombstoneRemaining, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jGamePseudoP3, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+                    .addComponent(jGamePseudoP3, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jTombstoneRemaining, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTombstoneDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jMonsterObjective, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jMonsterObjective, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTombstoneDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -1086,13 +1089,6 @@ public class Interface extends javax.swing.JFrame {
         jNewChat.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
         jNewChat.setForeground(new java.awt.Color(249, 240, 118));
 
-        jPreviousChat.setBackground(new java.awt.Color(0, 18, 2));
-        jPreviousChat.setColumns(20);
-        jPreviousChat.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 14)); // NOI18N
-        jPreviousChat.setForeground(new java.awt.Color(249, 240, 118));
-        jPreviousChat.setRows(5);
-        jScrollPane2.setViewportView(jPreviousChat);
-
         jSendChat.setBackground(new java.awt.Color(0, 18, 2));
         jSendChat.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
         jSendChat.setForeground(new java.awt.Color(249, 240, 118));
@@ -1111,11 +1107,19 @@ public class Interface extends javax.swing.JFrame {
         jLabel20.setForeground(new java.awt.Color(249, 240, 118));
         jLabel20.setText("Round :");
 
+        jRound.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jRound.setForeground(new java.awt.Color(249, 240, 118));
-        jRound.setText("jLabel16");
+        jRound.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        jTurn.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         jTurn.setForeground(new java.awt.Color(249, 240, 118));
-        jTurn.setText("jLabel16");
+        jTurn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        jList1.setBackground(new java.awt.Color(0, 18, 2));
+        jList1.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jList1.setForeground(new java.awt.Color(249, 240, 118));
+        jList1.setModel(lChat = new DefaultListModel());
+        jScrollPane1.setViewportView(jList1);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1128,80 +1132,95 @@ public class Interface extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addComponent(jLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jNewChat, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(62, 62, 62)
-                                .addComponent(jSendChat, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLeftButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jUpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jDownButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jEndTurnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRightButton))
+                                .addGap(6, 6, 6)
+                                .addComponent(jNewChat)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSendChat, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(221, 221, 221)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(167, 167, 167)
-                                .addComponent(jTitreGame, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel18)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCoupsRestants, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLayeredPane2)
-                                        .addComponent(jLayeredPane1)
-                                        .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel19)
-                                        .addGap(105, 105, 105)
-                                        .addComponent(jTurn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(64, 64, 64)
                                         .addComponent(jLabel20)
-                                        .addGap(93, 93, 93)
-                                        .addComponent(jRound, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addGap(0, 34, Short.MAX_VALUE))
+                                        .addGap(53, 53, 53))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jRound, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(34, 34, 34)))
+                                .addComponent(jTitreGame, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(58, 58, 58)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel19)
+                                    .addComponent(jTurn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jCoupsRestants, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(62, 62, 62)
+                                .addComponent(jLeftButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jUpButton)
+                                    .addComponent(jDownButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jEndTurnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRightButton)))
+                        .addContainerGap(76, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLayeredPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLayeredPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLayeredPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jBackGaming)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTitreGame, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRound, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addGap(17, 17, 17)
+                                    .addComponent(jLabel19)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTurn, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTitreGame, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15)
-                        .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                        .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLayeredPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel20)
-                            .addComponent(jRound))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTurn)
-                            .addComponent(jLabel19)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jCoupsRestants, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jNewChat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSendChat)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jUpButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1211,12 +1230,10 @@ public class Interface extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jDownButton))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jNewChat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSendChat))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jCoupsRestants, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jGamingPageLayout = new javax.swing.GroupLayout(jGamingPage.getContentPane());
@@ -1227,8 +1244,38 @@ public class Interface extends javax.swing.JFrame {
         );
         jGamingPageLayout.setVerticalGroup(
             jGamingPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jGamingPageLayout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(9, Short.MAX_VALUE))
         );
+
+        jEndGameFrame.setBackground(new java.awt.Color(0, 102, 0));
+
+        jPanel7.setBackground(new java.awt.Color(0, 102, 0));
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jEndGameFrameLayout = new javax.swing.GroupLayout(jEndGameFrame.getContentPane());
+        jEndGameFrame.getContentPane().setLayout(jEndGameFrameLayout);
+        jEndGameFrameLayout.setHorizontalGroup(
+            jEndGameFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jEndGameFrameLayout.setVerticalGroup(
+            jEndGameFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jLabel16.setText("jLabel16");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1399,6 +1446,10 @@ public class Interface extends javax.swing.JFrame {
                     h1 = new Host(jPseudoField.getText());
 
                     jConnexion.setText("DECONNEXION");      //change le bouton de connexion
+
+                    //débloquer boutons game une fois connecté
+                    jNewGame.setEnabled(true);
+                    jContinue.setEnabled(true);
                 }
             } else {    //si passwords différents 
                 jErrorLabel.setText("Passwords are not similar");
@@ -1409,12 +1460,11 @@ public class Interface extends javax.swing.JFrame {
                 jConnexionPage.dispose();                   //ferme la fenêtre popup de connexion
                 jPseudo.setText(jPseudoField.getText());    //inscrit le pseudo
                 jConnexion.setText("DECONNEXION");          //change le bouton de connexion
+                //débloquer boutons game une fois connecté
+                jNewGame.setEnabled(true);
+                jContinue.setEnabled(true);
             }
         }
-
-        //débloquer boutons game une fois connecté
-        jNewGame.setEnabled(true);
-        jContinue.setEnabled(true);
     }//GEN-LAST:event_jOkConnexionMouseClicked
 
     private void jConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jConnexionMouseClicked
@@ -1632,6 +1682,9 @@ public class Interface extends javax.swing.JFrame {
 
             jRound.setText(String.valueOf(this.game.getManche()));
             jTurn.setText(String.valueOf(this.game.getTurn()));
+
+            setRemainingTombstoneText("Remaining tombstones : " + this.game.getMaxTombstone() + "/" + this.game.getMaxTombstone());
+
         }
 
     }//GEN-LAST:event_jStartButtonMouseClicked
@@ -1695,13 +1748,6 @@ public class Interface extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jPasswordFieldKeyReleased
 
-    private void jBackGamingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBackGamingMouseClicked
-        //bouton retour page de jeu, pas fonctionnel car on ne peut pas relancer une partie après
-        jGamingPage.dispose();
-        jLayeredPane.removeAll();
-        jLayeredPane.add(jMap);
-    }//GEN-LAST:event_jBackGamingMouseClicked
-
     private void jStartButtonMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jStartButtonMouseMoved
         // affichage message d'erreur qd passage de la souris sur bouton grisé
         if (!jStartButton.isEnabled()) {
@@ -1721,200 +1767,6 @@ public class Interface extends javax.swing.JFrame {
         jLayeredPane.add(jMap);
     }//GEN-LAST:event_jGamingPageWindowClosing
 
-
-    private void jPion1P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P1MouseClicked
-//appuie sur l'image du premier pion du joueur 1
-
-        int player = 1;
-        int pion = 1;
-
-        if (this.game.getPlayerTurn() == player) {  //si tour du joueur 1
-
-            System.out.println("J" + player + " : Pion " + pion);   //affichage admin
-            this.selectJeton(player, pion); //selection du jeton lors de l'appuie sur l'image
-            this.updateDisplayJeton();  //actualisation de l'affichage du jeton
-
-        }
-
-
-    }//GEN-LAST:event_jPion1P1MouseClicked
-
-    private void jPion2P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P1MouseClicked
-//appuie sur l'image du deuxième pion du joueur 1
-        int player = 1;
-        int pion = 2;
-
-        if (this.game.getPlayerTurn() == player) {//si tour du joueur 1
-
-            System.out.println("J" + player + " : Pion " + pion);
-            this.selectJeton(player, pion);
-            this.updateDisplayJeton();
-
-        }
-
-    }//GEN-LAST:event_jPion2P1MouseClicked
-
-    private void jPion3P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P1MouseClicked
-//appuie sur l'image du trisième pion du joueur 1
-        int player = 1;
-        int pion = 3;
-
-        if (this.game.getPlayerTurn() == player) {//si tour du joueur 1
-
-            System.out.println("J" + player + " : Pion " + pion);
-            this.selectJeton(player, pion);
-            this.updateDisplayJeton();
-
-        }
-
-    }//GEN-LAST:event_jPion3P1MouseClicked
-
-    private void jPion4P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P1MouseClicked
-//appuie sur l'image du quatrième pion du joueur 1
-        int player = 1;
-        int pion = 4;
-
-        if (this.game.getPlayerTurn() == player) {//si tour du joueur 1
-
-            System.out.println("J" + player + " : Pion " + pion);
-            this.selectJeton(player, pion);
-            this.updateDisplayJeton();
-
-        }
-
-    }//GEN-LAST:event_jPion4P1MouseClicked
-
-    private void jPion1P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P2MouseClicked
-//appuie sur l'image du premier pion du joueur 2
-        int player = 2;
-        int pion = 1;
-
-        if (this.game.getPlayerTurn() == player) {//si tour du joueur 2
-
-            System.out.println("J" + player + " : Pion " + pion);
-            this.selectJeton(player, pion);
-            this.updateDisplayJeton();
-
-        }
-
-    }//GEN-LAST:event_jPion1P2MouseClicked
-
-    private void jPion2P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P2MouseClicked
-//appuie sur l'image du deuxième pion du joueur 2
-        int player = 2;
-        int pion = 2;
-
-        if (this.game.getPlayerTurn() == player) {//si tour du joueur 2
-
-            System.out.println("J" + player + " : Pion " + pion);
-            this.selectJeton(player, pion);
-            this.updateDisplayJeton();
-
-        }
-
-    }//GEN-LAST:event_jPion2P2MouseClicked
-
-    private void jPion3P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P2MouseClicked
-//appuie sur l'image du troisième pion du joueur 2
-        int player = 2;
-        int pion = 3;
-
-        if (this.game.getPlayerTurn() == player) {//si tour du joueur 2
-
-            System.out.println("J" + player + " : Pion " + pion);
-            this.selectJeton(player, pion);
-            this.updateDisplayJeton();
-
-        }
-
-    }//GEN-LAST:event_jPion3P2MouseClicked
-
-    private void jPion4P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P2MouseClicked
-//appuie sur l'image du quatrième pion du joueur 2
-        int player = 2;
-        int pion = 4;
-
-        if (this.game.getPlayerTurn() == player) {//si tour du joueur 2
-
-            System.out.println("J" + player + " : Pion " + pion);
-            this.selectJeton(player, pion);
-            this.updateDisplayJeton();
-
-        }
-
-    }//GEN-LAST:event_jPion4P2MouseClicked
-
-
-    private void jUpButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jUpButtonMouseClicked
-        if (jUpButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
-            this.game.getCurrentJeton().move(Direction.UP);
-            this.updateMoveButtons();
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
-        }
-    }//GEN-LAST:event_jUpButtonMouseClicked
-
-    private void jLeftButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLeftButtonMouseClicked
-        if (jLeftButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
-            this.game.getCurrentJeton().move(Direction.LEFT);
-            this.updateMoveButtons();
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
-
-        }
-    }//GEN-LAST:event_jLeftButtonMouseClicked
-
-    private void jRightButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRightButtonMouseClicked
-        if (jRightButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
-            this.game.getCurrentJeton().move(Direction.RIGHT);
-            this.updateMoveButtons();
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
-
-        }
-    }//GEN-LAST:event_jRightButtonMouseClicked
-
-    private void jDownButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDownButtonMouseClicked
-        if (jDownButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
-            this.game.getCurrentJeton().move(Direction.DOWN);
-            this.updateMoveButtons();
-            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
-
-        }
-    }//GEN-LAST:event_jDownButtonMouseClicked
-
-
-    private void jEndTurnButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jEndTurnButtonMouseClicked
-
-        if (jEndTurnButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
-
-            this.clearSelectedJeton();
-
-            this.game.getCurrentJeton().flip();
-            this.updateDisplayJeton();
-            this.updateMoveButtons();
-
-            if (this.game.canNextPlayerTurn()) {
-
-                this.game.nextPlayerTurn();
-                this.updateDisplayJeton();
-                this.updateMoveButtons();
-
-                jPanel5.setBackground(colorBgJoueurs);
-                jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 2));
-                jPanel4.setBackground(colorBgJoueurs);
-                jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 2));
-
-                if (this.game.getPlayerTurn() == 1) {
-                    jPanel4.setBackground(new Color(51, 190, 84));
-                    jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 5));
-                } else if (this.game.getPlayerTurn() == 2) {
-                    jPanel5.setBackground(new Color(51, 190, 84));
-                    jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 5));
-                }
-
-            }
-
-        }
-
-    }//GEN-LAST:event_jEndTurnButtonMouseClicked
 
     private void jRandomPseudoRightMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRandomPseudoRightMouseClicked
         //création pseudo aléatoire joueurs de droite
@@ -1955,13 +1807,214 @@ public class Interface extends javax.swing.JFrame {
         jGamePseudoLeft.setText(adjectif.get(rAdj) + " " + nom.get(rNom)); //affichage du résultat dans la ligne de pseudo
     }//GEN-LAST:event_jRandomPseudoLeftMouseClicked
 
-
     private void jSendChatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSendChatMouseClicked
 
-        jPreviousChat.append(jNewChat.getText() + "\n");   ////récupérer l'ancien chat + y ajouter le nouveau et un retour à la ligne et l'afficher
-        jNewChat.setText("");   //remise à zéro du champs pour écrire un nouveau chat
+        String playerChat = "";
+        switch (this.game.getPlayerTurn()) {
+            case 1:
+                playerChat = this.game.getPlayer1().getName();
+                break;
+            case 2:
+                playerChat = this.game.getPlayer2().getName();
+                break;
+            case 3:
+                playerChat = "Monster";
+                break;
+        }
+        lChat.addElement(playerChat + " : " + jNewChat.getText());
 
+        jNewChat.setText("");   //remise à zéro du champs pour écrire un nouveau chat
     }//GEN-LAST:event_jSendChatMouseClicked
+
+    private void jEndTurnButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jEndTurnButtonMouseClicked
+
+        if (jEndTurnButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
+
+            this.clearSelectedJeton();
+
+            this.game.getCurrentJeton().flip();
+            this.updateDisplayJeton();
+            this.updateMoveButtons();
+
+            if (this.game.canNextPlayerTurn()) {
+
+                this.game.nextPlayerTurn();
+                this.updateDisplayJeton();
+                this.updateMoveButtons();
+
+                jPanel5.setBackground(colorBgJoueurs);
+                jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+                jPanel4.setBackground(colorBgJoueurs);
+                jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+
+                if (this.game.getPlayerTurn() == 1) {
+                    jPanel4.setBackground(new Color(51, 190, 84));
+                    jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 5));
+                } else if (this.game.getPlayerTurn() == 2) {
+                    jPanel5.setBackground(new Color(51, 190, 84));
+                    jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 5));
+                }
+
+            }
+
+        }
+    }//GEN-LAST:event_jEndTurnButtonMouseClicked
+
+    private void jDownButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDownButtonMouseClicked
+        if (jDownButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
+            this.game.getCurrentJeton().move(Direction.DOWN);
+            this.updateMoveButtons();
+            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
+
+        }
+    }//GEN-LAST:event_jDownButtonMouseClicked
+
+    private void jLeftButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLeftButtonMouseClicked
+        if (jLeftButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
+            this.game.getCurrentJeton().move(Direction.LEFT);
+            this.updateMoveButtons();
+            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
+
+        }
+    }//GEN-LAST:event_jLeftButtonMouseClicked
+
+    private void jRightButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRightButtonMouseClicked
+        if (jRightButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
+            this.game.getCurrentJeton().move(Direction.RIGHT);
+            this.updateMoveButtons();
+            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
+
+        }
+    }//GEN-LAST:event_jRightButtonMouseClicked
+
+    private void jUpButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jUpButtonMouseClicked
+        if (jUpButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
+            this.game.getCurrentJeton().move(Direction.UP);
+            this.updateMoveButtons();
+            jCoupsRestants.setText(String.valueOf(this.game.getCurrentJeton().getCoups()));
+        }
+    }//GEN-LAST:event_jUpButtonMouseClicked
+
+    private void jPion4P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P2MouseClicked
+        //appuie sur l'image du quatrième pion du joueur 2
+        int player = 2;
+        int pion = 4;
+
+        if (this.game.getPlayerTurn() == player) {//si tour du joueur 2
+
+            System.out.println("J" + player + " : Pion " + pion);
+            this.selectJeton(player, pion);
+            this.updateDisplayJeton();
+
+        }
+    }//GEN-LAST:event_jPion4P2MouseClicked
+
+    private void jPion3P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P2MouseClicked
+        //appuie sur l'image du troisième pion du joueur 2
+        int player = 2;
+        int pion = 3;
+
+        if (this.game.getPlayerTurn() == player) {//si tour du joueur 2
+
+            System.out.println("J" + player + " : Pion " + pion);
+            this.selectJeton(player, pion);
+            this.updateDisplayJeton();
+
+        }
+    }//GEN-LAST:event_jPion3P2MouseClicked
+
+    private void jPion2P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P2MouseClicked
+        //appuie sur l'image du deuxième pion du joueur 2
+        int player = 2;
+        int pion = 2;
+
+        if (this.game.getPlayerTurn() == player) {//si tour du joueur 2
+
+            System.out.println("J" + player + " : Pion " + pion);
+            this.selectJeton(player, pion);
+            this.updateDisplayJeton();
+
+        }
+    }//GEN-LAST:event_jPion2P2MouseClicked
+
+    private void jPion1P2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P2MouseClicked
+        //appuie sur l'image du premier pion du joueur 2
+        int player = 2;
+        int pion = 1;
+
+        if (this.game.getPlayerTurn() == player) {//si tour du joueur 2
+
+            System.out.println("J" + player + " : Pion " + pion);
+            this.selectJeton(player, pion);
+            this.updateDisplayJeton();
+
+        }
+    }//GEN-LAST:event_jPion1P2MouseClicked
+
+    private void jPion4P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion4P1MouseClicked
+        //appuie sur l'image du quatrième pion du joueur 1
+        int player = 1;
+        int pion = 4;
+
+        if (this.game.getPlayerTurn() == player) {//si tour du joueur 1
+
+            System.out.println("J" + player + " : Pion " + pion);
+            this.selectJeton(player, pion);
+            this.updateDisplayJeton();
+
+        }
+    }//GEN-LAST:event_jPion4P1MouseClicked
+
+    private void jPion3P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion3P1MouseClicked
+        //appuie sur l'image du trisième pion du joueur 1
+        int player = 1;
+        int pion = 3;
+
+        if (this.game.getPlayerTurn() == player) {//si tour du joueur 1
+
+            System.out.println("J" + player + " : Pion " + pion);
+            this.selectJeton(player, pion);
+            this.updateDisplayJeton();
+
+        }
+    }//GEN-LAST:event_jPion3P1MouseClicked
+
+    private void jPion2P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion2P1MouseClicked
+        //appuie sur l'image du deuxième pion du joueur 1
+        int player = 1;
+        int pion = 2;
+
+        if (this.game.getPlayerTurn() == player) {//si tour du joueur 1
+
+            System.out.println("J" + player + " : Pion " + pion);
+            this.selectJeton(player, pion);
+            this.updateDisplayJeton();
+
+        }
+    }//GEN-LAST:event_jPion2P1MouseClicked
+
+    private void jPion1P1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPion1P1MouseClicked
+        //appuie sur l'image du premier pion du joueur 1
+
+        int player = 1;
+        int pion = 1;
+
+        if (this.game.getPlayerTurn() == player) {  //si tour du joueur 1
+
+            System.out.println("J" + player + " : Pion " + pion);   //affichage admin
+            this.selectJeton(player, pion); //selection du jeton lors de l'appuie sur l'image
+            this.updateDisplayJeton();  //actualisation de l'affichage du jeton
+
+        }
+
+    }//GEN-LAST:event_jPion1P1MouseClicked
+
+    private void jBackGamingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBackGamingMouseClicked
+        //bouton retour page de jeu, pas fonctionnel car on ne peut pas relancer une partie après
+        jGamingPage.dispose();
+        jLayeredPane.removeAll();
+        jLayeredPane.add(jMap);
+    }//GEN-LAST:event_jBackGamingMouseClicked
 
     private void selectJeton(int player, int pion) {
 
@@ -2005,24 +2058,23 @@ public class Interface extends javax.swing.JFrame {
     public void setTombstoneDisplayText(String str) {
         jTombstoneDisplay.setText(str);
     }
-    
+
     public void setRemainingTombstoneText(String str) {
         jTombstoneRemaining.setText(str);
     }
-    
+
     public void setMonsterObjectiveText(String str) {
         jMonsterObjective.setText(str);
     }
-    
-    public void setRoundText(String str){
+
+    public void setRoundText(String str) {
         jRound.setText(str);
     }
-    
-    public void setTurnText(String str){
+
+    public void setTurnText(String str) {
         jTurn.setText(str);
     }
-    
-    
+
     /**
      * @param args the command line arguments
      */
@@ -2058,6 +2110,7 @@ public class Interface extends javax.swing.JFrame {
                 menuP.setVisible(true);
                 menuP.setTitle("Finstere Flure - Menu");
                 menuP.setResizable(false);  //empêche la redimension
+
             }
         });
     }
@@ -2148,6 +2201,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jCredit;
     private javax.swing.JFrame jCreditPage;
     private javax.swing.JButton jDownButton;
+    private javax.swing.JFrame jEndGameFrame;
     private javax.swing.JButton jEndTurnButton;
     private javax.swing.JLabel jErrorLabel;
     private javax.swing.JLabel jErrorNewGameLabel;
@@ -2166,9 +2220,9 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -2185,6 +2239,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JLayeredPane jLayeredPane3;
     private javax.swing.JButton jLeftButton;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JLabel jMap;
     private javax.swing.JPanel jMenuPrincipal;
     private javax.swing.JLabel jMonsterImage;
@@ -2199,6 +2254,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JLabel jPhoto;
     private javax.swing.JLabel jPion1P1;
@@ -2212,14 +2268,13 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jPionImageLeft;
     private javax.swing.JLabel jPionImageRight;
     private javax.swing.JButton jPrevious;
-    private javax.swing.JTextArea jPreviousChat;
     private javax.swing.JLabel jPseudo;
     private javax.swing.JTextField jPseudoField;
     private javax.swing.JButton jRandomPseudoLeft;
     private javax.swing.JButton jRandomPseudoRight;
     private javax.swing.JButton jRightButton;
     private javax.swing.JLabel jRound;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jSelecLeft;
     private javax.swing.JComboBox<String> jSelecRight;
     private javax.swing.JButton jSendChat;
@@ -2237,5 +2292,5 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jTurn;
     private javax.swing.JButton jUpButton;
     // End of variables declaration//GEN-END:variables
-
+    private DefaultListModel lChat;
 }
