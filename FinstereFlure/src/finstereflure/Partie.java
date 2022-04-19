@@ -205,6 +205,12 @@ public class Partie {
         this.monstre = monstre;
     }
 
+    public int getTurn() {
+        return turn;
+    }
+    
+    
+
     public boolean selectJeton(int player, int pion) {
         if (this.players[player].getJetons().size() > pion) {
             this.currentJeton = this.players[player].getJetons().get(pion);
@@ -300,6 +306,8 @@ public class Partie {
 
                 interf.updateNewTurn();
 
+                interf.setRoundText(String.valueOf(manche));
+                interf.setTurnText(String.valueOf(turn));
                 return;
             }
 
