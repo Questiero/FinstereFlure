@@ -319,6 +319,10 @@ public class Partie {
 
                 getPlayer1().resetJetonsPlayed();
                 getPlayer2().resetJetonsPlayed();
+                
+                if(isGameWon() != 0) {
+                    interf.endGame();
+                }
 
                 return;
             }

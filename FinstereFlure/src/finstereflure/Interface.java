@@ -1879,23 +1879,28 @@ public class Interface extends javax.swing.JFrame {
                 }
 
             } else {
-                jEndGamePage.setVisible(true);
-                jEndGamePage.requestFocusInWindow();
-                jEndGamePage.pack();
-                jEndGamePage.setResizable(false);
-                jEndGamePage.setTitle("Finstere Flure - End Game");
-
-                if (this.game.isGameWon() == 1) { //si joueur 1 a gagné
-                    jWinner.setText(jGamePseudoLeft + " win !");
-                } else if (this.game.isGameWon() == 2) {  //si joueur 2 a gagné
-                    jWinner.setText(jGamePseudoRight + " win !");
-                } else if (this.game.isGameWon() == 3){    //si égalité
-                    jWinner.setText("DRAW !");
-                }
+                this.endGame();
             }
 
         }
     }//GEN-LAST:event_jEndTurnButtonMouseClicked
+
+    public void endGame() {
+        System.out.println("oui");
+        jEndGamePage.setVisible(true);
+        jEndGamePage.requestFocusInWindow();
+        jEndGamePage.pack();
+        jEndGamePage.setResizable(false);
+        jEndGamePage.setTitle("Finstere Flure - End Game");
+
+        if (this.game.isGameWon() == 1) { //si joueur 1 a gagné
+            jWinner.setText(jGamePseudoLeft + " win !");
+        } else if (this.game.isGameWon() == 2) {  //si joueur 2 a gagné
+            jWinner.setText(jGamePseudoRight + " win !");
+        } else if (this.game.isGameWon() == 3) {    //si égalité
+            jWinner.setText("DRAW !");
+        }
+    }
 
     private void jDownButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDownButtonMouseClicked
         if (jDownButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
