@@ -3,7 +3,7 @@ package finstereflure.players;
 import finstereflure.enums.PlayerType;
 import finstereflure.enums.Couleur;
 
-public class Human extends Player {
+public final class Human extends Player {
 
     public Human(String name, Couleur color) {
         super(name, color);
