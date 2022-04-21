@@ -18,7 +18,6 @@ public final class Jeton extends Pion implements Moveable {
     private boolean canPlay = true;
     private boolean estClair = true;
     private int coups;
-   
 
     /**
      * Constructeur de Jeton en fonction d'un ImageIcon pour sprite
@@ -352,8 +351,6 @@ public final class Jeton extends Pion implements Moveable {
 
             this.terrain.getPionMap()[this.getX()][this.getY()].remove(this);
 
-            
-            
             this.player.getJetons().remove(this);
             this.player.getJetonsWon().add(this);
 
@@ -361,8 +358,21 @@ public final class Jeton extends Pion implements Moveable {
 
     }
 
-   
-    
-    
+    public boolean canEndTurn() {
+
+        int nbrJetons = 0;
+
+        for (Pion p : this.terrain.getPionMap()[this.getX()][this.getY()]) {
+            if (p instanceof Jeton) {
+                nbrJetons++;
+                if (nbrJetons >= 2) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+
+    }
 
 }

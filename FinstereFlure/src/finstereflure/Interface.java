@@ -2223,6 +2223,9 @@ public class Interface extends javax.swing.JFrame {
             if (!(this.game.getCurrentJeton().canMove(Direction.DOWN))) {
                 jDownButton.setEnabled(false);
             }
+            if (!(this.game.getCurrentJeton().canEndTurn())) {
+                jEndTurnButton.setEnabled(false);
+            }
 
         }
 

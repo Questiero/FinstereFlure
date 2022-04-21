@@ -29,7 +29,7 @@ public class Partie {
 
     private boolean advancedMode = false;
 
-    private int manche = 2;
+    private int manche = 1;
     private int turn = 1;
     private int playerTurn = 1;
 
