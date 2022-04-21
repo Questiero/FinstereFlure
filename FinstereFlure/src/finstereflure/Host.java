@@ -1,5 +1,8 @@
 package finstereflure;
 
+/**
+ * Hôte de la partie
+ */
 public class Host {
 
     private String name;

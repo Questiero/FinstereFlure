@@ -236,6 +236,7 @@ public class Partie {
 
         PierreTombale tombstone = this.getTombstone();
 
+        // Mise à jour de l'affichage
         String str = "";
         switch (tombstone) {
 
@@ -251,12 +252,12 @@ public class Partie {
                 break;
         }
         this.interf.setTombstoneDisplayText(str);
-
         this.interf.setRemainingTombstoneText("Remaining tombstones : " + this.tombstoneDeck.size() + "/" + this.maxTombstone);
 
         this.monstre.setPas(0);
         this.monstre.setVictimes(0);
 
+        // Création d'un Runnable et d'un thread secondaire afin d'obtenir une animation de déplacement du monstre
         ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
         final Future<?>[] f = {null};
 
@@ -267,6 +268,7 @@ public class Partie {
 
                 monstre.move(monstre.getTargetDirection());
 
+                // Vérification des conditions d'arrêt à chaque mouvement
                 switch (tombstone) {
 
                     case PAS_5:
@@ -274,6 +276,7 @@ public class Partie {
                     case PAS_8:
                     case PAS_10:
 
+                        // Mise à jour de l'affichage
                         interf.setMonsterObjectiveText("Steps " + monstre.getPas() + "/" + tombstone.getValue());
 
                         if (monstre.getPas() >= tombstone.getValue()) {
@@ -286,6 +289,7 @@ public class Partie {
                     case VICTIME_1:
                     case VICTIME_2:
 
+                        // Mise à jour de l'affichage
                         interf.setMonsterObjectiveText("Preys " + monstre.getVictimes() + "/" + tombstone.getValue());
 
                         if (monstre.getVictimes() >= tombstone.getValue() || monstre.getPas() >= 20) {
@@ -301,6 +305,7 @@ public class Partie {
 
             private void cancel() {
 
+                // Arrêt du thread
                 f[0].cancel(false);
 
                 playerTurn = 1;
@@ -308,6 +313,7 @@ public class Partie {
 
                 interf.updateNewTurn();
 
+                // Mise à jour de l'affichage
                 interf.setRoundText(String.valueOf(manche));
                 interf.setTurnText(String.valueOf(turn));
 
@@ -337,6 +343,10 @@ public class Partie {
 
     }
 
+    /**
+     * 
+     * @return pierre tombale qui sera jouée par le monstre ce tour-ci
+     */
     public PierreTombale getTombstone() {
 
         if (this.tombstoneDeck.size() == 1) {
@@ -355,6 +365,7 @@ public class Partie {
             this.tombstonePlayed.add(tombstone);
 
             if (!(this.turn == 1 && (tombstone == PierreTombale.VICTIME_1 || tombstone == PierreTombale.VICTIME_2))) {
+                // Impossible d'avoir une pierre de type VICTIME au premier tour
                 found = true;
             }
 
