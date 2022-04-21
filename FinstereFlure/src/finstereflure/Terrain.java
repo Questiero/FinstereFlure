@@ -82,7 +82,7 @@ public class Terrain {
         Player p1 = this.game.getPlayer1();
         for (int value : values) {
             if (!(p1.getMaxJetons() == 3 && value == 3)) {
-                Jeton jeton = new Jeton(this.game, 15, 10, this.pionMap[15][10].size(), "", p1, value);
+                Jeton jeton = new Jeton(this.game, 15, 10, "", p1, value);
                 this.pionMap[15][10].add(jeton);
                 jeton.generateSprite();
                 p1.getJetons().add(jeton);
@@ -92,7 +92,7 @@ public class Terrain {
         Player p2 = this.game.getPlayer2();
         for (int value : values) {
             if (!(p2.getMaxJetons() == 3 && value == 3)) {
-                Jeton jeton = new Jeton(this.game, 15, 10, this.pionMap[15][10].size(), "", p2, value);
+                Jeton jeton = new Jeton(this.game, 15, 10, "", p2, value);
                 this.pionMap[15][10].add(jeton);
                 jeton.generateSprite();
                 p2.getJetons().add(jeton);

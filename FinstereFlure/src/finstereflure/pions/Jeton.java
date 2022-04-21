@@ -22,12 +22,15 @@ public final class Jeton extends Pion implements Moveable {
     /**
      * Constructeur de Jeton en fonction d'un ImageIcon pour sprite
      *
-     * @param terrain référence du terrain
+     * @param Partie référence de la partie
      * @param x coordonnée du Pion en x sur le terrain
      * @param y coordonnée du Pion en y sur le terrain
      * @param sprite
+     * @param Player joueur auquel appartient le Jeton
+     * @param maxCoupsClairs nombre de coups maximum du Jeton lorsqu'il est sur
+     * sa face claire
      */
-    public Jeton(Partie partie, int x, int y, int listIndex, ImageIcon sprite, Player player, int maxCoupsClairs) {
+    public Jeton(Partie partie, int x, int y, ImageIcon sprite, Player player, int maxCoupsClairs) {
         super(partie, x, y, sprite);
         this.player = player;
         this.maxCoupsClairs = maxCoupsClairs - 1;
@@ -35,17 +38,20 @@ public final class Jeton extends Pion implements Moveable {
     }
 
     /**
-     * Constructeur de Jeton en fonction du chemin d'accès à son sprite
+     * Constructeur de Jeton en fonction d'un ImageIcon pour sprite
      *
-     * @param terrain référence du terrain
+     * @param Partie référence de la partie
      * @param x coordonnée du Pion en x sur le terrain
      * @param y coordonnée du Pion en y sur le terrain
-     * @param spritePath chemin d'accès au sprite
+     * @param sprite
+     * @param Player joueur auquel appartient le Jeton
+     * @param maxCoupsClairs nombre de coups maximum du Jeton lorsqu'il est sur
+     * sa face claire
      */
-    public Jeton(Partie partie, int x, int y, int listIndex, String spritePath, Player player, int maxCoupsClairs) {
+    public Jeton(Partie partie, int x, int y, String spritePath, Player player, int maxCoupsClairs) {
         super(partie, x, y, spritePath);
         this.player = player;
-        this.maxCoupsClairs = maxCoupsClairs;
+        this.maxCoupsClairs = maxCoupsClairs - 1;
         coups = maxCoupsClairs - 1;
     }
 
@@ -53,9 +59,13 @@ public final class Jeton extends Pion implements Moveable {
         return estClair;
     }
 
+    /**
+     * Retourne un jeton
+     */
     public void flip() {
 
         this.estClair = !this.estClair;
+
         if (this.estClair) {
             this.coups = this.maxCoupsClairs;
         } else {
@@ -74,11 +84,17 @@ public final class Jeton extends Pion implements Moveable {
         this.canPlay = true;
     }
 
+    /**
+     * Permet de déplacer le Jeton dans une Direction
+     *
+     * @param dir direction vers laquelle le Jeton sera déplacé
+     */
     @Override
     public void move(Direction dir) {
 
         LinkedList<Pion>[][] pionmap = super.terrain.getPionMap();
 
+        // Si le Jeton glisse sur une flaque d'Hemoglobine, on ne lui enlève pas de coups
         if (!(pionmap[this.getX()][this.getY()].get(1) instanceof Hemoglobine)) {
             this.coups--;
         }
@@ -107,11 +123,14 @@ public final class Jeton extends Pion implements Moveable {
         this.terrain.update();
 
         if (nextPos instanceof Hemoglobine && this.canMove(dir)) {
+            // Si le Jeton est toujours sur une flaque d'Hemoglobine et peut bouger, il continue de glisser
             this.move(dir);
         } else if (nextPos instanceof Pierre) {
+            // Cas où le Jeton pousse une pière
             ((Pierre) nextPos).move(dir);
         }
 
+        // Essaie de sortir
         this.tryToEscape();
 
     }
@@ -121,7 +140,6 @@ public final class Jeton extends Pion implements Moveable {
     }
 
     @Override
-    //!!!!!!!!!!!!!!!!!!!!!!!!! AJOUTER LES VERIF AVEC LES PIERRES !!!!!!!!!!!!!!!!!!!!!!!
     public boolean canMove(Direction dir) {
 
         LinkedList<Pion>[][] pionmap = new LinkedList[16][11];
@@ -130,6 +148,7 @@ public final class Jeton extends Pion implements Moveable {
         Pion nextPos = null;   //donne dans chaque direction l'occupant de la case (après traitement)
 
         if (this.coups == 0 && !(pionmap[this.getX()][this.getY()].get(1) instanceof Hemoglobine)) {
+            // Impossible de se déplacer si le joueur n'a pas de coups et si il n'est pas sur une flaque d'Hemoglobine
             return false;
         }
 
@@ -199,13 +218,14 @@ public final class Jeton extends Pion implements Moveable {
                 break;
         }
 
-        if (nextPos instanceof Jeton) {   //cas où il y a un jeton joueur
-            if (this.coups == 1) {
-                return false;
-            }
-        } else if (nextPos instanceof Pierre) {    //cas où il y a une pierre dans la direction voulue
+        if (nextPos instanceof Jeton && this.coups == 1) {
+            // Impossible de se déplacer sur laquelle un Jeton est déjà présent si on n'a pas assez de coups pour en sortir
+            return false;
+        } else if (nextPos instanceof Pierre) {
+            // Vérification que la pierre peut être poussée
             return ((Pierre) nextPos).canMove(dir);
         } else if (nextPos instanceof Monstre) {
+            // Impossible de se déplacer sur la case du monstre
             return false;
         }
 
@@ -213,6 +233,11 @@ public final class Jeton extends Pion implements Moveable {
 
     }
 
+    /**
+     * Permet au Monstre de pousser le Jeton dans une Direction
+     *
+     * @param dir direction vers laquelle le Jeton sera poussé
+     */
     public void push(Direction dir) {
 
         LinkedList<Pion>[][] pionmap = super.terrain.getPionMap();
@@ -317,6 +342,9 @@ public final class Jeton extends Pion implements Moveable {
 
     }
 
+    /**
+     * Vérifie si le Jeton peut sortir du terrain. Si c'est le cas, il sort
+     */
     private void tryToEscape() {
 
         if (this.getX() == 0 && this.getY() == 0 && this.coups > 0) {
