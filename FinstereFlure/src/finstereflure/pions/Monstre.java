@@ -144,7 +144,7 @@ public final class Monstre extends Pion implements Moveable {
             ((Pierre) nextPos).move(dir);
         }
 
-        this.direction = dir;
+        this.direction = this.getTargetDirection();
         this.generateSprite();
         this.terrain.update();
         
