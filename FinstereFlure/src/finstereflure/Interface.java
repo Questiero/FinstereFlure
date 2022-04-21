@@ -1,5 +1,6 @@
 package finstereflure;
 
+import finstereflure.utils.Parser;
 import finstereflure.enums.Couleur;
 import static finstereflure.enums.Couleur.GREEN;
 import finstereflure.enums.Direction;
