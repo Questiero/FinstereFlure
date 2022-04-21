@@ -19,20 +19,18 @@ public abstract class Player {
     
     private int jetonsPlayed = 0;
 
+    /**
+     * Constructeur de Player
+     * 
+     * @param name nom du joueur
+     * @param color Couleur du joueur
+     */
     public Player(String name, Couleur color) {
+        
         this.name = name;
         this.color = color;
 
-        switch (color) {
-            case BLUE, GREEN, RED, YELLOW:
-                this.maxJetons = 4;
-                break;
-            case BROWN, PURPLE, GRAY:
-                this.maxJetons = 3;
-                break;
-            default:
-                this.maxJetons = 0;
-        }
+        this.maxJetons = color.getMaxJetons();
 
     }
 

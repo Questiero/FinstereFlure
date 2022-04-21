@@ -87,4 +87,28 @@ public enum Couleur {
 
     }
 
+    /**
+     * Permet d'obtenir le nombre de jetons maximum à partir de la couleur
+     * 
+     * @return nombre de jetons maximum
+     */
+    public int getMaxJetons() {
+
+        int maxJetons = 0;
+
+        switch (this) {
+            case BLUE, GREEN, RED, YELLOW:
+                maxJetons = 4;
+                break;
+            case BROWN, PURPLE, GRAY:
+                maxJetons = 3;
+                break;
+            default:
+                maxJetons = 0;
+        }
+
+        return maxJetons;
+
+    }
+
 }
