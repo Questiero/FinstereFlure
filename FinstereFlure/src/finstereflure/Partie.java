@@ -366,7 +366,11 @@ public class Partie {
     public PierreTombale getTombstone() {
 
         if (this.tombstoneDeck.size() == 1) {
-            this.nextManche();
+            if(this.manche == 1) {
+                this.nextManche();
+            } else {
+                this.interf.endGame();
+            }
         }
 
         PierreTombale tombstone = null;
