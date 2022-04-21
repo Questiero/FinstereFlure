@@ -147,9 +147,9 @@ public class Interface extends javax.swing.JFrame {
         jTurn = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
-        jEndGameFrame = new javax.swing.JFrame();
+        jEndGamePage = new javax.swing.JFrame();
         jPanel7 = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
+        jWinner = new javax.swing.JLabel();
         jMenuPrincipal = new javax.swing.JPanel();
         jTitre = new javax.swing.JLabel();
         jNewGame = new javax.swing.JButton();
@@ -1250,33 +1250,38 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap(9, Short.MAX_VALUE))
         );
 
-        jEndGameFrame.setBackground(new java.awt.Color(0, 102, 0));
+        jEndGamePage.setBackground(new java.awt.Color(0, 102, 0));
 
         jPanel7.setBackground(new java.awt.Color(0, 102, 0));
+        jPanel7.setForeground(new java.awt.Color(249, 240, 118));
+
+        jWinner.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 48)); // NOI18N
+        jWinner.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jWinner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(jWinner, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jEndGameFrameLayout = new javax.swing.GroupLayout(jEndGameFrame.getContentPane());
-        jEndGameFrame.getContentPane().setLayout(jEndGameFrameLayout);
-        jEndGameFrameLayout.setHorizontalGroup(
-            jEndGameFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jEndGamePageLayout = new javax.swing.GroupLayout(jEndGamePage.getContentPane());
+        jEndGamePage.getContentPane().setLayout(jEndGamePageLayout);
+        jEndGamePageLayout.setHorizontalGroup(
+            jEndGamePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jEndGameFrameLayout.setVerticalGroup(
-            jEndGameFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jEndGamePageLayout.setVerticalGroup(
+            jEndGamePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        jLabel16.setText("jLabel16");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1831,43 +1836,62 @@ public class Interface extends javax.swing.JFrame {
 
         if (jEndTurnButton.isEnabled() && this.game.getCurrentJeton().isCanPlay()) {
 
-            this.clearSelectedJeton();
+            //test si fin de partie
+            if (this.game.isGameWon() == 0) { //si la partie n'est pas finie)
 
-            this.game.getCurrentJeton().flip();
-            this.updateDisplayJeton();
-            this.updateMoveButtons();
+                this.clearSelectedJeton();
 
-            boolean firstTurnTwoJetons = (this.game.getTurn() == 1 && this.game.getPlayers()[this.game.getPlayerTurn() - 1].getJetonsPlayed() == 2);
+                this.game.getCurrentJeton().flip();
+                this.updateDisplayJeton();
+                this.updateMoveButtons();
 
-            if (this.game.canNextPlayerTurn() || firstTurnTwoJetons) {
+                boolean firstTurnTwoJetons = (this.game.getTurn() == 1 && this.game.getPlayers()[this.game.getPlayerTurn() - 1].getJetonsPlayed() == 2);
 
-                if (firstTurnTwoJetons) {
+                if (this.game.canNextPlayerTurn() || firstTurnTwoJetons) {
 
-                    for (Jeton j : this.game.getPlayers()[this.game.getPlayerTurn() - 1].getJetons()) {
-                        if (j.isEstClair()) {
-                            j.flip();
+                    if (firstTurnTwoJetons) {
+
+                        for (Jeton j : this.game.getPlayers()[this.game.getPlayerTurn() - 1].getJetons()) {
+                            if (j.isEstClair()) {
+                                j.flip();
+                            }
                         }
+
+                    }
+
+                    this.game.nextPlayerTurn();
+                    this.updateDisplayJeton();
+                    this.updateMoveButtons();
+
+                    jPanel5.setBackground(colorBgJoueurs);
+                    jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+                    jPanel4.setBackground(colorBgJoueurs);
+                    jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+
+                    if (this.game.getPlayerTurn() == 1) {
+                        jPanel4.setBackground(new Color(51, 190, 84));
+                        jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 5));
+                    } else if (this.game.getPlayerTurn() == 2) {
+                        jPanel5.setBackground(new Color(51, 190, 84));
+                        jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 5));
                     }
 
                 }
 
-                this.game.nextPlayerTurn();
-                this.updateDisplayJeton();
-                this.updateMoveButtons();
+            } else {
+                jEndGamePage.setVisible(true);
+                jEndGamePage.requestFocusInWindow();
+                jEndGamePage.pack();
+                jEndGamePage.setResizable(false);
+                jEndGamePage.setTitle("Finstere Flure - End Game");
 
-                jPanel5.setBackground(colorBgJoueurs);
-                jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 2));
-                jPanel4.setBackground(colorBgJoueurs);
-                jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 2));
-
-                if (this.game.getPlayerTurn() == 1) {
-                    jPanel4.setBackground(new Color(51, 190, 84));
-                    jPanel4.setBorder(BorderFactory.createLineBorder(Color.black, 5));
-                } else if (this.game.getPlayerTurn() == 2) {
-                    jPanel5.setBackground(new Color(51, 190, 84));
-                    jPanel5.setBorder(BorderFactory.createLineBorder(Color.black, 5));
+                if (this.game.isGameWon() == 1) { //si joueur 1 a gagné
+                    jWinner.setText(jGamePseudoLeft + " win !");
+                } else if (this.game.isGameWon() == 2) {  //si joueur 2 a gagné
+                    jWinner.setText(jGamePseudoRight + " win !");
+                } else if (this.game.isGameWon() == 3){    //si égalité
+                    jWinner.setText("DRAW !");
                 }
-
             }
 
         }
@@ -2102,16 +2126,21 @@ public class Interface extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interface.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interface.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interface.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Interface.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -2214,7 +2243,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jCredit;
     private javax.swing.JFrame jCreditPage;
     private javax.swing.JButton jDownButton;
-    private javax.swing.JFrame jEndGameFrame;
+    private javax.swing.JFrame jEndGamePage;
     private javax.swing.JButton jEndTurnButton;
     private javax.swing.JLabel jErrorLabel;
     private javax.swing.JLabel jErrorNewGameLabel;
@@ -2235,7 +2264,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -2304,6 +2332,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jTombstoneRemaining;
     private javax.swing.JLabel jTurn;
     private javax.swing.JButton jUpButton;
+    private javax.swing.JLabel jWinner;
     // End of variables declaration//GEN-END:variables
     private DefaultListModel lChat;
 }

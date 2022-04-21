@@ -329,14 +329,26 @@ public class Partie {
 
     /**
      *
-     * @return le numéro du joueur gagnant, 0 sinon
+     * @return le numéro du joueur gagnant, 0 sinon, 3 si égalité
      */
     public int isGameWon() {
+//si 3pions sortis gagné
+//si tous dévorés alors celui qui en a le plus sortis
 
-        if (this.players[0].canWin() || this.players[1].getJetons().size() == 0) {
+        int p = this.getPlayerTurn();
+
+        if (this.players[0].canWin()) {
             return 1;
-        } else if (this.players[1].canWin() || this.players[0].getJetons().size() == 0) {
+        } else if (this.players[1].canWin()) {
             return 2;
+        } else if (this.players[0].getJetons().size() == 0 && this.players[1].getJetons().size() == 0) {
+            if (this.players[0].getJetonsWon().size() > this.players[1].getJetonsWon().size()) {
+                return 1;
+            } else if (this.players[0].getJetonsWon().size() < this.players[1].getJetonsWon().size()) {
+                return 2;
+            } else {
+                return 3;
+            }
         }
 
         return 0;
@@ -344,7 +356,7 @@ public class Partie {
     }
 
     /**
-     * 
+     *
      * @return pierre tombale qui sera jouée par le monstre ce tour-ci
      */
     public PierreTombale getTombstone() {
