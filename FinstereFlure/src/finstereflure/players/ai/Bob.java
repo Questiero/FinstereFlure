@@ -4,7 +4,7 @@ import finstereflure.enums.Couleur;
 import finstereflure.players.AI;
 import finstereflure.enums.PlayerType;
 
-public class Bob extends AI {
+public final class Bob extends AI {
 
     public Bob(String name, Couleur color) {
         super(name, color);
