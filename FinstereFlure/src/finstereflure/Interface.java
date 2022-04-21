@@ -4,6 +4,7 @@ import finstereflure.enums.Couleur;
 import static finstereflure.enums.Couleur.GREEN;
 import finstereflure.enums.Direction;
 import finstereflure.enums.PlayerType;
+import finstereflure.pions.Jeton;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -1836,7 +1837,19 @@ public class Interface extends javax.swing.JFrame {
             this.updateDisplayJeton();
             this.updateMoveButtons();
 
-            if (this.game.canNextPlayerTurn()) {
+            boolean firstTurnTwoJetons = (this.game.getTurn() == 1 && this.game.getPlayers()[this.game.getPlayerTurn() - 1].getJetonsPlayed() == 2);
+
+            if (this.game.canNextPlayerTurn() || firstTurnTwoJetons) {
+
+                if (firstTurnTwoJetons) {
+
+                    for (Jeton j : this.game.getPlayers()[this.game.getPlayerTurn() - 1].getJetons()) {
+                        if (j.isEstClair()) {
+                            j.flip();
+                        }
+                    }
+
+                }
 
                 this.game.nextPlayerTurn();
                 this.updateDisplayJeton();

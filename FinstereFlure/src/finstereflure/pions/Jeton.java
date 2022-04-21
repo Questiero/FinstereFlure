@@ -57,6 +57,10 @@ public final class Jeton extends Pion implements Moveable {
         coups = maxCoupsClairs - 1;
     }
 
+    public boolean isEstClair() {
+        return estClair;
+    }
+
     public void flip() {
 
         this.estClair = !this.estClair;
@@ -65,6 +69,8 @@ public final class Jeton extends Pion implements Moveable {
         } else {
             this.coups = 7 - this.maxCoupsClairs;   //nb de coups foncés
         }
+
+        this.player.addJetonsPlayed();
 
         this.canPlay = false;
 

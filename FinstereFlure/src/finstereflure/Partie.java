@@ -212,9 +212,6 @@ public class Partie {
     public int getMaxTombstone() {
         return maxTombstone;
     }
-    
-    
-    
 
     public boolean selectJeton(int player, int pion) {
         if (this.players[player].getJetons().size() > pion) {
@@ -262,7 +259,7 @@ public class Partie {
 
         ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
         final Future<?>[] f = {null};
-        
+
         f[0] = exec.scheduleAtFixedRate(new Runnable() {
 
             @Override
@@ -313,7 +310,10 @@ public class Partie {
 
                 interf.setRoundText(String.valueOf(manche));
                 interf.setTurnText(String.valueOf(turn));
-                
+
+                getPlayer1().resetJetonsPlayed();
+                getPlayer2().resetJetonsPlayed();
+
                 return;
             }
 

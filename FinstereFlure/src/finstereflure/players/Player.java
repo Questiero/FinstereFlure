@@ -16,6 +16,8 @@ public abstract class Player {
     private final int maxJetons;
     private final ArrayList<Jeton> jetons = new ArrayList<>();
     private final ArrayList<Jeton> jetonsWon = new ArrayList<>();
+    
+    private int jetonsPlayed = 0;
 
     public Player(String name, Couleur color) {
         this.name = name;
@@ -64,6 +66,18 @@ public abstract class Player {
         return jetonsWon;
     }
 
+    public int getJetonsPlayed() {
+        return jetonsPlayed;
+    }
+
+    public void addJetonsPlayed() {
+        this.jetonsPlayed++;
+    }
+    
+    public void resetJetonsPlayed() {
+        this.jetonsPlayed = 0;
+    }
+    
     public boolean canWin() {
         return (this.jetons.size() - this.jetonsWon.size()) == 1;
     }
