@@ -72,7 +72,7 @@ public class Terrain {
         }
 
         // Init Monstre
-        Monstre monstre = new Monstre(this.game, 0, 0, 1);
+        Monstre monstre = new Monstre(this.game, 0, 1);
         this.pionMap[0][0].add(monstre);
         this.game.setMonstre(monstre);
 

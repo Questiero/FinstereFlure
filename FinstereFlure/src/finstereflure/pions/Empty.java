@@ -8,7 +8,7 @@ import finstereflure.Partie;
 public final class Empty extends Pion {
 
     public Empty(Partie partie, int x, int y) {
-        super(partie, x, y, 0, "");
+        super(partie, x, y, "");
     }
 
     @Override

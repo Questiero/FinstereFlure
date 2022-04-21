@@ -1,7 +1,7 @@
 package finstereflure.enums;
 
 /**
- * Couleur disponibles pour les jetons
+ * Couleurs disponibles pour les jetons
  */
 public enum Couleur {
     BLUE,
@@ -36,6 +36,12 @@ public enum Couleur {
 
     }
 
+    /**
+     * Permet d'extraire une Couleur d'une chaîne de caractère
+     *
+     * @param s
+     * @return Couleur
+     */
     public static Couleur getType(String s) {
 
         Couleur color = null;

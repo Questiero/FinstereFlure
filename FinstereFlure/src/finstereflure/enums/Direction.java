@@ -6,6 +6,12 @@ public enum Direction {
     DOWN,
     LEFT;
 
+    /**
+     * Permet d'obtenir la direction obtenue lors d'une rotation "à gauche",
+     * c'est-à-dire dans le sens anti-horaire
+     *
+     * @return Direction
+     */
     public Direction rotateLeft() {
 
         Direction dir = this;
@@ -30,8 +36,14 @@ public enum Direction {
         return dir;
 
     }
-    
-        public Direction rotateRight() {
+
+    /**
+     * Permet d'obtenir la direction obtenue lors d'une rotation "à gauche",
+     * c'est-à-dire dans le sens horaire
+     *
+     * @return Direction
+     */
+    public Direction rotateRight() {
 
         Direction dir = this;
 

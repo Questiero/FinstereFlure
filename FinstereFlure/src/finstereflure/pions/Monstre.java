@@ -2,10 +2,6 @@ package finstereflure.pions;
 
 import finstereflure.Partie;
 import finstereflure.enums.Direction;
-import static finstereflure.enums.Direction.DOWN;
-import static finstereflure.enums.Direction.LEFT;
-import static finstereflure.enums.Direction.RIGHT;
-import static finstereflure.enums.Direction.UP;
 import finstereflure.pions.interfaces.Moveable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,16 +21,18 @@ public final class Monstre extends Pion implements Moveable {
     /**
      * Constructeur de Monstre en fonction d'un ImageIcon pour sprite
      *
-     * @param terrain référence du terrain
+     * @param Partie référence de la partie
      * @param x coordonnée du Pion en x sur le terrain
      * @param y coordonnée du Pion en y sur le terrain
-     * @param listIndex indice du Pion dans la LinkedList correspondant à sa
-     * case
      */
-    public Monstre(Partie partie, int x, int y, int listIndex) {
-        super(partie, x, y, listIndex, "./img/monstre2.gif");
+    public Monstre(Partie partie, int x, int y) {
+        super(partie, x, y, "./img/monstre2.gif");
     }
 
+    /**
+     *
+     * @return
+     */
     public int getVictimes() {
         return victimes;
     }
@@ -51,11 +49,16 @@ public final class Monstre extends Pion implements Moveable {
         this.pas = pas;
     }
 
+    /**
+     * Permet de déplacer le Monstre dans une Direction
+     *
+     * @param dir direction vers laquelle le Monstre sera déplacé
+     */
     @Override
     public void move(Direction dir) {
 
         this.pas++;
-        
+
         LinkedList<Pion>[][] pionmap = super.terrain.getPionMap();
 
         pionmap[this.getX()][this.getY()].remove(this);
@@ -147,7 +150,7 @@ public final class Monstre extends Pion implements Moveable {
         this.direction = this.getTargetDirection();
         this.generateSprite();
         this.terrain.update();
-        
+
     }
 
     @Override
@@ -156,31 +159,32 @@ public final class Monstre extends Pion implements Moveable {
     }
 
     public Direction getTargetDirection() {
-        //il faut récup les infos dans les 4 directions (joueur, pierre ou rien)
-        //ensuite on les compare et on return la direction la + opti
-        //si aucune direction opti : le monstre continue d'avancer dans sa direction précedante
-        //penser à actualiser l'image en fonction de la direction
 
+        // HashMap assotiant chaque direction à la distance entre le monstre et le Jeton le plus proche dans celle-ci
         HashMap<Direction, Integer> directionDistances = new HashMap<Direction, Integer>();
 
         Direction targetDirection = this.direction;
 
+        // Récupération de la distance entre le monstre et le Jeton le plus proche devant lui
         int distanceFront = this.getTargetDistance(this.direction);
         if (distanceFront != -1) {
             directionDistances.put(this.direction, distanceFront);
         }
 
+        // Récupération de la distance entre le monstre et le Jeton le plus proche à gauche
         int distanceLeft = this.getTargetDistance(this.direction.rotateLeft());
         if (distanceLeft != -1) {
             directionDistances.put(this.direction.rotateLeft(), distanceLeft);
         }
 
+        // Récupération de la distance entre le monstre et le Jeton le plus proche à droite
         int distanceRight = this.getTargetDistance(this.direction.rotateRight());
         if (distanceRight != -1) {
             directionDistances.put(this.direction.rotateRight(), distanceRight);
 
         }
 
+        // Traitement sur la HashMap afin d'obtenir la plus petite distance
         for (Map.Entry entry1 : directionDistances.entrySet()) {
 
             boolean min = true;
@@ -188,7 +192,8 @@ public final class Monstre extends Pion implements Moveable {
             for (Map.Entry entry2 : directionDistances.entrySet()) {
                 if ((Integer) entry1.getValue() > (Integer) entry2.getValue()) {
                     min = false;
-                } else if((Integer) entry1.getValue() == (Integer) entry2.getValue() && entry1.getKey() != entry2.getKey()) {
+                } else if ((Integer) entry1.getValue() == (Integer) entry2.getValue() && entry1.getKey() != entry2.getKey()) {
+                    // Si deux distances égales, le monstre est confus et avance tout droit
                     return this.direction;
                 }
             }
@@ -218,6 +223,7 @@ public final class Monstre extends Pion implements Moveable {
 
         Pion target;
 
+        // Augmentation petit à petit de la distance par rapport au Monstre tant qu'on reste dans les bornes du terrain
         while (targetX >= 0 && targetY >= 0 && targetX <= 15 && targetY <= 10) {
 
             target = this.terrain.getPionMap()[targetX][targetY].getLast();
@@ -225,8 +231,10 @@ public final class Monstre extends Pion implements Moveable {
 
             if (!(target instanceof Empty) && !(target instanceof Monstre) && !(target instanceof Hemoglobine)) {
                 if (target instanceof Jeton) {
+                    // Si on trouve un Jeton, on s'arrête là
                     return distance;
                 } else {
+                    // Si on trouve une Pierre, on ne trouve rien
                     return -1;
                 }
             }

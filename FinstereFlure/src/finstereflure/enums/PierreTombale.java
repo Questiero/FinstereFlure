@@ -8,6 +8,12 @@ public enum PierreTombale {
     VICTIME_1,
     VICTIME_2;
 
+    /**
+     * Retourne la valeur de la pierre tombale: son nombre de pas si c'est une
+     * pierre de type PAS, le nombre de victimes si c'est une VICTIME
+     *
+     * @return
+     */
     public int getValue() {
 
         switch (this) {

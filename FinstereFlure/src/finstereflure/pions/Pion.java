@@ -23,11 +23,9 @@ public abstract class Pion {
      * @param terrain référence du terrain
      * @param x coordonnée du Pion en x sur le terrain
      * @param y coordonnée du Pion en y sur le terrain
-     * @param listIndex indice du Pion dans la LinkedList correspondant à sa
-     * case
      * @param sprite
      */
-    public Pion(Partie partie, int x, int y, int listIndex, ImageIcon sprite) {
+    public Pion(Partie partie, int x, int y, ImageIcon sprite) {
 
         this.partie = partie;
         this.terrain = partie.getTerrain();
@@ -44,11 +42,9 @@ public abstract class Pion {
      * @param terrain référence du terrain
      * @param x coordonnée du Pion en x sur le terrain
      * @param y coordonnée du Pion en y sur le terrain
-     * @param listIndex indice du Pion dans la LinkedList correspondant à sa
-     * case
      * @param spritePath chemin d'accès au sprite
      */
-    public Pion(Partie partie, int x, int y, int listIndex, String spritePath) {
+    public Pion(Partie partie, int x, int y, String spritePath) {
 
         this.partie = partie;
         this.terrain = partie.getTerrain();
@@ -74,15 +70,11 @@ public abstract class Pion {
         this.terrain.getSpriteMap()[this.getX()][this.getY()].setIcon(this.sprite);
     }
 
-    protected LinkedList<Pion> getTile() {
-        return this.terrain.getPionMap()[this.coords[0]][this.coords[1]];
-    }
-
-    public abstract String generateSpritePath();
-
     public void generateSprite() {
         this.sprite = new ImageIcon(this.generateSpritePath());
         this.terrain.update();
     }
+
+    public abstract String generateSpritePath();
 
 }

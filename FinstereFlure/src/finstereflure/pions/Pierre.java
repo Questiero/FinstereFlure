@@ -13,13 +13,16 @@ public final class Pierre extends Pion implements Moveable {
      * @param terrain référence du terrain
      * @param x coordonnée du Pion en x sur le terrain
      * @param y coordonnée du Pion en y sur le terrain
-     * @param listIndex indice du Pion dans la LinkedList correspondant à sa
-     * case
      */
     public Pierre(Partie partie, int x, int y, int listIndex) {
-        super(partie, x, y, listIndex, "./img/mur.png");
+        super(partie, x, y, "./img/mur.png");
     }
 
+    /**
+     * Permet de déplacer la Pierre dans une direcion
+     *
+     * @param dir direction vers laquelle la Pierre sera déplacé
+     */
     @Override
     public void move(Direction dir) {
 
@@ -71,6 +74,11 @@ public final class Pierre extends Pion implements Moveable {
         this.terrain.update();
     }
 
+    /**
+     * Permet de vérifier si la Pierre peut être déplacée dans une direcion
+     *
+     * @param dir direction vers laquelle on veut déplacer la Pierre
+     */
     @Override
     public boolean canMove(Direction dir) {
 

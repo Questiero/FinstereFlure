@@ -2,10 +2,6 @@ package finstereflure.pions;
 
 import finstereflure.Partie;
 import finstereflure.enums.Direction;
-import static finstereflure.enums.Direction.DOWN;
-import static finstereflure.enums.Direction.LEFT;
-import static finstereflure.enums.Direction.RIGHT;
-import static finstereflure.enums.Direction.UP;
 import finstereflure.pions.interfaces.Moveable;
 import finstereflure.players.Player;
 import java.util.LinkedList;
@@ -29,12 +25,10 @@ public final class Jeton extends Pion implements Moveable {
      * @param terrain référence du terrain
      * @param x coordonnée du Pion en x sur le terrain
      * @param y coordonnée du Pion en y sur le terrain
-     * @param listIndex indice du Pion dans la LinkedList correspondant à sa
-     * case
      * @param sprite
      */
     public Jeton(Partie partie, int x, int y, int listIndex, ImageIcon sprite, Player player, int maxCoupsClairs) {
-        super(partie, x, y, listIndex, sprite);
+        super(partie, x, y, sprite);
         this.player = player;
         this.maxCoupsClairs = maxCoupsClairs - 1;
         coups = maxCoupsClairs - 1;
@@ -46,12 +40,10 @@ public final class Jeton extends Pion implements Moveable {
      * @param terrain référence du terrain
      * @param x coordonnée du Pion en x sur le terrain
      * @param y coordonnée du Pion en y sur le terrain
-     * @param listIndex indice du Pion dans la LinkedList correspondant à sa
-     * case
      * @param spritePath chemin d'accès au sprite
      */
     public Jeton(Partie partie, int x, int y, int listIndex, String spritePath, Player player, int maxCoupsClairs) {
-        super(partie, x, y, listIndex, spritePath);
+        super(partie, x, y, spritePath);
         this.player = player;
         this.maxCoupsClairs = maxCoupsClairs;
         coups = maxCoupsClairs - 1;

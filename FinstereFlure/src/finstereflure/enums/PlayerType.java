@@ -7,6 +7,12 @@ public enum PlayerType {
     HUMAN,
     BOB;
 
+    /**
+     * Permet d'extraire un PlqyerType d'une chaîne de caractère
+     *
+     * @param s
+     * @return Couleur
+     */
     public static PlayerType getType(String s) {
 
         PlayerType type = null;
