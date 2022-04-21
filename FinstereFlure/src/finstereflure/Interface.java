@@ -1256,6 +1256,7 @@ public class Interface extends javax.swing.JFrame {
         jPanel7.setForeground(new java.awt.Color(249, 240, 118));
 
         jWinner.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 48)); // NOI18N
+        jWinner.setForeground(new java.awt.Color(249, 240, 118));
         jWinner.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);

@@ -29,7 +29,7 @@ public class Partie {
 
     private boolean advancedMode = false;
 
-    private int manche = 1;
+    private int manche = 2;
     private int turn = 1;
     private int playerTurn = 1;
 
@@ -308,7 +308,13 @@ public class Partie {
                 // Arrêt du thread
                 f[0].cancel(false);
 
-                playerTurn = 1;
+                if (players[0].getJetons().size() == 0) {
+                    playerTurn = 2;
+                } else if (players[1].getJetons().size() == 0) {
+                    playerTurn = 1;
+                } else {
+                    playerTurn = 1;
+                }
                 turn++;
 
                 interf.updateNewTurn();
@@ -319,8 +325,8 @@ public class Partie {
 
                 getPlayer1().resetJetonsPlayed();
                 getPlayer2().resetJetonsPlayed();
-                
-                if(isGameWon() != 0) {
+
+                if (isGameWon() != 0) {
                     interf.endGame();
                 }
 
@@ -366,7 +372,7 @@ public class Partie {
     public PierreTombale getTombstone() {
 
         if (this.tombstoneDeck.size() == 1) {
-            if(this.manche == 1) {
+            if (this.manche == 1) {
                 this.nextManche();
             } else {
                 this.interf.endGame();
