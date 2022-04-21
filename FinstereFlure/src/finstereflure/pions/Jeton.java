@@ -34,7 +34,7 @@ public final class Jeton extends Pion implements Moveable {
     public Jeton(Partie partie, int x, int y, ImageIcon sprite, Player player, int maxCoupsClairs) {
         super(partie, x, y, sprite);
         this.player = player;
-        this.maxCoupsClairs = maxCoupsClairs - 1;
+        this.maxCoupsClairs = maxCoupsClairs;
         coups = maxCoupsClairs - 1;
     }
 
@@ -52,7 +52,7 @@ public final class Jeton extends Pion implements Moveable {
     public Jeton(Partie partie, int x, int y, String spritePath, Player player, int maxCoupsClairs) {
         super(partie, x, y, spritePath);
         this.player = player;
-        this.maxCoupsClairs = maxCoupsClairs - 1;
+        this.maxCoupsClairs = maxCoupsClairs;
         coups = maxCoupsClairs - 1;
     }
 
