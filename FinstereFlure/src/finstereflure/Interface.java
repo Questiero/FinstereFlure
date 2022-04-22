@@ -6,8 +6,10 @@ import finstereflure.enums.Direction;
 import finstereflure.enums.PlayerType;
 import finstereflure.pions.Jeton;
 import java.awt.Color;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -167,6 +169,11 @@ public class Interface extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jWinner = new javax.swing.JLabel();
         jOkEndGame = new javax.swing.JButton();
+        jPopupPreviousChat = new javax.swing.JFrame();
+        jPanel9 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jChatList = new javax.swing.JList<>();
+        jFileChooserChat = new javax.swing.JFileChooser();
         jMenuPrincipal = new javax.swing.JPanel();
         jTitre = new javax.swing.JLabel();
         jNewGame = new javax.swing.JButton();
@@ -1400,6 +1407,38 @@ public class Interface extends javax.swing.JFrame {
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jPanel9.setBackground(new java.awt.Color(0, 102, 0));
+
+        jChatList.setBackground(new java.awt.Color(0, 102, 0));
+        jChatList.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
+        jChatList.setForeground(new java.awt.Color(249, 240, 118));
+        jChatList.setModel(lPreviousChat = new DefaultListModel());
+        jScrollPane2.setViewportView(jChatList);
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPopupPreviousChatLayout = new javax.swing.GroupLayout(jPopupPreviousChat.getContentPane());
+        jPopupPreviousChat.getContentPane().setLayout(jPopupPreviousChatLayout);
+        jPopupPreviousChatLayout.setHorizontalGroup(
+            jPopupPreviousChatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPopupPreviousChatLayout.setVerticalGroup(
+            jPopupPreviousChatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jFileChooserChat.setCurrentDirectory(new File("./discussions"));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenuPrincipal.setBackground(new java.awt.Color(0, 102, 0));
@@ -2239,9 +2278,40 @@ public class Interface extends javax.swing.JFrame {
 
     private void jPreviousMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPreviousMouseClicked
 
-        JFileChooser fileChooser = new JFileChooser(new File("./discussions"));
-        fileChooser.showOpenDialog(null);
+//        JFileChooser fileChooser = new JFileChooser(new File("./discussions"));
+//        fileChooser.showOpenDialog(null);
+        // jFileChooserChat.setVisible(true);
+        //jFileChooserChat.requestFocusInWindow();
+        boolean b = jFileChooserChat.requestFocusInWindow();
 
+        int returnVal = jFileChooserChat.showOpenDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) { //approve option permet de faire quelque chose à l'appuie du bouton open
+            File f = jFileChooserChat.getSelectedFile();
+
+            String texte = "";  //récupérer le contenu du doxument txt
+            try {
+                FileReader freader = new FileReader(f);
+                BufferedReader inputfile = new BufferedReader(freader);
+                String readLine = inputfile.readLine();
+                while (readLine != null) {
+                    // texte += readLine + "\n";
+                    lPreviousChat.addElement(readLine);   //affichage de l'ancien chat dans la frame                  
+                    readLine = inputfile.readLine();
+                }
+                inputfile.close();
+            } catch (IOException ioe) {
+                System.out.println("Probleme pendant la lecture du fichier " + f.getAbsolutePath());
+                ioe.printStackTrace();
+            }
+
+            jPopupPreviousChat.setVisible(true);
+            jPopupPreviousChat.requestFocusInWindow();
+            jPopupPreviousChat.pack();
+            jPopupPreviousChat.setResizable(false);
+            jPopupPreviousChat.setTitle("Finstere Flure - Previous Chat");
+
+
+        }
     }//GEN-LAST:event_jPreviousMouseClicked
 
     private void jContinueLeavingPageButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jContinueLeavingPageButtonMouseClicked
@@ -2320,6 +2390,9 @@ public class Interface extends javax.swing.JFrame {
         jTurn.setText(str);
     }
 
+    //frame FileChooser
+    //-->ok nom fichier
+    //getFileContent
     /**
      * @param args the command line arguments
      */
@@ -2441,6 +2514,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jBackCredits;
     private javax.swing.JButton jBackGaming;
     private javax.swing.JLabel jBloodDrop;
+    private javax.swing.JList<String> jChatList;
     private javax.swing.JComboBox<String> jColorLeft;
     private javax.swing.JComboBox<String> jColorRight;
     private javax.swing.JPanel jConfigLeft;
@@ -2460,6 +2534,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jErrorLabel;
     private javax.swing.JLabel jErrorNewGameLabel;
     private javax.swing.JLabel jErrorStartLabel;
+    private javax.swing.JFileChooser jFileChooserChat;
     private javax.swing.JLabel jGameColorP1;
     private javax.swing.JLabel jGameColorP2;
     private javax.swing.JTextField jGamePseudoLeft;
@@ -2511,6 +2586,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JLabel jPhoto;
     private javax.swing.JLabel jPion1P1;
@@ -2523,6 +2599,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jPion4P2;
     private javax.swing.JLabel jPionImageLeft;
     private javax.swing.JLabel jPionImageRight;
+    private javax.swing.JFrame jPopupPreviousChat;
     private javax.swing.JButton jPrevious;
     private javax.swing.JList<String> jPreviousChat;
     private javax.swing.JLabel jPseudo;
@@ -2534,6 +2611,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jRightButton;
     private javax.swing.JLabel jRound;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JComboBox<String> jSelecLeft;
     private javax.swing.JComboBox<String> jSelecRight;
     private javax.swing.JButton jSendChat;
@@ -2553,4 +2631,5 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jWinner;
     // End of variables declaration//GEN-END:variables
     private DefaultListModel lChat;
+    private DefaultListModel lPreviousChat;
 }
