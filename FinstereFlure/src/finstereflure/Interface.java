@@ -2217,6 +2217,7 @@ public class Interface extends javax.swing.JFrame {
     private void jBackGamingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBackGamingMouseClicked
         //bouton retour page de jeu, pas fonctionnel car on ne peut pas relancer une partie après
         jLeavingPage.setVisible(true);
+        jLeavingPage.setTitle("Finstere Flure - Leaving");
         jLeavingPage.requestFocusInWindow();
         jLeavingPage.pack();
         jLeavingPage.setResizable(false);
