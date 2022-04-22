@@ -1251,6 +1251,11 @@ public class Interface extends javax.swing.JFrame {
         );
 
         jEndGamePage.setBackground(new java.awt.Color(0, 102, 0));
+        jEndGamePage.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                jEndGamePageWindowClosed(evt);
+            }
+        });
 
         jPanel7.setBackground(new java.awt.Color(0, 102, 0));
         jPanel7.setForeground(new java.awt.Color(249, 240, 118));
@@ -1485,6 +1490,7 @@ public class Interface extends javax.swing.JFrame {
         jContinue.setEnabled(false);
         notEmptyPseudo = false;
         notEmptyPassword = false;
+        
 
         boolean b = jConnexion.getText().equals("CONNEXION");   //passe à vrai si le bouton est à l'état connexion
         if (b) {    //si le bouton = connexion
@@ -1893,11 +1899,12 @@ public class Interface extends javax.swing.JFrame {
         jEndGamePage.pack();
         jEndGamePage.setResizable(false);
         jEndGamePage.setTitle("Finstere Flure - End Game");
+        jGamingPage.setEnabled(false);
 
         if (this.game.isGameWon() == 1) { //si joueur 1 a gagné
-            jWinner.setText(jGamePseudoLeft + " win !");
+            jWinner.setText(jGamePseudoP1.getText() + " win !");
         } else if (this.game.isGameWon() == 2) {  //si joueur 2 a gagné
-            jWinner.setText(jGamePseudoRight + " win !");
+            jWinner.setText(jGamePseudoP2.getText() + " win !");
         } else if (this.game.isGameWon() == 3) {    //si égalité
             jWinner.setText("DRAW !");
         }
@@ -2058,6 +2065,12 @@ public class Interface extends javax.swing.JFrame {
         jLayeredPane.removeAll();
         jLayeredPane.add(jMap);
     }//GEN-LAST:event_jBackGamingMouseClicked
+
+    private void jEndGamePageWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jEndGamePageWindowClosed
+        //fin du jeu
+        jGamingPage.dispose();
+        jEndGamePage.dispose();
+    }//GEN-LAST:event_jEndGamePageWindowClosed
 
     private void selectJeton(int player, int pion) {
 

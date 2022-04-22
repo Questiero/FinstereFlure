@@ -1859,6 +1859,9 @@
           <Color blue="0" green="66" red="0" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="windowClosed" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="jEndGamePageWindowClosed"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">

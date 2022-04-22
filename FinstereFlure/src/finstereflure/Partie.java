@@ -29,7 +29,7 @@ public class Partie {
 
     private boolean advancedMode = false;
 
-    private int manche = 1;
+    private int manche = 2;
     private int turn = 1;
     private int playerTurn = 1;
 
@@ -308,13 +308,8 @@ public class Partie {
                 // Arrêt du thread
                 f[0].cancel(false);
 
-                if (players[0].getJetons().size() == 0) {
-                    playerTurn = 2;
-                } else if (players[1].getJetons().size() == 0) {
-                    playerTurn = 1;
-                } else {
-                    playerTurn = 1;
-                }
+                playerTurn = 1;
+
                 turn++;
 
                 interf.updateNewTurn();
@@ -345,11 +340,9 @@ public class Partie {
 //si 3pions sortis gagné
 //si tous dévorés alors celui qui en a le plus sortis
 
-        int p = this.getPlayerTurn();
-
-        if (this.players[0].canWin()) {
+        if (this.players[0].canWin() || (this.players[1].getJetons().size() == 0) && this.players[0].getJetons().size() != 0) {
             return 1;
-        } else if (this.players[1].canWin()) {
+        } else if (this.players[1].canWin() || (this.players[0].getJetons().size() == 0) && this.players[1].getJetons().size() != 0) {
             return 2;
         } else if (this.players[0].getJetons().size() == 0 && this.players[1].getJetons().size() == 0) {
             if (this.players[0].getJetonsWon().size() > this.players[1].getJetonsWon().size()) {

@@ -77,7 +77,7 @@ public abstract class Player {
     }
 
     public boolean canWin() {
-        //return (this.jetons.size() - this.jetonsWon.size()) == 1;
+        
         return (this.jetonsWon.size()) == 3;
 
     }
