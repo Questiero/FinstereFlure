@@ -2095,9 +2095,9 @@ public class Interface extends javax.swing.JFrame {
 
         //qui a gagné
         if (this.game.isGameWon() == 1) { //si joueur 1 a gagné
-            jWinner.setText(jGamePseudoP1.getText() + " win !");
+            jWinner.setText(jGamePseudoP1.getText() + " wins !");
         } else if (this.game.isGameWon() == 2) {  //si joueur 2 a gagné
-            jWinner.setText(jGamePseudoP2.getText() + " win !");
+            jWinner.setText(jGamePseudoP2.getText() + " wins !");
         } else if (this.game.isGameWon() == 3) {    //si égalité
             jWinner.setText("DRAW !");
         }
@@ -2278,10 +2278,6 @@ public class Interface extends javax.swing.JFrame {
 
     private void jPreviousMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPreviousMouseClicked
 
-//        JFileChooser fileChooser = new JFileChooser(new File("./discussions"));
-//        fileChooser.showOpenDialog(null);
-        // jFileChooserChat.setVisible(true);
-        //jFileChooserChat.requestFocusInWindow();
         boolean b = jFileChooserChat.requestFocusInWindow();
 
         int returnVal = jFileChooserChat.showOpenDialog(null);
