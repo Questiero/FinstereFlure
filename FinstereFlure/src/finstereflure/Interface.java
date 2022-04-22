@@ -112,6 +112,12 @@ public class Interface extends javax.swing.JFrame {
         jStartButton = new javax.swing.JButton();
         jBackConfiguration = new javax.swing.JButton();
         jErrorStartLabel = new javax.swing.JLabel();
+        jLeavingPage = new javax.swing.JFrame();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jContinueLeavingPageButton = new javax.swing.JButton();
+        jQuitWithoutSaveButton = new javax.swing.JButton();
+        jQuitAndSaveButton = new javax.swing.JButton();
         jGamingPage = new javax.swing.JFrame();
         jPanel3 = new javax.swing.JPanel();
         jLayeredPane = new javax.swing.JLayeredPane();
@@ -742,6 +748,84 @@ public class Interface extends javax.swing.JFrame {
         jConfigurationPageLayout.setVerticalGroup(
             jConfigurationPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel8.setBackground(new java.awt.Color(0, 102, 0));
+
+        jLabel13.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 33)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(249, 240, 118));
+        jLabel13.setText("Are you sure you want leave ?");
+
+        jContinueLeavingPageButton.setBackground(new java.awt.Color(0, 18, 2));
+        jContinueLeavingPageButton.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jContinueLeavingPageButton.setForeground(new java.awt.Color(249, 240, 118));
+        jContinueLeavingPageButton.setText("CONTINUE THE GAME");
+        jContinueLeavingPageButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jContinueLeavingPageButtonMouseClicked(evt);
+            }
+        });
+
+        jQuitWithoutSaveButton.setBackground(new java.awt.Color(0, 18, 2));
+        jQuitWithoutSaveButton.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jQuitWithoutSaveButton.setForeground(new java.awt.Color(249, 240, 118));
+        jQuitWithoutSaveButton.setText("QUIT WITHOUT SAVING");
+        jQuitWithoutSaveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jQuitWithoutSaveButtonMouseClicked(evt);
+            }
+        });
+
+        jQuitAndSaveButton.setBackground(new java.awt.Color(0, 18, 2));
+        jQuitAndSaveButton.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 24)); // NOI18N
+        jQuitAndSaveButton.setForeground(new java.awt.Color(249, 240, 118));
+        jQuitAndSaveButton.setText("QUIT AND SAVE");
+        jQuitAndSaveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jQuitAndSaveButtonMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(24, 24, 24))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jContinueLeavingPageButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jQuitAndSaveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jQuitWithoutSaveButton))
+                        .addGap(83, 83, 83))))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jContinueLeavingPageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jQuitWithoutSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jQuitAndSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jLeavingPageLayout = new javax.swing.GroupLayout(jLeavingPage.getContentPane());
+        jLeavingPage.getContentPane().setLayout(jLeavingPageLayout);
+        jLeavingPageLayout.setHorizontalGroup(
+            jLeavingPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jLeavingPageLayout.setVerticalGroup(
+            jLeavingPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jGamingPage.setBackground(new java.awt.Color(0, 102, 0));
@@ -1677,7 +1761,7 @@ public class Interface extends javax.swing.JFrame {
         }
         return "";
     }
-    
+
     private int cptPartie = 0;
     private File file = new File("");   //fichier de sauvegarde du chat
     private void jStartButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jStartButtonMouseClicked
@@ -1734,9 +1818,8 @@ public class Interface extends javax.swing.JFrame {
 
             //récupération du chat
             //création fichier
-            
-            cptPartie++; 
-            
+            cptPartie++;
+
             try {
 
                 file = new File("./discussions/partie" + String.valueOf(cptPartie) + "-" + jGamePseudoP1.getText() + "-vs-" + jGamePseudoP2.getText() + ".txt");
@@ -1887,16 +1970,16 @@ public class Interface extends javax.swing.JFrame {
                 break;
         }
         String nChat = playerChat + " : " + jNewChat.getText();
-        lChat.addElement(nChat);        
-        
+        lChat.addElement(nChat);
+
         //enregistrement du chat
         //date du jour
-        String time = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Calendar.getInstance().getTime()); 
-         //remplissage fichier
+        String time = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
+        //remplissage fichier
         try {
             FileWriter fwriter = new FileWriter(file, true);
             BufferedWriter outputfile = new BufferedWriter(fwriter);
-            outputfile.write("[" + time + "] "+nChat);
+            outputfile.write("[" + time + "] " + nChat);
             outputfile.newLine();
             outputfile.close();
         } catch (IOException ioe) {
@@ -1905,10 +1988,7 @@ public class Interface extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println("Erreur inattendue");
         }
-        
-        
-        
-        
+
         jNewChat.setText("");   //remise à zéro du champs pour écrire un nouveau chat
     }//GEN-LAST:event_jSendChatMouseClicked
 
@@ -1973,7 +2053,6 @@ public class Interface extends javax.swing.JFrame {
         jEndGamePage.setResizable(false);
         jEndGamePage.setTitle("Finstere Flure - End Game");
         jGamingPage.setEnabled(false);
-        
 
         //qui a gagné
         if (this.game.isGameWon() == 1) { //si joueur 1 a gagné
@@ -1984,7 +2063,6 @@ public class Interface extends javax.swing.JFrame {
             jWinner.setText("DRAW !");
         }
 
-        
     }
 
     private void jDownButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDownButtonMouseClicked
@@ -2138,9 +2216,12 @@ public class Interface extends javax.swing.JFrame {
 
     private void jBackGamingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBackGamingMouseClicked
         //bouton retour page de jeu, pas fonctionnel car on ne peut pas relancer une partie après
-        jGamingPage.dispose();
-        jLayeredPane.removeAll();
-        jLayeredPane.add(jMap);
+        jLeavingPage.setVisible(true);
+        jLeavingPage.requestFocusInWindow();
+        jLeavingPage.pack();
+        jLeavingPage.setResizable(false);
+
+
     }//GEN-LAST:event_jBackGamingMouseClicked
 
     private void jEndGamePageWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jEndGamePageWindowClosed
@@ -2156,11 +2237,28 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_jOkEndGameMouseClicked
 
     private void jPreviousMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPreviousMouseClicked
-               
+
         JFileChooser fileChooser = new JFileChooser(new File("./discussions"));
-        fileChooser.showOpenDialog(null);  
-        
+        fileChooser.showOpenDialog(null);
+
     }//GEN-LAST:event_jPreviousMouseClicked
+
+    private void jContinueLeavingPageButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jContinueLeavingPageButtonMouseClicked
+        //bouton "continue the game"
+        jLeavingPage.dispose();
+    }//GEN-LAST:event_jContinueLeavingPageButtonMouseClicked
+
+    private void jQuitWithoutSaveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jQuitWithoutSaveButtonMouseClicked
+        jLeavingPage.dispose();
+        jGamingPage.dispose();
+    }//GEN-LAST:event_jQuitWithoutSaveButtonMouseClicked
+
+    private void jQuitAndSaveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jQuitAndSaveButtonMouseClicked
+        jLeavingPage.dispose();
+        jGamingPage.dispose();
+        //manque la sauvegarde avec la BDD
+        //pour l'instant le bouton fait comme le "quit without saving"
+    }//GEN-LAST:event_jQuitAndSaveButtonMouseClicked
 
     private void selectJeton(int player, int pion) {
 
@@ -2351,6 +2449,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jConnexion;
     private javax.swing.JFrame jConnexionPage;
     private javax.swing.JButton jContinue;
+    private javax.swing.JButton jContinueLeavingPageButton;
     private javax.swing.JLabel jCoupsRestants;
     private javax.swing.JButton jCredit;
     private javax.swing.JFrame jCreditPage;
@@ -2374,6 +2473,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel18;
@@ -2391,6 +2491,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JLayeredPane jLayeredPane3;
+    private javax.swing.JFrame jLeavingPage;
     private javax.swing.JButton jLeftButton;
     private javax.swing.JLabel jMap;
     private javax.swing.JPanel jMenuPrincipal;
@@ -2408,6 +2509,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JLabel jPhoto;
     private javax.swing.JLabel jPion1P1;
@@ -2424,6 +2526,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JList<String> jPreviousChat;
     private javax.swing.JLabel jPseudo;
     private javax.swing.JTextField jPseudoField;
+    private javax.swing.JButton jQuitAndSaveButton;
+    private javax.swing.JButton jQuitWithoutSaveButton;
     private javax.swing.JButton jRandomPseudoLeft;
     private javax.swing.JButton jRandomPseudoRight;
     private javax.swing.JButton jRightButton;
