@@ -147,8 +147,8 @@ public class Interface extends javax.swing.JFrame {
         jTurn = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
-        jEndGamePage = new javax.swing.JFrame();
-        jPanel7 = new javax.swing.JPanel();
+        jEndGamePage = new javax.swing.JDialog();
+        jPanel8 = new javax.swing.JPanel();
         jWinner = new javax.swing.JLabel();
         jMenuPrincipal = new javax.swing.JPanel();
         jTitre = new javax.swing.JLabel();
@@ -1250,43 +1250,38 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap(9, Short.MAX_VALUE))
         );
 
-        jEndGamePage.setBackground(new java.awt.Color(0, 102, 0));
-        jEndGamePage.addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                jEndGamePageWindowClosed(evt);
-            }
-        });
-
-        jPanel7.setBackground(new java.awt.Color(0, 102, 0));
-        jPanel7.setForeground(new java.awt.Color(249, 240, 118));
+        jPanel8.setBackground(new java.awt.Color(0, 102, 0));
+        jPanel8.setForeground(new java.awt.Color(249, 240, 118));
 
         jWinner.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 48)); // NOI18N
         jWinner.setForeground(new java.awt.Color(249, 240, 118));
         jWinner.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jWinner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jWinner, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(85, 85, 85)
                 .addComponent(jWinner, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jEndGamePageLayout = new javax.swing.GroupLayout(jEndGamePage.getContentPane());
         jEndGamePage.getContentPane().setLayout(jEndGamePageLayout);
         jEndGamePageLayout.setHorizontalGroup(
             jEndGamePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jEndGamePageLayout.setVerticalGroup(
             jEndGamePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEndGamePageLayout.createSequentialGroup()
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -2066,12 +2061,6 @@ public class Interface extends javax.swing.JFrame {
         jLayeredPane.add(jMap);
     }//GEN-LAST:event_jBackGamingMouseClicked
 
-    private void jEndGamePageWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jEndGamePageWindowClosed
-        //fin du jeu
-        jGamingPage.dispose();
-        jEndGamePage.dispose();
-    }//GEN-LAST:event_jEndGamePageWindowClosed
-
     private void selectJeton(int player, int pion) {
 
         if (player == this.game.getPlayerTurn()) {
@@ -2265,7 +2254,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton jCredit;
     private javax.swing.JFrame jCreditPage;
     private javax.swing.JButton jDownButton;
-    private javax.swing.JFrame jEndGamePage;
+    private javax.swing.JDialog jEndGamePage;
     private javax.swing.JButton jEndTurnButton;
     private javax.swing.JLabel jErrorLabel;
     private javax.swing.JLabel jErrorNewGameLabel;
@@ -2317,7 +2306,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JLabel jPhoto;
     private javax.swing.JLabel jPion1P1;
