@@ -2160,6 +2160,8 @@ public class Interface extends javax.swing.JFrame {
         JFileChooser fileChooser = new JFileChooser(new File("./discussions"));
         fileChooser.showOpenDialog(null);  
         
+        
+       
     }//GEN-LAST:event_jPreviousMouseClicked
 
     private void selectJeton(int player, int pion) {
